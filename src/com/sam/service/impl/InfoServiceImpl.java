@@ -1,5 +1,7 @@
 package com.sam.service.impl;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +21,12 @@ public class InfoServiceImpl implements InfoService {
 		infoDao.addInfo(info);
 	}
 
+	public InfoDao getInfoDao() {
+		return infoDao;
+	}
+
+	public void setInfoDao(InfoDao infoDao) {
+		this.infoDao = infoDao;
+	}
+	
 }

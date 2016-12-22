@@ -4,5 +4,6 @@
 <configuration>
 	<mappers>
 		<mapper resource="com/sam/dao/TypeMapper.xml" />
+		<mapper resource="com/sam/dao/InfoMapper.xml"/>
 	</mappers>
 </configuration>

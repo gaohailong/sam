@@ -18,6 +18,7 @@ public class InfoController {
 	@ResponseBody
 	public void addInfo(AssetInfo info){
 		try {
+			System.out.println("进入addInfo");
 			infoService.addInfo(info);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

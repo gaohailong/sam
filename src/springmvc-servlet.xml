@@ -12,7 +12,7 @@
 	<!-- 启动注解 -->
 	<context:annotation-config></context:annotation-config>
 	<!-- 定义控制器所在的包 -->
-	<context:component-scan base-package="com.myinfo.controller"></context:component-scan>
+	<context:component-scan base-package="com.sam.controller"></context:component-scan>
 	<!-- 定义处理的适配器 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"></bean>
