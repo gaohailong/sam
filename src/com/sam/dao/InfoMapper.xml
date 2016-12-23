@@ -12,6 +12,15 @@
 	<select id="findInfoByAiid" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where aiid=#{aiid}
 	</select>
+	<select id="findInfoByAsname" parameterType="java.lang.String" resultType="com.sam.entity.AssetInfo">
+		select * from assetinfo where asname = #{asname}
+	</select>
+	<select id="findInfoByAcid" parameterType="int" resultType="com.sam.entity.AssetInfo">
+		select * from assetinfo where acid = #{acid}
+	</select>
+	<select id="findInfoArid" parameterType="int"resultType="com.sam.entity.AssetInfo">
+		select * from assetinfo where arid = #{arid}
+	</select>
 	<update id="updInfoAsname" parameterMap="java.util.Map">
 		update assetinfo set asname=#{asname} where aiid=#{aiid}
 	</update>

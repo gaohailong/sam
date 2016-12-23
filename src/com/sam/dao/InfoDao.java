@@ -3,6 +3,7 @@ package com.sam.dao;
 import java.util.List;
 
 import com.sam.entity.AssetInfo;
+import com.sam.entity.AssetRequire;
 
 public interface InfoDao {
 
@@ -17,9 +18,11 @@ public interface InfoDao {
 	int updInfoAcid(String asname,Integer acid,Integer aiid) throws Exception;
 	
 	//根据使用状态查询设备
-	public List<AssetInfo> findAssetInfoByAsname(String asname) throws Exception;
+	public List<AssetInfo> findInfoByAsname(String asname) throws Exception;
 		
 	//查询借出设备
-	public List<AssetInfo> findAssetInfoByAbid(Integer abid) throws Exception;
-		
+	public List<AssetInfo> findInfoByAcid(Integer acid) throws Exception;
+	
+	//查询维修中的设备
+	public List<AssetRequire> findInfoArid(Integer arid) throws Exception; 
 }
