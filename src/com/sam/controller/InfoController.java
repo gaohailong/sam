@@ -133,6 +133,7 @@ public class InfoController {
 			System.out.println("ahname:"+ahname);
 			System.out.println("aidate:"+aidate);
 			System.out.println("pageNum:"+pageNum);
+			System.out.println("asname:"+asname);
 			System.out.println("进入findAssetByCondition");
 			AssetInfo assetInfo = new AssetInfo();
 			//不能写else if 啊
