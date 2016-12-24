@@ -59,7 +59,7 @@ public class DepartmentController {
 				pageNum = page;
 			}
 			int pageSize = ConstantDepartment.DEFAULT_PAGE_SIZE;
-			Pager<AssetInfo> assstResult = departmentService.findAssetByDname("aa", pageNum, pageSize);
+			Pager<AssetInfo> assstResult = departmentService.findAssetByDname(dname, pageNum, pageSize);
 			System.out.println(assstResult.getDataList().size());
 			return assstResult;
 		} catch (Exception e) {
