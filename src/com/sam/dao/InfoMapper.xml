@@ -18,7 +18,7 @@
 	<select id="findInfoByAcid" parameterType="int" resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where acid = #{acid}
 	</select>
-	<select id="findInfoArid" parameterType="int"resultType="com.sam.entity.AssetInfo">
+	<select id="findInfoByArid" parameterType="int" resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where arid = #{arid}
 	</select>
 	<update id="updInfoAsname" parameterMap="java.util.Map">
