@@ -15,4 +15,11 @@ public interface InfoDao {
 	int updInfoAsname(String asname,Integer aiid) throws Exception;
 	
 	int updInfoAcid(String asname,Integer acid,Integer aiid) throws Exception;
+	
+	//根据使用状态查询设备
+	public List<AssetInfo> findAssetInfoByAsname(String asname) throws Exception;
+		
+	//查询借出设备
+	public List<AssetInfo> findAssetInfoByAbid(Integer abid) throws Exception;
+		
 }
