@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetInfo;
@@ -12,6 +13,7 @@ import com.sam.entity.AssetRequire;
 import com.sam.service.InfoService;
 
 @Controller
+@RequestMapping("value=/InfoController")
 public class InfoController {
 	
 	@Autowired
@@ -30,7 +32,7 @@ public class InfoController {
 		}
 	}
 	
-	@RequestMapping("/findInfoByAsname")
+	@RequestMapping(value="/findInfoByAsname",method=RequestMethod.GET)
 	@ResponseBody
 	public List<AssetInfo> findInfoByAsname(String asname){
 		try {
@@ -41,7 +43,7 @@ public class InfoController {
 		return null;
 		
 	}
-	@RequestMapping("/findInfoByAbid")
+	@RequestMapping(value="/findInfoByAbid",method=RequestMethod.GET)
 	@ResponseBody
 	public List<AssetInfo> findInfoByAcid(Integer acid){
 		try {
@@ -52,7 +54,7 @@ public class InfoController {
 		return null;
 		
 	}
-	@RequestMapping("/findInfoArid")
+	@RequestMapping(value="/findInfoArid",method=RequestMethod.GET)
 	@ResponseBody
 	public List<AssetRequire> findInfoArid(Integer arid){
 		try {

@@ -17,6 +17,7 @@ public interface InfoDao {
 	
 	int updInfoAcid(String asname,Integer acid,Integer aiid) throws Exception;
 	
+
 	//根据使用状态查询设备
 	public List<AssetInfo> findInfoByAsname(String asname) throws Exception;
 		
@@ -25,4 +26,5 @@ public interface InfoDao {
 	
 	//查询维修中的设备
 	public List<AssetRequire> findInfoArid(Integer arid) throws Exception; 
+
 }
