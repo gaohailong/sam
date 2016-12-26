@@ -6,4 +6,6 @@ public interface InfoDao {
 
 	void addInfo(AssetInfo info) throws Exception;
 	
+	
+	
 }

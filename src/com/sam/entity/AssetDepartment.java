@@ -4,6 +4,7 @@ package com.sam.entity;
  * Assetdepartment entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class AssetDepartment implements java.io.Serializable {
 
 	// Fields
