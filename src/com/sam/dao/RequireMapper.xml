@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sam.dao.RequireDao">
+	<insert id="addRequire" parameterType="com.sam.entity.AssetRequire">
+		insert into AssetRequire(arid,ainame,aiid,artime,arday,arperson,arphone,arstatus)
+		 values(#{arid},#{ainame},,#{aiid},#{artime},sysdate,#{arperson},#{arphone},#{arstatus})
+	</insert>
+</mapper>

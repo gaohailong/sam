@@ -158,6 +158,7 @@ create table AssetChange(
        acid number(10) primary key,
        auname varchar2(20), --用户名称
        ainame varchar2(20),  --设备名称
+       acnumber number(10),  --设备数量
        acdate date,  --调拨时间
        adname varchar2(20), --部门名称
        acresult varchar2(255)

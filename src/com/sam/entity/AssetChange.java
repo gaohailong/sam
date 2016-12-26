@@ -14,6 +14,7 @@ public class AssetChange implements java.io.Serializable {
 	private Integer acid;
 	private String auname;
 	private String ainame;
+	private Integer acnumber;
 	private Date acdate;
 	private String adname;
 	private String acresult;
@@ -26,12 +27,13 @@ public class AssetChange implements java.io.Serializable {
 
 	/** full constructor */
 	public AssetChange(String auname, String ainame, Date acdate,
-			String adname, String acresult) {
+			String adname, String acresult,Integer acnumber) {
 		this.auname = auname;
 		this.ainame = ainame;
 		this.acdate = acdate;
 		this.adname = adname;
 		this.acresult = acresult;
+		this.acnumber = acnumber;
 	}
 
 	// Property accessors
@@ -84,4 +86,13 @@ public class AssetChange implements java.io.Serializable {
 		this.acresult = acresult;
 	}
 
+	public Integer getAcnumber() {
+		return acnumber;
+	}
+
+	public void setAcnumber(Integer acnumber) {
+		this.acnumber = acnumber;
+	}
+
+	
 }

@@ -14,7 +14,7 @@ public class InfoController {
 	@Autowired
 	private InfoService infoService;
 	
-	@RequestMapping("addInfo.do")
+	@RequestMapping("/addInfo")
 	@ResponseBody
 	public void addInfo(AssetInfo info){
 		try {

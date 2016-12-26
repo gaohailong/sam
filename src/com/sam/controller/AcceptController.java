@@ -20,7 +20,7 @@ public class AcceptController {
 	 * @param info
 	 * @return
 	 */
-	@RequestMapping("addAccept.do")
+	@RequestMapping("/addAccept")
 	public String addAccept(AssetAccept accept,AssetInfo info){
 		try {
 			int num = acceptService.addAccept(accept, info);

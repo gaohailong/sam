@@ -3,7 +3,19 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sam.dao.InfoDao">
 	<insert id="addInfo" parameterType="com.sam.entity.AssetInfo">
-		insert into assethouse(aiid,aimodel,ainame,atname,ahname,atid,ahid,aidate,aiMeasuer,aiSupply,aiMoney,aiLife,aiRemark)
-		 values(assetinfo_seq.nextval,#{aimodel},#{ainame},#{atname},#{ahname},#{atid},#{ahid},#{aidate},#{aiMeasuer},#{aiSupply},#{aiMoney},#{aiLife},#{aiRemark});
+		insert into assetinfo(aiid,aimodel,ainame,atname,ahname,adname,asname,aaid,aidate,aiMeasuer,aiSupply,aiMoney,aiLife,aiRemark,aidepreciation,airemainratio)
+		 values(assetinfo_seq.nextval,#{aimodel},#{ainame},#{atname},#{ahname},#{adname},#{asname},#{aaid},#{aidate},#{aiMeasuer},#{aiSupply},#{aiMoney},#{aiLife},#{aiRemark},#{aidepreciation},#{airemainratio})
 	</insert>
+	<select id="findInfoByAiname" parameterType="java.lang.String" resultType="com.sam.entity.AssetInfo">
+		select * from assetinfo where ainame=#{ainame}
+	</select>
+	<select id="findInfoByAiid" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetInfo">
+		select * from assetinfo where aiid=#{aiid}
+	</select>
+	<update id="updInfoAsname" parameterMap="java.util.Map">
+		update assetinfo set asname=#{asname} where aiid=#{aiid}
+	</update>
+	<update id="updInfoAcid" parameterType="java.util.Map">
+		update assetinfo set acid=#{acid},asname=#{asname} where aiid=#{aiid}
+	</update>
 </mapper>

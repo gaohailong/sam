@@ -20,7 +20,7 @@ public class DepartmentController {
 	private DepartmentService departmentService;
 	
 	//鏌ヨ涓�骇閮ㄩ棬
-	@RequestMapping("findDepartmentsFirst.do")
+	@RequestMapping("/findDepartmentsFirst")
 	@ResponseBody
 	public List<AssetDepartment> findDepartmentsFirst() {
 		try {
@@ -34,7 +34,7 @@ public class DepartmentController {
 	}
 	
 	//鏌ヨ涓�骇閮ㄩ棬涓嬬殑浜岀骇閮ㄩ棬
-	@RequestMapping("findDepartmentsSecond.do")
+	@RequestMapping("/findDepartmentsSecond")
 	@ResponseBody
 	public List<AssetDepartment> findDepartmentsSecond(Integer adlevel) {
 		try {
@@ -47,7 +47,7 @@ public class DepartmentController {
 	}
 	
 	//鍒嗛〉鏍规嵁閮ㄩ棬id鏌ヨ璧勪骇
-	@RequestMapping("findAssetInfos.do")
+	@RequestMapping("/findAssetInfos")
 	@ResponseBody
 	public Pager<AssetInfo> findAssetInfosById(Integer did,Integer page) {
 		try {

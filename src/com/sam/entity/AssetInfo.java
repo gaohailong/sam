@@ -23,6 +23,7 @@ public class AssetInfo implements java.io.Serializable {
 	private Integer aimoney;
 	private Integer aaid;
 	private Date ailife;
+	private Integer acid;
 	private String airemark;
 	private String aidepreciation;
 	private Integer airemainratio;
@@ -38,7 +39,7 @@ public class AssetInfo implements java.io.Serializable {
 			String ahname, String adname, String asname, Date aidate,
 			Date aimeasuer, String aisupply, Integer aimoney,
 			Date ailife, String airemark, String aidepreciation,
-			Integer airemainratio,Integer aaid) {
+			Integer airemainratio,Integer aaid,Integer acid) {
 		this.aimodel = aimodel;
 		this.ainame = ainame;
 		this.atname = atname;
@@ -52,6 +53,7 @@ public class AssetInfo implements java.io.Serializable {
 		this.ailife = ailife;
 		this.aaid = aaid ;
 		this.airemark = airemark;
+		this.acid = acid;
 		this.aidepreciation = aidepreciation;
 		this.airemainratio = airemainratio;
 	}
@@ -184,6 +186,14 @@ public class AssetInfo implements java.io.Serializable {
 
 	public void setAaid(Integer aaid) {
 		this.aaid = aaid;
+	}
+
+	public Integer getAcid() {
+		return acid;
+	}
+
+	public void setAcid(Integer acid) {
+		this.acid = acid;
 	}
 	
 }
