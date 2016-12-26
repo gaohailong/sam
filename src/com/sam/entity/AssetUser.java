@@ -10,9 +10,7 @@ public class AssetUser implements java.io.Serializable {
 
 	private Integer auid;
 	private String urname;
-	private Integer urid;
 	private String udname;
-	private Integer adid;
 	private String auname;
 	private String aupass;
 	private String auphone;
@@ -24,12 +22,10 @@ public class AssetUser implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetUser(String urname, Integer urid, String udname, Integer adid,
-			String auname, String aupass, String auphone) {
+	public AssetUser(String urname, String udname, String auname,
+			String aupass, String auphone) {
 		this.urname = urname;
-		this.urid = urid;
 		this.udname = udname;
-		this.adid = adid;
 		this.auname = auname;
 		this.aupass = aupass;
 		this.auphone = auphone;
@@ -53,28 +49,12 @@ public class AssetUser implements java.io.Serializable {
 		this.urname = urname;
 	}
 
-	public Integer getUrid() {
-		return this.urid;
-	}
-
-	public void setUrid(Integer urid) {
-		this.urid = urid;
-	}
-
 	public String getUdname() {
 		return this.udname;
 	}
 
 	public void setUdname(String udname) {
 		this.udname = udname;
-	}
-
-	public Integer getAdid() {
-		return this.adid;
-	}
-
-	public void setAdid(Integer adid) {
-		this.adid = adid;
 	}
 
 	public String getAuname() {

@@ -1,8 +1,6 @@
 package com.sam.entity;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Assetinfo entity. @author MyEclipse Persistence Tools
@@ -17,15 +15,17 @@ public class AssetInfo implements java.io.Serializable {
 	private String ainame;
 	private String atname;
 	private String ahname;
-	private Integer atid;
-	private Integer ahid;
+	private String adname;
+	private String asname;
 	private Date aidate;
 	private Date aimeasuer;
 	private String aisupply;
 	private Integer aimoney;
+	private Integer aaid;
 	private Date ailife;
 	private String airemark;
-	private Set assetrequires = new HashSet(0);
+	private String aidepreciation;
+	private Integer airemainratio;
 
 	// Constructors
 
@@ -35,22 +35,25 @@ public class AssetInfo implements java.io.Serializable {
 
 	/** full constructor */
 	public AssetInfo(String aimodel, String ainame, String atname,
-			String ahname, Integer atid, Integer ahid, Date aidate, Date aimeasuer,
-			String aisupply, Integer aimoney, Date ailife, String airemark,
-			Set assetrequires) {
+			String ahname, String adname, String asname, Date aidate,
+			Date aimeasuer, String aisupply, Integer aimoney,
+			Date ailife, String airemark, String aidepreciation,
+			Integer airemainratio,Integer aaid) {
 		this.aimodel = aimodel;
 		this.ainame = ainame;
 		this.atname = atname;
 		this.ahname = ahname;
-		this.atid = atid;
-		this.ahid = ahid;
+		this.adname = adname;
+		this.asname = asname;
 		this.aidate = aidate;
 		this.aimeasuer = aimeasuer;
 		this.aisupply = aisupply;
 		this.aimoney = aimoney;
 		this.ailife = ailife;
+		this.aaid = aaid ;
 		this.airemark = airemark;
-		this.assetrequires = assetrequires;
+		this.aidepreciation = aidepreciation;
+		this.airemainratio = airemainratio;
 	}
 
 	// Property accessors
@@ -95,20 +98,20 @@ public class AssetInfo implements java.io.Serializable {
 		this.ahname = ahname;
 	}
 
-	public Integer getAtid() {
-		return this.atid;
+	public String getAdname() {
+		return this.adname;
 	}
 
-	public void setAtid(Integer atid) {
-		this.atid = atid;
+	public void setAdname(String adname) {
+		this.adname = adname;
 	}
 
-	public Integer getAhid() {
-		return this.ahid;
+	public String getAsname() {
+		return this.asname;
 	}
 
-	public void setAhid(Integer ahid) {
-		this.ahid = ahid;
+	public void setAsname(String asname) {
+		this.asname = asname;
 	}
 
 	public Date getAidate() {
@@ -159,12 +162,28 @@ public class AssetInfo implements java.io.Serializable {
 		this.airemark = airemark;
 	}
 
-	public Set getAssetrequires() {
-		return this.assetrequires;
+	public String getAidepreciation() {
+		return this.aidepreciation;
 	}
 
-	public void setAssetrequires(Set assetrequires) {
-		this.assetrequires = assetrequires;
+	public void setAidepreciation(String aidepreciation) {
+		this.aidepreciation = aidepreciation;
 	}
 
+	public Integer getAiremainratio() {
+		return this.airemainratio;
+	}
+
+	public void setAiremainratio(Integer airemainratio) {
+		this.airemainratio = airemainratio;
+	}
+
+	public Integer getAaid() {
+		return aaid;
+	}
+
+	public void setAaid(Integer aaid) {
+		this.aaid = aaid;
+	}
+	
 }

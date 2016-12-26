@@ -4,13 +4,13 @@ package com.sam.entity;
  * Assetdepartment entity. @author MyEclipse Persistence Tools
  */
 
-@SuppressWarnings("serial")
 public class AssetDepartment implements java.io.Serializable {
 
 	// Fields
 
 	private Integer adid;
 	private String adname;
+	private Integer adlevel;
 
 	// Constructors
 
@@ -19,8 +19,9 @@ public class AssetDepartment implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetDepartment(String adname) {
+	public AssetDepartment(String adname, Integer adlevel) {
 		this.adname = adname;
+		this.adlevel = adlevel;
 	}
 
 	// Property accessors
@@ -39,6 +40,14 @@ public class AssetDepartment implements java.io.Serializable {
 
 	public void setAdname(String adname) {
 		this.adname = adname;
+	}
+
+	public Integer getAdlevel() {
+		return this.adlevel;
+	}
+
+	public void setAdlevel(Integer adlevel) {
+		this.adlevel = adlevel;
 	}
 
 }

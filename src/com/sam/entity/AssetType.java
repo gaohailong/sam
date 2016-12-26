@@ -19,21 +19,15 @@ public class AssetType implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetType(String atname) {
+	public AssetType(String atname, Integer atlevel) {
 		this.atname = atname;
+		this.atlevel = atlevel;
 	}
 
 	// Property accessors
-	
+
 	public Integer getAtid() {
 		return this.atid;
-	}
-
-	public AssetType(Integer atid, String atname, Integer atlevel) {
-		super();
-		this.atid = atid;
-		this.atname = atname;
-		this.atlevel = atlevel;
 	}
 
 	public void setAtid(Integer atid) {
@@ -49,11 +43,11 @@ public class AssetType implements java.io.Serializable {
 	}
 
 	public Integer getAtlevel() {
-		return atlevel;
+		return this.atlevel;
 	}
 
 	public void setAtlevel(Integer atlevel) {
 		this.atlevel = atlevel;
 	}
-	
+
 }

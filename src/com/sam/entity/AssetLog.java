@@ -12,9 +12,9 @@ public class AssetLog implements java.io.Serializable {
 
 	private Integer alid;
 	private String auname;
-	private Integer auid;
 	private String ainame;
 	private Integer aiid;
+	private String alop;
 	private Date audate;
 
 	// Constructors
@@ -24,12 +24,12 @@ public class AssetLog implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetLog(String auname, Integer auid, String ainame, Integer aiid,
+	public AssetLog(String auname, String ainame, Integer aiid, String alop,
 			Date audate) {
 		this.auname = auname;
-		this.auid = auid;
 		this.ainame = ainame;
 		this.aiid = aiid;
+		this.alop = alop;
 		this.audate = audate;
 	}
 
@@ -51,14 +51,6 @@ public class AssetLog implements java.io.Serializable {
 		this.auname = auname;
 	}
 
-	public Integer getAuid() {
-		return this.auid;
-	}
-
-	public void setAuid(Integer auid) {
-		this.auid = auid;
-	}
-
 	public String getAiname() {
 		return this.ainame;
 	}
@@ -73,6 +65,14 @@ public class AssetLog implements java.io.Serializable {
 
 	public void setAiid(Integer aiid) {
 		this.aiid = aiid;
+	}
+
+	public String getAlop() {
+		return this.alop;
+	}
+
+	public void setAlop(String alop) {
+		this.alop = alop;
 	}
 
 	public Date getAudate() {

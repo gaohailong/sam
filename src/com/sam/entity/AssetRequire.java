@@ -11,7 +11,8 @@ public class AssetRequire implements java.io.Serializable {
 	// Fields
 
 	private Integer arid;
-	private AssetInfo assetinfo;
+	private String ainame;
+	private Integer aiid;
 	private Date artime;
 	private Integer arday;
 	private String arperson;
@@ -25,9 +26,10 @@ public class AssetRequire implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetRequire(AssetInfo assetinfo, Date artime, Integer arday,
+	public AssetRequire(String ainame, Integer aiid, Date artime, Integer arday,
 			String arperson, String arphone, String arstatus) {
-		this.assetinfo = assetinfo;
+		this.ainame = ainame;
+		this.aiid = aiid;
 		this.artime = artime;
 		this.arday = arday;
 		this.arperson = arperson;
@@ -45,12 +47,20 @@ public class AssetRequire implements java.io.Serializable {
 		this.arid = arid;
 	}
 
-	public AssetInfo getAssetinfo() {
-		return this.assetinfo;
+	public String getAiname() {
+		return this.ainame;
 	}
 
-	public void setAssetinfo(AssetInfo assetinfo) {
-		this.assetinfo = assetinfo;
+	public void setAiname(String ainame) {
+		this.ainame = ainame;
+	}
+
+	public Integer getAiid() {
+		return this.aiid;
+	}
+
+	public void setAiid(Integer aiid) {
+		this.aiid = aiid;
 	}
 
 	public Date getArtime() {

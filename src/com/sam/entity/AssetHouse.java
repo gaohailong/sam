@@ -10,10 +10,9 @@ public class AssetHouse implements java.io.Serializable {
 
 	private Integer ahid;
 	private String ahname;
-	private Integer ahnumber;
-	private String auid;
+	private Integer auid;
 	private String auname;
-	private Integer aulevel;
+	private Integer ahlevel;
 
 	// Constructors
 
@@ -22,26 +21,17 @@ public class AssetHouse implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetHouse(String ahname, Integer ahnumber) {
+	public AssetHouse(String ahname, Integer auid, String auname, Integer ahlevel) {
 		this.ahname = ahname;
-		this.ahnumber = ahnumber;
+		this.auid = auid;
+		this.auname = auname;
+		this.ahlevel = ahlevel;
 	}
-	
+
 	// Property accessors
 
 	public Integer getAhid() {
 		return this.ahid;
-	}
-
-	public AssetHouse(Integer ahid, String ahname, Integer ahnumber,
-			String auid, String auname, Integer aulevel) {
-		super();
-		this.ahid = ahid;
-		this.ahname = ahname;
-		this.ahnumber = ahnumber;
-		this.auid = auid;
-		this.auname = auname;
-		this.aulevel = aulevel;
 	}
 
 	public void setAhid(Integer ahid) {
@@ -56,36 +46,28 @@ public class AssetHouse implements java.io.Serializable {
 		this.ahname = ahname;
 	}
 
-	public Integer getAhnumber() {
-		return this.ahnumber;
+	public Integer getAuid() {
+		return this.auid;
 	}
 
-	public void setAhnumber(Integer ahnumber) {
-		this.ahnumber = ahnumber;
-	}
-
-	public String getAuid() {
-		return auid;
-	}
-
-	public void setAuid(String auid) {
+	public void setAuid(Integer auid) {
 		this.auid = auid;
 	}
 
 	public String getAuname() {
-		return auname;
+		return this.auname;
 	}
 
 	public void setAuname(String auname) {
 		this.auname = auname;
 	}
 
-	public Integer getAulevel() {
-		return aulevel;
+	public Integer getAhlevel() {
+		return this.ahlevel;
 	}
 
-	public void setAulevel(Integer aulevel) {
-		this.aulevel = aulevel;
+	public void setAhlevel(Integer ahlevel) {
+		this.ahlevel = ahlevel;
 	}
-	
+
 }
