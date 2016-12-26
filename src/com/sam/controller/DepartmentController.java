@@ -26,11 +26,14 @@ public class DepartmentController {
 		try {
 			System.out.println("杩涘叆findDepartmentsFirst");
 			List<AssetDepartment> departmentList = departmentService.findAssetDepartmentsByAdlevel(0);
+			for (AssetDepartment assetDepartment : departmentList) {
+				System.out.println(assetDepartment.getAdname());
+			}
 			return departmentList;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
 	
 	//鏌ヨ涓�骇閮ㄩ棬涓嬬殑浜岀骇閮ㄩ棬
@@ -42,27 +45,32 @@ public class DepartmentController {
 			return departmentList;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
 	
 	//鍒嗛〉鏍规嵁閮ㄩ棬id鏌ヨ璧勪骇
 	@RequestMapping("findAssetInfos.do")
 	@ResponseBody
-	public Pager<AssetInfo> findAssetInfosById(Integer did,Integer page) {
+	public Pager<AssetInfo> findAssetInfosByDname(String dname ,Integer page) {
 		try {
+<<<<<<< Updated upstream
 			System.out.println("杩涘叆findAssetInfosById鎺у埗鍣�z");
+=======
+			System.out.println("进入findAssetInfosByDname控制器");
+>>>>>>> Stashed changes
 			int pageNum = ConstantDepartment.DEFAULT_PAGE_NUM;
 			if(page != null) {
 				pageNum = page;
 			}
 			int pageSize = ConstantDepartment.DEFAULT_PAGE_SIZE;
-			Pager<AssetInfo> assstResult = departmentService.findAssetsByDepartmentId(did, pageNum, pageSize);
+			Pager<AssetInfo> assstResult = departmentService.findAssetByDname("aa", pageNum, pageSize);
+			System.out.println(assstResult.getDataList().size());
 			return assstResult;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return null;
 		
 	}
 }

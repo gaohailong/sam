@@ -1,6 +1,7 @@
 package com.sam.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pager<T> implements Serializable {
@@ -26,7 +27,6 @@ public class Pager<T> implements Serializable {
 		System.out.println("Pager---sourceList---->"+sourceList);
 		System.out.println("Pager---pageNum---->"+pageNum);
 		System.out.println("Pager---pageSize---->"+pageSize);
-		System.out.println("Pager---sourceList---->"+sourceList);
 		
 		if(sourceList == null) {
 			return;
@@ -66,8 +66,11 @@ public class Pager<T> implements Serializable {
 		}else {
 			toIndex = this.pageSize * this.currentPage;
 		}
+		this.dataList = new ArrayList<T>();
+		if(sourceList.size() > 0) {
+			this.dataList = sourceList.subList(fromIndex, toIndex);
+		} 
 		
-		this.dataList = sourceList.subList(fromIndex, toIndex);
 	
 	}
 

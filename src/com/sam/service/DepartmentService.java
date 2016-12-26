@@ -19,5 +19,5 @@ public interface DepartmentService {
 	 * 			每页显示多少条数据
 	 * @return
 	 */
-	public Pager<AssetInfo> findAssetsByDepartmentId(Integer departmentId, int pageNum, int pageSize);
+	public Pager<AssetInfo> findAssetByDname(String dname,int pageNum, int pageSize);
 }
