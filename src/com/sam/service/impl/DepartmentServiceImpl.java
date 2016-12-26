@@ -25,17 +25,17 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	//根据部门id分页查询
 	@Override
-	public Pager<AssetInfo> findAssetsByDepartmentId(Integer departmentId,
+	public Pager<AssetInfo> findAssetByDname(String dname,
 			int pageNum, int pageSize) {
 		
-		List<AssetInfo> assetInfoList = findAssetInfosByDepartmentId(departmentId);
+		List<AssetInfo> assetInfoList = findAssetInfosByDname(dname);
 		
 		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfoList);
 		return pager;
 	}
 	
 	//根据部门id查询全部的资产
-	private List<AssetInfo> findAssetInfosByDepartmentId(Integer departmentId) {
+	private List<AssetInfo> findAssetInfosByDname(String dname) {
 		/*AssetInfo assetInfo1 = new AssetInfo();
 		AssetInfo assetInfo2 = new AssetInfo();
 		AssetInfo assetInfo3 = new AssetInfo();
@@ -44,7 +44,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		asList.add(assetInfo2);
 		asList.add(assetInfo3);
 		return asList;*/
-		return departmentDao.findAssetInfosByDepartmentId(departmentId);
+		return departmentDao.findAssetInfosByDname(dname);
 		
 	}
 
