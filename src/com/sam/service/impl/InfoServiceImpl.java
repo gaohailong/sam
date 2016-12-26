@@ -16,9 +16,9 @@ public class InfoServiceImpl implements InfoService {
 	private InfoDao infoDao;
 
 	@Override
-	public void addInfo(AssetInfo info) throws Exception {
+	public int addInfo(AssetInfo info) throws Exception {
 
-		infoDao.addInfo(info);
+		return infoDao.addInfo(info);
 	}
 
 	public InfoDao getInfoDao() {

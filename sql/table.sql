@@ -166,12 +166,10 @@ create table AssetChange(
 create table AssetAccept(
        aaid number(10) primary key,
        aaname varchar2(20),  --入库人
-       ainame varchar2(20),
-       aanumber number(10),  --入库数量
        aatype varchar2(20), --入库方式
+ 	   aanumer number(10),  --本次入库件数
        aadate date,
-       aaprice number(20),
-       aalife date,  --保质期
-       ahname varchar2(20)  --库房名称
+       ahname varchar2(20),  --库房名称
+       aaprice number(20)
 );
 

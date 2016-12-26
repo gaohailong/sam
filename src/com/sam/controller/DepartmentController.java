@@ -19,12 +19,12 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 	
-	//查询一级部门
+	//鏌ヨ涓�骇閮ㄩ棬
 	@RequestMapping("findDepartmentsFirst.do")
 	@ResponseBody
 	public List<AssetDepartment> findDepartmentsFirst() {
 		try {
-			System.out.println("进入findDepartmentsFirst");
+			System.out.println("杩涘叆findDepartmentsFirst");
 			List<AssetDepartment> departmentList = departmentService.findAssetDepartmentsByAdlevel(0);
 			return departmentList;
 		} catch (Exception e) {
@@ -33,7 +33,7 @@ public class DepartmentController {
 		return null;
 	}
 	
-	//查询一级部门下的二级部门
+	//鏌ヨ涓�骇閮ㄩ棬涓嬬殑浜岀骇閮ㄩ棬
 	@RequestMapping("findDepartmentsSecond.do")
 	@ResponseBody
 	public List<AssetDepartment> findDepartmentsSecond(Integer adlevel) {
@@ -46,12 +46,12 @@ public class DepartmentController {
 		return null;
 	}
 	
-	//分页根据部门id查询资产
+	//鍒嗛〉鏍规嵁閮ㄩ棬id鏌ヨ璧勪骇
 	@RequestMapping("findAssetInfos.do")
 	@ResponseBody
 	public Pager<AssetInfo> findAssetInfosById(Integer did,Integer page) {
 		try {
-			System.out.println("进入findAssetInfosById控制器");
+			System.out.println("杩涘叆findAssetInfosById鎺у埗鍣�z");
 			int pageNum = ConstantDepartment.DEFAULT_PAGE_NUM;
 			if(page != null) {
 				pageNum = page;

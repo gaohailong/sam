@@ -4,9 +4,9 @@ import com.sam.entity.AssetInfo;
 
 public interface InfoService {
 	/**
-	 * Ìí¼ÓÉè±¸ÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½è±¸ï¿½ï¿½Ï¢
 	 * @param info
 	 * @throws Exception
 	 */
-	void addInfo(AssetInfo info) throws Exception;
+	int addInfo(AssetInfo info) throws Exception;
 }
