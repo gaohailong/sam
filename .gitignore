@@ -1,7 +1,7 @@
 WebRoot/WEB-INF/classes/*
 *.class
 */db.properties
-*db.properties
+*.properties
 
 # older plugin install locations
 /plugins
