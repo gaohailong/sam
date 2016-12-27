@@ -8,3 +8,4 @@ WebRoot/WEB-INF/classes/*
 /web-app/plugins
 /web-app/WEB-/INoINF
 db.properties
+src/db.properties
