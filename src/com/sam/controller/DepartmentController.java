@@ -54,11 +54,7 @@ public class DepartmentController {
 	@ResponseBody
 	public Pager<AssetInfo> findAssetInfosByDname(String dname ,Integer page) {
 		try {
-<<<<<<< Updated upstream
-			System.out.println("杩涘叆findAssetInfosById鎺у埗鍣�z");
-=======
 			System.out.println("进入findAssetInfosByDname控制器");
->>>>>>> Stashed changes
 			int pageNum = ConstantDepartment.DEFAULT_PAGE_NUM;
 			if(page != null) {
 				pageNum = page;

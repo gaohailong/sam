@@ -12,7 +12,7 @@
 	<select id="findInfoByAiid" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where aiid=#{aiid}
 	</select>
-	<update id="updInfoAsname" parameterMap="java.util.Map">
+	<update id="updInfoAsname" parameterType="java.util.Map">
 		update assetinfo set asname=#{asname} where aiid=#{aiid}
 	</update>
 	<update id="updInfoAcid" parameterType="java.util.Map">

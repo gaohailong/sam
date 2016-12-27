@@ -15,4 +15,5 @@ public interface InfoDao {
 	int updInfoAsname(String asname,Integer aiid) throws Exception;
 	
 	int updInfoAcid(String asname,Integer acid,Integer aiid) throws Exception;
+	
 }
