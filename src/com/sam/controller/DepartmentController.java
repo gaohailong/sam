@@ -1,7 +1,6 @@
 package com.sam.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +18,11 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 	
-	//鏌ヨ涓�骇閮ㄩ棬
+	//查询一级部门
 	@RequestMapping("/findDepartmentsFirst")
 	@ResponseBody
 	public List<AssetDepartment> findDepartmentsFirst() {
 		try {
-			System.out.println("杩涘叆findDepartmentsFirst");
 			List<AssetDepartment> departmentList = departmentService.findAssetDepartmentsByAdlevel(0);
 			for (AssetDepartment assetDepartment : departmentList) {
 				System.out.println(assetDepartment.getAdname());
@@ -36,7 +34,7 @@ public class DepartmentController {
 		}
 	}
 	
-	//鏌ヨ涓�骇閮ㄩ棬涓嬬殑浜岀骇閮ㄩ棬
+//查询二级部门
 	@RequestMapping("/findDepartmentsSecond")
 	@ResponseBody
 	public List<AssetDepartment> findDepartmentsSecond(Integer adlevel) {
@@ -49,7 +47,7 @@ public class DepartmentController {
 		}
 	}
 	
-	//鍒嗛〉鏍规嵁閮ㄩ棬id鏌ヨ璧勪骇
+	//根据部门查询资产
 	@RequestMapping("/findAssetInfos")
 	@ResponseBody
 	public Pager<AssetInfo> findAssetInfosByDname(String dname ,Integer page) {
@@ -60,7 +58,7 @@ public class DepartmentController {
 				pageNum = page;
 			}
 			int pageSize = ConstantDepartment.DEFAULT_PAGE_SIZE;
-			Pager<AssetInfo> assstResult = departmentService.findAssetByDname("aa", pageNum, pageSize);
+			Pager<AssetInfo> assstResult = departmentService.findAssetByDname(dname, pageNum, pageSize);
 			System.out.println(assstResult.getDataList().size());
 			return assstResult;
 		} catch (Exception e) {
