@@ -27,4 +27,8 @@
 	<update id="updInfoAcid" parameterType="java.util.Map">
 		update assetinfo set acid=#{acid},asname=#{asname} where aiid=#{aiid}
 	</update>
+	
+	<select id="findInfoByCondition" parameterMap="" resultMap="com.sam.entity.AssetInfo">
+		
+	</select>
 </mapper>

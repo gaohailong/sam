@@ -39,5 +39,7 @@ public interface InfoDao {
 	 * @throws Exception
 	 */
 	public List<AssetRequire> findInfoByArid(Integer arid) throws Exception; 
+	
+	
 
 }

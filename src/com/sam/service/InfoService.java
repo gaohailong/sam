@@ -35,5 +35,12 @@ public interface InfoService {
 	 */
 	 
 	public List<AssetRequire> findInfoArid(Integer arid) throws Exception; 
+	
+
+	/**
+	 * 设备条件查询
+	 */
+	List<AssetInfo> findAssetByCondition(String equipment, String category,
+			String warehouse, String inhousetime);
 
 }

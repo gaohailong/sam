@@ -24,30 +24,25 @@ public class InfoServiceImpl implements InfoService {
 		return infoDao.addInfo(info);
 	}
 
-	public InfoDao getInfoDao() {
-		return infoDao;
-	}
-
-	public void setInfoDao(InfoDao infoDao) {
-		this.infoDao = infoDao;
-	}
-
 	@Override
 	public List<AssetInfo> findInfoByAsname(String asname) throws Exception {
-		// TODO Auto-generated method stub
 		return infoDao.findInfoByAsname(asname);
 	}
 
 	@Override
 	public List<AssetInfo> findInfoByAcid(Integer acid) throws Exception {
-		// TODO Auto-generated method stub
 		return infoDao.findInfoByAcid(acid);
 	}
 
 	@Override
 	public List<AssetRequire> findInfoArid(Integer arid) throws Exception {
-		// TODO Auto-generated method stub
-		return infoDao.findInfoArid(arid);
+		return infoDao.findInfoByArid(arid);
 	}
-	
+
+	@Override
+	public List<AssetInfo> findAssetByCondition(String equipment,
+			String category, String warehouse, String inhousetime) {
+		return null;
+	}
+
 }
