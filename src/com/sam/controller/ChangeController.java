@@ -7,12 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.sam.entity.AssetChange;
 import com.sam.service.ChangeService;
 
+/**
+ * 移交表的controller
+ * @author yty
+ *
+ */
 @Controller
 public class ChangeController {
 
 	@Autowired
 	private ChangeService changeService;
 	
+	/**
+	 * 增加一条移交记录 
+	 * @param change
+	 * @return
+	 */
 	@RequestMapping("/addChange")
 	public String addChange(AssetChange change){
 		try {

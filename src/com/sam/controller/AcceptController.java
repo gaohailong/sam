@@ -8,6 +8,11 @@ import com.sam.entity.AssetAccept;
 import com.sam.entity.AssetInfo;
 import com.sam.service.AcceptService;
 
+/**
+ * 入库表的controller
+ * @author yty
+ *
+ */
 @Controller
 public class AcceptController {
 
@@ -19,7 +24,7 @@ public class AcceptController {
 	 * @param accept
 	 * @param info
 	 * @return
-	 */
+	 */ 
 	@RequestMapping("/addAccept")
 	public String addAccept(AssetAccept accept,AssetInfo info){
 		try {
