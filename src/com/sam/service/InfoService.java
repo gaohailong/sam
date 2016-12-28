@@ -36,12 +36,11 @@ public interface InfoService {
 	 * @return
 	 * @throws Exception
 	 */
-
 	public List<AssetRequire> findInfoArid(Integer arid) throws Exception;
 
 	/**
 	 * @author gaohailong 设备条件查询
 	 */
-	List<AssetInfo> findAssetByCondition(AssetInfo assetInfo) throws Exception;
+	List<AssetInfo> findAssetByCondition(AssetInfo assetInfo,Integer pageNum,Integer pageSize) throws Exception;
 
 }

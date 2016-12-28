@@ -36,7 +36,7 @@
 		acid=#{acid},asname=#{asname} where aiid=#{aiid}
 	</update>
 
-	<select id="findInfoByCondition" parameterType="com.sxau.pblog.pojo.Title"
+	<select id="findInfoByCondition" parameterType="com.sam.entity.AssetInfo"
 		resultMap="com.sam.entity.AssetInfo">
 		select * from assetinfo where
 		<if test="ainame != nulll">

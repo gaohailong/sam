@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetRequire;
 import com.sam.service.InfoService;
+import com.sam.util.ConstantUtil;
 
 @Controller
 @RequestMapping(value = "/InfoController")
@@ -82,14 +83,15 @@ public class InfoController {
 			@RequestParam(value = "ainame", required = false) String ainame,
 			@RequestParam(value = "atname", required = false) String atname,
 			@RequestParam(value = "ahname", required = false) String ahname,
-			@RequestParam(value = "aidate", required = false) Date aidate) {
+			@RequestParam(value = "aidate", required = false) Date aidate,
+			@RequestParam(value = "pageNum", required = false) int pageNum) {
 		try {
 			AssetInfo assetInfo = new AssetInfo();
 			assetInfo.setAiname(ainame.trim());
 			assetInfo.setAtname(atname.trim());
 			assetInfo.setAhname(ahname.trim());
 			assetInfo.setAidate(aidate);
-			return infoService.findAssetByCondition(assetInfo);
+			return infoService.findAssetByCondition(assetInfo,pageNum,ConstantUtil.DEFAULT_PAGE_SIZE);
 		} catch (Exception e) {
 			return null;
 		}

@@ -11,6 +11,7 @@ import com.sam.dao.InfoDao;
 import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetRequire;
 import com.sam.service.InfoService;
+import com.sam.util.ConstantUtil;
 
 @Service
 public class InfoServiceImpl implements InfoService {
@@ -40,7 +41,7 @@ public class InfoServiceImpl implements InfoService {
 	}
 
 	@Override
-	public List<AssetInfo> findAssetByCondition(AssetInfo assetInfo)
+	public List<AssetInfo> findAssetByCondition(AssetInfo assetInfo,Integer pageNum,Integer pageSize)
 			throws Exception {
 		return infoDao.findInfoByCondition(assetInfo);
 	}

@@ -86,7 +86,6 @@ public class DepartmentController extends BaseController {
 			e.printStackTrace();
 			return null;
 		}
-		
 	}
 }
 
