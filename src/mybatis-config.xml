@@ -7,9 +7,9 @@
 		<mapper resource="com/sam/dao/InfoMapper.xml"/>
 		<mapper resource="com/sam/dao/DepartmentMapper.xml"/>
 		<mapper resource="com/sam/dao/DictionaryMapper.xml"/>
-<!-- 		<mapper resource="com/sam/dao/AcceptMapper.xml"/>
+ 		<mapper resource="com/sam/dao/AcceptMapper.xml"/>
 		<mapper resource="com/sam/dao/ChangeMapper.xml"/>
 		<mapper resource="com/sam/dao/RequireMapper.xml"/>
-		<mapper resource="com/sam/dao/BroorwMapper.xml"/> -->
+		<mapper resource="com/sam/dao/BroorwMapper.xml"/> 
 	</mappers>
 </configuration>

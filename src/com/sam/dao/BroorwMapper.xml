@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sam.dao.DepartmentDao">
+<mapper namespace="com.sam.dao.BroorwDao">
 	<!-- 添加借出申请 -->
-	<insert id="addBroow" parameterType=""></insert>
+	<insert id="addBroow" parameterType="com.sam.entity.AssetBroorw">
+		insert into AssetBroorw(abid,ainame,aiid,auname,auid,abbackDate,abdate,abstatus,abreson,abnumebr,abResult,abResultRemark)
+			values(AssetBroorw_seq.nextval,#{ainame},#{aiid},#{auname},#{auid},#{abbackDate},#{abdate},#{abstatus}
+			,#{abreson},#{abnumebr},#{abResult},#{abResultRemark});
+	</insert>
+	
+	<select id="findBroorws" resultType="com.sam.entity.AssetBroorw">
+		select * from AssetBroorw
+	</select>
 	
 	
 </mapper>

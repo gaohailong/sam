@@ -1,4 +1,9 @@
 package com.sam.dao;
+
+import java.util.List;
+
+import com.sam.entity.AssetBroorw;
+
 /**
  * 设备借出申请,借出记录
  * @author zhw
@@ -13,4 +18,13 @@ public interface BroorwDao {
 	 * @throws Exception
 	 */
 	public int addBroow() throws Exception;
+	
+	/**
+	 * 查询全部借出申请
+	 * @author zhw
+	 * @return
+	 * @throws Exception
+	 */
+	public List<AssetBroorw> findBroorws() throws Exception;
+		
 }
