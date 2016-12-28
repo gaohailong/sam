@@ -3,6 +3,7 @@ package com.sam.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sam.entity.AssetAccept;
 import com.sam.entity.AssetInfo;
@@ -14,6 +15,7 @@ import com.sam.service.AcceptService;
  *
  */
 @Controller
+@RequestMapping(value="/acceptController")
 public class AcceptController {
 
 	@Autowired
@@ -25,7 +27,7 @@ public class AcceptController {
 	 * @param info
 	 * @return
 	 */ 
-	@RequestMapping("/addAccept")
+	@RequestMapping(value="/addAccept",method=RequestMethod.POST)
 	public String addAccept(AssetAccept accept,AssetInfo info){
 		try {
 			int num = acceptService.addAccept(accept, info);

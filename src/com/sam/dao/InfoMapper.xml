@@ -27,7 +27,7 @@
 		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where arid = #{arid}
 	</select>
-	<update id="updInfoAsname" parameterMap="java.util.Map">
+	<update id="updInfoAsname" parameterType="java.util.Map">
 		update assetinfo set
 		asname=#{asname} where aiid=#{aiid}
 	</update>
@@ -37,7 +37,7 @@
 	</update>
 
 	<select id="findInfoByCondition" parameterType="com.sam.entity.AssetInfo"
-		resultMap="com.sam.entity.AssetInfo">
+		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where
 		<if test="ainame != nulll">
 			ainame=#{ainame},

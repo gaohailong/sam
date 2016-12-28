@@ -3,6 +3,7 @@ package com.sam.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sam.entity.AssetChange;
 import com.sam.service.ChangeService;
@@ -13,6 +14,7 @@ import com.sam.service.ChangeService;
  *
  */
 @Controller
+@RequestMapping(value="/changeController")
 public class ChangeController {
 
 	@Autowired
@@ -23,7 +25,7 @@ public class ChangeController {
 	 * @param change
 	 * @return
 	 */
-	@RequestMapping("/addChange")
+	@RequestMapping(value="/addChange",method=RequestMethod.POST)
 	public String addChange(AssetChange change){
 		try {
 			int num = changeService.addChange(change);

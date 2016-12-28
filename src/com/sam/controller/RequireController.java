@@ -3,6 +3,7 @@ package com.sam.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sam.entity.AssetRequire;
 import com.sam.service.RequireService;
@@ -13,6 +14,7 @@ import com.sam.service.RequireService;
  *
  */
 @Controller
+@RequestMapping(value="/requireController")
 public class RequireController {
 
 	@Autowired
@@ -23,7 +25,7 @@ public class RequireController {
 	 * @param require
 	 * @return
 	 */
-	@RequestMapping("/addRequest")
+	@RequestMapping(value="/addRequest",method=RequestMethod.POST)
 	public String addRequest(AssetRequire require){
 		try {
 			int num = requireService.addRequire(require);
