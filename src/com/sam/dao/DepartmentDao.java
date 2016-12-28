@@ -9,7 +9,12 @@ public interface DepartmentDao {
 	
 	public List<AssetDepartment> findAssetDepartmentsByAdlevel(Integer adlevel);
 	
-	//根据部门查询资产
+	
+	/**
+	 * 根据部门查询资产
+	 * @param dname
+	 * @return
+	 */
 	public List<AssetInfo> findAssetInfosByDname(String dname);
 
 }

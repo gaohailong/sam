@@ -34,4 +34,10 @@ public class ConstantUtil {
 	public static final String OPERATION_TYPE_DELETE = "D";
 	//返回成功
 	public static final String RESPONSE_RESULT_FLAG_ISSUCCESS = "isSuceess";
+	
+	//默认每页显示条数
+	public static final int DEFAULT_PAGE_SIZE = 5;
+	
+	//默认显示第几页记录
+	public static final int DEFAULT_PAGE_NUM = 1;
 }
