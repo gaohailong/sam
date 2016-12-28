@@ -19,7 +19,7 @@ import com.sam.service.InfoService;
 import com.sam.util.ConstantUtil;
 
 @Controller
-@RequestMapping(value = "/InfoController")
+@RequestMapping(value = "/infoController")
 public class InfoController {
 
 	@Autowired
@@ -61,7 +61,7 @@ public class InfoController {
 
 	}
 
-	@RequestMapping(value = "/findInfoArid", method = RequestMethod.GET)
+	@RequestMapping(value = "/findInfoByArid", method = RequestMethod.GET)
 	@ResponseBody
 	public List<AssetRequire> findInfoArid(Integer arid) {
 		try {
