@@ -27,6 +27,7 @@ public class AssetInfo implements java.io.Serializable {
 	private String airemark;
 	private String aidepreciation;
 	private Integer airemainratio;
+	private Integer abid;
 
 	// Constructors
 
@@ -39,7 +40,7 @@ public class AssetInfo implements java.io.Serializable {
 			String ahname, String adname, String asname, Date aidate,
 			Date aimeasuer, String aisupply, Integer aimoney,
 			Date ailife, String airemark, String aidepreciation,
-			Integer airemainratio,Integer aaid,Integer acid) {
+			Integer airemainratio,Integer aaid,Integer acid,Integer abid) {
 		this.aimodel = aimodel;
 		this.ainame = ainame;
 		this.atname = atname;
@@ -56,6 +57,7 @@ public class AssetInfo implements java.io.Serializable {
 		this.acid = acid;
 		this.aidepreciation = aidepreciation;
 		this.airemainratio = airemainratio;
+		this.abid = abid;
 	}
 
 	// Property accessors
@@ -194,6 +196,14 @@ public class AssetInfo implements java.io.Serializable {
 
 	public void setAcid(Integer acid) {
 		this.acid = acid;
+	}
+
+	public Integer getAbid() {
+		return abid;
+	}
+
+	public void setAbid(Integer abid) {
+		this.abid = abid;
 	}
 	
 }
