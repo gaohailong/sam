@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetRequire;
+import com.sam.entity.Pager;
 import com.sam.service.InfoService;
 import com.sam.util.ConstantUtil;
 
@@ -79,7 +80,7 @@ public class InfoController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/findAssetByCondition", method = RequestMethod.GET)
-	public List<AssetInfo> findAssetByCondition(
+	public Pager<AssetInfo> findAssetByCondition(
 			@RequestParam(value = "ainame", required = false) String ainame,
 			@RequestParam(value = "atname", required = false) String atname,
 			@RequestParam(value = "ahname", required = false) String ahname,
@@ -91,7 +92,8 @@ public class InfoController {
 			assetInfo.setAtname(atname.trim());
 			assetInfo.setAhname(ahname.trim());
 			assetInfo.setAidate(aidate);
-			return infoService.findAssetByCondition(assetInfo,pageNum,ConstantUtil.DEFAULT_PAGE_SIZE);
+			return infoService.findAssetByCondition(assetInfo, pageNum,
+					ConstantUtil.DEFAULT_PAGE_SIZE);
 		} catch (Exception e) {
 			return null;
 		}

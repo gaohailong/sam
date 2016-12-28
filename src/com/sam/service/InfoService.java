@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetRequire;
+import com.sam.entity.Pager;
 
 public interface InfoService {
 	/**
@@ -41,6 +42,6 @@ public interface InfoService {
 	/**
 	 * @author gaohailong 设备条件查询
 	 */
-	List<AssetInfo> findAssetByCondition(AssetInfo assetInfo,Integer pageNum,Integer pageSize) throws Exception;
+	Pager<AssetInfo> findAssetByCondition(AssetInfo assetInfo,Integer pageNum,Integer pageSize) throws Exception;
 
 }
