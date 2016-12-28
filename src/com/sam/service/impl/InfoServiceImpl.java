@@ -40,9 +40,9 @@ public class InfoServiceImpl implements InfoService {
 	}
 
 	@Override
-	public List<AssetInfo> findAssetByCondition(String equipment,
-			String category, String warehouse, String inhousetime) {
-		return null;
+	public List<AssetInfo> findAssetByCondition(AssetInfo assetInfo)
+			throws Exception {
+		return infoDao.findInfoByCondition(assetInfo);
 	}
 
 }

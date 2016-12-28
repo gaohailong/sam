@@ -1,6 +1,9 @@
 package com.sam.controller;
 
+import java.util.Date;
 import java.util.List;
+
+import oracle.net.aso.a;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,14 +17,14 @@ import com.sam.entity.AssetRequire;
 import com.sam.service.InfoService;
 
 @Controller
-@RequestMapping(value="/InfoController")
+@RequestMapping(value = "/InfoController")
 public class InfoController {
 
 	@Autowired
 	private InfoService infoService;
 	private List<AssetInfo> assetInfoList;
 
-	@RequestMapping(value="/addInfo",method = RequestMethod.GET)
+	@RequestMapping(value = "/addInfo", method = RequestMethod.GET)
 	@ResponseBody
 	public void addInfo(AssetInfo info) {
 		try {
@@ -69,19 +72,24 @@ public class InfoController {
 
 	/**
 	 * 资产条件查询
+	 * 
 	 * @author gaohailong
 	 * @return
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/findAssetByCondition", method = RequestMethod.GET)
 	public List<AssetInfo> findAssetByCondition(
-			@RequestParam(value = "equipment", required = false) String equipment,
-			@RequestParam(value = "category", required = false) String category,
-			@RequestParam(value = "warehouse", required = false) String warehouse,
-			@RequestParam(value = "inhousetime", required = false) String inhousetime) {
+			@RequestParam(value = "ainame", required = false) String ainame,
+			@RequestParam(value = "atname", required = false) String atname,
+			@RequestParam(value = "ahname", required = false) String ahname,
+			@RequestParam(value = "aidate", required = false) Date aidate) {
 		try {
-			return infoService.findAssetByCondition(equipment, category,
-					warehouse, inhousetime);
+			AssetInfo assetInfo = new AssetInfo();
+			assetInfo.setAiname(ainame.trim());
+			assetInfo.setAtname(atname.trim());
+			assetInfo.setAhname(ahname.trim());
+			assetInfo.setAidate(aidate);
+			return infoService.findAssetByCondition(assetInfo);
 		} catch (Exception e) {
 			return null;
 		}

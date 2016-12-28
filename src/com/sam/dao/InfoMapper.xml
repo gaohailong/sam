@@ -3,32 +3,53 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sam.dao.InfoDao">
 	<insert id="addInfo" parameterType="com.sam.entity.AssetInfo">
-		insert into assetinfo(aiid,aimodel,ainame,atname,ahname,adname,asname,aaid,aidate,aiMeasuer,aiSupply,aiMoney,aiLife,aiRemark,aidepreciation,airemainratio)
-		 values(assetinfo_seq.nextval,#{aimodel},#{ainame},#{atname},#{ahname},#{adname},#{asname},#{aaid},#{aidate},#{aiMeasuer},#{aiSupply},#{aiMoney},#{aiLife},#{aiRemark},#{aidepreciation},#{airemainratio})
+		insert into
+		assetinfo(aiid,aimodel,ainame,atname,ahname,adname,asname,aaid,aidate,aiMeasuer,aiSupply,aiMoney,aiLife,aiRemark,aidepreciation,airemainratio)
+		values(assetinfo_seq.nextval,#{aimodel},#{ainame},#{atname},#{ahname},#{adname},#{asname},#{aaid},#{aidate},#{aiMeasuer},#{aiSupply},#{aiMoney},#{aiLife},#{aiRemark},#{aidepreciation},#{airemainratio})
 	</insert>
-	<select id="findInfoByAiname" parameterType="java.lang.String" resultType="com.sam.entity.AssetInfo">
+	<select id="findInfoByAiname" parameterType="java.lang.String"
+		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where ainame=#{ainame}
 	</select>
-	<select id="findInfoByAiid" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetInfo">
+	<select id="findInfoByAiid" parameterType="java.lang.Integer"
+		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where aiid=#{aiid}
 	</select>
-	<select id="findInfoByAsname" parameterType="java.lang.String" resultType="com.sam.entity.AssetInfo">
+	<select id="findInfoByAsname" parameterType="java.lang.String"
+		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where asname = #{asname}
 	</select>
-	<select id="findInfoByAcid" parameterType="int" resultType="com.sam.entity.AssetInfo">
+	<select id="findInfoByAcid" parameterType="int"
+		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where acid = #{acid}
 	</select>
-	<select id="findInfoByArid" parameterType="int" resultType="com.sam.entity.AssetInfo">
+	<select id="findInfoByArid" parameterType="int"
+		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where arid = #{arid}
 	</select>
 	<update id="updInfoAsname" parameterMap="java.util.Map">
-		update assetinfo set asname=#{asname} where aiid=#{aiid}
+		update assetinfo set
+		asname=#{asname} where aiid=#{aiid}
 	</update>
 	<update id="updInfoAcid" parameterType="java.util.Map">
-		update assetinfo set acid=#{acid},asname=#{asname} where aiid=#{aiid}
+		update assetinfo set
+		acid=#{acid},asname=#{asname} where aiid=#{aiid}
 	</update>
-	
-	<select id="findInfoByCondition" parameterMap="" resultMap="com.sam.entity.AssetInfo">
-		
+
+	<select id="findInfoByCondition" parameterType="com.sxau.pblog.pojo.Title"
+		resultMap="com.sam.entity.AssetInfo">
+		select * from assetinfo where
+		<if test="ainame != nulll">
+			ainame=#{ainame},
+		</if>
+		<if test="atname != nulll">
+			AND atname=#{atname},
+		</if>
+		<if test="ahname != nulll">
+			AND ahname=#{ahname},
+		</if>
+		<if test="aidate != nulll">
+			AND aidate=#{aidate},
+		</if>
 	</select>
 </mapper>
