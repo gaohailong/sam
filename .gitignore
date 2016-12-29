@@ -10,6 +10,8 @@ WebRoot/WEB-INF/classes/*
 db.properties
 src/db.properties
 
+.DS_Store
+WebRoot/.DS_Store
 
 *.class
 

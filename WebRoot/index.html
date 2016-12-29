@@ -852,9 +852,9 @@
 
 					</a>
 
-					<ul class="sub-menu">
+					<ul class="sub-menu" id="item_department">
 
-						<li>
+				<!-- 		<li>
 
 							<a href="javascript:;">
 
@@ -930,7 +930,8 @@
 
 						</li>
 
-					</ul>
+					 -->
+					 </ul>
 
 				</li>
 				
@@ -1236,8 +1237,30 @@
 		jQuery(document).ready(function() {    
 
 		   App.init(); // initlayout and core plugins
+		    initDepartment();
 		});
+function initDepartment(){
+			
+			$.ajax({
+				type : "GET",
+				url : "/sam/department/findDepartmentsFirst",
+				dataType : "JSON",
+				success : function(data) {
+					$(data).each(
+						function(index,value){
+							$("#item_department").append(
+								"<li><a href='javascript:;'>"+value.adname+"<span class='arrow'></span></a><ul class='sub-menu'><li><a href='#'>老师办公室</a></li></ul></li>"
+							);
+						}
+					);
+				},
+				errot:function(data){
+					alert(data.status);
+				}
+	
 
+			});
+		 }
 	</script>
 
 	<!-- END JAVASCRIPTS -->
