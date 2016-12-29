@@ -3,6 +3,11 @@ package com.sam.service;
 import com.sam.entity.AssetAccept;
 import com.sam.entity.AssetInfo;
 
+/**
+ * 入库表的service
+ * @author yty
+ *
+ */
 public interface AcceptService {
 
 	/**

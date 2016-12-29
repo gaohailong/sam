@@ -10,6 +10,11 @@ import com.sam.entity.AssetRequire;
 import com.sam.service.RequireService;
 import com.sam.util.CreateRandom;
 
+/**
+ * 维修表的serviceimpl
+ * @author yty
+ *
+ */
 @Service
 public class RequireServiceImpl implements RequireService{
 
@@ -18,6 +23,9 @@ public class RequireServiceImpl implements RequireService{
 	@Autowired
 	private InfoDao infoDao;
 	
+	/**
+	 * 增加一条维修记录
+	 */
 	@Override
 	public int addRequire(AssetRequire require) throws Exception{
 		CreateRandom cr = new CreateRandom();
