@@ -9,6 +9,10 @@
 
 	<!-- 添加这句话可以使用mvc提供的ajax方法 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- 过滤静态视图资源 -->
+	<mvc:resources mapping="/**" location="/"/>
+	
 	<!-- 启动注解 -->
 	<context:annotation-config></context:annotation-config>
 	<!-- 定义控制器所在的包 -->
