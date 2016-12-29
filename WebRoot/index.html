@@ -1249,8 +1249,9 @@ function initDepartment(){
 					$(data).each(
 						function(index,value){
 							$("#item_department").append(
-								"<li><a href='javascript:;'>"+value.adname+"<span class='arrow'></span></a><ul class='sub-menu'><li><a href='#'>老师办公室</a></li></ul></li>"
+								"<li><a href='#'>"+value.adname+"<span class='arrow'></span></a><ul id='second_department_"+value.adid+"' class='sub-menu'></ul></li>"
 							);
+							initSecondDepartment(value.adid);
 						}
 					);
 				},
@@ -1261,6 +1262,28 @@ function initDepartment(){
 
 			});
 		 }
+		 //遍历二级部门的方法
+		 function initSecondDepartment(adlevel) {
+		 	$.ajax({
+		 		type:"post",
+		 		url:"/sam/department/findDepartmentsSecond",
+		 		data:"adlevel="+adlevel,
+		 		dataType:"JSON",
+		 		success: function(data) {
+		 			$(data).each(
+		 				function(index,val){
+		 					$("#second_department_"+adlevel).append(
+		 						"<li><a href='#'>"+val.adname+"</a></li>"
+		 					);
+		 				}
+		 			);
+		 		},
+		 		error:function(data) {
+		 			alert(data.status);
+		 		}
+		 	});
+		 }
+		 
 	</script>
 
 	<!-- END JAVASCRIPTS -->

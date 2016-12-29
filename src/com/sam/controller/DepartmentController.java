@@ -32,9 +32,6 @@ public class DepartmentController extends BaseController {
 	public List<AssetDepartment> findDepartmentsFirst() {
 		try {
 			List<AssetDepartment> departmentList = departmentService.findAssetDepartmentsByAdlevel(0);
-			for (AssetDepartment assetDepartment : departmentList) {
-				System.out.println(assetDepartment.getAdname());
-			}
 			return departmentList;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,10 +46,11 @@ public class DepartmentController extends BaseController {
 	 * @return
 	 * @author zhw
 	 */
-	@RequestMapping(value="/findDepartmentsSecond", method=RequestMethod.GET)
+	@RequestMapping(value="/findDepartmentsSecond", method=RequestMethod.POST)
 	@ResponseBody
 	public List<AssetDepartment> findDepartmentsSecond(Integer adlevel) {
 		try {
+			System.out.println("adlevel:"+adlevel);
 			List<AssetDepartment> departmentList = departmentService.findAssetDepartmentsByAdlevel(adlevel);
 			return departmentList;
 		} catch (Exception e) {
