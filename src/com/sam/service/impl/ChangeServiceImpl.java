@@ -20,6 +20,9 @@ public class ChangeServiceImpl implements ChangeService{
 	@Autowired
 	private InfoDao infoDao;
 	
+	/**
+	 * 增加一条移交记录
+	 */
 	@Override
 	public int addChange(AssetChange change) throws Exception {
 		// TODO Auto-generated method stub
