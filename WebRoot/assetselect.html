@@ -1,60 +1,96 @@
 <!DOCTYPE html>
 
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
 
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
 
-<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
 
 <!-- BEGIN HEAD -->
 
 <head>
 
-	<meta charset="utf-8" />
+    <meta charset="utf-8"/>
 
-	<title>资产查询</title>
+    <title>资产查询</title>
 
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-	<meta content="" name="description" />
+    <meta content="" name="description"/>
 
-	<meta content="" name="author" />
+    <meta content="" name="author"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
 
-	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="media/css/bootstrap-fileupload.css"/>
 
-	<link href="media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="media/css/jquery.gritter.css"/>
 
-	<link href="media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="media/css/chosen.css"/>
 
-	<link href="media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="media/css/select2_metro.css"/>
 
-	<link href="media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="media/css/jquery.tagsinput.css"/>
 
-	<link href="media/css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="media/css/clockface.css"/>
 
-	<link href="media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="media/css/bootstrap-wysihtml5.css"/>
 
-	<link href="media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link rel="stylesheet" type="text/css" href="media/css/datepicker.css"/>
 
-	<link href="media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="media/css/timepicker.css"/>
 
-	<!-- END GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="media/css/colorpicker.css"/>
 
-	<!-- BEGIN PAGE LEVEL STYLES --> 
+    <link rel="stylesheet" type="text/css" href="media/css/bootstrap-toggle-buttons.css"/>
 
-	<link href="media/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="media/css/daterangepicker.css"/>
 
-	<link href="media/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="media/css/datetimepicker.css"/>
 
-	<link href="media/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="media/css/multi-select-metro.css"/>
 
-	<link href="media/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="media/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
 
-	<link href="media/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+    <!-- END PAGE LEVEL STYLES -->
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
 
-	<!-- END PAGE LEVEL STYLES -->
+    <link href="media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
-	<link rel="shortcut icon" href="media/image/favicon.ico" />
+    <link href="media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+    <link href="media/css/style.css" rel="stylesheet" type="text/css"/>
+
+    <link href="media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+    <link href="media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+    <link href="media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+
+    <link href="media/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+
+    <link href="media/css/daterangepicker.css" rel="stylesheet" type="text/css"/>
+
+    <link href="media/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
+
+    <link href="media/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
+
+    <link href="media/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="media/css/datepicker.css"/>
+    <!-- END PAGE LEVEL STYLES -->
+
+    <link rel="shortcut icon" href="media/image/favicon.ico"/>
 
 </head>
 
@@ -64,1229 +100,911 @@
 
 <body class="page-header-fixed">
 
-	<!-- BEGIN HEADER -->
+<!-- BEGIN HEADER -->
 
-	<div class="header navbar navbar-inverse navbar-fixed-top">
+<div class="header navbar navbar-inverse navbar-fixed-top">
 
-		<!-- BEGIN TOP NAVIGATION BAR -->
+    <!-- BEGIN TOP NAVIGATION BAR -->
 
-		<div class="navbar-inner">
+    <div class="navbar-inner">
 
-			<div class="container-fluid">
+        <div class="container-fluid">
 
-				<!-- BEGIN LOGO -->
+            <!-- BEGIN LOGO -->
 
-				<a class="brand" href="index.html">
+            <a class="brand" href="index.html">
 
-				<img src="media/image/logo.png" alt="logo"/>
+                <img src="media/image/logo.png" alt="logo"/>
 
-				</a>
+            </a>
 
-				<!-- END LOGO -->
+            <!-- END LOGO -->
 
-				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
 
-				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
 
-				<img src="media/image/menu-toggler.png" alt="" />
+                <img src="media/image/menu-toggler.png" alt=""/>
 
-				</a>          
+            </a>
 
-				<!-- END RESPONSIVE MENU TOGGLER -->            
+            <!-- END RESPONSIVE MENU TOGGLER -->
+        </div>
 
-				<!-- BEGIN TOP NAVIGATION MENU -->              
+    </div>
 
-				<ul class="nav pull-right">
+    <!-- END TOP NAVIGATION BAR -->
 
-					<!-- BEGIN NOTIFICATION DROPDOWN -->   
+</div>
 
-					<li class="dropdown" id="header_notification_bar">
+<!-- END HEADER -->
+<div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
 
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<!-- BEGIN CONTAINER -->
 
-						<i class="icon-warning-sign"></i>
+<div class="page-container">
 
-						<span class="badge">6</span>
+    <!-- BEGIN SIDEBAR -->
 
-						</a>
+    <div class="page-sidebar nav-collapse collapse">
 
-						<ul class="dropdown-menu extended notification">
+        <!-- BEGIN SIDEBAR MENU -->
 
-							<li>
+        <ul class="page-sidebar-menu">
 
-								<p>You have 14 new notifications</p>
+            <li>
 
-							</li>
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 
-							<li>
+                <div class="sidebar-toggler hidden-phone"></div>
 
-								<a href="#">
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 
-								<span class="label label-success"><i class="icon-plus"></i></span>
+            </li>
 
-								New user registered. 
+            <li>
 
-								<span class="time">Just now</span>
+                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
 
-								</a>
+                <form class="sidebar-search">
 
-							</li>
+                    <div class="input-box">
 
-							<li>
+                        <a href="javascript:;" class="remove"></a>
 
-								<a href="#">
+                        <input type="text" placeholder="Search..."/>
 
-								<span class="label label-important"><i class="icon-bolt"></i></span>
+                        <input type="button" class="submit" value=" "/>
 
-								Server #12 overloaded. 
+                    </div>
 
-								<span class="time">15 mins</span>
+                </form>
 
-								</a>
+                <!-- END RESPONSIVE QUICK SEARCH FORM -->
 
-							</li>
+            </li>
 
-							<li>
+            <li class="start active ">
 
-								<a href="#">
+                <a href="index.html">
 
-								<span class="label label-warning"><i class="icon-bell"></i></span>
+                    <i class="icon-home"></i>
 
-								Server #2 not respoding.
+                    <span class="title">首页</span>
 
-								<span class="time">22 mins</span>
+                    <span class="selected"></span>
 
-								</a>
+                </a>
 
-							</li>
+            </li>
+            <li>
 
-							<li>
+                <a class="active" href="javascript:;">
 
-								<a href="#">
+                    <i class="icon-sitemap"></i>
 
-								<span class="label label-info"><i class="icon-bullhorn"></i></span>
+                    <span class="title">资产存放地点</span>
 
-								Application error.
+                    <span class="arrow "></span>
 
-								<span class="time">40 mins</span>
+                </a>
 
-								</a>
+                <ul class="sub-menu">
 
-							</li>
+                    <li>
 
-							<li>
+                        <a href="javascript:;">
 
-								<a href="#">
+                            仓库
 
-								<span class="label label-important"><i class="icon-bolt"></i></span>
+                            <span class="arrow"></span>
 
-								Database overloaded 68%. 
+                        </a>
 
-								<span class="time">2 hrs</span>
+                        <ul class="sub-menu">
 
-								</a>
+                            <li><a href="#">仓库1</a></li>
 
-							</li>
+                            <li><a href="#">仓库2</a></li>
 
-							<li>
+                            <li><a href="#">仓库3</a></li>
 
-								<a href="#">
+                        </ul>
 
-								<span class="label label-important"><i class="icon-bolt"></i></span>
+                    </li>
 
-								2 user IP blocked.
+                    <li>
 
-								<span class="time">5 hrs</span>
+                        <a href="javascript:;">
 
-								</a>
+                            办公室
 
-							</li>
+                            <span class="arrow"></span>
 
-							<li class="external">
+                        </a>
 
-								<a href="#">See all notifications <i class="m-icon-swapright"></i></a>
+                        <ul class="sub-menu">
 
-							</li>
+                            <li><a href="#">院长办公室</a></li>
 
-						</ul>
+                            <li><a href="#">书记办公室</a></li>
 
-					</li>
+                            <li><a href="#">团委办公室</a></li>
 
-					<!-- END NOTIFICATION DROPDOWN -->
+                            <li><a href="#">老师办公室</a></li>
 
-					<!-- BEGIN INBOX DROPDOWN -->
+                        </ul>
 
-					<li class="dropdown" id="header_inbox_bar">
+                    </li>
 
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <li>
 
-						<i class="icon-envelope"></i>
+                        <a href="javascript:;">
 
-						<span class="badge">5</span>
+                            实验室
 
-						</a>
+                            <span class="arrow"></span>
 
-						<ul class="dropdown-menu extended inbox">
+                        </a>
 
-							<li>
+                        <ul class="sub-menu">
 
-								<p>You have 12 new messages</p>
+                            <li><a href="#">东机房</a></li>
 
-							</li>
+                            <li><a href="#">西机房</a></li>
 
-							<li>
+                        </ul>
 
-								<a href="inbox.html?a=view">
+                    </li>
 
-								<span class="photo"><img src="media/image/avatar2.jpg" alt="" /></span>
+                    <li>
 
-								<span class="subject">
+                        <a href="javascript:;">
 
-								<span class="from">Lisa Wong</span>
+                            教室
 
-								<span class="time">Just Now</span>
+                            <span class="arrow"></span>
 
-								</span>
+                        </a>
 
-								<span class="message">
+                        <ul class="sub-menu">
 
-								Vivamus sed auctor nibh congue nibh. auctor nibh
+                            <li><a href="#">1001教室</a></li>
 
-								auctor nibh...
+                            <li><a href="#">1002教室</a></li>
 
-								</span>  
+                            <li><a href="#">1003教室</a></li>
 
-								</a>
+                        </ul>
 
-							</li>
+                    </li>
 
-							<li>
+                    <li>
 
-								<a href="inbox.html?a=view">
+                        <a href="#">
 
-								<span class="photo"><img src="./media/image/avatar3.jpg" alt="" /></span>
+                            财务室
 
-								<span class="subject">
+                        </a>
 
-								<span class="from">Richard Doe</span>
+                    </li>
 
-								<span class="time">16 mins</span>
+                </ul>
 
-								</span>
+            </li>
+            <li>
 
-								<span class="message">
+                <a class="active" href="javascript:;">
 
-								Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh
+                    <i class="icon-sitemap"></i>
 
-								auctor nibh...
+                    <span class="title">资产管理</span>
 
-								</span>  
+                    <span class="arrow "></span>
 
-								</a>
+                </a>
 
-							</li>
+                <ul class="sub-menu">
 
-							<li>
+                    <li>
 
-								<a href="inbox.html?a=view">
+                        <a href="asform_layout.html">
 
-								<span class="photo"><img src="./media/image/avatar1.jpg" alt="" /></span>
+                            资产的入库
 
-								<span class="subject">
+                        </a>
 
-								<span class="from">Bob Nilson</span>
+                    </li>
 
-								<span class="time">2 hrs</span>
 
-								</span>
+                    <li>
 
-								<span class="message">
+                        <a href="#">
 
-								Vivamus sed nibh auctor nibh congue nibh. auctor nibh
+                            资产的维修
 
-								auctor nibh...
+                        </a>
 
-								</span>  
+                    </li>
+                    <li>
 
-								</a>
+                        <a href="#">
 
-							</li>
+                            资产的变动
 
-							<li class="external">
+                        </a>
 
-								<a href="inbox.html">See all messages <i class="m-icon-swapright"></i></a>
+                    </li>
+                    <li>
 
-							</li>
+                        <a href="#">
 
-						</ul>
+                            资产的事故
 
-					</li>
+                        </a>
 
-					<!-- END INBOX DROPDOWN -->
+                    </li>
+                    <li>
 
-					<!-- BEGIN TODO DROPDOWN -->
+                        <a href="#">
 
-					<li class="dropdown" id="header_task_bar">
+                            资产的运行情况
 
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        </a>
 
-						<i class="icon-tasks"></i>
+                    </li>
 
-						<span class="badge">5</span>
+                </ul>
 
-						</a>
+            </li>
+            <li>
 
-						<ul class="dropdown-menu extended tasks">
+                <a class="active" href="javascript:;">
 
-							<li>
+                    <i class="icon-sitemap"></i>
 
-								<p>You have 12 pending tasks</p>
+                    <span class="title">资产查询</span>
 
-							</li>
+                    <span class="arrow "></span>
 
-							<li>
+                </a>
 
-								<a href="#">
+                <ul class="sub-menu">
 
-								<span class="task">
+                    <li>
 
-								<span class="desc">New release v1.2</span>
+                        <a href="#">
 
-								<span class="percent">30%</span>
+                            资产查询
 
-								</span>
+                        </a>
 
-								<span class="progress progress-success ">
+                    </li>
+                    <li>
 
-								<span style="width: 30%;" class="bar"></span>
+                        <a href="#">
 
-								</span>
+                            变更查询
 
-								</a>
+                        </a>
 
-							</li>
+                    </li>
+                    <li>
 
-							<li>
+                        <a href="#">
 
-								<a href="#">
+                            维修查询
 
-								<span class="task">
+                        </a>
 
-								<span class="desc">Application deployment</span>
+                    </li>
+                    <li>
 
-								<span class="percent">65%</span>
+                        <a href="#">
 
-								</span>
+                            维修中
 
-								<span class="progress progress-danger progress-striped active">
+                        </a>
 
-								<span style="width: 65%;" class="bar"></span>
+                    </li>
+                    <li>
 
-								</span>
+                        <a href="#">
 
-								</a>
+                            已报废处理
 
-							</li>
+                        </a>
 
-							<li>
+                    </li>
 
-								<a href="#">
+                </ul>
 
-								<span class="task">
+            </li>
 
-								<span class="desc">Mobile app release</span>
+            <li>
 
-								<span class="percent">98%</span>
+                <a class="active" href="javascript:;">
 
-								</span>
+                    <i class="icon-sitemap"></i>
 
-								<span class="progress progress-success">
+                    <span class="title">资产使用部门</span>
 
-								<span style="width: 98%;" class="bar"></span>
+                    <span class="arrow "></span>
 
-								</span>
+                </a>
 
-								</a>
+                <ul class="sub-menu" id="item_department">
 
-							</li>
+                </ul>
 
-							<li>
+            </li>
 
-								<a href="#">
+            <li>
 
-								<span class="task">
+                <a class="active" href="javascript:;">
 
-								<span class="desc">Database migration</span>
+                    <i class="icon-sitemap"></i>
 
-								<span class="percent">10%</span>
+                    <span class="title">资产使用情况</span>
 
-								</span>
+                    <span class="arrow "></span>
 
-								<span class="progress progress-warning progress-striped">
+                </a>
 
-								<span style="width: 10%;" class="bar"></span>
+                <ul class="sub-menu">
 
-								</span>
+                    <li>
 
-								</a>
+                        <a href="#">
 
-							</li>
+                            使用中
 
-							<li>
+                        </a>
 
-								<a href="#">
+                    </li>
+                    <li>
 
-								<span class="task">
+                        <a href="#">
 
-								<span class="desc">Web server upgrade</span>
+                            未使用3
 
-								<span class="percent">58%</span>
+                        </a>
 
-								</span>
+                    </li>
+                    <li>
 
-								<span class="progress progress-info">
+                        <a href="#">
 
-								<span style="width: 58%;" class="bar"></span>
+                            借出中
 
-								</span>
+                        </a>
 
-								</a>
+                    </li>
+                    <li>
 
-							</li>
+                        <a href="#">
 
-							<li>
+                            维修中
 
-								<a href="#">
+                        </a>
 
-								<span class="task">
+                    </li>
+                    <li>
 
-								<span class="desc">Mobile development</span>
+                        <a href="#">
 
-								<span class="percent">85%</span>
+                            已报废处理
 
-								</span>
+                        </a>
 
-								<span class="progress progress-success">
+                    </li>
 
-								<span style="width: 85%;" class="bar"></span>
+                </ul>
 
-								</span>
+            </li>
 
-								</a>
+            <li>
 
-							</li>
+                <a class="active" href="javascript:;">
 
-							<li class="external">
+                    <i class="icon-sitemap"></i>
 
-								<a href="#">See all tasks <i class="m-icon-swapright"></i></a>
+                    <span class="title">资产类别</span>
 
-							</li>
+                    <span class="arrow "></span>
 
-						</ul>
+                </a>
 
-					</li>
+                <ul class="sub-menu">
 
-					<!-- END TODO DROPDOWN -->
+                    <li>
 
-					<!-- BEGIN USER LOGIN DROPDOWN -->
+                        <a href="#">
 
-					<li class="dropdown user">
+                            器材
 
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        </a>
 
-						<img alt="" src="media/image/avatar1_small.jpg" />
+                    </li>
+                    <li>
 
-						<span class="username">Bob Nilson</span>
+                        <a href="#">
 
-						<i class="icon-angle-down"></i>
+                            桌椅
 
-						</a>
+                        </a>
 
-						<ul class="dropdown-menu">
+                    </li>
+                    <li>
 
-							<li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
+                        <a href="#">
 
-							<li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
+                            电脑
 
-							<li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li>
+                        </a>
 
-							<li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
+                    </li>
+                    <li>
 
-							<li class="divider"></li>
+                        <a href="#">
 
-							<li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
+                            等等.......
 
-							<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                        </a>
 
-						</ul>
+                    </li>
 
-					</li>
+                </ul>
 
-					<!-- END USER LOGIN DROPDOWN -->
+            </li>
+            <li>
 
-				</ul>
+                <a class="active" href="javascript:;">
 
-				<!-- END TOP NAVIGATION MENU --> 
+                    <i class="icon-sitemap"></i>
 
-			</div>
+                    <span class="title">资产管理人员</span>
 
-		</div>
+                    <span class="arrow "></span>
 
-		<!-- END TOP NAVIGATION BAR -->
+                </a>
 
-	</div>
+                <ul class="sub-menu">
 
-	<!-- END HEADER -->
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
+                    <li>
 
-	<!-- BEGIN CONTAINER -->
+                        <a href="#">
 
-	<div class="page-container">
+                            张三
 
-		<!-- BEGIN SIDEBAR -->
+                        </a>
 
-		<div class="page-sidebar nav-collapse collapse">
+                    </li>
+                    <li>
 
-			<!-- BEGIN SIDEBAR MENU -->        
+                        <a href="#">
 
-			<ul class="page-sidebar-menu">
+                            李四
 
-				<li>
+                        </a>
 
-					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                    </li>
+                    <li>
 
-					<div class="sidebar-toggler hidden-phone"></div>
+                        <a href="#">
 
-					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                            王五
 
-				</li>
+                        </a>
 
-				<li>
+                    </li>
+                    <li>
 
-					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+                        <a href="#">
 
-					<form class="sidebar-search">
+                            赵六
 
-						<div class="input-box">
+                        </a>
 
-							<a href="javascript:;" class="remove"></a>
+                    </li>
 
-							<input type="text" placeholder="Search..." />
+                </ul>
 
-							<input type="button" class="submit" value=" " />
+            </li>
 
-						</div>
 
-					</form>
+        </ul>
 
-					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+        <!-- END SIDEBAR MENU -->
 
-				</li>
+    </div>
 
-				<li class="start active ">
+    <!-- END SIDEBAR -->
 
-					<a href="index.html">
+    <!-- BEGIN PAGE -->
 
-					<i class="icon-home"></i> 
+    <div class="page-content">
+        <!-- BEGIN PAGE -->
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div id="portlet-config" class="modal hide">
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button"></button>
+                <h3>portlet Settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>Here will be a configuration form</p>
+            </div>
+        </div>
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <!-- BEGIN PAGE CONTAINER-->
+        <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <h3 class="page-title">
+                        资产查询
+                    </h3>
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home"></i>
+                            <a href="index.html">首页</a>
+                            <i class="icon-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">资产查询</a>
+                            <i class="icon-angle-right"></i>
+                        </li>
+                        <li><a href="#">查询所有资产</a></li>
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
 
-					<span class="title">首页</span>
+            </div>
 
-					<span class="selected"></span>
+            <!-- END PAGE HEADER-->
 
-					</a>
+            <!-- BEGIN PAGE CONTENT-->
+            <div class="row-fluid">
+                <div class="span12">
 
-				</li>	
-				<li>
+                    <!-- BEGIN SAMPLE TABLE PORTLET-->
 
-					<a class="active" href="javascript:;">
+                    <div class="portlet box red">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-cogs"></i>查询</div>
+                            <div class="actions">
+                                <!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
+                                <a href="#" data-toggle="modal" class="btn green "><i class="icon-search"></i>
+                                   查询</a>
+                            </div>
+                        </div>
 
-					<i class="icon-sitemap"></i> 
+                        <div class="portlet-body">
+                            <!-- BEGIN FORM-->
 
-					<span class="title">资产存放地点</span>
+                            <form action="#" class="form-horizontal">
+                                <div class="row-fluid">
+                                    <div class="control-group">
+                                        <label class="control-label span2">设备名称</label>
+                                        <div class="controls span2">
+                                            <input type="text" placeholder="medium" class="m-wrap medium"/>
+                                        </div>
+                                        <label class="control-label span3">类型名称</label>
 
-					<span class="arrow "></span>
+                                        <div class="controls span2">
 
-					</a>
+                                            <select class="medium m-wrap" tabindex="1">
 
-					<ul class="sub-menu">
+                                                <option value="Category 1">Category 1</option>
 
-						<li>
+                                                <option value="Category 2">Category 2</option>
 
-							<a href="javascript:;">
+                                                <option value="Category 3">Category 5</option>
 
-							仓库
+                                                <option value="Category 4">Category 4</option>
 
-							<span class="arrow"></span>
+                                            </select>
 
-							</a>
+                                        </div>
 
-							<ul class="sub-menu">
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="control-group">
+                                            <label class="control-label span2">仓库名称</label>
+                                            <div class="controls span2">
+                                                <select class="medium m-wrap" tabindex="1">
 
-								<li><a href="#">仓库1</a></li>
+                                                    <option value="Category 1">Category 1</option>
 
-								<li><a href="#">仓库2</a></li>
+                                                    <option value="Category 2">Category 2</option>
 
-								<li><a href="#">仓库3</a></li>
+                                                    <option value="Category 3">Category 5</option>
 
-							</ul>
+                                                    <option value="Category 4">Category 4</option>
 
-						</li>
+                                                </select>
+                                            </div>
+                                            <label class="control-label span3">进库时间</label>
 
-						<li>
+                                            <div class="controls span2">
+                                                <div class="input-append date date-picker m-wrap medium"
+                                                     data-date="2016/12/02" data-date-format="yyyy/mm/dd"
+                                                     data-date-viewmode="years">
 
-							<a href="javascript:;">
+                                                    <input class="m-wrap m-ctrl-medium date-picker" readonly size="16"
+                                                           type="text" value=""/>
+                                                    <span class="add-on"><i
+                                                        class="icon-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
 
-							办公室
+                    </div>
+                    <!-- END SAMPLE TABLE PORTLET-->
+                </div>
 
-							<span class="arrow"></span>
 
-							</a>
+            </div>
 
-							<ul class="sub-menu">
+            <div class="row-fluid">
 
-								<li><a href="#">院长办公室</a></li>
+                <div class="span12">
 
-								<li><a href="#">书记办公室</a></li>
+                    <!-- BEGIN SAMPLE TABLE PORTLET-->
 
-								<li><a href="#">团委办公室</a></li>
-								
-								<li><a href="#">老师办公室</a></li>
+                    <div class="portlet box red">
 
-							</ul>
+                        <div class="portlet-title">
 
-						</li>
+                            <div class="caption"><i class="icon-cogs"></i>设备列表</div>
+                        </div>
 
-						<li>
+                        <div class="portlet-body">
 
-							<a href="javascript:;">
+                            <table class="table table-hover">
 
-							实验室
+                                <thead>
 
-							<span class="arrow"></span>
+                                <tr>
 
-							</a>
+                                    <th>#</th>
 
-							<ul class="sub-menu">
+                                    <th>First Name</th>
 
-								<li><a href="#">东机房</a></li>
+                                    <th>Last Name</th>
 
-								<li><a href="#">西机房</a></li>
+                                    <th class="hidden-480">Username</th>
 
-							</ul>
+                                    <th>Status</th>
 
-						</li>
-						
-						<li>
+                                </tr>
 
-							<a href="javascript:;">
+                                </thead>
 
-							教室
+                                <tbody>
 
-							<span class="arrow"></span>
+                                <tr>
 
-							</a>
+                                    <td>1</td>
 
-							<ul class="sub-menu">
+                                    <td>Mark</td>
 
-								<li><a href="#">1001教室</a></li>
+                                    <td>Otto</td>
 
-								<li><a href="#">1002教室</a></li>
+                                    <td class="hidden-480">makr124</td>
 
-								<li><a href="#">1003教室</a></li>
+                                    <td><span class="label label-success">Approved</span></td>
 
-							</ul>
+                                </tr>
 
-						</li>
-						
-						<li>
+                                <tr>
 
-							<a href="#">
+                                    <td>2</td>
 
-							财务室
+                                    <td>Jacob</td>
 
-							</a>
+                                    <td>Nilson</td>
 
-						</li>
+                                    <td class="hidden-480">jac123</td>
 
-					</ul>
+                                    <td><span class="label label-info">Pending</span></td>
 
-				</li>
-				<li>
+                                </tr>
 
-					<a class="active" href="javascript:;">
+                                <tr>
 
-					<i class="icon-sitemap"></i> 
+                                    <td>3</td>
 
-					<span class="title">资产管理</span>
+                                    <td>Larry</td>
 
-					<span class="arrow "></span>
+                                    <td>Cooper</td>
 
-					</a>
+                                    <td class="hidden-480">lar</td>
 
-					<ul class="sub-menu">
+                                    <td><span class="label label-warning">Suspended</span></td>
 
-						<li>
+                                </tr>
 
-							<a href="asform_layout.html">
+                                <tr>
 
-							资产的入库
+                                    <td>3</td>
 
-							</a>
+                                    <td>Sandy</td>
 
-						</li>
-				
+                                    <td>Lim</td>
 
-						<li>
+                                    <td class="hidden-480">sanlim</td>
 
-							<a href="#">
+                                    <td><span class="label label-danger">Blocked</span></td>
 
-							资产的维修
+                                </tr>
 
-							</a>
+                                </tbody>
 
-						</li>
-						<li>
+                            </table>
 
-							<a href="#">
+                        </div>
 
-							资产的变动
+                    </div>
+                    <!-- END SAMPLE TABLE PORTLET-->
+                </div>
+            </div>
+        </div>
 
-							</a>
+        <!-- END PAGE CONTAINER-->
 
-						</li>
-						<li>
 
-							<a href="#">
+        <!-- END PAGE -->
+    </div>
 
-							资产的事故
+    <!-- END PAGE -->
 
-							</a>
+</div>
 
-						</li>
-						<li>
+<!-- END CONTAINER -->
 
-							<a href="#">
+<!-- BEGIN FOOTER -->
+<script src="media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
 
-							资产的运行情况
+<script type="text/javascript" src="media/js/ckeditor.js"></script>
+<script type="text/javascript" src="media/js/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="media/js/select2.min.js"></script>
+<script type="text/javascript" src="media/js/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="media/js/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="media/js/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="media/js/jquery.toggle.buttons.js"></script>
+<script type="text/javascript" src="media/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="media/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="media/js/clockface.js"></script>
+<script type="text/javascript" src="media/js/date.js"></script>
+<script type="text/javascript" src="media/js/daterangepicker.js"></script>
+<script type="text/javascript" src="media/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="media/js/bootstrap-timepicker.js"></script>
+<script type="text/javascript" src="media/js/jquery.inputmask.bundle.min.js"></script>
+<script type="text/javascript" src="media/js/jquery.input-ip-address-control-1.0.min.js"></script>
+<script type="text/javascript" src="media/js/jquery.multi-select.js"></script>
+<script src="media/js/bootstrap-modal.js" type="text/javascript"></script>
+<script src="media/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+<script src="media/js/app.js"></script>
+<script src="media/js/form-components.js"></script>
+<script src="media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<script src="media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script src="media/js/bootstrap.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="media/js/excanvas.min.js"></script>
+<script src="media/js/respond.min.js"></script>
+<![endif]-->
+<script src="media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="media/js/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="media/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="media/js/jquery.uniform.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="media/js/jquery.vmap.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
+<script src="media/js/jquery.flot.js" type="text/javascript"></script>
+<script src="media/js/jquery.flot.resize.js" type="text/javascript"></script>
+<script src="media/js/jquery.pulsate.min.js" type="text/javascript"></script>
+<script src="media/js/date.js" type="text/javascript"></script>
+<script src="media/js/daterangepicker.js" type="text/javascript"></script>
+<script src="media/js/jquery.gritter.js" type="text/javascript"></script>
+<script src="media/js/fullcalendar.min.js" type="text/javascript"></script>
+<script src="media/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
+<script src="media/js/jquery.sparkline.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="media/js/app.js" type="text/javascript"></script>
+<script src="media/js/index.js" type="text/javascript"></script>
+<script type="text/javascript" src="media/js/bootstrap-datepicker.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
 
-							</a>
+<script>
 
-						</li>
+    jQuery(document).ready(function () {
 
-					</ul>
+        App.init(); // initlayout and core plugins
+        FormComponents.init();
+        initDepartment();
+    });
+    function initDepartment() {
 
-				</li>
-				<li>
+        $.ajax({
+            type: "GET",
+            url: "/sam/department/findDepartmentsFirst",
+            dataType: "JSON",
+            success: function (data) {
+                $(data).each(
+                        function (index, value) {
+                            $("#item_department").append(
+                                    "<li><a href='#'>" + value.adname + "<span class='arrow'></span></a><ul id='second_department_" + value.adid + "' class='sub-menu'></ul></li>"
+                            );
+                            initSecondDepartment(value.adid);
+                        }
+                );
+            },
+            errot: function (data) {
+                alert(data.status);
+            }
 
-					<a class="active" href="javascript:;">
 
-					<i class="icon-sitemap"></i> 
+        });
+    }
+    //遍历二级部门的方法
+    function initSecondDepartment(adlevel) {
+        $.ajax({
+            type: "post",
+            url: "/sam/department/findDepartmentsSecond",
+            data: "adlevel=" + adlevel,
+            dataType: "JSON",
+            success: function (data) {
+                $(data).each(
+                        function (index, val) {
+                            $("#second_department_" + adlevel).append(
+                                    "<li><a href='#'>" + val.adname + "</a></li>"
+                            );
+                        }
+                );
+            },
+            error: function (data) {
+                alert(data.status);
+            }
+        });
+    }
 
-					<span class="title">资产查询</span>
+</script>
 
-					<span class="arrow "></span>
-
-					</a>
-
-					<ul class="sub-menu">
-
-						<li>
-
-							<a href="#">
-
-							资产查询
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							变更查询
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							维修查询
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							维修中
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							已报废处理
-
-							</a>
-
-						</li>
-
-					</ul>
-
-				</li>
-				
-				<li>
-
-					<a class="active" href="javascript:;">
-
-					<i class="icon-sitemap"></i> 
-
-					<span class="title">资产使用部门</span>
-
-					<span class="arrow "></span>
-
-					</a>
-
-					<ul class="sub-menu" id="item_department">
-
-				<!-- 		<li>
-
-							<a href="javascript:;">
-
-							办公室
-
-							<span class="arrow"></span>
-
-							</a>
-
-							<ul class="sub-menu">
-
-								<li><a href="#">院长办公室</a></li>
-
-								<li><a href="#">书记办公室</a></li>
-
-								<li><a href="#">团委办公室</a></li>
-								
-								<li><a href="#">老师办公室</a></li>
-
-							</ul>
-
-						</li>
-
-						<li>
-
-							<a href="javascript:;">
-
-							实验室
-
-							<span class="arrow"></span>
-
-							</a>
-
-							<ul class="sub-menu">
-
-								<li><a href="#">东机房</a></li>
-
-								<li><a href="#">西机房</a></li>
-
-							</ul>
-
-						</li>
-						
-						<li>
-
-							<a href="javascript:;">
-
-							教室
-
-							<span class="arrow"></span>
-
-							</a>
-
-							<ul class="sub-menu">
-
-								<li><a href="#">1001教室</a></li>
-
-								<li><a href="#">1002教室</a></li>
-
-								<li><a href="#">1003教室</a></li>
-
-							</ul>
-
-						</li>
-						
-						<li>
-
-							<a href="#">
-
-							财务室
-
-							</a>
-
-						</li>
-
-					 -->
-					 </ul>
-
-				</li>
-				
-				<li>
-
-					<a class="active" href="javascript:;">
-
-					<i class="icon-sitemap"></i> 
-
-					<span class="title">资产使用情况</span>
-
-					<span class="arrow "></span>
-
-					</a>
-
-					<ul class="sub-menu">
-
-						<li>
-
-							<a href="#">
-
-							使用中
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							未使用3
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							借出中
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							维修中
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							已报废处理
-
-							</a>
-
-						</li>
-
-					</ul>
-
-				</li>
-				
-				<li>
-
-					<a class="active" href="javascript:;">
-
-					<i class="icon-sitemap"></i> 
-
-					<span class="title">资产类别</span>
-
-					<span class="arrow "></span>
-
-					</a>
-
-					<ul class="sub-menu">
-
-						<li>
-
-							<a href="#">
-
-							器材
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							桌椅
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							电脑
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							等等.......
-
-							</a>
-
-						</li>
-						
-					</ul>
-
-				</li>
-				<li>
-
-					<a class="active" href="javascript:;">
-
-					<i class="icon-sitemap"></i> 
-
-					<span class="title">资产管理人员</span>
-
-					<span class="arrow "></span>
-
-					</a>
-
-					<ul class="sub-menu">
-
-						<li>
-
-							<a href="#">
-
-							张三
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							李四
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							王五
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							赵六
-
-							</a>
-
-						</li>
-						
-					</ul>
-
-				</li>
-
-		
-			</ul>
-
-			<!-- END SIDEBAR MENU -->
-
-		</div>
-
-		<!-- END SIDEBAR -->
-
-		<!-- BEGIN PAGE -->
-
-		<div class="page-content">
-
-		
-
-		</div>
-
-		<!-- END PAGE -->
-
-	</div>
-
-	<!-- END CONTAINER -->
-
-	<!-- BEGIN FOOTER -->
-
-	<div class="footer">
-
-		<div class="footer-inner">
-
-			2013 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
-
-		</div>
-
-		<div class="footer-tools">
-
-			<span class="go-top">
-
-			<i class="icon-angle-up"></i>
-
-			</span>
-
-		</div>
-
-	</div>
-
-	<!-- END FOOTER -->
-
-	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-
-	<!-- BEGIN CORE PLUGINS -->
-
-	<script src="media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-
-	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-
-	<script src="media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
-
-	<script src="media/js/bootstrap.min.js" type="text/javascript"></script>
-
-	<!--[if lt IE 9]>
-
-	<script src="media/js/excanvas.min.js"></script>
-
-	<script src="media/js/respond.min.js"></script>  
-
-	<![endif]-->   
-
-	<script src="media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.blockui.min.js" type="text/javascript"></script>  
-
-	<script src="media/js/jquery.cookie.min.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.uniform.min.js" type="text/javascript" ></script>
-
-	<!-- END CORE PLUGINS -->
-
-	<!-- BEGIN PAGE LEVEL PLUGINS -->
-
-	<script src="media/js/jquery.vmap.js" type="text/javascript"></script>   
-
-	<script src="media/js/jquery.vmap.russia.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.vmap.world.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.vmap.europe.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.vmap.germany.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.vmap.usa.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>  
-
-	<script src="media/js/jquery.flot.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.flot.resize.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.pulsate.min.js" type="text/javascript"></script>
-
-	<script src="media/js/date.js" type="text/javascript"></script>
-
-	<script src="media/js/daterangepicker.js" type="text/javascript"></script>     
-
-	<script src="media/js/jquery.gritter.js" type="text/javascript"></script>
-
-	<script src="media/js/fullcalendar.min.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.sparkline.min.js" type="text/javascript"></script>  
-
-	<!-- END PAGE LEVEL PLUGINS -->
-
-	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-
-	<script src="media/js/app.js" type="text/javascript"></script>
-
-	<script src="media/js/index.js" type="text/javascript"></script>        
-
-
-	<!-- END PAGE LEVEL SCRIPTS -->  
-
-	<script>
-
-		jQuery(document).ready(function() {    
-
-		   App.init(); // initlayout and core plugins
-		    initDepartment();
-		});
-function initDepartment(){
-			
-			$.ajax({
-				type : "GET",
-				url : "/sam/department/findDepartmentsFirst",
-				dataType : "JSON",
-				success : function(data) {
-					$(data).each(
-						function(index,value){
-							$("#item_department").append(
-								"<li><a href='#'>"+value.adname+"<span class='arrow'></span></a><ul id='second_department_"+value.adid+"' class='sub-menu'></ul></li>"
-							);
-							initSecondDepartment(value.adid);
-						}
-					);
-				},
-				errot:function(data){
-					alert(data.status);
-				}
-	
-
-			});
-		 }
-		 //遍历二级部门的方法
-		 function initSecondDepartment(adlevel) {
-		 	$.ajax({
-		 		type:"post",
-		 		url:"/sam/department/findDepartmentsSecond",
-		 		data:"adlevel="+adlevel,
-		 		dataType:"JSON",
-		 		success: function(data) {
-		 			$(data).each(
-		 				function(index,val){
-		 					$("#second_department_"+adlevel).append(
-		 						"<li><a href='#'>"+val.adname+"</a></li>"
-		 					);
-		 				}
-		 			);
-		 		},
-		 		error:function(data) {
-		 			alert(data.status);
-		 		}
-		 	});
-		 }
-		 
-	</script>
-
-	<!-- END JAVASCRIPTS -->
+<!-- END JAVASCRIPTS -->
 
 </body>
 
