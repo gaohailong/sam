@@ -1,5 +1,7 @@
 package com.sam.controller;
 
+import javax.servlet.ServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,7 @@ import com.sam.service.AcceptService;
  *
  */
 @Controller
+
 @RequestMapping(value="/acceptController")
 public class AcceptController {
 
@@ -28,8 +31,19 @@ public class AcceptController {
 	 * @return
 	 */ 
 	@RequestMapping(value="/addAccept",method=RequestMethod.POST)
-	public String addAccept(AssetAccept accept,AssetInfo info){
+	public String addAccept(String acceptStr,AssetAccept accept){
+
+		AssetInfo info = new AssetInfo();
 		try {
+			String[] accStr = acceptStr.split(",");
+			for(int i=0;i<accStr.length;i++){
+				String[] acc = accStr[i].split(".");
+				info.setAimodel(acc[0]);
+				info.setAiname(acc[1]);
+				info.setAtname(acc[2]);
+			}
+			System.out.println(info);
+			System.out.println(accept);
 			int num = acceptService.addAccept(accept, info);
 			if(num>0){
 				return "添加正确的页面";
