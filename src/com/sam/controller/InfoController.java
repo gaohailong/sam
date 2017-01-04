@@ -18,6 +18,11 @@ import com.sam.entity.Pager;
 import com.sam.service.InfoService;
 import com.sam.util.ConstantUtil;
 
+/**
+ * 设备信息
+ * @author gaohailong
+ *
+ */
 @Controller
 @RequestMapping(value = "/infoController")
 public class InfoController {

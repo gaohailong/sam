@@ -715,7 +715,6 @@
                                         <div class="controls span2">
 
                                             <select class="medium m-wrap" tabindex="1" id="assetType">
-
                                                 <option value="">请选择</option>
                                             </select>
 
@@ -1003,16 +1002,17 @@
             url: "/sam/assetType/findAllAssetType",
             dataType: "JSON",
             success: function (data) {
-	            for(var i=0;i<data.length;i++){
-	            	$("#assetType").append( "<option value='"+data.atname+"'>"+data.atname+"</option>");
-	            }
-              /*   $(data).each(
-                        function (index, val) {
-                            $("#second_department_" + adlevel).append(
-                                    "<li><a href='#'>" + val.adname + "</a></li>"
-                            );
-                        }
-                ); */
+           	 console.log(data);
+         	  /* alert(data); */ 
+	            /*  $(data).each(
+	                        function (index, val) {
+		                        alert(val+"qwe");
+		                            $("#assetType").append(
+		                                  "<option value='"+val.adname+"'>"+val.adname+"</option>"
+		                            );
+	                        }
+	                );
+	                 */
             },
             error: function (data) {
                 alert(data.status);
