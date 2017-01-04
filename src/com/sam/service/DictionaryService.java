@@ -18,5 +18,5 @@ public interface DictionaryService {
 	 * @return
 	 * @throws Exception
 	 */
-	List<AssetDictionary> findAllDictionary() throws Exception;
+	List<AssetDictionary> findAllDictionary(Integer dicttype) throws Exception;
 }

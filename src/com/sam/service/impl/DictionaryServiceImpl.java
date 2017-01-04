@@ -25,9 +25,8 @@ public class DictionaryServiceImpl implements DictionaryService {
 	 * 查询字典表的所有内容
 	 */
 	@Override
-	public List<AssetDictionary> findAllDictionary() throws Exception {
-		// TODO Auto-generated method stub
-		return dictionaryDao.findAllDictionary();
+	public List<AssetDictionary> findAllDictionary(Integer dicttype) throws Exception {
+		return dictionaryDao.findAllDictionary(dicttype);
 	}
 
 }

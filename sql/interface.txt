@@ -1,0 +1,2 @@
+资产查询接口
+/infoController/findAssetByCondition                     资产条件查询

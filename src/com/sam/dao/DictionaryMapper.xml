@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sam.dao.DictionaryDao">
-	<select id="findAllDictionary" resultType="com.sam.entity.AssetDictionary">
-		select * from assetdictionary
+	<select id="findAllDictionary" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetDictionary">
+		select * from assetdictionary where adype=#{dicttype}
 	</select>
 </mapper>

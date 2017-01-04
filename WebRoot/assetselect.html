@@ -695,8 +695,8 @@
                             <div class="caption"><i class="icon-cogs"></i>查询</div>
                             <div class="actions">
                                 <!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
-                                <a href="#" data-toggle="modal" class="btn green "><i class="icon-search"></i>
-                                   查询</a>
+                                <button href="#" data-toggle="modal" class="btn green "><i class="icon-search"></i>
+                                   查询</button>
                             </div>
                         </div>
 
@@ -714,16 +714,9 @@
 
                                         <div class="controls span2">
 
-                                            <select class="medium m-wrap" tabindex="1">
+                                            <select class="medium m-wrap" tabindex="1" id="assetType">
 
-                                                <option value="Category 1">Category 1</option>
-
-                                                <option value="Category 2">Category 2</option>
-
-                                                <option value="Category 3">Category 5</option>
-
-                                                <option value="Category 4">Category 4</option>
-
+                                                <option value="">请选择</option>
                                             </select>
 
                                         </div>
@@ -956,6 +949,7 @@
         App.init(); // initlayout and core plugins
         FormComponents.init();
         initDepartment();
+        selectAssetType();
     });
     function initDepartment() {
 
@@ -1001,6 +995,31 @@
             }
         });
     }
+    
+    function selectAssetType(){
+    	
+        $.ajax({
+            type: "get",
+            url: "/sam/assetType/findAllAssetType",
+            dataType: "JSON",
+            success: function (data) {
+	            for(var i=0;i<data.length;i++){
+	            	$("#assetType").append( "<option value='"+data.atname+"'>"+data.atname+"</option>");
+	            }
+              /*   $(data).each(
+                        function (index, val) {
+                            $("#second_department_" + adlevel).append(
+                                    "<li><a href='#'>" + val.adname + "</a></li>"
+                            );
+                        }
+                ); */
+            },
+            error: function (data) {
+                alert(data.status);
+            }
+        });
+    }
+    
 
 </script>
 
