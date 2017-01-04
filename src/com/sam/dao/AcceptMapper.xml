@@ -3,6 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sam.dao.AcceptDao">
 	<insert id="addAccept" parameterType="com.sam.entity.AssetAccept">
-		insert into AssetAccept(aaid,aaname,aatype,aanumber,aadate,ahname,aaprice) values(AssetAccept_seq.nextval,#{aaname},,#{aatype},#{aanumber},sysdate,#{ahname},#{aaprice})
+		insert into AssetAccept(aaid,aaname,aatype,aanumber,aadate,ahname,aaprice) values(AssetAccept_seq.nextval,#{aaname},#{aatype},#{aanumber},sysdate,#{ahname},#{aaprice})
 	</insert>
 </mapper>

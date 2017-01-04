@@ -448,7 +448,8 @@
 				<!-- END PAGE HEADER-->
 
 				<!-- BEGIN PAGE CONTENT-->
-				<form id="acceptForm" action="acceptController/addAccept" method="post">
+				<form id="acceptForm">
+				</form>
 					<div class="row-fluid">
 
 						<div class="span12">
@@ -465,12 +466,14 @@
 
 									</div>
 									<div class="actions">
-									
-										<button type="submit" class="btn blue "><i class="icon-check"></i>
-											确定</button>
-										<a href="#" data-toggle="modal" class="btn yellow "><i class="icon-pencil"></i>
-											Edit</a> <a href="#responsive" data-toggle="modal"
-											class="btn green "><i class="icon-plus"></i> 添加产品</a>
+
+										<button onclick="javascript:addAcceptForm()" class="btn blue ">
+											<i class="icon-check"></i> 确定
+										</button>
+										<a href="#" data-toggle="modal" class="btn yellow "><i
+											class="icon-pencil"></i> Edit</a> <a href="#responsive"
+											data-toggle="modal" class="btn green "><i
+											class="icon-plus"></i> 添加产品</a>
 
 									</div>
 
@@ -507,7 +510,7 @@
 
 															<option value="Category 4">财务室</option>
 
-														</select> <select class="medium m-wrap" tabindex="1">
+														</select> <select class="medium m-wrap" tabindex="1" id="ahname">
 
 															<option value="Category 1">仓库</option>
 
@@ -530,7 +533,7 @@
 
 													<div class="controls">
 
-														<select class="medium m-wrap" tabindex="1">
+														<select class="medium m-wrap" tabindex="1" id="aatype">
 
 															<option value="Category 1">购买</option>
 
@@ -552,7 +555,7 @@
 
 													<div class="controls">
 
-														<input type="text" class="m-wrap medium" /> <span
+														<input type="text" class="m-wrap medium" id="aaname" /> <span
 															class="help-inline"></span>
 
 													</div>
@@ -565,8 +568,8 @@
 
 													<div class="controls">
 
-														<input type="text" class="m-wrap medium" /> <span
-															class="help-inline"></span>
+														<input type="text" class="m-wrap medium" id="aanumber" />
+														<span class="help-inline"></span>
 
 													</div>
 
@@ -578,8 +581,8 @@
 
 													<div class="controls">
 
-														<input type="text" class="m-wrap medium" /> <span
-															class="help-inline"></span>
+														<input type="text" class="m-wrap medium" id="aaprice" />
+														<span class="help-inline"></span>
 
 													</div>
 
@@ -613,7 +616,7 @@
 														<!-- BEGIN FORM-->
 
 														<div class="form-horizontal">
-														
+
 															<div class="control-group">
 																<div class="control-group"></div>
 																<div class="control-group"></div>
@@ -798,8 +801,9 @@
 																</div>
 
 															</div>
-															
-															<button id="accept-tbody-reset" class="hide" onclick="clearLittleForm()"></button>
+
+															<button id="accept-tbody-reset" class="hide"
+																onclick="clearLittleForm()"></button>
 
 														</div>
 
@@ -827,65 +831,6 @@
 									</div>
 
 								</div>
-
-								<!-- 小表单得东西给大table中添加 -->
-								<script type="text/javascript">
-									function addOne() {
-										var type = document
-												.getElementById("item_as_type").value;
-										var name = document
-												.getElementById("item_as_name").value;
-										var cateDetail = document
-												.getElementById("item_as_cateDetail").value;
-										var houseDetail = document
-												.getElementById("item_as_houseDetail").value;
-										var measuer = document
-												.getElementById("item_as_measuer").value;
-										var supply = document
-												.getElementById("item_as_supply").value;
-										var life = document
-												.getElementById("item_as_life").value;
-										var depreciation = document
-												.getElementById("item_as_depreciation").value;
-										var remainratio = document
-												.getElementById("item_as_remainratio").value;
-										var introduce = document
-												.getElementById("item_as_introduce").value;
-										var strc = type+"."+name+"."+cateDetail+"."+houseDetail+"."+measuer+"."+supply+"."+life+"."+depreciation+"."+remainratio+"."+introduce;
-										$("#acceptForm").prepend("<input type='hidden' name='acceptStr' value='"+strc+"' />");
-										var str = "<tr class=''><td>"
-												+ type
-												+ "</td><td>"
-												+ name
-												+ "</td><td>"
-												+ cateDetail
-												+ "</td><td>"
-												+ houseDetail
-												+ "</td><td>"
-												+ measuer
-												+ "</td><td>"
-												+ supply
-												+ "</td><td>"
-												+ life
-												+ "</td><td>"
-												+ depreciation
-												+ "</td><td>"
-												+ remainratio
-												+ "</td><td>"
-												+ introduce
-												+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
-										$("#accept-tbody").prepend(str);
-										$("#accept-tbody-reset").click();
-										$("#accept-tbody-close").click();
-									}
-									
-									function clearLittleForm(){
-										$("#accept-tbody-reset").siblings().children().find("input").attr("value","");
-										$("#accept-tbody-reset").siblings().children().find("textarea").attr("value","");
-									}
-								</script>
-
-
 
 							</div>
 
@@ -942,60 +887,7 @@
 
 
 										<tbody id="accept-tbody">
-											<tr class="">
-												<td>A210</td>
-
-												<td>康佳相机</td>
-
-												<td>电子产品</td>
-
-												<td>东仓</td>
-
-												<td>1200</td>
-
-												<td>太谷东厂</td>
-
-												<td>十年</td>
-
-												<td>恒定折旧</td>
-
-												<td>0.5%</td>
-
-												<td>低温,避光</td>
-
-												<td><a href="javascript:;">编辑</a></td>
-
-												<td><a class="delete" href="javascript:;">删除</a></td>
-
-											</tr>
-
-											<tr class="">
-
-												<td>A210</td>
-
-												<td>康佳相机</td>
-
-												<td>电子产品</td>
-
-												<td>东仓</td>
-
-												<td>1200</td>
-
-												<td>太谷东厂</td>
-
-												<td>十年</td>
-
-												<td>恒定折旧</td>
-
-												<td>0.5%</td>
-
-												<td>低温,避光</td>
-
-												<td><a href="javascript:;">编辑</a></td>
-
-												<td><a class="delete" href="javascript:;">删除</a></td>
-
-											</tr>
+											
 
 										</tbody>
 
@@ -1018,7 +910,6 @@
 						<!-- END PAGE CONTAINER-->
 
 					</div>
-				</form>
 				<!-- END PAGE -->
 			</div>
 
@@ -1089,6 +980,58 @@
 	<script src="media/js/ui-modals.js"></script>
 
 
+	<!-- 小表单得东西给大table中添加 -->
+	<script type="text/javascript">
+		function addOne() {
+			var type = document.getElementById("item_as_type").value;
+			var name = document.getElementById("item_as_name").value;
+			var cateDetail = document.getElementById("item_as_cateDetail").value;
+			var houseDetail = document.getElementById("item_as_houseDetail").value;
+			var measuer = document.getElementById("item_as_measuer").value;
+			var supply = document.getElementById("item_as_supply").value;
+			var life = document.getElementById("item_as_life").value;
+			var depreciation = document.getElementById("item_as_depreciation").value;
+			var remainratio = document.getElementById("item_as_remainratio").value;
+			var introduce = document.getElementById("item_as_introduce").value;
+			var strc = type + "~" + name + "~" + cateDetail + "~" + houseDetail
+					+ "~" + measuer + "~" + supply + "~" + life + "~"
+					+ depreciation + "~" + remainratio + "~" + introduce;
+			$("#acceptForm")
+					.append(
+							"<input type='hidden' name='acceptName' value='"+strc+"' />");
+			var str = "<tr class=''><td>"
+					+ type
+					+ "</td><td>"
+					+ name
+					+ "</td><td>"
+					+ cateDetail
+					+ "</td><td>"
+					+ houseDetail
+					+ "</td><td>"
+					+ measuer
+					+ "</td><td>"
+					+ supply
+					+ "</td><td>"
+					+ life
+					+ "</td><td>"
+					+ depreciation
+					+ "</td><td>"
+					+ remainratio
+					+ "</td><td>"
+					+ introduce
+					+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
+			$("#accept-tbody").prepend(str);
+			$("#accept-tbody-reset").click();
+			$("#accept-tbody-close").click();
+		}
+
+		function clearLittleForm() {
+			$("#accept-tbody-reset").siblings().children().find("input").attr(
+					"value", "");
+			$("#accept-tbody-reset").siblings().children().find("textarea")
+					.attr("value", "");
+		}
+	</script>
 
 
 	<script>
@@ -1103,6 +1046,35 @@
 			UIModals.init();
 
 		});
+
+		function addAcceptForm() {
+			var accStr = document.getElementsByName("acceptName");
+			var acceptStr = "";
+			for(var i=0;i<accStr.length;i++){
+				acceptStr += accStr[i].value+",";
+			}
+			var ahname = document.getElementById("ahname").value;
+			var aatype = document.getElementById("aatype").value;
+			var aaname = document.getElementById("aaname").value;
+			var aaprice = document.getElementById("aaprice").value;
+			var aanumber = document.getElementById("aanumber").value;
+			$.ajax({
+				type:"post",
+				url:"/sam/accept/addAccept",
+				data:"acceptStr="+acceptStr+"&ahname="+ahname+"&aatype="+aatype+"&aaname="+aaname+"&aaprice="+aaprice+"&aanumber="+aanumber,
+				dataType:"JSON",
+				success:function(data){
+					if(data>0){
+						alert("添加成功");
+						 window.location.reload();
+					}
+				},
+				error:function(data){
+					alert(data.status);
+				}
+			});
+			
+		}
 	</script>
 
 	<!-- END JAVASCRIPTS -->

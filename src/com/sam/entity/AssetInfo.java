@@ -18,15 +18,15 @@ public class AssetInfo implements java.io.Serializable {
 	private String adname;
 	private String asname;
 	private Date aidate;
-	private Date aimeasuer;
+	private String aimeasuer;
 	private String aisupply;
 	private Integer aimoney;
 	private Integer aaid;
-	private Date ailife;
+	private String ailife;
 	private Integer acid;
 	private String airemark;
 	private String aidepreciation;
-	private Integer airemainratio;
+	private String airemainratio;
 	private Integer abid;
 
 	// Constructors
@@ -38,9 +38,9 @@ public class AssetInfo implements java.io.Serializable {
 	/** full constructor */
 	public AssetInfo(String aimodel, String ainame, String atname,
 			String ahname, String adname, String asname, Date aidate,
-			Date aimeasuer, String aisupply, Integer aimoney,
-			Date ailife, String airemark, String aidepreciation,
-			Integer airemainratio,Integer aaid,Integer acid,Integer abid) {
+			String aimeasuer, String aisupply, Integer aimoney,
+			String ailife, String airemark, String aidepreciation,
+			String airemainratio,Integer aaid,Integer acid,Integer abid) {
 		this.aimodel = aimodel;
 		this.ainame = ainame;
 		this.atname = atname;
@@ -126,11 +126,11 @@ public class AssetInfo implements java.io.Serializable {
 		this.aidate = aidate;
 	}
 
-	public Date getAimeasuer() {
+	public String getAimeasuer() {
 		return this.aimeasuer;
 	}
 
-	public void setAimeasuer(Date aimeasuer) {
+	public void setAimeasuer(String aimeasuer) {
 		this.aimeasuer = aimeasuer;
 	}
 
@@ -150,11 +150,11 @@ public class AssetInfo implements java.io.Serializable {
 		this.aimoney = aimoney;
 	}
 
-	public Date getAilife() {
+	public String getAilife() {
 		return this.ailife;
 	}
 
-	public void setAilife(Date ailife) {
+	public void setAilife(String ailife) {
 		this.ailife = ailife;
 	}
 
@@ -174,11 +174,11 @@ public class AssetInfo implements java.io.Serializable {
 		this.aidepreciation = aidepreciation;
 	}
 
-	public Integer getAiremainratio() {
+	public String getAiremainratio() {
 		return this.airemainratio;
 	}
 
-	public void setAiremainratio(Integer airemainratio) {
+	public void setAiremainratio(String airemainratio) {
 		this.airemainratio = airemainratio;
 	}
 

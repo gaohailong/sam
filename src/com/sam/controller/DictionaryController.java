@@ -18,7 +18,7 @@ import com.sam.service.DictionaryService;
  *
  */
 @Controller
-@RequestMapping(value="/dictionaryController")
+@RequestMapping(value="/dictionary")
 public class DictionaryController {
 
 	@Autowired

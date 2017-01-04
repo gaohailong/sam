@@ -17,5 +17,5 @@ public interface AcceptService {
 	 * @return
 	 * @throws Exception
 	 */
-	int addAccept(AssetAccept accept,AssetInfo info) throws Exception;
+	int addAccept(String acceptStr,AssetAccept accept) throws Exception;
 }
