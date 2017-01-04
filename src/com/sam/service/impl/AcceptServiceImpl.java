@@ -47,6 +47,7 @@ public class AcceptServiceImpl implements AcceptService {
 					info.setAhname(acc[3].trim());
 					info.setAimoney(100);
 					System.out.println(acc[4]);
+					info.setAsname("未使用");
 					info.setAimeasuer(acc[4].trim());
 					info.setAisupply(acc[5].trim());
 					info.setAilife(acc[6].trim());
