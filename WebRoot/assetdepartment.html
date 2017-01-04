@@ -1482,61 +1482,7 @@
 		   initAllAssetInfo(1);
 		});
 		
-		//根据部门查询资产
-		//未实现
-		function findAssetBydname(dname,page) {
-			$.ajax({
-				type : "GET",
-				url : "/sam/department/findAssetInfosBydname",
-				data : "dname="+dname"&page"=page,
-				dataType : "JSON",
-				success : function(data) {
-					//总页数
-					var totalPage = data.totalPage;
-					
-					//当前页码
-					var currentPage = data.currentPage;
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
-					}
-					$("#perPage").attr("href","javascript:initAllAssetInfo("+dname,perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:initAllAssetInfo("+nextPage+");");
-					$("#lastPage").attr("href","javascript:initAllAssetInfo("+totalPage+");");
-					
-					//总条目数
-					var totalRecord = data.totalRecord;
-					$("#totalRecord").html(totalRecord);
-					
-										
-					var assetInfoList = data.dataList;
-					$("#assetTbody").html("");
-					for(var i = 0;i < assetInfoList.length;i++) {
-						$("#assetTbody").append(
-							"<tr>"
-							+"<td>"+assetInfoList[i].aiid+"</td>"
-							+"<td>"+assetInfoList[i].ainame+"</td>"
-							+"<td>"+assetInfoList[i].aimodel+"</td>"
-							+"<td>"+assetInfoList[i].atname+"</td>"
-							+"<td>"+assetInfoList[i].asname+"</td>"
-							+"<td>"+assetInfoList[i].adname+"</td>"
-							+"</tr>"
-						);
-					}
-				},
-				error : function() {
-					alert("出错了");
-				}
-			});
-		}
+		
 		
 		//初始化全部设备的分页信息
 		function initAllAssetInfo(page) {
@@ -1628,9 +1574,15 @@ function initDepartment(){
 		 			$(data).each(
 		 				function(index,val){
 		 					$("#second_department_"+adlevel).append(
-		 						"<li><a href='#'>"+val.adname+"</a></li>"
+		 						"<li><a id='second_department_dtail_"+val.adid+"' href='#'>"+val.adname+"</a></li>"
+		 					);
+		 					$("#second_department_dtail_"+val.adid).click(
+		 						function() {
+		 							findAssetBydname(val.adname,1);
+		 						}
 		 					);
 		 				}
+		 				
 		 			);
 		 		},
 		 		error:function(data) {
@@ -1638,6 +1590,62 @@ function initDepartment(){
 		 		}
 		 	});
 		 }
+		 
+		//根据部门查询资产
+		//未实现
+		function findAssetBydname(dname,page) {
+			$.ajax({
+				type : "POST",
+				url : "/sam/department/findAssetInfosBydname",
+				data : "dname="+dname+"&page="+page,
+				dataType : "JSON",
+				success : function(data) {
+					//总页数
+					var totalPage = data.totalPage;
+					
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:findAssetBydname('"+dname+"','"+perPagenum+"'"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:findAssetBydname('"+dname+"','"+nextPage+"'");
+					$("#lastPage").attr("href","javascript:findAssetBydname('"+dname+"','"+totalPage+"'");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetInfoList = data.dataList;
+					$("#assetTbody").html("");
+					for(var i = 0;i < assetInfoList.length;i++) {
+						$("#assetTbody").append(
+							"<tr>"
+							+"<td>"+assetInfoList[i].aiid+"</td>"
+							+"<td>"+assetInfoList[i].ainame+"</td>"
+							+"<td>"+assetInfoList[i].aimodel+"</td>"
+							+"<td>"+assetInfoList[i].atname+"</td>"
+							+"<td>"+assetInfoList[i].asname+"</td>"
+							+"<td>"+assetInfoList[i].adname+"</td>"
+							+"</tr>"
+						);
+					}
+				},
+				error : function() {
+					alert("出错了");
+				}
+			});
+		}
 		 
 	</script>
 
