@@ -67,11 +67,12 @@ public class DepartmentController extends BaseController {
 	 * @param page
 	 * @return
 	 */
-	@RequestMapping(value="/findAssetInfosBydname",method=RequestMethod.GET)
+	@RequestMapping(value="/findAssetInfosBydname",method=RequestMethod.POST)
 	@ResponseBody
 	public Pager<AssetInfo> findAssetInfosByDname(String dname ,Integer page) {
 		try {
 			System.out.println("进入findAssetInfosByDname控制器");
+			System.out.println("dname:"+dname);
 			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
 			if(page != null) {
 				pageNum = page;
@@ -86,6 +87,12 @@ public class DepartmentController extends BaseController {
 		}
 	}
 	
+	/**
+	 * 部门管理下的遍历全部的资产
+	 * @author zhw
+	 * @param page
+	 * @return
+	 */
 	@RequestMapping(value="/findAssetInfos",method=RequestMethod.GET)
 	@ResponseBody
 	public Pager<AssetInfo> findAssetInfos(Integer page) {

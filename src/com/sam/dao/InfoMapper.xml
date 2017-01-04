@@ -4,8 +4,8 @@
 <mapper namespace="com.sam.dao.InfoDao">
 	<insert id="addInfo" parameterType="com.sam.entity.AssetInfo">
 		insert into
-		assetinfo(aiid,aimodel,ainame,atname,ahname,adname,asname,aaid,aidate,aiMeasuer,aiSupply,aiMoney,aiLife,aiRemark,aidepreciation,airemainratio)
-		values(assetinfo_seq.nextval,#{aimodel},#{ainame},#{atname},#{ahname},#{adname},#{asname},#{aaid},#{aidate},#{aiMeasuer},#{aiSupply},#{aiMoney},#{aiLife},#{aiRemark},#{aidepreciation},#{airemainratio})
+		assetinfo(aiid,aimodel,ainame,atname,ahname,aaid,aidate,aiMeasuer,aiSupply,aiMoney,aiLife,aiRemark,aidepreciation,airemainratio)
+		values(assetinfo_seq.nextval,#{aimodel},#{ainame},#{atname},#{ahname},#{aaid},sysdate,to_date(#{aimeasuer},'yyyy-mm-dd'),#{aisupply},#{aimoney},to_date(#{ailife},'yyyy-mm-dd'),#{airemark},#{aidepreciation},#{airemainratio})
 	</insert>
 	<select id="findInfoByAiname" parameterType="java.lang.String"
 		resultType="com.sam.entity.AssetInfo">

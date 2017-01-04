@@ -1,6 +1,7 @@
 package com.sam.test;
 
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,7 +16,7 @@ public class TestConn {
 	@Test
 	public void test() {
 		// TODO Auto-generated method stub
-		ppp();
+		System.out.println(new Date());
 	}
 
 	public  void ppp(){

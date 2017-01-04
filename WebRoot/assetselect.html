@@ -967,7 +967,7 @@
                         }
                 );
             },
-            errot: function (data) {
+            error: function (data) {
                 alert(data.status);
             }
 
@@ -980,7 +980,7 @@
             type: "post",
             url: "/sam/department/findDepartmentsSecond",
             data: "adlevel=" + adlevel,
-            dataType: "JSON",
+            dataType: "HTML",
             success: function (data) {
                 $(data).each(
                         function (index, val) {

@@ -123,5 +123,14 @@ public class AssetAccept implements java.io.Serializable {
 	public void setAhname(String ahname) {
 		this.ahname = ahname;
 	}
+	
+	@Override
+	public String toString() {
+		return "AssetAccept [aaid=" + aaid + ", aaname=" + aaname + ", aiid="
+				+ aiid + ", ainame=" + ainame + ", aanumber=" + aanumber
+				+ ", aatype=" + aatype + ", aadate=" + aadate + ", aaprice="
+				+ aaprice + ", aalife=" + aalife + ", ahname=" + ahname + "]";
+	}
 
+	
 }
