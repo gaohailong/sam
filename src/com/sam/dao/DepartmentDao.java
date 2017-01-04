@@ -17,4 +17,10 @@ public interface DepartmentDao {
 	 */
 	public List<AssetInfo> findAssetInfosByDname(String dname);
 
+	/**
+	 * 查询全部的资产
+	 * @return
+	 */
+	public List<AssetInfo> findAssetInfos();
+
 }

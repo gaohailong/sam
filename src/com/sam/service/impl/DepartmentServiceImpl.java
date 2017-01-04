@@ -22,7 +22,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return departmentDao.findAssetDepartmentsByAdlevel(adlevel);
 	}
 
-	//根据部门id分页查询
 	@Override
 	public Pager<AssetInfo> findAssetByDname(String dname,
 			int pageNum, int pageSize) {
@@ -33,7 +32,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return pager;
 	}
 	
-	//根据部门id查询全部的资产
+	/**
+	 * 根据部门name查询全部的资产
+	 * @param dname
+	 * @return
+	 */
 	private List<AssetInfo> findAssetInfosByDname(String dname) {
 		/*AssetInfo assetInfo1 = new AssetInfo();
 		AssetInfo assetInfo2 = new AssetInfo();
@@ -45,6 +48,17 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return asList;*/
 		return departmentDao.findAssetInfosByDname(dname);
 		
+	}
+
+	@Override
+	public Pager<AssetInfo> findAssets(int pageNum, int pageSize) {
+		List<AssetInfo> assetInfoList = findAssetInfos();
+		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfoList);
+		return pager;
+	}
+	
+	private List<AssetInfo> findAssetInfos() {
+		return departmentDao.findAssetInfos();
 	}
 
 }

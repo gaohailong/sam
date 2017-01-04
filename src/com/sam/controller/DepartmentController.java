@@ -67,7 +67,7 @@ public class DepartmentController extends BaseController {
 	 * @param page
 	 * @return
 	 */
-	@RequestMapping(value="/findAssetInfos",method=RequestMethod.GET)
+	@RequestMapping(value="/findAssetInfosBydname",method=RequestMethod.GET)
 	@ResponseBody
 	public Pager<AssetInfo> findAssetInfosByDname(String dname ,Integer page) {
 		try {
@@ -77,9 +77,27 @@ public class DepartmentController extends BaseController {
 				pageNum = page;
 			}
 			int pageSize = ConstantUtil.DEFAULT_PAGE_SIZE;
-			Pager<AssetInfo> assstResult = departmentService.findAssetByDname(dname, pageNum, pageSize);
-			System.out.println(assstResult.getDataList().size());
-			return assstResult;
+			Pager<AssetInfo> assetResult = departmentService.findAssetByDname(dname, pageNum, pageSize);
+			System.out.println(assetResult.getDataList().size());
+			return assetResult;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@RequestMapping(value="/findAssetInfos",method=RequestMethod.GET)
+	@ResponseBody
+	public Pager<AssetInfo> findAssetInfos(Integer page) {
+		try {
+			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
+			if(page != null) {
+				pageNum = page;
+				System.out.println("控制器：pageNum："+pageNum);
+			}
+			int pageSize = ConstantUtil.DEFAULT_PAGE_SIZE;
+			Pager<AssetInfo> assetResult = departmentService.findAssets(pageNum, pageSize);
+			return assetResult;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

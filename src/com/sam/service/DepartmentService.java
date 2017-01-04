@@ -10,7 +10,7 @@ public interface DepartmentService {
 	public List<AssetDepartment> findAssetDepartmentsByAdlevel(Integer adlevel);
 	
 	/**
-	 * 根据部门id查询资产的分页方法
+	 * 根据部门name查询资产的分页方法
 	 * @param departmentId 
 	 * 			查询条件
 	 * @param pageNum
@@ -20,4 +20,17 @@ public interface DepartmentService {
 	 * @return
 	 */
 	public Pager<AssetInfo> findAssetByDname(String dname,int pageNum, int pageSize);
+	
+	/**
+	 * 
+	 * 查询全部的资产分页
+	 * @param pageNum
+	 * 			查询第几页数据
+	 * @param pageSize
+	 * 			每页显示多少条数据
+	 * @return
+	 */
+	public Pager<AssetInfo> findAssets(int pageNum,int pageSize);
+	
+	
 }
