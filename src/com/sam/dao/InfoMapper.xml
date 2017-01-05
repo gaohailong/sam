@@ -52,4 +52,8 @@
 			AND aidate=#{aidate},
 		</if>
 	</select>
+	<!-- 查询全部的资产 -->
+	<select id="findAssetInfos" resultType="com.sam.entity.AssetInfo">
+		select * from AssetInfo
+	</select>
 </mapper>

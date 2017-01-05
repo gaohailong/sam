@@ -37,6 +37,7 @@ public class DictionaryController {
 			@RequestParam(value = "dicttype", required = true) Integer dicttype) {
 		List<AssetDictionary> dictionaryList = null;
 		try {
+			
 			dictionaryList = dictionaryService.findAllDictionary(dicttype);
 		} catch (Exception e) {
 			e.printStackTrace();

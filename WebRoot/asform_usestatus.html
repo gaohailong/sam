@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 
-<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 
 <!-- BEGIN HEAD -->
 
@@ -12,7 +12,7 @@
 
 	<meta charset="utf-8" />
 
-	<title>Metronic | Admin Dashboard Template</title>
+	<title>Metronic | Form Stuff - Form Layouts</title>
 
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -40,21 +40,14 @@
 
 	<!-- END GLOBAL MANDATORY STYLES -->
 
-	<!-- BEGIN PAGE LEVEL STYLES --> 
+	<link rel="shortcut icon" href="media/image/favicon.ico" />
+	<!-- BEGIN PAGE LEVEL STYLES -->
 
-	<link href="media/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="media/css/select2_metro.css" />
 
-	<link href="media/css/daterangepicker.css" rel="stylesheet" type="text/css" />
-
-	<link href="media/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
-
-	<link href="media/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
-
-	<link href="media/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="media/css/DT_bootstrap.css" />
 
 	<!-- END PAGE LEVEL STYLES -->
-
-	<link rel="shortcut icon" href="media/image/favicon.ico" />
 
 </head>
 
@@ -78,7 +71,7 @@
 
 				<a class="brand" href="index.html">
 
-				<img src="media/image/logo.png" alt="logo"/>
+				<img src="media/image/logo.png" alt="logo" />
 
 				</a>
 
@@ -264,7 +257,7 @@
 
 								<a href="inbox.html?a=view">
 
-								<span class="photo"><img src="./media/image/avatar3.jpg" alt="" /></span>
+								<span class="photo"><img src="media/image/avatar3.jpg" alt="" /></span>
 
 								<span class="subject">
 
@@ -290,7 +283,7 @@
 
 								<a href="inbox.html?a=view">
 
-								<span class="photo"><img src="./media/image/avatar1.jpg" alt="" /></span>
+								<span class="photo"><img src="media/image/avatar1.jpg" alt="" /></span>
 
 								<span class="subject">
 
@@ -537,11 +530,10 @@
 	</div>
 
 	<!-- END HEADER -->
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
 
 	<!-- BEGIN CONTAINER -->
 
-	<div class="page-container">
+	<div class="page-container row-fluid">
 
 		<!-- BEGIN SIDEBAR -->
 
@@ -583,7 +575,7 @@
 
 				</li>
 
-				<li class="start active ">
+				<li class="start">
 
 					<a href="index.html">
 
@@ -596,6 +588,7 @@
 					</a>
 
 				</li>	
+
 				<li>
 
 					<a class="active" href="javascript:;">
@@ -711,15 +704,18 @@
 					</ul>
 
 				</li>
+
 				<li>
 
-					<a class="active" href="javascript:;">
+					<a href="javascript:;">
 
-					<i class="icon-sitemap"></i> 
+					<i class="icon-table"></i> 
 
 					<span class="title">资产管理</span>
 
-					<span class="arrow "></span>
+					<span class="selected"></span>
+
+					<span class="arrow open"></span>
 
 					</a>
 
@@ -729,16 +725,20 @@
 
 							<a href="asform_layout.html">
 
-							资产的入库
-
-							</a>
+							资产的入库</a>
 
 						</li>
-				
+						<li>
+
+							<a href="asform_layin.html">
+
+							资产的出库</a>
+
+						</li>
 
 						<li>
 
-							<a href="#">
+							<a href="asform_repaire.html">
 
 							资产的维修
 
@@ -746,36 +746,38 @@
 
 						</li>
 						<li>
+	
+							<a class="active" href="asform_change.html" href="javascript:;">
 
-							<a href="#">
+								<i class="icon-sitemap"></i> 
 
-							资产的变动
+								 <span class="title">资产的变动</span>
 
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							资产的事故
+								 <span class="arrow "></span>
 
 							</a>
+									
+							
+							<ul class="sub-menu">
+
+								<li><a href="asform_yijiao.html">移交</a></li>
+
+								<li><a href="#">折旧</a></li>
+
+								<li><a href="#">报废</a></li>
+								
+								<li><a href="#">领用</a></li>
+								
+								<li><a href="#">回收</a></li>
+
+							</ul>
 
 						</li>
-						<li>
-
-							<a href="#">
-
-							资产的运行情况
-
-							</a>
-
-						</li>
-
+						
 					</ul>
 
 				</li>
+				
 				<li>
 
 					<a class="active" href="javascript:;">
@@ -792,7 +794,7 @@
 
 						<li>
 
-							<a href="assetselect.html">
+							<a href="#">
 
 							资产查询
 
@@ -852,9 +854,9 @@
 
 					</a>
 
-					<ul class="sub-menu" id="item_department">
+					<ul class="sub-menu">
 
-				<!-- 		<li>
+						<li>
 
 							<a href="javascript:;">
 
@@ -930,12 +932,11 @@
 
 						</li>
 
-					 -->
-					 </ul>
+					</ul>
 
 				</li>
 				
-				<li>
+				<li class="active">
 
 					<a class="active" href="javascript:;">
 
@@ -947,9 +948,9 @@
 
 					</a>
 
-					<ul class="sub-menu"  id="icon-userstatus">
+					<ul class="sub-menu" id="icon-userstatus">
 
-						<!-- <li>
+						<!-- <li class="active">
 
 							<a href="#">
 
@@ -1059,7 +1060,7 @@
 
 					<i class="icon-sitemap"></i> 
 
-					<span class="title">资产管理人员</span>
+					<span class="title">人员管理</span>
 
 					<span class="arrow "></span>
 
@@ -1071,7 +1072,7 @@
 
 							<a href="#">
 
-							张三
+							仓库人员管理
 
 							</a>
 
@@ -1080,7 +1081,7 @@
 
 							<a href="#">
 
-							李四
+							
 
 							</a>
 
@@ -1089,7 +1090,7 @@
 
 							<a href="#">
 
-							王五
+							借用人员管理
 
 							</a>
 
@@ -1107,8 +1108,103 @@
 					</ul>
 
 				</li>
+				<li>
 
-		
+					<a class="active" href="javascript:;">
+
+					<i class="icon-sitemap"></i> 
+
+					<span class="title">设备借还</span>
+
+					<span class="arrow "></span>
+
+					</a>
+
+					<ul class="sub-menu">
+
+						<li>
+
+							<a href="#">
+
+							设备借用申请
+
+							</a>
+
+						</li>
+						<li>
+
+							<a href="#">
+
+							设备归还登记
+
+							</a>
+
+						</li>
+						<li>
+
+							<a href="#">
+
+							审核进度
+
+							</a>
+
+						</li>
+						<li>
+
+							<a href="#">
+
+							借出记录
+
+							</a>
+
+						</li>
+						<li>
+
+							<a href="#">
+
+							归还记录
+
+							</a>
+
+						</li>
+						
+					</ul>
+
+				</li>
+				
+				<li>
+
+					<a class="active" href="javascript:;">
+
+					<i class="icon-sitemap"></i> 
+
+					<span class="title">图表统计</span>
+
+					<span class="arrow "></span>
+
+					</a>
+
+					
+
+				</li>
+				<li>
+
+					<a class="active" href="javascript:;">
+
+					<i class="icon-sitemap"></i> 
+
+					<span class="title">报表导出</span>
+
+					<span class="arrow "></span>
+
+					</a>
+
+					
+
+				</li>
+
+
+
 			</ul>
 
 			<!-- END SIDEBAR MENU -->
@@ -1117,21 +1213,364 @@
 
 		<!-- END SIDEBAR -->
 
-		<!-- BEGIN PAGE -->
+		<!-- BEGIN PAGE -->  
 
 		<div class="page-content">
 
-		
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+			<div id="portlet-config" class="modal hide">
+
+				<div class="modal-header">
+
+					<button data-dismiss="modal" class="close" type="button"></button>
+
+					<h3>portlet Settings</h3>
+
+				</div>
+
+				<div class="modal-body">
+
+					<p>Here will be a configuration form</p>
+
+				</div>
+
+			</div>
+
+			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->   
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN STYLE CUSTOMIZER -->
+
+						<div class="color-panel hidden-phone">
+
+							<div class="color-mode-icons icon-color"></div>
+
+							<div class="color-mode-icons icon-color-close"></div>
+
+							<div class="color-mode">
+
+								<p>THEME COLOR</p>
+
+								<ul class="inline">
+
+									<li class="color-black current color-default" data-style="default"></li>
+
+									<li class="color-blue" data-style="blue"></li>
+
+									<li class="color-brown" data-style="brown"></li>
+
+									<li class="color-purple" data-style="purple"></li>
+
+									<li class="color-grey" data-style="grey"></li>
+
+									<li class="color-white color-light" data-style="light"></li>
+
+								</ul>
+
+								<label>
+
+									<span>Layout</span>
+
+									<select class="layout-option m-wrap small">
+
+										<option value="fluid" selected>Fluid</option>
+
+										<option value="boxed">Boxed</option>
+
+									</select>
+
+								</label>
+
+								<label>
+
+									<span>Header</span>
+
+									<select class="header-option m-wrap small">
+
+										<option value="fixed" selected>Fixed</option>
+
+										<option value="default">Default</option>
+
+									</select>
+
+								</label>
+
+								<label>
+
+									<span>Sidebar</span>
+
+									<select class="sidebar-option m-wrap small">
+
+										<option value="fixed">Fixed</option>
+
+										<option value="default" selected>Default</option>
+
+									</select>
+
+								</label>
+
+								<label>
+
+									<span>Footer</span>
+
+									<select class="footer-option m-wrap small">
+
+										<option value="fixed">Fixed</option>
+
+										<option value="default" selected>Default</option>
+
+									</select>
+
+								</label>
+
+							</div>
+
+						</div>
+
+						<!-- END BEGIN STYLE CUSTOMIZER -->  
+
+						<h3 class="page-title">
+
+							资产使用情况
+
+							 <small></small>
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+							<li>
+
+								<i class="icon-home"></i>
+
+								<a href="">主页</a> 
+
+								<span class="icon-angle-right"></span>
+
+							</li>
+
+							<li>
+
+								<a href="#">资产使用情况</a>
+
+								<span class="icon-angle-right"></span>
+
+							</li>
+
+							<li><a href="asform_layin.html">使用中</a></li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE HEADER-->
+
+				<!-- BEGIN PAGE CONTENT-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN SAMPLE FORM PORTLET-->   
+
+						<div class="portlet box red tabbable">
+
+
+
+							<div class="portlet-body form" style="padding-left:10px;">
+
+								<div class="tabbable portlet-tabs">
+
+	
+
+								<div class="row-fluid" style="margin-left:-10px;padding-right:10px;">
+									<div class="span12">
+										<div class="portlet box red">
+
+							<div class="portlet-title">
+
+								<div class="caption"><i class="icon-globe"></i>查询详情列表</div>
+
+								<div class="tools">
+
+									<a href="javascript:;" class="reload"></a>
+
+									<a href="javascript:;" class="remove"></a>
+
+								</div>
+
+							</div>
+
+														<div class="portlet-body">
+
+								<table class="table ">
+
+									<thead>
+
+										<tr>
+											<th>设备id</th>
+											
+											<th>设备名称</th>
+
+											<th>设备型号</th>
+
+											<th>类型名称</th>
+
+											<th>仓库名称</th>
+
+											<th>生产日期</th>
+
+											<th>生产单位</th>
+
+											<th>保质期</th>
+											
+											<th>设备备注</th>
+	
+											<th>设备状态</th>
+
+										</tr>
+
+									</thead>
+
+									<tbody id="accept-tbody">
+
+<!-- 
+										<tr class="">
+
+											<td>A210</td>
+
+											<td>康佳相机</td>
+
+											<td>电子产品</td>
+
+											<td>东仓</td>
+
+											<td>1200</td>
+
+											<td>太谷东厂</td>
+
+											<td>十年</td>
+
+											<td>恒定折旧</td>
+
+											<td>0.5%</td>
+
+											<td>低温,避光</td>
+
+											<td><a href="javascript:;">编辑</a></td>
+
+											<td><a class="delete" href="javascript:;">删除</a></td>
+
+										</tr>
+
+										<tr class="">
+
+											<td>A210</td>
+
+											<td>康佳相机</td>
+
+											<td>电子产品</td>
+
+											<td>东仓</td>
+
+											<td>1200</td>
+
+											<td>太谷东厂</td>
+
+											<td>十年</td>
+
+											<td>恒定折旧</td>
+
+											<td>0.5%</td>
+
+											<td>低温,避光</td>
+
+										</tr> -->
+
+									</tbody>
+
+								</table>
+
+
+
+								<!-- END EXAMPLE TABLE PORTLET-->
+
+								<!-- END SAMPLE FORM PORTLET-->
+
+							</div>
+
+						</div>
+  					<center>
+	                    <a href="javascript:initAllAssetInfo(1);" data-toggle="modal" class="btn red ">首页</a>  |
+	                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
+	                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
+	                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
+	                   	第<span id="currentPage"></span>页 | 
+	                   	共<span id="totalRecord"></span>条
+                   
+                   </center>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<!-- END SAMPLE FORM PORTLET-->
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE CONTENT-->         
+
+			</div>
+
+			<!-- END PAGE CONTAINER-->
 
 		</div>
 
-		<!-- END PAGE -->
+		<!-- END PAGE -->  
 
 	</div>
 
 	<!-- END CONTAINER -->
 
 	<!-- BEGIN FOOTER -->
+
+	<div class="footer">
+
+		<div class="footer-inner">
+
+			2013 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
+
+		</div>
+
+		<div class="footer-tools">
+
+			<span class="go-top">
+
+			<i class="icon-angle-up"></i>
+
+			</span>
+
+		</div>
+
+	</div>
 
 	<!-- END FOOTER -->
 
@@ -1167,135 +1606,204 @@
 
 	<!-- END CORE PLUGINS -->
 
-	<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript" src="media/js/bootstrap-datepicker.js"></script>
 
-	<script src="media/js/jquery.vmap.js" type="text/javascript"></script>   
+	<script src="media/js/jquery.fancybox.pack.js"></script>
 
-	<script src="media/js/jquery.vmap.russia.js" type="text/javascript"></script>
+	<script src="media/js/app.js"></script>
 
-	<script src="media/js/jquery.vmap.world.js" type="text/javascript"></script>
+	<script src="media/js/search.js"></script> 	
+	
+	<script src="media/js/table-advanced.js"></script>
+	
+	<script src="media/js/table-editable.js"></script>  
 
-	<script src="media/js/jquery.vmap.europe.js" type="text/javascript"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
 
-	<script src="media/js/jquery.vmap.germany.js" type="text/javascript"></script>
+	<script type="text/javascript" src="media/js/select2.min.js"></script>
 
-	<script src="media/js/jquery.vmap.usa.js" type="text/javascript"></script>
+	<script type="text/javascript" src="media/js/jquery.dataTables.min.js"></script>
 
-	<script src="media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>  
+	<script type="text/javascript" src="media/js/DT_bootstrap.js"></script>
 
-	<script src="media/js/jquery.flot.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.flot.resize.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.pulsate.min.js" type="text/javascript"></script>
-
-	<script src="media/js/date.js" type="text/javascript"></script>
-
-	<script src="media/js/daterangepicker.js" type="text/javascript"></script>     
-
-	<script src="media/js/jquery.gritter.js" type="text/javascript"></script>
-
-	<script src="media/js/fullcalendar.min.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.sparkline.min.js" type="text/javascript"></script>  
-
-	<!-- END PAGE LEVEL PLUGINS -->
-
-	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-
-	<script src="media/js/app.js" type="text/javascript"></script>
-
-	<script src="media/js/index.js" type="text/javascript"></script>        
-
-
-	<!-- END PAGE LEVEL SCRIPTS -->  
+	<!-- END PAGE LEVEL PLUGINS -->	
 
 	<script>
 
-		jQuery(document).ready(function() {    
+		jQuery(document).ready(function() {   
 
-		   App.init(); // initlayout and core plugins
-		    initDepartment();
-		    userstatus();
-		});
-function initDepartment(){
+		   // initiate layout and plugins
+
+		   App.init();
+		   
+		   Search.init();
+		  
+		   initAllAssetInfo(1);
 			
-			$.ajax({
-				type : "GET",
-				url : "/sam/department/findDepartmentsFirst",
-				dataType : "JSON",
-				success : function(data) {
-					$(data).each(
-						function(index,value){
-							$("#item_department").append(
-								"<li><a href='#'>"+value.adname+"<span class='arrow'></span></a><ul id='second_department_"+value.adid+"' class='sub-menu'></ul></li>"
-							);
-							initSecondDepartment(value.adid);
-						}
-					);
-				},
-				errot:function(data){
-					alert(data.status);
-				}
-	
-
-			});
-		 }
-		 //遍历二级部门的方法
-		 function initSecondDepartment(adlevel) {
-		 	$.ajax({
-		 		type:"post",
-		 		url:"/sam/department/findDepartmentsSecond",
-		 		data:"adlevel="+adlevel,
-		 		dataType:"JSON",
-		 		success: function(data) {
-		 			$(data).each(
-		 				function(index,val){
-		 					$("#second_department_"+adlevel).append(
-		 						"<li><a href='#'>"+val.adname+"</a></li>"
-		 					);
-		 				}
-		 			);
-		 		},
-		 		error:function(data) {
-		 			alert(data.status);
-		 		}
-		 	});
-		 }
+		   userstatus();
+		});
 		function userstatus(){
-		var data = { 
+			var data = { 
 			 "dicttype":0 
 			 }; 
-			
-			$.ajax({
+			alert("使用情况菜单");
+				$.ajax({
 				type:"get",
+				data:data,
 				url:"/sam/dictionaryController/findAllDictionary",
 				dataType:"JSON",
-				data:data,
 				success:function(data){
-				
-					$(data).each(
-					function(index,val){
-					
-						$("#icon-userstatus").append(
-							"<li><a href='#'>"+val.asname+"</a></li>"
+			
+					 $(data).each(
+						function(index,val){
+							$("#icon-userstatus").append(
+								"<li><a id='userstatus_"+val.asname+"' href='#'>"+val.asname+"</a></li>"
+								
+							);
 							
-						);
-					} 
-					);
+							$("#userstatus_"+val.asname).click(
+		 						function() {
+		 							findAssetByasname(val.asname,1);
+		 						}
+		 					);
+						}
+					); 
 				},
 				error:function(data){
 					alert(data.status);
-					
 				}
 				
 				});
 		}
+		
+		//初始化全部设备的分页信息
+		function initAllAssetInfo(page) {
+			$.ajax({
+				type : "GET",
+				url : "/sam/department/findAssetInfos",
+				data : "page="+page,
+				dataType : "JSON",
+				success : function(data) {
+				
+					//总页数
+					var totalPage = data.totalPage;
+					
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:initAllAssetInfo("+perPagenum+");"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:initAllAssetInfo("+nextPage+");");
+					$("#lastPage").attr("href","javascript:initAllAssetInfo("+totalPage+");");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetInfoList = data.dataList;
+					$("#accept-tbody").html("");
+					for(var i = 0;i < assetInfoList.length;i++) {
+						$("#accept-tbody").append(
+							"<tr>"
+							+"<td>"+assetInfoList[i].aiid+"</td>"
+							+"<td>"+assetInfoList[i].ainame+"</td>"
+							+"<td>"+assetInfoList[i].aimodel+"</td>"
+							+"<td>"+assetInfoList[i].atname+"</td>"
+							+"<td>"+assetInfoList[i].ahname+"</td>"
+							+"<td>"+assetInfoList[i].aiMeasuer+"</td>"
+							+"<td>"+assetInfoList[i].aiSupply+"</td>"
+							+"<td>"+assetInfoList[i].aiLife+"</td>"
+							+"<td>"+assetInfoList[i].aiRemark+"</td>"
+							+"<td>"+assetInfoList[i].asname+"</td>"
+							+"</tr>"
+						);
+					}
+				},
+				error : function() {
+				alert("出错了");
+				}
+			});
+		}
+		//根据资产使用情况查询资产
+		function findAssetByasname(asname,page) {
+			$.ajax({
+				type : "POST",
+				url : "/sam/infoController/findInfoByAsname",
+				data : "asname="+asname+"&page="+page,
+				dataType : "JSON",
+				success : function(data) {
+					//总页数
+					var totalPage = data.totalPage;
+					
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:findAssetByasname('"+asname+"','"+perPagenum+"'"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:findAssetByasname('"+asname+"','"+nextPage+"'");
+					$("#lastPage").attr("href","javascript:findAssetByasname('"+asname+"','"+totalPage+"'");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetInfoList = data.dataList;
+					if(assetInfoList.length==0){
+					alert("没有该状态下的资产");
+					/* $("#accept-tbody").append(
+						"<center>"没有该状态下的资产"</center>"
+					); */
+					}
+					$("#accept-tbody").html("");
+					for(var i = 0;i < assetInfoList.length;i++) {
+					
+						$("#accept-tbody").append(
+							"<tr>"
+							+"<td>"+assetInfoList[i].aiid+"</td>"
+							+"<td>"+assetInfoList[i].ainame+"</td>"
+							+"<td>"+assetInfoList[i].aimodel+"</td>"
+							+"<td>"+assetInfoList[i].atname+"</td>"
+							+"<td>"+assetInfoList[i].ahname+"</td>"
+							+"<td>"+assetInfoList[i].aiMeasuer+"</td>"
+							+"<td>"+assetInfoList[i].aiSupply+"</td>"
+							+"<td>"+assetInfoList[i].aiLife+"</td>"
+							+"<td>"+assetInfoList[i].aiRemark+"</td>"
+							+"<td>"+assetInfoList[i].asname+"</td>"
+							+"</tr>"
+						);
+					}
+				},
+				error : function() {
+					alert("出错了");
+				}
+			});
+		}
+
 	</script>
 
-	<!-- END JAVASCRIPTS -->
+	<!-- END JAVASCRIPTS -->   
 
 </body>
 
