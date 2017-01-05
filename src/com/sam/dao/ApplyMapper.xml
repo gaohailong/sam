@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sam.dao.ApplyDao">
+	<!-- 添加借出申请 -->
+	<insert id="addApply" parameterType="com.sam.entity.AssetApply">
+		insert into AssetApply(aaid,adname,auname,audate,ainame,auSupply,auNumber,auMoney,auReason,auRemark) values(AssetApply_seq.nextval,#{adname},#{auname},sysdate,#{ainame},#{ausupply},#{aunumber},#{aumoney},#{aureason},#{auremark})
+	</insert>
+	<!-- 查询所有的购置申请 -->
+	<select id="findApply" resultType="com.sam.entity.AssetApply">
+		select * from AssetApply
+	</select>
+	
+	
+</mapper>

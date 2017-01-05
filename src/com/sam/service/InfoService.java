@@ -22,7 +22,7 @@ public interface InfoService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<AssetInfo> findInfoByAsname(String asname) throws Exception;
+	public Pager<AssetInfo> findInfoByAsname(String asname,int pageNum, int pageSize) throws Exception;
 
 	/**
 	 * 
@@ -43,5 +43,16 @@ public interface InfoService {
 	 * @author gaohailong 设备条件查询
 	 */
 	Pager<AssetInfo> findAssetByCondition(AssetInfo assetInfo,Integer pageNum,Integer pageSize) throws Exception;
+	
 
+	/**
+	 * 
+	 * 查询全部的资产分页
+	 * @param pageNum
+	 * 			查询第几页数据
+	 * @param pageSize
+	 * 			每页显示多少条数据
+	 * @return
+	 */
+	public Pager<AssetInfo> findAssets(int pageNum,int pageSize);
 }

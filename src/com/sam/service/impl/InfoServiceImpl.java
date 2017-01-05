@@ -27,10 +27,14 @@ public class InfoServiceImpl implements InfoService {
 	}
 
 	@Override
-	public List<AssetInfo> findInfoByAsname(String asname) throws Exception {
+	public Pager<AssetInfo> findInfoByAsname(String asname,int pageNum, int pageSize) throws Exception {
+		List<AssetInfo> assetInfoList = findInfoByAsname(asname);
+		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfoList);
+		return pager;
+	}
+	private List<AssetInfo> findInfoByAsname(String asname) throws Exception {
 		return infoDao.findInfoByAsname(asname);
 	}
-
 	@Override
 	public List<AssetInfo> findInfoByAcid(Integer acid) throws Exception {
 		return infoDao.findInfoByAcid(acid);
@@ -47,5 +51,18 @@ public class InfoServiceImpl implements InfoService {
 		List<AssetInfo> assetInfos= infoDao.findInfoByCondition(assetInfo);
 		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfos);
 		return pager;
+	}
+
+	
+
+	@Override
+	public Pager<AssetInfo> findAssets(int pageNum, int pageSize) {
+		List<AssetInfo> assetInfoList = findAssetInfos();
+		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfoList);
+		return pager;
+	}
+	
+	private List<AssetInfo> findAssetInfos() {
+		return infoDao.findAssetInfos();
 	}
 }
