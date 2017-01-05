@@ -677,9 +677,7 @@
 			selectAssetType();
 		});
 		function initDepartment() {
-
-			$
-					.ajax({
+			$.ajax({
 						type : "GET",
 						url : "/sam/department/findDepartmentsFirst",
 						dataType : "JSON",
@@ -723,21 +721,13 @@
 		}
 
 		function selectAssetType() {
-
 			$.ajax({
 				type : "get",
 				url : "/sam/assetType/findAllAssetType",
 				dataType : "JSON",
 				success : function(data) {
-				
-					alert("132");
-					alert(data);
-					
 					$(data).each(
 							function(index, val) {
-								alert(index);
-								alert(val + "qwe");
-								alert(val.atname);
 								$("#assetType").append(
 										"<option value='"+val.atname+"'>"
 												+ val.atname + "</option>");
