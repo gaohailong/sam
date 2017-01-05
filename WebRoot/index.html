@@ -1220,7 +1220,10 @@
 		    initDepartment();
 		    userstatus();
 		});
-function initDepartment(){
+		
+		
+		
+		function initDepartment(){
 			
 			$.ajax({
 				type : "GET",
@@ -1264,34 +1267,89 @@ function initDepartment(){
 		 		}
 		 	});
 		 }
-		function userstatus(){
-		var data = { 
-			 "dicttype":0 
-			 }; 
-			
+		 
+		 
+		 //遍历所有仓库
+		 function initWareHouse(){
 			$.ajax({
-				type:"get",
-				url:"/sam/dictionaryController/findAllDictionary",
-				dataType:"JSON",
-				data:data,
-				success:function(data){
-				
+				type : "GET",
+				url : "/sam/wareHouse/findAllFirstHouse",
+				dataType : "JSON",
+				success : function(data) {
 					$(data).each(
-					function(index,val){
-					
-						$("#icon-userstatus").append(
-							"<li><a href='#'>"+val.asname+"</a></li>"
-							
-						);
-					} 
+						function(index,value){
+							$("#item_department").append(
+								"<li><a href='#'>"+value.adname+"<span class='arrow'></span></a><ul id='second_department_"+value.adid+"' class='sub-menu'></ul></li>"
+							);
+							initSecondWareHouse(value.adid);
+						}
 					);
 				},
-				error:function(data){
+				errot:function(data){
 					alert(data.status);
-					
 				}
+	
+
+			});
+		 }
+		 
+		 //遍历所有二级仓库
+		 function initSecondWareHouse(adlevel) {
+		 	$.ajax({
+		 		type:"GET",
+		 		url:"/sam/wareHouse/findAllSecondHouse",
+		 		data:"adlevel="+adlevel,
+		 		dataType:"JSON",
+		 		success: function(data) {
+		 			$(data).each(
+		 				function(index,val){
+		 					$("#second_department_"+adlevel).append(
+		 						"<li><a id='second_department_dtail_"+val.adid+"' href='#'>"+val.adname+"</a></li>"
+		 					);
+		 					$("#second_department_dtail_"+val.adid).click(
+		 						function() {
+		 							findAssetBydname(val.adname,1);
+		 						}
+		 					);
+		 				}
+		 				
+		 			);
+		 		},
+		 		error:function(data) {
+		 			alert(data.status);
+		 		}
+		 	});
+		 }
+		 
+		 
+		function userstatus(){
+			var data = { 
+				 "dicttype":0 
+				 }; 
 				
-				});
+				$.ajax({
+					type:"get",
+					url:"/sam/dictionaryController/findAllDictionary",
+					dataType:"JSON",
+					data:data,
+					success:function(data){
+					
+						$(data).each(
+						function(index,val){
+						
+							$("#icon-userstatus").append(
+								"<li><a href='#'>"+val.asname+"</a></li>"
+								
+							);
+						} 
+						);
+					},
+					error:function(data){
+						alert(data.status);
+						
+					}
+					
+					});
 		}
 	</script>
 
