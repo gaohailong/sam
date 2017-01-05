@@ -17,7 +17,7 @@ public class AssetApply implements java.io.Serializable {
 	private String ainame;
 	private String ausupply;
 	private Integer aunumber;
-	private Integer aumoney;
+	private Double aumoney;
 	private String aureason;
 	private String auremark;
 	private String auresult;
@@ -29,11 +29,17 @@ public class AssetApply implements java.io.Serializable {
 	public AssetApply() {
 	}
 
+	/** minimal constructor */
+	public AssetApply(Integer aaid) {
+		this.aaid = aaid;
+	}
+
 	/** full constructor */
-	public AssetApply(String adname, String auname, Date audate,
-			String ainame, String ausupply, Integer aunumber, Integer aumoney,
+	public AssetApply(Integer aaid, String adname, String auname, Date audate,
+			String ainame, String ausupply, Integer aunumber, Double aumoney,
 			String aureason, String auremark, String auresult,
 			String auresultremark) {
+		this.aaid = aaid;
 		this.adname = adname;
 		this.auname = auname;
 		this.audate = audate;
@@ -105,11 +111,11 @@ public class AssetApply implements java.io.Serializable {
 		this.aunumber = aunumber;
 	}
 
-	public Integer getAumoney() {
+	public Double getAumoney() {
 		return this.aumoney;
 	}
 
-	public void setAumoney(Integer aumoney) {
+	public void setAumoney(Double aumoney) {
 		this.aumoney = aumoney;
 	}
 

@@ -12,8 +12,6 @@ public class AssetBack implements java.io.Serializable {
 
 	private Integer abid;
 	private String auname;
-	private String ainame;
-	private Integer aiid;
 	private Date abdate;
 	private String abdeluser;
 	private String abcontent;
@@ -24,12 +22,16 @@ public class AssetBack implements java.io.Serializable {
 	public AssetBack() {
 	}
 
+	/** minimal constructor */
+	public AssetBack(Integer abid) {
+		this.abid = abid;
+	}
+
 	/** full constructor */
-	public AssetBack(String auname, String ainame, Integer aiid, Date abdate,
-			String abdeluser, String abcontent) {
+	public AssetBack(Integer abid, String auname, Date abdate, String abdeluser,
+			String abcontent) {
+		this.abid = abid;
 		this.auname = auname;
-		this.ainame = ainame;
-		this.aiid = aiid;
 		this.abdate = abdate;
 		this.abdeluser = abdeluser;
 		this.abcontent = abcontent;
@@ -51,22 +53,6 @@ public class AssetBack implements java.io.Serializable {
 
 	public void setAuname(String auname) {
 		this.auname = auname;
-	}
-
-	public String getAiname() {
-		return this.ainame;
-	}
-
-	public void setAiname(String ainame) {
-		this.ainame = ainame;
-	}
-
-	public Integer getAiid() {
-		return this.aiid;
-	}
-
-	public void setAiid(Integer aiid) {
-		this.aiid = aiid;
 	}
 
 	public Date getAbdate() {

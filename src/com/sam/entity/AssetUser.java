@@ -21,9 +21,15 @@ public class AssetUser implements java.io.Serializable {
 	public AssetUser() {
 	}
 
+	/** minimal constructor */
+	public AssetUser(Integer auid) {
+		this.auid = auid;
+	}
+
 	/** full constructor */
-	public AssetUser(String urname, String udname, String auname,
+	public AssetUser(Integer auid, String urname, String udname, String auname,
 			String aupass, String auphone) {
+		this.auid = auid;
 		this.urname = urname;
 		this.udname = udname;
 		this.auname = auname;

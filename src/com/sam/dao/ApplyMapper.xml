@@ -11,5 +11,16 @@
 		select * from AssetApply
 	</select>
 	
+	<select id="findApplyByAinameAndAdname" resultType="com.sam.entity.AssetApply"
+	   parameterType="com.sam.entity.AssetApply">
+	  select * from AssetApply where 
+	  <if test="ainame!=null">
+	    ainame=#{ainame},
+	  </if>
+	  <if test="adname!=null">
+	  AND adname=#{adname},
+	  </if>
+	</select>
+	
 	
 </mapper>

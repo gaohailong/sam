@@ -40,7 +40,7 @@ public class ApplyController extends BaseController{
 			@RequestParam(value="ainame",required = false)String ainame,
 			@RequestParam(value="auSupply",required = false)String auSupply,
 			@RequestParam(value="auNumber",required = false)Integer auNumber,
-			@RequestParam(value="auMoney",required = false)Integer auMoney,
+			@RequestParam(value="auMoney",required = false)Double auMoney,
 			@RequestParam(value="auReason",required = false)String auReason,
 			@RequestParam(value="auRemark",required = false)String auRemark){
 		AssetApply assetapply = new AssetApply();
@@ -86,6 +86,29 @@ public class ApplyController extends BaseController{
 			return null;
 			
 		}
+	}
+	
+	/**
+	 * 多条件分页查询
+	 * @author wc
+	 * @param page
+	 */
+	@ResponseBody
+    @RequestMapping(value = "/findApplyByAinameAndAdname",method=RequestMethod.GET)
+	public Pager<AssetApply> findApplyByAinameAndAdname(
+			@RequestParam(value = "ainame",required = false)String ainame,
+			@RequestParam(value = "adname",required = false)String adname,
+			@RequestParam(value = "pageNum",required = false)Integer pageNum){
+		try{
+		AssetApply assetapply = new AssetApply();
+		assetapply.setAiname(ainame.trim());
+		assetapply.setAdname(adname.trim());
+				return applyService.findApplyByAinameAndAdname(assetapply, pageNum,
+						ConstantUtil.DEFAULT_PAGE_SIZE);
+		}catch(Exception ex){
+			return null;
+		}
+		
 	}
 	
 

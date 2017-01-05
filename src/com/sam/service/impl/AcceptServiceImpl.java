@@ -35,7 +35,7 @@ public class AcceptServiceImpl implements AcceptService {
 			for (int i = 0; i < accStr.length; i++) {
 				if(accStr[i]!=null){
 					AssetInfo info = new AssetInfo();
-					info.setAaid(aaid);
+					info.setAcceptid(aaid);
 					System.out.println(acceptStr);
 					System.out.println(accStr[i]);
 					String[] acc = accStr[i].split("~");
@@ -45,14 +45,14 @@ public class AcceptServiceImpl implements AcceptService {
 					info.setAiname(acc[1].trim());
 					info.setAtname(acc[2].trim());
 					info.setAhname(acc[3].trim());
-					info.setAimoney(100);
+					info.setAimoney(100.0);
 					System.out.println(acc[4]);
 					info.setAsname("未使用");
 					info.setAimeasuer(acc[4].trim());
 					info.setAisupply(acc[5].trim());
 					info.setAilife(acc[6].trim());
 					info.setAidepreciation(acc[7].trim());
-					info.setAiremainratio(acc[8].trim());
+					info.setAiremainratio(Double.parseDouble(acc[8].trim()));
 					info.setAiremark(acc[9].trim());
 					infoDao.addInfo(info);
 				}

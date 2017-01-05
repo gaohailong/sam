@@ -23,9 +23,15 @@ public class AssetLog implements java.io.Serializable {
 	public AssetLog() {
 	}
 
+	/** minimal constructor */
+	public AssetLog(Integer alid) {
+		this.alid = alid;
+	}
+
 	/** full constructor */
-	public AssetLog(String auname, String ainame, Integer aiid, String alop,
-			Date audate) {
+	public AssetLog(Integer alid, String auname, String ainame, Integer aiid,
+			String alop, Date audate) {
+		this.alid = alid;
 		this.auname = auname;
 		this.ainame = ainame;
 		this.aiid = aiid;

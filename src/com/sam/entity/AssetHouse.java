@@ -20,8 +20,15 @@ public class AssetHouse implements java.io.Serializable {
 	public AssetHouse() {
 	}
 
+	/** minimal constructor */
+	public AssetHouse(Integer ahid) {
+		this.ahid = ahid;
+	}
+
 	/** full constructor */
-	public AssetHouse(String ahname, Integer auid, String auname, Integer ahlevel) {
+	public AssetHouse(Integer ahid, String ahname, Integer auid, String auname,
+			Integer ahlevel) {
+		this.ahid = ahid;
 		this.ahname = ahname;
 		this.auid = auid;
 		this.auname = auname;

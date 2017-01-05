@@ -11,23 +11,26 @@ public class AssetInfo implements java.io.Serializable {
 	// Fields
 
 	private Integer aiid;
+	private Integer aicard;
 	private String aimodel;
 	private String ainame;
 	private String atname;
 	private String ahname;
 	private String adname;
 	private String asname;
+	private Integer acceptid;
+	private Integer repairid;
+	private Integer backid;
+	private Integer broorwid;
+	private Integer changeid;
 	private Date aidate;
 	private String aimeasuer;
 	private String aisupply;
-	private Integer aimoney;
-	private Integer aaid;
+	private Double aimoney;
 	private String ailife;
-	private Integer acid;
 	private String airemark;
 	private String aidepreciation;
-	private String airemainratio;
-	private Integer abid;
+	private Double airemainratio;
 
 	// Constructors
 
@@ -35,29 +38,39 @@ public class AssetInfo implements java.io.Serializable {
 	public AssetInfo() {
 	}
 
+	/** minimal constructor */
+	public AssetInfo(Integer aiid) {
+		this.aiid = aiid;
+	}
+
 	/** full constructor */
-	public AssetInfo(String aimodel, String ainame, String atname,
-			String ahname, String adname, String asname, Date aidate,
-			String aimeasuer, String aisupply, Integer aimoney,
-			String ailife, String airemark, String aidepreciation,
-			String airemainratio,Integer aaid,Integer acid,Integer abid) {
+	public AssetInfo(Integer aiid, Integer aicard, String aimodel, String ainame,
+			String atname, String ahname, String adname, String asname,
+			Integer acceptid, Integer repairid, Integer backid, Integer broorwid,
+			Integer changeid, Date aidate, String aimeasuer, String aisupply,
+			Double aimoney, String ailife, String airemark,
+			String aidepreciation, Double airemainratio) {
+		this.aiid = aiid;
+		this.aicard = aicard;
 		this.aimodel = aimodel;
 		this.ainame = ainame;
 		this.atname = atname;
 		this.ahname = ahname;
 		this.adname = adname;
 		this.asname = asname;
+		this.acceptid = acceptid;
+		this.repairid = repairid;
+		this.backid = backid;
+		this.broorwid = broorwid;
+		this.changeid = changeid;
 		this.aidate = aidate;
 		this.aimeasuer = aimeasuer;
 		this.aisupply = aisupply;
 		this.aimoney = aimoney;
 		this.ailife = ailife;
-		this.aaid = aaid ;
 		this.airemark = airemark;
-		this.acid = acid;
 		this.aidepreciation = aidepreciation;
 		this.airemainratio = airemainratio;
-		this.abid = abid;
 	}
 
 	// Property accessors
@@ -68,6 +81,14 @@ public class AssetInfo implements java.io.Serializable {
 
 	public void setAiid(Integer aiid) {
 		this.aiid = aiid;
+	}
+
+	public Integer getAicard() {
+		return this.aicard;
+	}
+
+	public void setAicard(Integer aicard) {
+		this.aicard = aicard;
 	}
 
 	public String getAimodel() {
@@ -118,6 +139,46 @@ public class AssetInfo implements java.io.Serializable {
 		this.asname = asname;
 	}
 
+	public Integer getAcceptid() {
+		return this.acceptid;
+	}
+
+	public void setAcceptid(Integer acceptid) {
+		this.acceptid = acceptid;
+	}
+
+	public Integer getRepairid() {
+		return this.repairid;
+	}
+
+	public void setRepairid(Integer repairid) {
+		this.repairid = repairid;
+	}
+
+	public Integer getBackid() {
+		return this.backid;
+	}
+
+	public void setBackid(Integer backid) {
+		this.backid = backid;
+	}
+
+	public Integer getBroorwid() {
+		return this.broorwid;
+	}
+
+	public void setBroorwid(Integer broorwid) {
+		this.broorwid = broorwid;
+	}
+
+	public Integer getChangeid() {
+		return this.changeid;
+	}
+
+	public void setChangeid(Integer changeid) {
+		this.changeid = changeid;
+	}
+
 	public Date getAidate() {
 		return this.aidate;
 	}
@@ -142,11 +203,11 @@ public class AssetInfo implements java.io.Serializable {
 		this.aisupply = aisupply;
 	}
 
-	public Integer getAimoney() {
+	public Double getAimoney() {
 		return this.aimoney;
 	}
 
-	public void setAimoney(Integer aimoney) {
+	public void setAimoney(Double aimoney) {
 		this.aimoney = aimoney;
 	}
 
@@ -174,36 +235,12 @@ public class AssetInfo implements java.io.Serializable {
 		this.aidepreciation = aidepreciation;
 	}
 
-	public String getAiremainratio() {
+	public Double getAiremainratio() {
 		return this.airemainratio;
 	}
 
-	public void setAiremainratio(String airemainratio) {
+	public void setAiremainratio(Double airemainratio) {
 		this.airemainratio = airemainratio;
 	}
 
-	public Integer getAaid() {
-		return aaid;
-	}
-
-	public void setAaid(Integer aaid) {
-		this.aaid = aaid;
-	}
-
-	public Integer getAcid() {
-		return acid;
-	}
-
-	public void setAcid(Integer acid) {
-		this.acid = acid;
-	}
-
-	public Integer getAbid() {
-		return abid;
-	}
-
-	public void setAbid(Integer abid) {
-		this.abid = abid;
-	}
-	
 }
