@@ -8,32 +8,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sam.entity.AssetType;
-import com.sam.service.AssetTypeService;
+import com.sam.entity.AssetHouse;
+import com.sam.service.AssetHouseService;
 
 /**
- * 查询所有的设备类型
+ * 查询仓库
  * 
  * @author gaohailong
  *
  */
 @Controller
-@RequestMapping(value = "/assetType")
-public class AssetTypeController {
+@RequestMapping(value = "/wareHouse")
+public class WarehouseController {
 
 	@Autowired
-	private AssetTypeService assetTypeService;
+	private AssetHouseService assetHouseService;
 
 	/**
-	 * 查询所有的设备类型
+	 * 查询所有的仓库
 	 * 
-	 * @author gaohailong
 	 * @return
 	 * @throws Exception
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/findAllAssetType",method=RequestMethod.GET)
-	public List<AssetType> findAllAssetType() throws Exception {
-		return assetTypeService.findAssetType();
+	@RequestMapping(value = "/findAllHouse", method = RequestMethod.GET)
+	public List<AssetHouse> findAllHouse() throws Exception {
+		return assetHouseService.findAllHouse();
 	}
 }
