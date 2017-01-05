@@ -6,4 +6,28 @@
 		insert into AssetRequire(arid,ainame,aiid,artime,arday,arperson,arphone,arstatus)
 		 values(#{arid},#{ainame},,#{aiid},#{artime},sysdate,#{arperson},#{arphone},#{arstatus})
 	</insert>
+	
+	<select id="findAssetRequires" parameterType="com.sam.entity.AssetRequire"
+		resultType="com.sam.entity.AssetRequire">
+		select * from AssetRequire where 
+			<if test="ainame != null">
+				and ainame=#{ainame}
+			</if>
+			<if test="ainame != null">
+				and ainame=#{ainame}
+			</if>
+			<if test="ainame != null">
+				and ainame=#{ainame}
+			</if>
+			<if test="ainame != null">
+				and ainame=#{ainame}
+			</if>
+			<if test="ainame != null">
+				and ainame=#{ainame}
+			</if>
+			<if test="ainame != null">
+				and ainame=#{ainame}
+			</if>
+			<if test=""></if>
+	</select>
 </mapper>

@@ -39,16 +39,16 @@
 	<select id="findInfoByCondition" parameterType="com.sam.entity.AssetInfo"
 		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where
-		<if test="ainame != nulll">
+		<if test="ainame != null">
 			ainame=#{ainame},
 		</if>
-		<if test="atname != nulll">
+		<if test="atname != null">
 			AND atname=#{atname},
 		</if>
-		<if test="ahname != nulll">
+		<if test="ahname != null">
 			AND ahname=#{ahname},
 		</if>
-		<if test="aidate != nulll">
+		<if test="aidate != null">
 			AND aidate=#{aidate},
 		</if>
 	</select>

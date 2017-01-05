@@ -7,6 +7,7 @@ import oracle.net.aso.a;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,8 @@ import com.sam.util.ConstantUtil;
 /**
  * 设备信息
  * @author gaohailong
+ * 资产查询
+ * @author zhw  2017.1.5 10:35
  *
  */
 @Controller
@@ -102,5 +105,22 @@ public class InfoController {
 		} catch (Exception e) {
 			return null;
 		}
+	}
+	
+	/**
+	 * 资产的维修查询
+	 * @author zhw
+	 * @param require
+	 * @return
+	 */
+	@RequestMapping(value="/findAssetRequires", method = RequestMethod.GET)
+	@ResponseBody
+	public Pager<AssetRequire> findAssetRequires(AssetRequire require,Integer page) {
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
