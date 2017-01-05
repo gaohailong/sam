@@ -12,5 +12,6 @@
 		<mapper resource="com/sam/dao/RequireMapper.xml"/>
 		<mapper resource="com/sam/dao/BroorwMapper.xml"/> 
 		<mapper resource="com/sam/dao/HouseMapper.xml"/> 
+		<mapper resource="com/sam/dao/ApplyMapper.xml"/> 
 	</mappers>
 </configuration>
