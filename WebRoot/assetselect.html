@@ -446,16 +446,8 @@
 											<div class="control-group">
 												<label class="control-label span2">仓库名称</label>
 												<div class="controls span2">
-													<select class="medium m-wrap" tabindex="1">
-
-														<option value="Category 1">Category 1</option>
-
-														<option value="Category 2">Category 2</option>
-
-														<option value="Category 3">Category 5</option>
-
-														<option value="Category 4">Category 4</option>
-
+													<select class="medium m-wrap" tabindex="1" id="wareHouse">
+														<option value="">请选择</option>
 													</select>
 												</div>
 												<label class="control-label span3">进库时间</label>
@@ -675,9 +667,11 @@
 			FormComponents.init();
 			initDepartment();
 			selectAssetType();
+		//	selectWareHouse();
 		});
 		function initDepartment() {
-			$.ajax({
+			$
+					.ajax({
 						type : "GET",
 						url : "/sam/department/findDepartmentsFirst",
 						dataType : "JSON",
@@ -729,6 +723,25 @@
 					$(data).each(
 							function(index, val) {
 								$("#assetType").append(
+										"<option value='"+val.atname+"'>"
+												+ val.atname + "</option>");
+							});
+
+				},
+				error : function(data) {
+					alert(data.status);
+				}
+			});
+		}
+		function selectWareHouse() {
+			$.ajax({
+				type : "get",
+				url : "/sam/wareHouse/findAllHouse",
+				dataType : "JSON",
+				success : function(data) {
+					$(data).each(
+							function(index, val) {
+								$("#wareHouse").append(
 										"<option value='"+val.atname+"'>"
 												+ val.atname + "</option>");
 							});
