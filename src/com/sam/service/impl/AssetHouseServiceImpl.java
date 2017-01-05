@@ -21,6 +21,7 @@ public class AssetHouseServiceImpl implements AssetHouseService {
 
 	@Override
 	public List<AssetHouse> findAllFirstHouse() throws Exception {
+		System.out.println("进去了serviceimpl");
 		return houseDao.findAllFirstHouse();
 	}
 

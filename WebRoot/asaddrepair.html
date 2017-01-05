@@ -473,7 +473,7 @@
 										<a href="#" data-toggle="modal" class="btn yellow "><i
 											class="icon-pencil"></i> Edit</a> <a href="#responsive"
 											data-toggle="modal" class="btn green "><i
-											class="icon-plus"></i> 添加产品</a>
+											class="icon-plus"></i> 添加</a>
 
 									</div>
 
@@ -490,68 +490,35 @@
 
 											<div class="form-horizontal">
 
-
-
 												<div class="control-group" style="float: left;">
 
-													<label class="control-label">存放地点</label>
+													<label class="control-label">维修开始时间</label>
 
 													<div class="controls">
 
-														<select class="medium m-wrap" tabindex="1">
-
-															<option value="Category 1">仓库</option>
-
-															<option value="Category 2">办公室</option>
-
-															<option value="Category 3">实验室</option>
-
-															<option value="Category 4">教室</option>
-
-															<option value="Category 4">财务室</option>
-
-														</select> <select class="medium m-wrap" tabindex="1" id="ahname">
-
-															<option value="Category 1">仓库</option>
-
-															<option value="Category 2">办公室</option>
-
-															<option value="Category 3">实验室</option>
-
-															<option value="Category 4">教室</option>
-
-															<option value="Category 4">财务室</option>
-
-														</select>
+														<input type="text" class="m-wrap medium" id="aaname" /> <span
+															class="help-inline"></span>
 
 													</div>
 
 												</div>
-												<div class="control-group" style="float: left;">
+												
+												<div class="control-group">
 
-													<label class="control-label">增加方式</label>
+													<label class="control-label" style=";">维修天数</label>
 
 													<div class="controls">
 
-														<select class="medium m-wrap" tabindex="1" id="aatype">
-
-															<option value="Category 1">购买</option>
-
-															<option value="Category 2">租赁</option>
-
-															<option value="Category 3">抢的</option>
-
-															<option value="Category 4">偷的</option>
-
-														</select>
+														<input type="text" class="m-wrap medium" id="aaname" /> <span
+															class="help-inline"></span>
 
 													</div>
 
 												</div>
-
+											
 												<div class="control-group" style="float: left;">
 
-													<label class="control-label">入库人</label>
+													<label class="control-label">维修人员</label>
 
 													<div class="controls">
 
@@ -564,24 +531,11 @@
 
 												<div class="control-group" style="float: left;">
 
-													<label class="control-label">总件数</label>
+													<label class="control-label">联系电话</label>
 
 													<div class="controls">
 
 														<input type="text" class="m-wrap medium" id="aanumber" />
-														<span class="help-inline"></span>
-
-													</div>
-
-												</div>
-
-												<div class="control-group" style="float: left;">
-
-													<label class="control-label">总价格</label>
-
-													<div class="controls">
-
-														<input type="text" class="m-wrap medium" id="aaprice" />
 														<span class="help-inline"></span>
 
 													</div>
@@ -601,7 +555,7 @@
 
 									<div class="modal-header">
 
-										<span class="hidden-480">资产入库表</span>
+										<span class="hidden-480">资产维修表</span>
 									</div>
 									<div class="modal-body">
 
@@ -841,7 +795,7 @@
 								<div class="portlet-title">
 
 									<div class="caption">
-										<i class="icon-edit"></i>维修单详情
+										<i class="icon-edit"></i>本次维修的:
 									</div>
 
 
@@ -885,11 +839,11 @@
 										</thead>
 
 
-
 										<tbody id="accept-tbody">
 											
 
 										</tbody>
+
 
 									</table>
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetRequire;
 import com.sam.service.RequireService;
@@ -26,17 +27,16 @@ public class RequireController {
 	 * @return
 	 */
 	@RequestMapping(value="/addRequest",method=RequestMethod.POST)
-	public String addRequest(AssetRequire require){
+	@ResponseBody
+	public int addRequest(AssetRequire require){
+		int num = 0;
 		try {
-			int num = requireService.addRequire(require);
-			if(num>0){
-				return "成功的页面";
-			}
-			return "失败的页面";
+			 num = requireService.addRequire(require);
+			 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "exception";
 		}
+		return num;
 	}
 }

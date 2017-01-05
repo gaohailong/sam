@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.sam.entity.AssetHouse;
 import com.sam.service.AssetHouseService;
 
@@ -17,9 +16,9 @@ import com.sam.service.AssetHouseService;
  * @author gaohailong
  *
  */
+@RequestMapping(value="/wareHouse")
 @Controller
-@RequestMapping(value = "/wareHouse")
-public class WarehouseController {
+public class WarehouseController extends BaseController {
 
 	@Autowired
 	private AssetHouseService assetHouseService;
@@ -30,8 +29,8 @@ public class WarehouseController {
 	 * @return
 	 * @throws Exception
 	 */
+	@RequestMapping(value="/findAllFirstHouse", method = RequestMethod.GET)
 	@ResponseBody
-	@RequestMapping(value = "/findAllFirstHouse", method = RequestMethod.GET)
 	public List<AssetHouse> findAllFirstHouse() throws Exception {
 		return assetHouseService.findAllFirstHouse();
 	}
