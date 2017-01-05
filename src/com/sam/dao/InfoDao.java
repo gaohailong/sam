@@ -47,4 +47,9 @@ public interface InfoDao {
 	public List<AssetInfo> findInfoByCondition(AssetInfo AssetInfo)
 			throws Exception;
 
+	/**
+	 * 查询全部的资产
+	 * @return
+	 */
+	public List<AssetInfo> findAssetInfos();
 }

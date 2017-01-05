@@ -3,6 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sam.dao.DictionaryDao">
 	<select id="findAllDictionary" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetDictionary">
-		select * from assetdictionary where adype=#{dicttype}
+		select * from assetdictionary where adtype=#{dicttype}
 	</select>
 </mapper>

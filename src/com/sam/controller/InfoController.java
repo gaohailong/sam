@@ -41,12 +41,27 @@ public class InfoController {
 			e.printStackTrace();
 		}
 	}
-
-	@RequestMapping(value = "/findInfoByAsname", method = RequestMethod.GET)
+	/**
+	 * 
+	 * @param asname根据使用状态查询资产
+	 * @param page
+	 * @author zxx
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/findInfoByAsname", method = RequestMethod.POST)
 	@ResponseBody
-	public List<AssetInfo> findInfoByAsname(String asname) {
+	public Pager<AssetInfo> findInfoByAsname(String asname,Integer page) {
 		try {
-			infoService.findInfoByAsname(asname);
+			System.out.println("进入findAssetInfosByasname控制器");
+			System.out.println("asname:"+asname);
+			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
+			if(page != null) {
+				pageNum = page;
+			}
+			int pageSize = ConstantUtil.DEFAULT_PAGE_SIZE;
+			Pager<AssetInfo> assetInfoList = infoService.findInfoByAsname(asname, pageNum, pageSize);
+			return assetInfoList;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -100,6 +115,23 @@ public class InfoController {
 			return infoService.findAssetByCondition(assetInfo, pageNum,
 					ConstantUtil.DEFAULT_PAGE_SIZE);
 		} catch (Exception e) {
+			return null;
+		}
+	}
+	@RequestMapping(value="/findAssetInfos",method=RequestMethod.GET)
+	@ResponseBody
+	public Pager<AssetInfo> findAssetInfos(Integer page) {
+		try {
+			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
+			if(page != null) {
+				pageNum = page;
+				System.out.println("控制器：pageNum："+pageNum);
+			}
+			int pageSize = ConstantUtil.DEFAULT_PAGE_SIZE;
+			Pager<AssetInfo> assetResult = infoService.findAssets(pageNum, pageSize);
+			return assetResult;
+		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
