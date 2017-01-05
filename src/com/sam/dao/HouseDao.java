@@ -16,4 +16,16 @@ public interface HouseDao {
 	 * @return
 	 */
 	List<AssetHouse> findAllHouse() throws Exception;
+	
+	/**
+	 * 
+	 * 查询所有的一级仓库
+	 */
+	List<AssetHouse> findAllFirstHouse() throws Exception;
+	
+	/**
+	 * 
+	 * 查询所有的二级仓库
+	 */
+	List<AssetHouse> findAllSecondHouse() throws Exception;
 }

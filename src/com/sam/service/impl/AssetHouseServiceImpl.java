@@ -19,4 +19,14 @@ public class AssetHouseServiceImpl implements AssetHouseService {
 		return houseDao.findAllHouse();
 	}
 
+	@Override
+	public List<AssetHouse> findAllFirstHouse() throws Exception {
+		return houseDao.findAllFirstHouse();
+	}
+
+	@Override
+	public List<AssetHouse> findAllSecondHouse() throws Exception {
+		return houseDao.findAllSecondHouse();
+	}
+
 }

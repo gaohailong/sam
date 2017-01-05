@@ -31,8 +31,20 @@ public class WarehouseController {
 	 * @throws Exception
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/findAllHouse", method = RequestMethod.GET)
-	public List<AssetHouse> findAllHouse() throws Exception {
-		return assetHouseService.findAllHouse();
+	@RequestMapping(value = "/findAllFirstHouse", method = RequestMethod.GET)
+	public List<AssetHouse> findAllFirstHouse() throws Exception {
+		return assetHouseService.findAllFirstHouse();
+	}
+	
+	/**
+	 * 查询所有的仓库
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/findAllSecondHouse", method = RequestMethod.GET)
+	public List<AssetHouse> findAllSecondHouse() throws Exception {
+		return assetHouseService.findAllSecondHouse();
 	}
 }
