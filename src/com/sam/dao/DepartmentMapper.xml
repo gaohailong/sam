@@ -7,7 +7,7 @@
 		select * from assetdepartment where adlevel=#{adlevel}
 	</select>
 	
-	<!-- 根据类型name查询资产 -->
+	<!-- 根据部门name查询资产 -->
 	<select id="findAssetInfosByDname" parameterType="String" resultType="com.sam.entity.AssetInfo">
 		select * from AssetInfo where adname=#{dname}
 	</select>

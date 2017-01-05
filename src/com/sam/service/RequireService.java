@@ -1,6 +1,7 @@
 package com.sam.service;
 
 import com.sam.entity.AssetRequire;
+import com.sam.entity.Pager;
 
 public interface RequireService {
 
@@ -11,4 +12,15 @@ public interface RequireService {
 	 * @throws Exception
 	 */
 	int addRequire(AssetRequire require) throws Exception;
+	
+	/**
+	 * @author zhw
+	 * @param require
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 * @throws Exception
+	 */
+	public Pager<AssetRequire> findAssetRequires(AssetRequire require,Integer pageNum, Integer pageSize) throws Exception;
+	
 }

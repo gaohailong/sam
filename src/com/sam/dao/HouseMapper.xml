@@ -6,11 +6,7 @@
 		select * from assethouse
 	</select>
 	
-	<select id="findAllFirstHouse" resultType="com.sam.entity.AssetHouse">
-		select * from assethouse where ahlevel=0
-	</select>
-	
-	<select id="findAllSecondHouse" resultType="com.sam.entity.AssetHouse">
-		select * from assethouse where ahlevel=1
+	<select id="findHouseByAhlevel" parameterType="int" resultType="com.sam.entity.AssetHouse">
+		select * from assethouse where ahlevel=#{ahlevel}
 	</select>
 </mapper>

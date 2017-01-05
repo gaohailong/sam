@@ -608,8 +608,8 @@
 
 					</a>
 
-					<ul class="sub-menu">
-
+					<ul class="sub-menu" id="firsthouse">
+						<!-- 
 						<li>
 
 							<a href="javascript:;">
@@ -707,7 +707,7 @@
 							</a>
 
 						</li>
-
+						 -->
 					</ul>
 
 				</li>
@@ -1218,6 +1218,7 @@
 
 		   App.init(); // initlayout and core plugins
 		    initDepartment();
+		    initWareHouse();
 		    userstatus();
 		});
 		
@@ -1269,7 +1270,7 @@
 		 }
 		 
 		 
-		 //遍历所有仓库
+		 //遍历一级仓库
 		 function initWareHouse(){
 			$.ajax({
 				type : "GET",
@@ -1278,10 +1279,10 @@
 				success : function(data) {
 					$(data).each(
 						function(index,value){
-							$("#item_department").append(
-								"<li><a href='#'>"+value.adname+"<span class='arrow'></span></a><ul id='second_department_"+value.adid+"' class='sub-menu'></ul></li>"
+							$("#firsthouse").append(
+								"<li><a href='#'>"+value.ahname+"<span class='arrow'></span></a><ul id='second_house_"+value.ahid+"' class='sub-menu'></ul></li>"
 							);
-							initSecondWareHouse(value.adid);
+							initSecondWareHouse(value.ahid);
 						}
 					);
 				},
@@ -1294,23 +1295,23 @@
 		 }
 		 
 		 //遍历所有二级仓库
-		 function initSecondWareHouse(adlevel) {
+		 function initSecondWareHouse(ahlevel) {
 		 	$.ajax({
 		 		type:"GET",
 		 		url:"/sam/wareHouse/findAllSecondHouse",
-		 		data:"adlevel="+adlevel,
+		 		data:"ahlevel="+ahlevel,
 		 		dataType:"JSON",
 		 		success: function(data) {
 		 			$(data).each(
 		 				function(index,val){
-		 					$("#second_department_"+adlevel).append(
-		 						"<li><a id='second_department_dtail_"+val.adid+"' href='#'>"+val.adname+"</a></li>"
+		 					$("#second_house_"+ahlevel).append(
+		 						"<li><a id='second_house_dtail_"+val.ahid+"' href='#'>"+val.ahname+"</a></li>"
 		 					);
-		 					$("#second_department_dtail_"+val.adid).click(
+		 					/* $("#second_house_dtail_"+val.ahid).click(
 		 						function() {
 		 							findAssetBydname(val.adname,1);
 		 						}
-		 					);
+		 					); */
 		 				}
 		 				
 		 			);

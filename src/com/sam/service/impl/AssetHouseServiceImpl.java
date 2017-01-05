@@ -20,14 +20,10 @@ public class AssetHouseServiceImpl implements AssetHouseService {
 	}
 
 	@Override
-	public List<AssetHouse> findAllFirstHouse() throws Exception {
-		System.out.println("进去了serviceimpl");
-		return houseDao.findAllFirstHouse();
+	public List<AssetHouse> findHouseByAhlevel(Integer ahleval)
+			throws Exception {
+		return houseDao.findHouseByAhlevel(ahleval);
 	}
 
-	@Override
-	public List<AssetHouse> findAllSecondHouse() throws Exception {
-		return houseDao.findAllSecondHouse();
-	}
 
 }

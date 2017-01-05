@@ -20,13 +20,9 @@ public interface AssetHouseService {
 
 	/**
 	 * 
-	 * 查询所有的一级仓库
+	 * 根据仓库等级查询仓库
 	 */
-	List<AssetHouse> findAllFirstHouse() throws Exception;
+	List<AssetHouse> findHouseByAhlevel(Integer ahleval) throws Exception;
 
-	/**
-	 * 
-	 * 查询所有的二级仓库
-	 */
-	List<AssetHouse> findAllSecondHouse() throws Exception;
+
 }

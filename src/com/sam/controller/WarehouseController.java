@@ -32,7 +32,7 @@ public class WarehouseController extends BaseController {
 	@RequestMapping(value="/findAllFirstHouse", method = RequestMethod.GET)
 	@ResponseBody
 	public List<AssetHouse> findAllFirstHouse() throws Exception {
-		return assetHouseService.findAllFirstHouse();
+		return assetHouseService.findHouseByAhlevel(0);
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class WarehouseController extends BaseController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/findAllSecondHouse", method = RequestMethod.GET)
-	public List<AssetHouse> findAllSecondHouse() throws Exception {
-		return assetHouseService.findAllSecondHouse();
+	public List<AssetHouse> findAllSecondHouse(Integer ahlevel) throws Exception {
+		return assetHouseService.findHouseByAhlevel(ahlevel);
 	}
 }
