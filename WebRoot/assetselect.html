@@ -667,7 +667,7 @@
 			FormComponents.init();
 			initDepartment();
 			selectAssetType();
-		//	selectWareHouse();
+			selectWareHouse();
 		});
 		function initDepartment() {
 			$
@@ -742,8 +742,8 @@
 					$(data).each(
 							function(index, val) {
 								$("#wareHouse").append(
-										"<option value='"+val.atname+"'>"
-												+ val.atname + "</option>");
+										"<option value='"+val.ahname+"'>"
+												+ val.ahname + "</option>");
 							});
 
 				},
