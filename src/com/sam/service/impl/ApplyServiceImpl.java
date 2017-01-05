@@ -36,6 +36,16 @@ public class ApplyServiceImpl implements ApplyService{
 		return pager;
 	}
 
+	@Override
+	public Pager<AssetApply> findApplyByAinameAndAdname(AssetApply assetapply,
+			Integer pageNum, Integer pageSize) throws Exception {
+		// TODO Auto-generated method stub
+		List<AssetApply> applyList = applyDao.findApplyByAinameAndAdname(assetapply);
+		Pager<AssetApply> pager = new Pager<AssetApply>(pageNum,pageSize,applyList);
+		return pager;
+	}
+
+	
 	
 
 }

@@ -18,5 +18,11 @@ public interface ApplyDao {
 	 * @author wc
 	 */
 	List<AssetApply> findApply() throws Exception;
+	
+    /**
+     * 多条件查询
+     * @author wc
+     */
+	List<AssetApply> findApplyByAinameAndAdname(AssetApply assetapply) throws Exception;
 
 }

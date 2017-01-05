@@ -28,4 +28,10 @@ int addAppply(AssetApply assetapply)throws Exception;
  */
 Pager<AssetApply> findApply(int pageNum,int pageSize)throws Exception;
 
+/**
+ * 多条件查询
+ * @author wc
+ */
+Pager<AssetApply> findApplyByAinameAndAdname(AssetApply assetapply,Integer pageNum,Integer pageSize) throws Exception;
+
 }
