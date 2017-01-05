@@ -18,8 +18,14 @@ public class AssetType implements java.io.Serializable {
 	public AssetType() {
 	}
 
+	/** minimal constructor */
+	public AssetType(Integer atid) {
+		this.atid = atid;
+	}
+
 	/** full constructor */
-	public AssetType(String atname, Integer atlevel) {
+	public AssetType(Integer atid, String atname, Integer atlevel) {
+		this.atid = atid;
 		this.atname = atname;
 		this.atlevel = atlevel;
 	}

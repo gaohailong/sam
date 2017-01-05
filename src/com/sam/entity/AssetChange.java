@@ -2,7 +2,6 @@ package com.sam.entity;
 
 import java.util.Date;
 
-
 /**
  * Assetchange entity. @author MyEclipse Persistence Tools
  */
@@ -13,8 +12,6 @@ public class AssetChange implements java.io.Serializable {
 
 	private Integer acid;
 	private String auname;
-	private String ainame;
-	private Integer acnumber;
 	private Date acdate;
 	private String adname;
 	private String acresult;
@@ -25,15 +22,19 @@ public class AssetChange implements java.io.Serializable {
 	public AssetChange() {
 	}
 
+	/** minimal constructor */
+	public AssetChange(Integer acid) {
+		this.acid = acid;
+	}
+
 	/** full constructor */
-	public AssetChange(String auname, String ainame, Date acdate,
-			String adname, String acresult,Integer acnumber) {
+	public AssetChange(Integer acid, String auname, Date acdate, String adname,
+			String acresult) {
+		this.acid = acid;
 		this.auname = auname;
-		this.ainame = ainame;
 		this.acdate = acdate;
 		this.adname = adname;
 		this.acresult = acresult;
-		this.acnumber = acnumber;
 	}
 
 	// Property accessors
@@ -52,14 +53,6 @@ public class AssetChange implements java.io.Serializable {
 
 	public void setAuname(String auname) {
 		this.auname = auname;
-	}
-
-	public String getAiname() {
-		return this.ainame;
-	}
-
-	public void setAiname(String ainame) {
-		this.ainame = ainame;
 	}
 
 	public Date getAcdate() {
@@ -86,13 +79,4 @@ public class AssetChange implements java.io.Serializable {
 		this.acresult = acresult;
 	}
 
-	public Integer getAcnumber() {
-		return acnumber;
-	}
-
-	public void setAcnumber(Integer acnumber) {
-		this.acnumber = acnumber;
-	}
-
-	
 }

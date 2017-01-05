@@ -26,15 +26,15 @@ public class ChangeServiceImpl implements ChangeService{
 	@Override
 	public int addChange(AssetChange change) throws Exception {
 		// TODO Auto-generated method stub
-		List<AssetInfo> infoList = infoDao.findInfoByAiname(change.getAiname());
+		/*List<AssetInfo> infoList = infoDao.findInfoByAiname(change);
 		CreateRandom cr = new CreateRandom();
 		int acid = cr.createRandom();
 		change.setAcid(acid);
+		infoDao.updInfoAcid("使用中", change.getAcid(),infoList.get(0).getAiid());
 		if(infoList.size()>change.getAcnumber()){
 			for(int i = 0;i<change.getAcnumber();i++){
-				infoDao.updInfoAcid("使用中", change.getAcid(),infoList.get(i).getAiid());
 			}
-		}
+		}*/
 		return changeDao.addChange(change);
 	}
 	

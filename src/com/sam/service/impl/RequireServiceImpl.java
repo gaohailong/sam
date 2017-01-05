@@ -31,7 +31,7 @@ public class RequireServiceImpl implements RequireService{
 		CreateRandom cr = new CreateRandom();
 		int arid = cr.createRandom();
 		require.setArid(arid);
-		infoDao.updInfoAsname("维修中", require.getAiid());
+		infoDao.updInfoAsname("维修中", require.getArid());
 		return requireDao.addRequire(require);
 	}
 }

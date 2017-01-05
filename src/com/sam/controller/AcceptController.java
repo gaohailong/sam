@@ -38,7 +38,7 @@ public class AcceptController extends BaseController {
 			@RequestParam(value = "ahname",required = false) String ahname,
 			@RequestParam(value = "aatype",required = false) String aatype,
 			@RequestParam(value = "aaname",required = false) String aaname,
-			@RequestParam(value = "aaprice",required = false) Integer aaprice,
+			@RequestParam(value = "aaprice",required = false) Double aaprice,
 			@RequestParam(value = "aanumber",required = false) Integer aanumber,
 			String acceptStr){
 		AssetAccept accept = new AssetAccept();

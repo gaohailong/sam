@@ -10,15 +10,12 @@ public class AssetBroorw implements java.io.Serializable {
 
 	// Fields
 
-	private Integer abid;
-	private String ainame;
-	private Integer aiid;
+	private Long abid;
 	private String auname;
 	private Date abbackdate;
 	private Date abdate;
 	private String abstatus;
 	private String abreson;
-	private Integer abnumebr;
 	private String abresult;
 	private String abresultremark;
 
@@ -28,47 +25,33 @@ public class AssetBroorw implements java.io.Serializable {
 	public AssetBroorw() {
 	}
 
+	/** minimal constructor */
+	public AssetBroorw(Long abid) {
+		this.abid = abid;
+	}
+
 	/** full constructor */
-	public AssetBroorw(String ainame, Integer aiid, String auname,
-			Date abbackdate, Date abdate, String abstatus,
-			String abreson, Integer abnumebr, String abresult,
+	public AssetBroorw(Long abid, String auname, Date abbackdate, Date abdate,
+			String abstatus, String abreson, String abresult,
 			String abresultremark) {
-		this.ainame = ainame;
-		this.aiid = aiid;
+		this.abid = abid;
 		this.auname = auname;
 		this.abbackdate = abbackdate;
 		this.abdate = abdate;
 		this.abstatus = abstatus;
 		this.abreson = abreson;
-		this.abnumebr = abnumebr;
 		this.abresult = abresult;
 		this.abresultremark = abresultremark;
 	}
 
 	// Property accessors
 
-	public Integer getAbid() {
+	public Long getAbid() {
 		return this.abid;
 	}
 
-	public void setAbid(Integer abid) {
+	public void setAbid(Long abid) {
 		this.abid = abid;
-	}
-
-	public String getAiname() {
-		return this.ainame;
-	}
-
-	public void setAiname(String ainame) {
-		this.ainame = ainame;
-	}
-
-	public Integer getAiid() {
-		return this.aiid;
-	}
-
-	public void setAiid(Integer aiid) {
-		this.aiid = aiid;
 	}
 
 	public String getAuname() {
@@ -109,14 +92,6 @@ public class AssetBroorw implements java.io.Serializable {
 
 	public void setAbreson(String abreson) {
 		this.abreson = abreson;
-	}
-
-	public Integer getAbnumebr() {
-		return this.abnumebr;
-	}
-
-	public void setAbnumebr(Integer abnumebr) {
-		this.abnumebr = abnumebr;
 	}
 
 	public String getAbresult() {

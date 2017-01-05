@@ -12,13 +12,11 @@ public class AssetAccept implements java.io.Serializable {
 
 	private Integer aaid;
 	private String aaname;
-	private Integer aiid;
 	private String ainame;
 	private Integer aanumber;
 	private String aatype;
 	private Date aadate;
-	private Integer aaprice;
-	private Date aalife;
+	private Double aaprice;
 	private String ahname;
 
 	// Constructors
@@ -27,18 +25,21 @@ public class AssetAccept implements java.io.Serializable {
 	public AssetAccept() {
 	}
 
+	/** minimal constructor */
+	public AssetAccept(Integer aaid) {
+		this.aaid = aaid;
+	}
+
 	/** full constructor */
-	public AssetAccept(String aaname, Integer aiid, String ainame, Integer aanumber,
-			String aatype, Date aadate, Integer aaprice,
-			Date aalife, String ahname) {
+	public AssetAccept(Integer aaid, String aaname, String ainame, Integer aanumber,
+			String aatype, Date aadate, Double aaprice, String ahname) {
+		this.aaid = aaid;
 		this.aaname = aaname;
-		this.aiid = aiid;
 		this.ainame = ainame;
 		this.aanumber = aanumber;
 		this.aatype = aatype;
 		this.aadate = aadate;
 		this.aaprice = aaprice;
-		this.aalife = aalife;
 		this.ahname = ahname;
 	}
 
@@ -58,14 +59,6 @@ public class AssetAccept implements java.io.Serializable {
 
 	public void setAaname(String aaname) {
 		this.aaname = aaname;
-	}
-
-	public Integer getAiid() {
-		return this.aiid;
-	}
-
-	public void setAiid(Integer aiid) {
-		this.aiid = aiid;
 	}
 
 	public String getAiname() {
@@ -100,20 +93,12 @@ public class AssetAccept implements java.io.Serializable {
 		this.aadate = aadate;
 	}
 
-	public Integer getAaprice() {
+	public Double getAaprice() {
 		return this.aaprice;
 	}
 
-	public void setAaprice(Integer aaprice) {
+	public void setAaprice(Double aaprice) {
 		this.aaprice = aaprice;
-	}
-
-	public Date getAalife() {
-		return this.aalife;
-	}
-
-	public void setAalife(Date aalife) {
-		this.aalife = aalife;
 	}
 
 	public String getAhname() {
@@ -123,14 +108,5 @@ public class AssetAccept implements java.io.Serializable {
 	public void setAhname(String ahname) {
 		this.ahname = ahname;
 	}
-	
-	@Override
-	public String toString() {
-		return "AssetAccept [aaid=" + aaid + ", aaname=" + aaname + ", aiid="
-				+ aiid + ", ainame=" + ainame + ", aanumber=" + aanumber
-				+ ", aatype=" + aatype + ", aadate=" + aadate + ", aaprice="
-				+ aaprice + ", aalife=" + aalife + ", ahname=" + ahname + "]";
-	}
 
-	
 }

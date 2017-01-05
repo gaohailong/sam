@@ -18,8 +18,14 @@ public class AssetDepartment implements java.io.Serializable {
 	public AssetDepartment() {
 	}
 
+	/** minimal constructor */
+	public AssetDepartment(Integer adid) {
+		this.adid = adid;
+	}
+
 	/** full constructor */
-	public AssetDepartment(String adname, Integer adlevel) {
+	public AssetDepartment(Integer adid, String adname, Integer adlevel) {
+		this.adid = adid;
 		this.adname = adname;
 		this.adlevel = adlevel;
 	}
