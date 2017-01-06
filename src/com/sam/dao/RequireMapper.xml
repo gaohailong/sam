@@ -9,25 +9,23 @@
 	
 	<select id="findAssetRequires" parameterType="com.sam.entity.AssetRequire"
 		resultType="com.sam.entity.AssetRequire">
-		select * from AssetRequire where 
+
+		select * from AssetRequire where 1=1
 			<if test="ainame != null">
-				and ainame=#{ainame}
+				and artime=#{artime}
 			</if>
 			<if test="ainame != null">
-				and ainame=#{ainame}
+				and arday=#{arday}
 			</if>
 			<if test="ainame != null">
-				and ainame=#{ainame}
+				and arperson=#{arperson}
 			</if>
 			<if test="ainame != null">
-				and ainame=#{ainame}
+				and arphone=#{arphone}
 			</if>
 			<if test="ainame != null">
-				and ainame=#{ainame}
+				and arstatus=#{arstatus}
 			</if>
-			<if test="ainame != null">
-				and ainame=#{ainame}
-			</if>
-			<if test=""></if>
+			
 	</select>
 </mapper>

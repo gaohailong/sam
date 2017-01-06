@@ -3,6 +3,8 @@ package com.sam.service;
 import java.util.List;
 
 import com.sam.entity.AssetHouse;
+import com.sam.entity.AssetInfo;
+import com.sam.entity.Pager;
 
 /**
  * 仓库service
@@ -20,13 +22,11 @@ public interface AssetHouseService {
 
 	/**
 	 * 
-	 * 查询所有的一级仓库
+	 * 根据仓库等级查询仓库
 	 */
-	List<AssetHouse> findAllFirstHouse() throws Exception;
+	List<AssetHouse> findHouseByAhlevel(Integer ahleval) throws Exception;
+	
+	public Pager<AssetInfo> findAssetInfos(String ahname, int pageNum,int pageSize) throws Exception;
 
-	/**
-	 * 
-	 * 查询所有的二级仓库
-	 */
-	List<AssetHouse> findAllSecondHouse() throws Exception;
+
 }

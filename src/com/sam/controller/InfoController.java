@@ -17,6 +17,7 @@ import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetRequire;
 import com.sam.entity.Pager;
 import com.sam.service.InfoService;
+import com.sam.service.RequireService;
 import com.sam.util.ConstantUtil;
 
 /**
@@ -32,6 +33,8 @@ public class InfoController {
 
 	@Autowired
 	private InfoService infoService;
+	@Autowired
+	private RequireService requireService;
 	private List<AssetInfo> assetInfoList;
 
 	@RequestMapping(value = "/addInfo", method = RequestMethod.GET)
@@ -142,12 +145,38 @@ public class InfoController {
 	 * @author zhw
 	 * @param require
 	 * @return
+	 * 	private Integer arid;
+	private Date artime;
+	private Integer arday;
+	private String arperson;
+	private String arphone;
+	private String arstatus;
+
 	 */
 	@RequestMapping(value="/findAssetRequires", method = RequestMethod.GET)
 	@ResponseBody
-	public Pager<AssetRequire> findAssetRequires(AssetRequire require,Integer page) {
+	public Pager<AssetRequire> findAssetRequires(
+			Date artime
+			,Integer arday
+			, String arperson
+			, String arphone
+			, String arstatus
+			,Integer page) {
 		try {
 			
+			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
+			if(page != null) {
+				pageNum = page;
+			}
+			int pageSize = ConstantUtil.DEFAULT_PAGE_SIZE;
+			AssetRequire require = new AssetRequire();
+			require.setArday(arday);
+			require.setArperson(arperson.trim());
+			require.setArphone(arphone.trim());
+			require.setArstatus(arstatus.trim());
+			require.setArtime(artime.toString());
+			Pager<AssetRequire> requireResult = requireService.findAssetRequires(require, pageNum, pageSize);
+			return requireResult;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

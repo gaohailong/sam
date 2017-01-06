@@ -5,4 +5,12 @@
 	<select id="findUserByUrname" parameterType="java.lang.String" resultType="com.sam.entity.AssetUser">
 		select * from AssetUser where urname=#{urname}
 	</select>
+	
+	<select id="findAllUser" resultType="com.sam.entity.AssetUser">
+		select * from AssetUser
+	</select>
+	
+	<select id="findfindUserById" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetUser">
+		select * from AssetUser where auid=#{auid}
+	</select>
 </mapper>
