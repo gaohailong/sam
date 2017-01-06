@@ -1402,9 +1402,10 @@ function initDepartment(){
 		 }
 		 //遍历二级部门的方法
 		 function initSecondDepartment(adlevel) {
+		 alert("initSecondDepartment(adlevel)");
 		 	$.ajax({
 		 		type:"post",
-		 		url:"/sam/assetType/findAssetTypeSecond",
+		 		url:"/sam/department/findDepartmentsSecond",
 		 		data:"adlevel="+adlevel,
 		 		dataType:"JSON",
 		 		success: function(data) {
@@ -1423,7 +1424,7 @@ function initDepartment(){
 		 			);
 		 		},
 		 		error:function(data) {
-		 			alert(data.status);
+		 			alert("initSecondDepartment(adlevel)"+data.status);
 		 		}
 		 	});
 		 }
