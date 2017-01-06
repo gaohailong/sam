@@ -3,8 +3,8 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sam.dao.RequireDao">
 	<insert id="addRequire" parameterType="com.sam.entity.AssetRequire">
-		insert into AssetRequire(arid,ainame,aiid,artime,arday,arperson,arphone,arstatus)
-		 values(#{arid},#{ainame},,#{aiid},#{artime},sysdate,#{arperson},#{arphone},#{arstatus})
+		insert into AssetRequire(arid,artime,arday,arperson,arphone,arstatus)
+		 values(#{arid},to_date(#{artime},'yyyy-mm-dd'),#{arday},#{arperson},#{arphone},'已受理')
 	</insert>
 	
 	<select id="findAssetRequires" parameterType="com.sam.entity.AssetRequire"

@@ -10,5 +10,5 @@ public interface RequireService {
 	 * @return
 	 * @throws Exception
 	 */
-	int addRequire(AssetRequire require) throws Exception;
+	int addRequire(String aiidStr,AssetRequire require) throws Exception;
 }

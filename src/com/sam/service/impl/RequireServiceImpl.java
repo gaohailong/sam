@@ -27,11 +27,20 @@ public class RequireServiceImpl implements RequireService{
 	 * 增加一条维修记录
 	 */
 	@Override
-	public int addRequire(AssetRequire require) throws Exception{
+	public int addRequire(String aiidStr,AssetRequire require) throws Exception{
 		CreateRandom cr = new CreateRandom();
 		int arid = cr.createRandom();
 		require.setArid(arid);
-		infoDao.updInfoAsname("维修中", require.getArid());
+		String[] idStr  = aiidStr.split(",");
+		if(idStr!=null){
+			for(int i=0;i<idStr.length;i++){
+				Integer aiid = Integer.parseInt(idStr[i]);
+				AssetInfo info = new AssetInfo();
+				info.setRepairid(arid);
+				info.setAiid(aiid);
+				infoDao.updInfoAsname(info);
+			}
+		}
 		return requireDao.addRequire(require);
 	}
 }

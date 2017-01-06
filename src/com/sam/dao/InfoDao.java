@@ -13,7 +13,7 @@ public interface InfoDao {
 
 	AssetInfo findInfoByAiid(Integer aiid) throws Exception;
 
-	int updInfoAsname(String asname, Integer aiid) throws Exception;
+	int updInfoAsname(AssetInfo info) throws Exception;
 
 	int updInfoAcid(String asname, Integer acid, Integer aiid) throws Exception;
 

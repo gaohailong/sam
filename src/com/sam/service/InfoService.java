@@ -14,6 +14,13 @@ public interface InfoService {
 	 * @throws Exception
 	 */
 	int addInfo(AssetInfo info) throws Exception;
+	/**
+	 * 根据设备id查询设备  yty
+	 * @param aiid
+	 * @return
+	 * @throws Exception
+	 */
+	AssetInfo findInfoByAiid(Integer aiid) throws Exception;
 
 	/**
 	 * 根据使用状态查询设备

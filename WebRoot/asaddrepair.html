@@ -467,7 +467,7 @@
 									</div>
 									<div class="actions">
 
-										<button onclick="javascript:addAcceptForm()" class="btn blue ">
+										<button onclick="javascript:addRequestForm();" class="btn blue ">
 											<i class="icon-check"></i> 确定
 										</button>
 										<a href="#" data-toggle="modal" class="btn yellow "><i
@@ -496,7 +496,7 @@
 
 													<div class="controls">
 
-														<input type="text" class="m-wrap medium" id="aaname" /> <span
+														<input type="text" class="m-wrap medium" id="repairtime" /> <span
 															class="help-inline"></span>
 
 													</div>
@@ -509,7 +509,7 @@
 
 													<div class="controls">
 
-														<input type="text" class="m-wrap medium" id="aaname" /> <span
+														<input type="text" class="m-wrap medium" id="repairday" /> <span
 															class="help-inline"></span>
 
 													</div>
@@ -522,7 +522,7 @@
 
 													<div class="controls">
 
-														<input type="text" class="m-wrap medium" id="aaname" /> <span
+														<input type="text" class="m-wrap medium" id="repairname" /> <span
 															class="help-inline"></span>
 
 													</div>
@@ -535,7 +535,7 @@
 
 													<div class="controls">
 
-														<input type="text" class="m-wrap medium" id="aanumber" />
+														<input type="text" class="m-wrap medium" id="repairphone" />
 														<span class="help-inline"></span>
 
 													</div>
@@ -576,7 +576,7 @@
 																<div class="control-group"></div>
 																<div class="control-group"></div>
 
-																<label class="control-label">资产型号</label>
+																<label class="control-label">设备编号</label>
 
 																<div class="controls">
 
@@ -589,168 +589,7 @@
 
 															<div class="control-group">
 
-																<label class="control-label">资产名称</label>
-
-																<div class="controls">
-
-																	<input type="text" id="item_as_name"
-																		class="m-wrap medium" />
-
-																</div>
-
-															</div>
-
-
-															<div class="control-group">
-
-																<label class="control-label">资产类别</label>
-
-																<div class="controls">
-
-																	<select class="medium m-wrap" id="item_as_cate"
-																		tabindex="1">
-
-																		<option value="1">器材</option>
-
-																		<option value="2">桌椅</option>
-
-																		<option value="3">电脑</option>
-
-																		<option value="4">等等。。。</option>
-
-																	</select> <select class="medium m-wrap" id="item_as_cateDetail"
-																		tabindex="1">
-
-																		<option value="1">显示屏</option>
-
-																		<option value="2">鼠标</option>
-
-																		<option value="3">键盘</option>
-
-																		<option value="4">音响。。。</option>
-
-																	</select>
-
-																</div>
-
-															</div>
-
-															<div class="control-group">
-
-																<label class="control-label">仓库名称</label>
-
-																<div class="controls">
-
-																	<select class="medium m-wrap" id="item_as_house"
-																		tabindex="1">
-
-																		<option value="1">仓库</option>
-
-																		<option value="2">办公室</option>
-
-																		<option value="3">实验室</option>
-
-																		<option value="4">教室</option>
-
-																		<option value="5">财务室</option>
-
-																	</select> <select class="medium m-wrap" tabindex="1"
-																		id="item_as_houseDetail">
-
-																		<option value="1">仓库</option>
-
-																		<option value="2">办公室</option>
-
-																		<option value="3">实验室</option>
-
-																		<option value="4">教室</option>
-
-																		<option value="5">财务室</option>
-
-																	</select>
-
-																</div>
-
-															</div>
-
-															<div class="control-group">
-
-																<label class="control-label">生产日期</label>
-
-																<div class="controls">
-
-																	<input class="m-wrap medium" id="item_as_measuer"
-																		type="text" placeholder="" />
-
-
-																</div>
-
-															</div>
-
-
-															<div class="control-group">
-
-																<label class="control-label">资产生产商</label>
-
-																<div class="controls">
-
-																	<input class="m-wrap medium" id="item_as_supply"
-																		type="text" placeholder="" />
-
-
-																</div>
-
-															</div>
-
-															<div class="control-group">
-
-																<label class="control-label">资产保质期</label>
-
-																<div class="controls">
-
-																	<input class="m-wrap medium" type="text"
-																		id="item_as_life" placeholder="" />
-
-																</div>
-
-															</div>
-
-															<div class="control-group">
-
-																<label class="control-label">资产折旧方法</label>
-
-																<div class="controls">
-
-																	<input class="m-wrap medium" id="item_as_depreciation"
-																		type="text" placeholder="" />
-
-
-																</div>
-
-															</div>
-
-															<div class="control-group">
-
-																<label class="control-label">资产残值率</label>
-
-																<div class="controls">
-
-																	<input class="m-wrap medium" id="item_as_remainratio"
-																		type="text" placeholder="" />
-
-
-																</div>
-
-															</div>
-
-															<div class="control-group">
-
-																<label class="control-label">资产备注</label>
-
-																<div class="controls">
-
-																	<textarea class="large m-wrap" id="item_as_introduce"
-																		rows="3"></textarea>
+																<div class="controls" id="showInfoDiv">
 
 																</div>
 
@@ -937,46 +776,34 @@
 	<!-- 小表单得东西给大table中添加 -->
 	<script type="text/javascript">
 		function addOne() {
-			var type = document.getElementById("item_as_type").value;
-			var name = document.getElementById("item_as_name").value;
-			var cateDetail = document.getElementById("item_as_cateDetail").value;
-			var houseDetail = document.getElementById("item_as_houseDetail").value;
-			var measuer = document.getElementById("item_as_measuer").value;
-			var supply = document.getElementById("item_as_supply").value;
-			var life = document.getElementById("item_as_life").value;
-			var depreciation = document.getElementById("item_as_depreciation").value;
-			var remainratio = document.getElementById("item_as_remainratio").value;
-			var introduce = document.getElementById("item_as_introduce").value;
-			var strc = type + "~" + name + "~" + cateDetail + "~" + houseDetail
-					+ "~" + measuer + "~" + supply + "~" + life + "~"
-					+ depreciation + "~" + remainratio + "~" + introduce;
-			$("#acceptForm")
-					.append(
-							"<input type='hidden' name='acceptName' value='"+strc+"' />");
+			var date  = document.getElementsByName("hiddenInfoInput");
+			var num = date.length;
+			var info = date[num-1].value;
+			var i = info.split(",");
 			var str = "<tr class=''><td>"
-					+ type
+					+ i[0]
 					+ "</td><td>"
-					+ name
+					+ i[1]
 					+ "</td><td>"
-					+ cateDetail
+					+ i[2]
 					+ "</td><td>"
-					+ houseDetail
+					+ i[3]
 					+ "</td><td>"
-					+ measuer
+					+ i[4]
 					+ "</td><td>"
-					+ supply
+					+ i[5]
 					+ "</td><td>"
-					+ life
+					+ i[6]
 					+ "</td><td>"
-					+ depreciation
+					+ i[7]
 					+ "</td><td>"
-					+ remainratio
+					+ i[8]
 					+ "</td><td>"
-					+ introduce
+					+ i[9]
 					+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
 			$("#accept-tbody").prepend(str);
 			$("#accept-tbody-reset").click();
-			$("#accept-tbody-close").click();
+			$("#accept-tbody-close").click(); 
 		}
 
 		function clearLittleForm() {
@@ -1000,31 +827,66 @@
 			UIModals.init();
 
 		});
-
-		function addAcceptForm() {
-			var accStr = document.getElementsByName("acceptName");
-			var acceptStr = "";
-			for(var i=0;i<accStr.length;i++){
-				acceptStr += accStr[i].value+",";
+		
+		$("#item_as_type").keyup(
+			function(){
+				var aiid = document.getElementById("item_as_type").value;
+				if(document.getElementById("showInfoSpan")!=null){
+					if(document.getElementById("showInfoSpan").innerHTML!=null){
+						document.getElementById("showInfoDiv").innerHTML="";
+					}
+				}
+				checkInfoById(aiid);
 			}
-			var ahname = document.getElementById("ahname").value;
-			var aatype = document.getElementById("aatype").value;
-			var aaname = document.getElementById("aaname").value;
-			var aaprice = document.getElementById("aaprice").value;
-			var aanumber = document.getElementById("aanumber").value;
+		)
+		
+		function checkInfoById(aiid){
+			$.ajax({
+					type:"post",
+					url:"/sam/infoController/findInfoByAiid",
+					data:"aiid="+aiid,
+					dataType:"JSON",
+					success:function(date){
+						if(date!=null){
+							$("#showInfoDiv").append("<span id='showInfoSpan'>名称:"+date.ainame+",状态:"+date.asname+"</span>");
+							$("#acceptForm").append("<input type='hidden' name='hiddenInfoAiidInput' value='"+date.aiid+"' ><input type='hidden' name='hiddenInfoInput' value='"+date.aimodel+","+date.ainame+","+date.atname+","+date.ahname+","+date.aimeasuer+","+date.aisupply+","+date.ailife+","+date.aidepreciation+","+date.airemainratio+","+date.airemark+" '>");
+						}else{
+							$("#showInfoDiv").append("<span id='showInfoSpan'>未查到当前id对应的东西</span>");
+						}
+					},
+					error:function(date){
+						alert(date.status);
+					}
+				});
+		} 
+		
+		function addRequestForm() {
+		
+			var date  = document.getElementsByName("hiddenInfoAiidInput");
+			var aiidStr = "";
+			for(var i=0;i<date.length;i++){
+				aiidStr += date[i].value+",";
+			}
+			
+			var artime = document.getElementById("repairtime").value;
+			var arday = document.getElementById("repairday").value;
+			var arperson = document.getElementById("repairname").value;
+			var arphone = document.getElementById("repairphone").value;
+			
+			
 			$.ajax({
 				type:"post",
-				url:"/sam/accept/addAccept",
-				data:"acceptStr="+acceptStr+"&ahname="+ahname+"&aatype="+aatype+"&aaname="+aaname+"&aaprice="+aaprice+"&aanumber="+aanumber,
+				url:"/sam/requireController/addRequest",
+				data:"aiidStr="+aiidStr+"&artime="+artime+"&arday="+arday+"&arperson="+arperson+"&arphone="+arphone,
 				dataType:"JSON",
-				success:function(data){
-					if(data>0){
+				success:function(date){
+					if(date>0){
 						alert("添加成功");
 						 window.location.reload();
 					}
 				},
-				error:function(data){
-					alert(data.status);
+				error:function(date){
+					alert(date.status);
 				}
 			});
 			
