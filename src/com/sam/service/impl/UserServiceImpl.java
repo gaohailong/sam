@@ -11,22 +11,27 @@ import com.sam.service.UserService;
 
 /**
  * 用户表的serviceImpl
+ * 
  * @author yty
  *
  */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDao userDao;
-	
+
 	/**
 	 * 根据用户的角色名称查询用户
 	 */
 	@Override
 	public List<AssetUser> findfindUserByUrname(String urname) throws Exception {
-		// TODO Auto-generated method stub
 		return userDao.findUserByUrname(urname);
+	}
+
+	@Override
+	public List<AssetUser> findAllUser() throws Exception {
+		return userDao.findAllUser();
 	}
 
 }

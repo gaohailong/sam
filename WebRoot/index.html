@@ -853,84 +853,6 @@
 					</a>
 
 					<ul class="sub-menu" id="item_department">
-
-				<!-- 		<li>
-
-							<a href="javascript:;">
-
-							办公室
-
-							<span class="arrow"></span>
-
-							</a>
-
-							<ul class="sub-menu">
-
-								<li><a href="#">院长办公室</a></li>
-
-								<li><a href="#">书记办公室</a></li>
-
-								<li><a href="#">团委办公室</a></li>
-								
-								<li><a href="#">老师办公室</a></li>
-
-							</ul>
-
-						</li>
-
-						<li>
-
-							<a href="javascript:;">
-
-							实验室
-
-							<span class="arrow"></span>
-
-							</a>
-
-							<ul class="sub-menu">
-
-								<li><a href="#">东机房</a></li>
-
-								<li><a href="#">西机房</a></li>
-
-							</ul>
-
-						</li>
-						
-						<li>
-
-							<a href="javascript:;">
-
-							教室
-
-							<span class="arrow"></span>
-
-							</a>
-
-							<ul class="sub-menu">
-
-								<li><a href="#">1001教室</a></li>
-
-								<li><a href="#">1002教室</a></li>
-
-								<li><a href="#">1003教室</a></li>
-
-							</ul>
-
-						</li>
-						
-						<li>
-
-							<a href="#">
-
-							财务室
-
-							</a>
-
-						</li>
-
-					 -->
 					 </ul>
 
 				</li>
@@ -948,53 +870,6 @@
 					</a>
 
 					<ul class="sub-menu"  id="icon-userstatus">
-
-						<!-- <li>
-
-							<a href="#">
-
-							使用中
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							未使用3
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							借出中
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							维修中
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							已报废处理
-
-							</a>
-
-						</li> -->
-
 					</ul>
 
 				</li>
@@ -1065,45 +940,8 @@
 
 					</a>
 
-					<ul class="sub-menu">
+					<ul class="sub-menu" id="all-user">
 
-						<li>
-
-							<a href="#">
-
-							张三
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							李四
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							王五
-
-							</a>
-
-						</li>
-						<li>
-
-							<a href="#">
-
-							赵六
-
-							</a>
-
-						</li>
-						
 					</ul>
 
 				</li>
@@ -1220,6 +1058,7 @@
 		    initDepartment();
 		    initWareHouse();
 		    userstatus();
+		    findAllUser();
 		});
 		
 		
@@ -1351,6 +1190,30 @@
 					}
 					
 					});
+		}
+		
+		
+		
+	//查询所有的员工
+		function findAllUser(){
+				$.ajax({
+					type:"get",
+					url:"/sam/userController/findAllUser",
+					dataType:"JSON",
+					success:function(data){
+						$(data).each(
+						function(index,val){
+							$("#all-user").append(
+								"<li><a href='#'>"+val.auname+"</a></li>"
+							);
+						} 
+						);
+					},
+					error:function(data){
+						alert(data.status);
+						
+					}
+				});
 		}
 	</script>
 

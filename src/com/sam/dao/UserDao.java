@@ -15,4 +15,9 @@ public interface UserDao {
 	 * 根据角色名称查询用户
 	 */
 	List<AssetUser> findUserByUrname(String urname) throws Exception;
+	
+	/**
+	 * 根据所有用户
+	 */
+	List<AssetUser> findAllUser() throws Exception;
 }
