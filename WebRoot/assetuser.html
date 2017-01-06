@@ -624,8 +624,8 @@
 								</div>
 								<div class="actions">
 									<!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
-									<button href="#" data-toggle="modal" class="btn green ">
-										<i class="icon-search"></i> 修改
+									<button href="#" data-toggle="modal" class="btn yellow ">
+										<i class="icon-pencil"></i> 修改
 									</button>
 								</div>
 							</div>
@@ -641,7 +641,7 @@
 										<div class="control-group"></div>
 										<label class="control-label">用户名</label>
 										<div class="controls">
-											<span id="item_as_type" class="medium" >dd</span>
+											<span id="item_user_name" class="medium" >dd</span>
 										</div>
 
 									</div>
@@ -651,7 +651,7 @@
 										<label class="control-label">部门</label>
 
 										<div class="controls">
-											<span id="item_as_type" class="medium" >dd</span>
+											<span id="item_department" class="medium" >dd</span>
 										</div>
 
 									</div>
@@ -662,7 +662,7 @@
 										<label class="control-label">角色名称</label>
 
 										<div class="controls">
-											<span id="item_as_type" class="medium" >dd</span>
+											<span id="item_role" class="medium" >dd</span>
 										</div>
 
 									</div>
@@ -672,7 +672,7 @@
 										<label class="control-label">电话</label>
 
 										<div class="controls">
-											<span id="item_as_type" class="medium" >dd</span>
+											<span id="item_phone" class="medium" >dd</span>
 										</div>
 
 									</div>
@@ -920,8 +920,7 @@
 		var cur_user_id = null;
 		//查询所有的员工
 		function findAllUser() {
-			$
-					.ajax({
+			$.ajax({
 						type : "get",
 						url : "/sam/userController/findAllUser",
 						dataType : "JSON",

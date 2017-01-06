@@ -9,4 +9,8 @@
 	<select id="findAllUser" resultType="com.sam.entity.AssetUser">
 		select * from AssetUser
 	</select>
+	
+	<select id="findfindUserById" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetUser">
+		select * from AssetUser where auid=#{auid}
+	</select>
 </mapper>

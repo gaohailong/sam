@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetUser;
@@ -35,13 +36,31 @@ public class UserController {
 		try {
 			userList = userService.findfindUserByUrname(urname);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return userList;
 	}
 
 	/**
+	 * 根据id查询用户信息
+	 * 
+	 * @author gaohailong
+	 */
+	@RequestMapping(value = "/findUserById", method = RequestMethod.GET)
+	@ResponseBody
+	public AssetUser findUserById(Integer id) {
+		AssetUser user = null;
+		try {
+			user = userService.findfindUserById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
+
+	/**
+	 * 查询所有用户
+	 * 
 	 * @author gaohailong 查询所有用户
 	 */
 	@ResponseBody
