@@ -3,6 +3,7 @@ package com.sam.dao;
 import java.util.List;
 
 import com.sam.entity.AssetHouse;
+import com.sam.entity.AssetInfo;
 
 /**
  * 仓库
@@ -22,5 +23,7 @@ public interface HouseDao {
 	 * 根据仓库等级查询仓库
 	 */
 	List<AssetHouse> findHouseByAhlevel(Integer ahleval) throws Exception;
+	
+	public List<AssetInfo> findAssetInfosByAhname(String ahname) throws Exception;
 	
 }
