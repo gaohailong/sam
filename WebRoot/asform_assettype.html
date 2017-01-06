@@ -1361,7 +1361,7 @@
 
 							<li>
 
-								<a href="#">资产使用情况</a>
+								<a href="#">资产</a>
 
 								<span class="icon-angle-right"></span>
 
@@ -1640,9 +1640,59 @@
 		  
 		   initAllAssetInfo(1);
 			
-		   userstatus();
+		   assettype();
 		});
-		function userstatus(){
+		//遍历一级类型菜单
+		function assettypefirst(){
+			$.ajax({
+				type : "GET",
+				url : "/sam/assetType/findAssetTypeFirst",
+				dataType : "JSON",
+				success : function(data) {
+					$(data).each(
+						function(index,value){
+							$("#item_department").append(
+								"<li><a href='#'>"+value.adname+"<span class='arrow'></span></a><ul id='second_department_"+value.adid+"' class='sub-menu'></ul></li>"
+							);
+							initSecondDepartment(value.adid);
+						}
+					);
+				},
+				errot:function(data){
+					alert(data.status);
+				}
+	
+
+			});
+		 }
+		 //遍历二级部门的方法
+		 function assettypefirstsecond(atlevel) {
+		 	$.ajax({
+		 		type:"post",
+		 		url:"/sam/assetType/findAssetTypeSecond",
+		 		data:"adlevel="+adlevel,
+		 		dataType:"JSON",
+		 		success: function(data) {
+		 			$(data).each(
+		 				function(index,val){
+		 					$("#second_department_"+adlevel).append(
+		 						"<li><a id='second_department_dtail_"+val.adid+"' href='#'>"+val.adname+"</a></li>"
+		 					);
+		 					$("#second_department_dtail_"+val.adid).click(
+		 						function() {
+		 							findAssetBydname(val.adname,1);
+		 						}
+		 					);
+		 				}
+		 				
+		 			);
+		 		},
+		 		error:function(data) {
+		 			alert(data.status);
+		 		}
+		 	});
+		 }
+		function assettype(){
 			var data = { 
 			 "dicttype":0 
 			 }; 

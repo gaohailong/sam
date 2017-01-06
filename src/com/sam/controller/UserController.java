@@ -42,13 +42,14 @@ public class UserController {
 	}
 
 	/**
-	 * 根据角色名称查询用户信息
+	 * 根据id查询用户信息
+	 * 
+	 * @author gaohailong
 	 */
-
 	@RequestMapping(value = "/findUserById", method = RequestMethod.GET)
 	@ResponseBody
 	public AssetUser findUserById(Integer id) {
-		AssetUser user = null; 
+		AssetUser user = null;
 		try {
 			user = userService.findfindUserById(id);
 		} catch (Exception e) {
@@ -58,6 +59,8 @@ public class UserController {
 	}
 
 	/**
+	 * 查询所有用户
+	 * 
 	 * @author gaohailong 查询所有用户
 	 */
 	@ResponseBody

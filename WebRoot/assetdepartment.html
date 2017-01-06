@@ -1187,7 +1187,8 @@
 
                     </div>
                    <center>
-                   <a href="javascript:initAllAssetInfo(1);" data-toggle="modal" class="btn red ">首页</a>  |
+                   <!--  data-toggle="modal" -->
+                   	<a id="firstPage" href="javascript:initAllAssetInfo(1);" class="btn red ">首页</a>  |
                    	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
                    	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
                    	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
@@ -1403,7 +1404,7 @@ function initDepartment(){
 		 function initSecondDepartment(adlevel) {
 		 	$.ajax({
 		 		type:"post",
-		 		url:"/sam/department/findDepartmentsSecond",
+		 		url:"/sam/assetType/findAssetTypeSecond",
 		 		data:"adlevel="+adlevel,
 		 		dataType:"JSON",
 		 		success: function(data) {
@@ -1447,14 +1448,16 @@ function initDepartment(){
 					if(perPagenum < 1) {
 						perPagenum = 1;
 					}
-					$("#perPage").attr("href","javascript:findAssetBydname('"+dname+"','"+perPagenum+"'"); 
+					var firstpage = 1;
+					$("#firstPage").attr("href","javascript:findAssetBydname('"+dname+"','"+firstpage+"')"); 
+					$("#perPage").attr("href","javascript:findAssetBydname('"+dname+"','"+perPagenum+"')"); 
 					var lastpagenum;
 					nextPage = page+1;
 					if(nextPage > totalPage) {
 						nextPage = totalPage;
 					}
-					$("#nextPage").attr("href","javascript:findAssetBydname('"+dname+"','"+nextPage+"'");
-					$("#lastPage").attr("href","javascript:findAssetBydname('"+dname+"','"+totalPage+"'");
+					$("#nextPage").attr("href","javascript:findAssetBydname('"+dname+"','"+nextPage+"')");
+					$("#lastPage").attr("href","javascript:findAssetBydname('"+dname+"','"+totalPage+"')");
 					
 					//总条目数
 					var totalRecord = data.totalRecord;
