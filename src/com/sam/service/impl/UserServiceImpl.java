@@ -34,4 +34,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.findAllUser();
 	}
 
+	@Override
+	public AssetUser findfindUserById(Integer id) throws Exception {
+		return userDao.findfindUserById(id);
+	}
+
 }
