@@ -867,9 +867,9 @@
 
 					</a>
 
-					<ul class="sub-menu">
+					<ul class="sub-menu" id="icon-assettype">
 
-						<li>
+						<!-- <li>
 
 							<a href="#">
 
@@ -904,7 +904,7 @@
 
 							</a>
 
-						</li>
+						</li> -->
 						
 					</ul>
 
@@ -1036,6 +1036,7 @@
 		jQuery(document).ready(function() {    
 
 		   App.init(); // initlayout and core plugins
+		    assettypefirst();
 		    initDepartment();
 		    initWareHouse();
 		    userstatus();
@@ -1195,6 +1196,59 @@
 						
 					}
 				});
+			}
+			//查询一级类型菜单
+			function assettypefirst(){
+			
+			$.ajax({
+				type : "GET",
+				url : "/sam/assetType/findAssetTypeFirst",
+				dataType : "JSON",
+				success : function(data) {
+					$(data).each(
+						function(index,value){
+						
+							$("#icon-assettype").append(
+								"<li><a href='#'>"+value.atname+"<span class='arrow'></span></a><ul id='second_assettype_"+value.atid+"' class='sub-menu'></ul></li>"
+							);
+							
+							assettypesecond(value.atid);
+						}
+					);
+				},
+				errot:function(data){
+					alert(data.status);
+				}
+	
+
+			});
+		 }
+		 //遍历二级类型菜单的方法
+		 function assettypesecond(atlevel) {
+		 
+		 var data = { 
+				 "atlevel":atlevel
+				 }; 
+		 	$.ajax({
+		 		type:"get",
+		 		url:"/sam/assetType/findAssetTypeSecond",
+		 		data:data,
+		 		dataType:"JSON",
+		 		success: function(data) {
+		 		
+		 			$(data).each(
+		 				function(index,val){
+		 					$("#second_assettype_"+atlevel).append(
+		 						"<li><a href='#'>"+val.atname+"</a></li>"
+		 					);
+		 				}
+		 			);
+		 		},
+		 		error:function(data) {
+		 			alert("assettypesecond"+data.status);
+		 		}
+		 	});
+		
 		}
 	</script>
 
