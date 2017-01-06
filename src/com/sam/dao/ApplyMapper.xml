@@ -11,6 +11,14 @@
 		select * from AssetApply
 	</select>
 	
+	<update id="updateApply" parameterType="java.lang.Integer">
+	   update AssetApply set auresult='已通过' where aaid =#{aaid}
+	</update>
+	
+	<delete id="deleteApply" parameterType="java.lang.Integer">
+	   delete from AssetApply where aaid =#{aaid}
+	</delete>
+	
 	<select id="findApplyByAinameAndAdname" resultType="com.sam.entity.AssetApply"
 	   parameterType="com.sam.entity.AssetApply">
 	  select * from AssetApply where 

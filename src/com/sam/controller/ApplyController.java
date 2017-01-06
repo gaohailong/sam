@@ -43,6 +43,7 @@ public class ApplyController extends BaseController{
 			@RequestParam(value="auMoney",required = false)Double auMoney,
 			@RequestParam(value="auReason",required = false)String auReason,
 			@RequestParam(value="auRemark",required = false)String auRemark){
+		
 		AssetApply assetapply = new AssetApply();
 		assetapply.setAdname(adname);
 		assetapply.setAuname(auname);
@@ -52,7 +53,8 @@ public class ApplyController extends BaseController{
 		assetapply.setAumoney(auMoney);
 		assetapply.setAureason(auReason);
 		assetapply.setAuremark(auRemark);
-		System.out.println(assetapply.toString());
+		System.out.println("auname"+auname);
+		System.out.println("输出assetapply"+assetapply.toString());
 		 try{
 		int num = applyService.addAppply(assetapply);
 		return num;
@@ -62,7 +64,50 @@ public class ApplyController extends BaseController{
 			 
 		 }
 		
+	}	
+	
+	/**
+	 * 申请同意
+	 * @author wc
+	 */
+	@RequestMapping(value="updateApply",method=RequestMethod.POST)
+	@ResponseBody
+	public int updateApply(
+		@RequestParam(value="aaid",required=false)Integer aaid){
+		System.out.println("aaid:"+aaid);
+		int num = 0;
+		try {
+			num = applyService.updateApply(aaid);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(num==0)
+		return -1;
+		  return num;
+		
 	}
+	
+	/**
+	 * 删除申请的订单
+	 * @author wc
+	 */
+	@RequestMapping(value="deleteApply",method=RequestMethod.POST)
+	@ResponseBody
+	public int deleteApply(
+			@RequestParam(value="aaid",required=false)Integer aaid){
+		int num = 0;
+		try{
+			System.out.println("获取的id是"+aaid);
+		   num = applyService.deleteApply(aaid);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		if(num==0)
+			return -1;
+		return num;
+	}
+	
 	
 	/**
 	 * 分页查询出购置申请
@@ -94,12 +139,17 @@ public class ApplyController extends BaseController{
 	 * @param page
 	 */
 	@ResponseBody
-    @RequestMapping(value = "/findApplyByAinameAndAdname",method=RequestMethod.GET)
+    @RequestMapping(value = "/findApplyByAinameAndAdname",method=RequestMethod.POST)
 	public Pager<AssetApply> findApplyByAinameAndAdname(
 			@RequestParam(value = "ainame",required = false)String ainame,
 			@RequestParam(value = "adname",required = false)String adname,
-			@RequestParam(value = "pageNum",required = false)Integer pageNum){
+			@RequestParam(value = "pageNum",required = false)Integer page){
 		try{
+			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
+			if(page!=null){
+				pageNum = page;
+			}
+			int pageSize = ConstantUtil.DEFAULT_PAGE_SIZE;
 		AssetApply assetapply = new AssetApply();
 		assetapply.setAiname(ainame.trim());
 		assetapply.setAdname(adname.trim());

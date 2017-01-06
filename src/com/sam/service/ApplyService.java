@@ -34,4 +34,19 @@ Pager<AssetApply> findApply(int pageNum,int pageSize)throws Exception;
  */
 Pager<AssetApply> findApplyByAinameAndAdname(AssetApply assetapply,Integer pageNum,Integer pageSize) throws Exception;
 
+/**
+ * 审核通过后修改状态
+ * @param aaid
+ * @return
+ * @throws Exception
+ */
+int updateApply(Integer aaid) throws Exception;
+/**
+ * 删除申请的订单
+ * @param aaid
+ * @return
+ * @throws Exception
+ */
+int deleteApply(Integer aaid) throws Exception; 
+
 }
