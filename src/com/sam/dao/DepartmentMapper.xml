@@ -17,4 +17,9 @@
 		select * from AssetInfo
 	</select>
 	
+	<!-- 查询全部的二级部门 -->
+	<select id="findAllSecondDepartments" resultType="com.sam.entity.AssetDepartment">
+		select * from 	assetdepartment where adlevel != 0
+	</select>
+	
 </mapper>

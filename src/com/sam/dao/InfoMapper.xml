@@ -27,9 +27,9 @@
 		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where arid = #{arid}
 	</select>
-	<update id="updInfoAsname" parameterType="java.util.Map">
+	<update id="updInfoAsname" parameterType="com.sam.entity.AssetInfo">
 		update assetinfo set
-		asname=#{asname} where aiid=#{aiid}
+		asname='维修中',repairid=#{repairid} where aiid=#{aiid}
 	</update>
 	<update id="updInfoAcid" parameterType="java.util.Map">
 		update assetinfo set

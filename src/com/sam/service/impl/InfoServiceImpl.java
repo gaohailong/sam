@@ -65,4 +65,10 @@ public class InfoServiceImpl implements InfoService {
 	private List<AssetInfo> findAssetInfos() {
 		return infoDao.findAssetInfos();
 	}
+
+	@Override
+	public AssetInfo findInfoByAiid(Integer aiid) throws Exception {
+		// TODO Auto-generated method stub
+		return infoDao.findInfoByAiid(aiid);
+	}
 }

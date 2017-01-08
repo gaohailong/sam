@@ -47,6 +47,20 @@ public class InfoController {
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = "/findInfoByAiid", method = RequestMethod.POST)
+	@ResponseBody
+	public AssetInfo findInfoByAiid(@RequestParam(value = "aiid", required = false) Integer aiid){
+		try {
+			System.out.println(aiid);
+			return infoService.findInfoByAiid(aiid);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	/**
 	 * 
 	 * @param asname根据使用状态查询资产
@@ -160,7 +174,7 @@ public class InfoController {
 			require.setArperson(arperson.trim());
 			require.setArphone(arphone.trim());
 			require.setArstatus(arstatus.trim());
-			require.setArtime(artime);
+			require.setArtime(artime.toString());
 			Pager<AssetRequire> requireResult = requireService.findAssetRequires(require, pageNum, pageSize);
 			return requireResult;
 		} catch (Exception e) {

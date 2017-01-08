@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+         <!DOCTYPE html>
 
 <!--[if IE 8]>
 <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -11,7 +11,7 @@
 
 <!-- BEGIN HEAD -->
 
-<head>
+<head>60785952
 
     <meta charset="utf-8"/>
 
@@ -724,10 +724,13 @@
 
 											<div class="controls span2">
 
-												<select class="medium m-wrap" tabindex="1" name="adname" id="assetType">
+												<select class="medium m-wrap" tabindex="1" name="adname" id="assetDepartment">
+													<option value="-1">请选择部门</option>
+												<!-- 
 													<option value="校长办公室">校长办公室</option>
 													<option value="院长室">院长室</option>
 													<option value="教室">教室</option>
+												 -->
 												</select>
 
 											</div>
@@ -1175,6 +1178,7 @@
 		initDepartment();
 		
 		initAllAssetApply(1);
+		initAllSecondDepartment();
     });
     function initDepartment() {
 
@@ -1242,8 +1246,7 @@
 	alert("进入删除的放发");
 	  $.ajax({
 	    type: "post",
-	    url:"/sam/apply/deleteApply",
-	    data:"aaid"+aaid,
+	    url:"/sam/apply/deleteApply/"+aaid,
 	    dataType: "JSON",
 	    success:function(data){
 	    if(data>0)
@@ -1280,7 +1283,8 @@
 	  alert("进入分页查询");
 	  var ainame = $("#ainame").val();
 	  var adname = $("#adname").val();
-	  var reqParam = {'ainame':ainame,'adname':adname};
+	  var reqParam = {"ainame":ainame,"adname":adname};
+	  alert("reqParam"+reqParam);
 	  			$.ajax({
 				type : "post",
 				url : "/sam/apply/findApplyByAinameAndAdname",
@@ -1329,7 +1333,7 @@
 							+"<td>"+assetApplyList[i].auresult+"</td>"
 							+"<td><a href='javascript:updateApply("+assetApplyList[i].aaid+");' data-toggle='modal' >同意</a></td>"
 							+"<td><a href='#editor' data-toggle='modal' >不同意</a></td>"
-							+"<td><a class='delete' href='javascript:deleteApply("+assetApplyList[i].aaid+");'>删除</a></td>"
+							+"<td><a  href='javascript:deleteApply("+assetApplyList[i].aaid+");'>删除</a></td>"
 							+"</tr>"
 						);
 					}
@@ -1399,6 +1403,28 @@
 				error : function(data) {
 				alert("出错了"+data.status);
 				}
+			});
+		}
+		
+		//初始化查询模块中的部门下拉列表
+		function initAllSecondDepartment() {
+			$.ajax({
+				type:"GET",
+				url: "/sam/apply/findAllSecondDepartments",
+				dataType:"JSON",
+				success:function(data) {
+					 $(data).each(
+					 	function (index, val) {
+                            $("#assetDepartment").append(
+                                    "<option value='"+val.adname+"'>"+val.adname+"</option>"
+                            );
+                        }
+					 );
+					
+				},
+				error:function(data) {
+					alert("出错了："+data.status);
+				}	
 			});
 		}
 

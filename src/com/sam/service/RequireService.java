@@ -11,8 +11,8 @@ public interface RequireService {
 	 * @return
 	 * @throws Exception
 	 */
-	int addRequire(AssetRequire require) throws Exception;
-	
+	int addRequire(String aiidStr,AssetRequire require) throws Exception;
+
 	/**
 	 * @author zhw
 	 * @param require
@@ -22,5 +22,5 @@ public interface RequireService {
 	 * @throws Exception
 	 */
 	public Pager<AssetRequire> findAssetRequires(AssetRequire require,Integer pageNum, Integer pageSize) throws Exception;
-	
+
 }
