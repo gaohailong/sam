@@ -31,7 +31,6 @@ public class ApplyServiceImpl implements ApplyService{
 			throws Exception {
 		// TODO Auto-generated method stub
 		List<AssetApply> applyList = findAllApply();
-		System.out.println(applyList);
 		Pager<AssetApply> pager = new Pager<AssetApply>(pageNum,pageSize,applyList);
 		return pager;
 	}
@@ -43,6 +42,20 @@ public class ApplyServiceImpl implements ApplyService{
 		List<AssetApply> applyList = applyDao.findApplyByAinameAndAdname(assetapply);
 		Pager<AssetApply> pager = new Pager<AssetApply>(pageNum,pageSize,applyList);
 		return pager;
+	}
+
+	@Override
+	public int updateApply(Integer aaid) throws Exception {
+		// TODO Auto-generated method stub
+		int num = applyDao.updateApply(aaid);
+		return num;
+	}
+
+	@Override
+	public int deleteApply(Integer aaid) throws Exception {
+		// TODO Auto-generated method stub
+		int num = applyDao.deleteApply(aaid);
+		return num;
 	}
 
 	

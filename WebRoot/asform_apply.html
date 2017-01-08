@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+         <!DOCTYPE html>
 
 <!--[if IE 8]>
 <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -11,7 +11,7 @@
 
 <!-- BEGIN HEAD -->
 
-<head>
+<head>60785952
 
     <meta charset="utf-8"/>
 
@@ -706,28 +706,31 @@
                             <div class="actions">
                                 <!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
 								  <a href="#responsive" data-toggle="modal" class="btn green "><i class="icon-search"></i>申请</a>
-                                <a href="#" data-toggle="modal" class="btn green "><i class="icon-search"></i>查询</a>
+                                <a href="javascript:findByCondition(1);" data-toggle="modal" class="btn green "><i class="icon-search"></i>查询</a>
                             </div>
                         </div>
 
                         <div class="portlet-body">
                             <!-- BEGIN FORM-->
 
-                            <form action="#" class="form-horizontal">
+                            <form action="#" class="form-horizontal" id="selectform">
                                 <div class="row-fluid">
 										<div class="control-group">
 											<label class="control-label span2">设备名称</label>
 											<div class="controls span2">
-												<input type="text" placeholder="设备名称" class="m-wrap medium" />
+												<input type="text" name="ainame" placeholder="设备名称" class="m-wrap medium" />
 											</div>
 											<label class="control-label span3">申请部门</label>
 
 											<div class="controls span2">
 
-												<select class="medium m-wrap" tabindex="1" id="assetType">
-													<option value="">请选择</option>
-													<option value="">请选择</option>
-													<option value="">请选择</option>
+												<select class="medium m-wrap" tabindex="1" name="adname" id="assetDepartment">
+													<option value="-1">请选择部门</option>
+												<!-- 
+													<option value="校长办公室">校长办公室</option>
+													<option value="院长室">院长室</option>
+													<option value="教室">教室</option>
+												 -->
 												</select>
 
 											</div>
@@ -758,7 +761,7 @@
 
 													<!-- BEGIN FORM-->
 
-													<form  class="form-horizontal" id="applyform">
+													<form  class="form-horizontal" id="checkform">
 
 														<div class="control-group">
 															<div class="control-group"></div>
@@ -1079,15 +1082,13 @@
 
                         </div>
 
-                    </div>
                   <center>
                    <a href="javascript:initAllAssetApply(1);" data-toggle="modal" class="btn red ">首页</a>  |
                    	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
                    	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
-                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
+                   	<a id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
                    	第<span id="currentPage"></span>页 | 
                    	共<span id="totalRecord"></span>条数据
-                   
                    </center>
                     <!-- END SAMPLE TABLE PORTLET-->
                 </div>
@@ -1177,6 +1178,7 @@
 		initDepartment();
 		
 		initAllAssetApply(1);
+		initAllSecondDepartment();
     });
     function initDepartment() {
 
@@ -1224,7 +1226,7 @@
     }
     
 	function addApply(){
-	alert("进入apply方法");
+	alert("进入apply方法:"+$('#applyform').serialize());
 	    $.ajax({
 		    type:"post",
 			url:"/sam/apply/addApply",
@@ -1232,13 +1234,116 @@
 			dataType:"JSON",
 			success: function(data){
 			  if(data>0)
-			   alert("添加成功");
+			   initAllAssetApply(1);
 			},
 			error:function(data){
 			  alert("添加错误");
 			}
 		});
 	}
+	
+	function deleteApply(aaid){
+	alert("进入删除的放发");
+	  $.ajax({
+	    type: "post",
+	    url:"/sam/apply/deleteApply/"+aaid,
+	    dataType: "JSON",
+	    success:function(data){
+	    if(data>0)
+	    alert("删除成功");
+	     initAllAssetApply(1);
+	    },
+	    error:function(data){
+	    alert("删除失败"+data.status);
+	    }
+	  });
+	}
+	
+	function updateApply(aaid){
+	alert("进入修改的方法");
+	  $.ajax({
+	   type: "post",
+	   url:"/sam/apply/updateApply",
+	   data:"aaid="+aaid,
+	   dataType:"JSON",
+	   success:function(data){
+	      if(data>0)
+	      alert("修改成功");
+	      initAllAssetApply(1);
+	      
+	   },
+	   error:function(data){
+	   alert("修改失败");
+	   }
+	  });
+	}
+	
+	//多条件分页查询
+	  function findByCondition(page){
+	  alert("进入分页查询");
+	  var ainame = $("#ainame").val();
+	  var adname = $("#adname").val();
+	  var reqParam = {"ainame":ainame,"adname":adname};
+	  alert("reqParam"+reqParam);
+	  			$.ajax({
+				type : "post",
+				url : "/sam/apply/findApplyByAinameAndAdname",
+				data : reqParam,
+				dataType : "JSON",
+				success : function(data) {
+				alert(data);
+					//总页数
+					var totalPage = data.totalPage;
+					
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:findByCondition("+perPagenum+");"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:findByCondition("+nextPage+");");
+					$("#lastPage").attr("href","javascript:findByCondition("+totalPage+");");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetApplyList = data.dataList;
+					$("#assetTbody").html("");
+					for(var i = 0;i < assetApplyList.length;i++) {
+						$("#assetTbody").append(
+							"<tr>"
+							+"<td>"+assetApplyList[i].ainame+"</td>"
+							+"<td>"+assetApplyList[i].adname+"</td>"
+							+"<td>"+assetApplyList[i].auname+"</td>"
+							+"<td>"+assetApplyList[i].ausupply+"</td>"
+							+"<td>"+assetApplyList[i].aumoney+"</td>"
+							+"<td>"+assetApplyList[i].aunumber+"</td>"
+							+"<td>"+assetApplyList[i].aureason+"</td>"
+							+"<td>"+assetApplyList[i].auresult+"</td>"
+							+"<td><a href='javascript:updateApply("+assetApplyList[i].aaid+");' data-toggle='modal' >同意</a></td>"
+							+"<td><a href='#editor' data-toggle='modal' >不同意</a></td>"
+							+"<td><a  href='javascript:deleteApply("+assetApplyList[i].aaid+");'>删除</a></td>"
+							+"</tr>"
+						);
+					}
+				},
+				error : function(data) {
+				alert("出错了"+data.status);
+				}
+			});
+	   
+	  }
 	
 	//初始化全部设备的分页信息
 		function initAllAssetApply(page) {
@@ -1288,9 +1393,9 @@
 							+"<td>"+assetApplyList[i].aunumber+"</td>"
 							+"<td>"+assetApplyList[i].aureason+"</td>"
 							+"<td>"+assetApplyList[i].auresult+"</td>"
-							+"<td><a href='#' data-toggle='modal' >同意</a></td>"
+							+"<td><a href='javascript:updateApply("+assetApplyList[i].aaid+");' data-toggle='modal' >同意</a></td>"
 							+"<td><a href='#editor' data-toggle='modal' >不同意</a></td>"
-							+"<td><a class='delete' href='javascript:;'>删除</a></td>"
+							+"<td><a class='delete' href='javascript:deleteApply("+assetApplyList[i].aaid+");'>删除</a></td>"
 							+"</tr>"
 						);
 					}
@@ -1298,6 +1403,28 @@
 				error : function(data) {
 				alert("出错了"+data.status);
 				}
+			});
+		}
+		
+		//初始化查询模块中的部门下拉列表
+		function initAllSecondDepartment() {
+			$.ajax({
+				type:"GET",
+				url: "/sam/apply/findAllSecondDepartments",
+				dataType:"JSON",
+				success:function(data) {
+					 $(data).each(
+					 	function (index, val) {
+                            $("#assetDepartment").append(
+                                    "<option value='"+val.adname+"'>"+val.adname+"</option>"
+                            );
+                        }
+					 );
+					
+				},
+				error:function(data) {
+					alert("出错了："+data.status);
+				}	
 			});
 		}
 

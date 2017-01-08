@@ -151,4 +151,15 @@ public class AssetApply implements java.io.Serializable {
 		this.auresultremark = auresultremark;
 	}
 
+	@Override
+	public String toString() {
+		return "AssetApply [aaid=" + aaid + ", adname=" + adname + ", auname="
+				+ auname + ", audate=" + audate + ", ainame=" + ainame
+				+ ", ausupply=" + ausupply + ", aunumber=" + aunumber
+				+ ", aumoney=" + aumoney + ", aureason=" + aureason
+				+ ", auremark=" + auremark + ", auresult=" + auresult
+				+ ", auresultremark=" + auresultremark + "]";
+	}
+	
+
 }

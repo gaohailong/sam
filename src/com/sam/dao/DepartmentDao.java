@@ -11,6 +11,7 @@ public interface DepartmentDao {
 	
 	
 	/**
+	 * @author zhw
 	 * 根据部门查询资产
 	 * @param dname
 	 * @return
@@ -18,9 +19,21 @@ public interface DepartmentDao {
 	public List<AssetInfo> findAssetInfosByDname(String dname);
 
 	/**
+	 * @author zhw
 	 * 查询全部的资产
 	 * @return
 	 */
-	public List<AssetInfo> findAssetInfos();
-
+	public List<AssetInfo> findAssetInfos() throws Exception;
+	
+	/**
+	 * 购置申请页面的部门下拉列表的显示,
+	 * 一级部门的adleval是0
+	 * 所以查询adleval非0的数据
+	 * @author zhw
+	 * @return
+	 * @throws Exception
+	 */
+	public List<AssetDepartment> findAllSecondDepartments() throws Exception;
+	
+	
 }

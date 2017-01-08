@@ -51,14 +51,20 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
-	public Pager<AssetInfo> findAssets(int pageNum, int pageSize) {
+	public Pager<AssetInfo> findAssets(int pageNum, int pageSize) throws Exception {
 		List<AssetInfo> assetInfoList = findAssetInfos();
 		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfoList);
 		return pager;
 	}
 	
-	private List<AssetInfo> findAssetInfos() {
+	private List<AssetInfo> findAssetInfos() throws Exception {
 		return departmentDao.findAssetInfos();
+	}
+
+	@Override
+	public List<AssetDepartment> findAllSecondDepartments() throws Exception {
+		// TODO Auto-generated method stub
+		return departmentDao.findAllSecondDepartments();
 	}
 
 }

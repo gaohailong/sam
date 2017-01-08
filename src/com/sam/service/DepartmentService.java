@@ -30,7 +30,15 @@ public interface DepartmentService {
 	 * 			每页显示多少条数据
 	 * @return
 	 */
-	public Pager<AssetInfo> findAssets(int pageNum,int pageSize);
+	public Pager<AssetInfo> findAssets(int pageNum,int pageSize) throws Exception; 
+	
+	/**
+	 * 购置申请页面的部门下拉列表的显示
+	 * @author zhw
+	 * @return
+	 * @throws Exception
+	 */
+	public List<AssetDepartment> findAllSecondDepartments() throws Exception;
 	
 	
 }
