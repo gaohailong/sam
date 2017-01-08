@@ -1,6 +1,7 @@
 package com.sam.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetApply;
+import com.sam.entity.AssetDepartment;
 import com.sam.entity.Pager;
 import com.sam.service.ApplyService;
+import com.sam.service.DepartmentService;
 import com.sam.util.ConstantUtil;
 
 /**
@@ -27,6 +30,8 @@ public class ApplyController extends BaseController{
 	
 	@Autowired
 	private ApplyService applyService;
+	@Autowired
+	private DepartmentService deparmentService;
 	
 	/**
 	 * 提交购置申请
@@ -160,6 +165,23 @@ public class ApplyController extends BaseController{
 			return null;
 		}
 		
+	}
+	
+	/**
+	 * 遍历全部的二级部门,用于初始化部门下拉列表
+	 * @author zhw
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="/findAllSecondDepartments",method=RequestMethod.GET)
+	public List<AssetDepartment> findAllSecondDepartments() {
+		try {
+			List<AssetDepartment> allSecondDepartmentList = deparmentService.findAllSecondDepartments();
+			return allSecondDepartmentList;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 

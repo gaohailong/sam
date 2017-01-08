@@ -724,10 +724,13 @@
 
 											<div class="controls span2">
 
-												<select class="medium m-wrap" tabindex="1" name="adname" id="assetType">
+												<select class="medium m-wrap" tabindex="1" name="adname" id="assetDepartment">
+													<option value="-1">请选择部门</option>
+												<!-- 
 													<option value="校长办公室">校长办公室</option>
 													<option value="院长室">院长室</option>
 													<option value="教室">教室</option>
+												 -->
 												</select>
 
 											</div>
@@ -1175,6 +1178,7 @@
 		initDepartment();
 		
 		initAllAssetApply(1);
+		initAllSecondDepartment();
     });
     function initDepartment() {
 
@@ -1399,6 +1403,28 @@
 				error : function(data) {
 				alert("出错了"+data.status);
 				}
+			});
+		}
+		
+		//初始化查询模块中的部门下拉列表
+		function initAllSecondDepartment() {
+			$.ajax({
+				type:"GET",
+				url: "/sam/apply/findAllSecondDepartments",
+				dataType:"JSON",
+				success:function(data) {
+					 $(data).each(
+					 	function (index, val) {
+                            $("#assetDepartment").append(
+                                    "<option value='"+val.adname+"'>"+val.adname+"</option>"
+                            );
+                        }
+					 );
+					
+				},
+				error:function(data) {
+					alert("出错了："+data.status);
+				}	
 			});
 		}
 
