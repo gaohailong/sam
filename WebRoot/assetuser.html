@@ -947,6 +947,18 @@
 
 		function findOneUser(id) {
 			cur_user_id = id;
+				$.ajax({
+						type : "get",
+						url : "/sam/userController/findUserById?id="+id,
+						dataType : "JSON",
+						success : function(data) {
+							data.
+						},
+						error : function(data) {
+							alert(data.status);
+						}
+					});
+			
 		}
 	</script>
 

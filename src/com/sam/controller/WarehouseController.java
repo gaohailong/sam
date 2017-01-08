@@ -39,17 +39,6 @@ public class WarehouseController extends BaseController {
 		return assetHouseService.findHouseByAhlevel(0);
 	}
 	
-	/**
-	 * 查询所有的二级仓库
-	 * 
-	 * @return
-	 * @throws Exception
-	 */
-	@ResponseBody
-	@RequestMapping(value = "/findAllSecondHouse", method = RequestMethod.GET)
-	public List<AssetHouse> findAllSecondHouse(Integer ahlevel) throws Exception {
-		return assetHouseService.findHouseByAhlevel(ahlevel);
-	}
 	
 	/**
 	 * 分页根据存放地点查询设备

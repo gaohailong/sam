@@ -208,7 +208,7 @@ var App = function () {
 
                 App.blockUI(pageContent, false);
 
-                $.post(url, {}, function (res) {
+                $.get(url, {}, function (res) {
                         App.unblockUI(pageContent);
                         pageContentBody.html(res);
                         App.fixContentHeight(); // fix content height
