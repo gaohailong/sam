@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+         <!DOCTYPE html>
 
 <!--[if IE 8]>
 <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -11,7 +11,7 @@
 
 <!-- BEGIN HEAD -->
 
-<head>
+<head>60785952
 
     <meta charset="utf-8"/>
 
@@ -1242,8 +1242,7 @@
 	alert("进入删除的放发");
 	  $.ajax({
 	    type: "post",
-	    url:"/sam/apply/deleteApply",
-	    data:"aaid"+aaid,
+	    url:"/sam/apply/deleteApply/"+aaid,
 	    dataType: "JSON",
 	    success:function(data){
 	    if(data>0)
@@ -1280,7 +1279,8 @@
 	  alert("进入分页查询");
 	  var ainame = $("#ainame").val();
 	  var adname = $("#adname").val();
-	  var reqParam = {'ainame':ainame,'adname':adname};
+	  var reqParam = {"ainame":ainame,"adname":adname};
+	  alert("reqParam"+reqParam);
 	  			$.ajax({
 				type : "post",
 				url : "/sam/apply/findApplyByAinameAndAdname",
@@ -1329,7 +1329,7 @@
 							+"<td>"+assetApplyList[i].auresult+"</td>"
 							+"<td><a href='javascript:updateApply("+assetApplyList[i].aaid+");' data-toggle='modal' >同意</a></td>"
 							+"<td><a href='#editor' data-toggle='modal' >不同意</a></td>"
-							+"<td><a class='delete' href='javascript:deleteApply("+assetApplyList[i].aaid+");'>删除</a></td>"
+							+"<td><a  href='javascript:deleteApply("+assetApplyList[i].aaid+");'>删除</a></td>"
 							+"</tr>"
 						);
 					}

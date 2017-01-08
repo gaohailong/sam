@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -70,7 +71,7 @@ public class ApplyController extends BaseController{
 	 * 申请同意
 	 * @author wc
 	 */
-	@RequestMapping(value="updateApply",method=RequestMethod.POST)
+	@RequestMapping(value="/updateApply",method=RequestMethod.POST)
 	@ResponseBody
 	public int updateApply(
 		@RequestParam(value="aaid",required=false)Integer aaid){
@@ -92,13 +93,13 @@ public class ApplyController extends BaseController{
 	 * 删除申请的订单
 	 * @author wc
 	 */
-	@RequestMapping(value="deleteApply",method=RequestMethod.POST)
+	@RequestMapping(value="/deleteApply/{aaid}",method=RequestMethod.POST)
 	@ResponseBody
 	public int deleteApply(
-			@RequestParam(value="aaid",required=false)Integer aaid){
+			@PathVariable(value="aaid")Integer aaid){
+		System.out.println("aaid删除的"+aaid);
 		int num = 0;
 		try{
-			System.out.println("获取的id是"+aaid);
 		   num = applyService.deleteApply(aaid);
 		}catch(Exception ex){
 			ex.printStackTrace();
