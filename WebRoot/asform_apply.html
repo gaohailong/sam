@@ -46,12 +46,13 @@
 											<label class="control-label span2">设备名称</label>
 											<div class="controls span2">
 												<input id="assetname" type="text" name="ainame" placeholder="设备名称" class="m-wrap medium" value=""/>
+
 											</div>
 											<label class="control-label span3">申请部门</label>
 
 											<div class="controls span2">
 
-												<select class="medium m-wrap" tabindex="1" name="adname" id="assetDepartment">
+												<select class="medium m-wrap" tabindex="1"  name="adname" id="assetDepartment">
 													<option value="-1">请选择部门</option>
 												</select>
 
@@ -430,12 +431,9 @@
 	
 	//多条件分页查询
 	  function findByCondition(page){
-	 
-	  var ainame = $("#assetname").val();
-	  var adname = $("#assetDepartment").val();
-	  alert("ainame"+ainame+"==adname"+adname)
-	  var reqParam = {"ainame":ainame,"adname":adname};
-	  alert(reqParam);
+		  var ainame = $("#assetname").val();
+		  var adname = $("#assetDepartment").val();
+		  var reqParam = {"ainame":ainame,"adname":adname};
 	  			$.ajax({
 				type : "post",
 				url : "/sam/apply/findApplyByAinameAndAdname",
@@ -565,9 +563,9 @@
 				dataType:"JSON",
 				success:function(data) {
 					 $(data).each(
-					 	function (index, val) {
+					 	function (index, value) {
                             $("#assetDepartment").append(
-                                    "<option value='"+val.adname+"'>"+val.adname+"</option>"
+                                    "<option value='"+value.adname+"'>"+value.adname+"</option>"
                             );
                         }
 					 );

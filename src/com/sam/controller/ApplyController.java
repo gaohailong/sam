@@ -176,7 +176,9 @@ public class ApplyController extends BaseController{
 	@RequestMapping(value="/findAllSecondDepartments",method=RequestMethod.GET)
 	public List<AssetDepartment> findAllSecondDepartments() {
 		try {
+			System.out.println("进入findAllSecondDepartments");
 			List<AssetDepartment> allSecondDepartmentList = deparmentService.findAllSecondDepartments();
+			System.out.println("=======findAllSecondDepartments结束=====");
 			return allSecondDepartmentList;
 		} catch (Exception e) {
 			e.printStackTrace();
