@@ -664,7 +664,7 @@
 					$(data).each(
 						function(index,value){
 							$("#firsthouse").append(
-							"<li><a class='ajaxify' href='aswarelist.html'>"+value.ahname+"</a></li>"
+							"<li><a class='ajaxify' onclick='getcurid("+value.ahname+")' href='aswarelist.html'>"+value.ahname+"</a></li>"
 							);
 						}
 					);
@@ -677,6 +677,10 @@
 			});
 		 }
 		 
+		 var cur_ware_name=null;
+		 function getcurid(name){
+			 cur_ware_name=name;
+		 }
 	
 
 			//查询一级类型菜单
