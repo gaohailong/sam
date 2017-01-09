@@ -41,4 +41,5 @@ public class AssetHouseServiceImpl implements AssetHouseService {
 	}
 
 
+
 }

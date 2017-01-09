@@ -29,7 +29,6 @@ public class AssetTypeServiceImpl implements AssetTypeService {
 
 	@Override
 	public List<AssetType> findAssetTypeByAtlevel(Integer atlevel) {
-		// TODO Auto-generated method stub
 		return typeDao.findAssetTypeByAtlevel(atlevel);
 	}
 
@@ -40,9 +39,14 @@ public class AssetTypeServiceImpl implements AssetTypeService {
 		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfoList);
 		return pager;
 	}
+	
 	private List<AssetInfo> findAssetInfosByatname(String atname){
 		return typeDao.findAssetInfosByatname(atname);
-		
+	}
+
+	@Override
+	public List<AssetType> findAllSecondAssetType() {
+		return typeDao.findAllSecondAssetType();
 	}
 
 	

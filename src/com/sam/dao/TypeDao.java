@@ -23,5 +23,11 @@ public interface TypeDao {
 	 * @return
 	 */
 	public List<AssetInfo> findAssetInfosByatname(String atname);
-
+	
+	/**
+	 * 查询所有的二级类型
+	 * @author gaohailong
+	 * @return
+	 */
+	List<AssetType> findAllSecondAssetType();
 }

@@ -37,4 +37,11 @@ public interface AssetTypeService {
 	 * @return
 	 */
 	public Pager<AssetInfo> findAssetInfosByatname(String atname,int pageNum, int pageSize);
+	
+	/**
+	 * 查询所有的二级类型
+	 * @author gaohailong
+	 * @return
+	 */
+	List<AssetType>	findAllSecondAssetType();
 }

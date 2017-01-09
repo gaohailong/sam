@@ -1,0 +1,225 @@
+
+<div class="row-fluid">
+	<div class="span12">
+		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+		<h3 class="page-title">存放地点</h3>
+		<ul class="breadcrumb">
+			<li><i class="icon-home"></i> <a href="index.html">首页</a> <i
+				class="icon-angle-right"></i></li>
+			<li><a href="#">资产存放地点</a> <i class="icon-angle-right"></i></li>
+			<li><a href="#">所有资产</a></li>
+		</ul>
+		<!-- END PAGE TITLE & BREADCRUMB-->
+	</div>
+
+</div>
+
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+	<div class="span12">
+
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+
+		<div class="portlet box red">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-cogs"></i>资产存放
+				</div>
+				<div class="actions">
+					<!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
+					<button href="#" data-toggle="modal" class="btn green ">
+						<i class="icon-search"></i> 查询
+					</button>
+				</div>
+			</div>
+
+			<div class="portlet-body">
+				<!-- BEGIN FORM-->
+
+				<form action="#" class="form-horizontal">
+					<div class="row-fluid">
+						<div class="control-group">
+							<label class="control-label span2">类型名称</label>
+							<div class="controls span2">
+								<select class="medium m-wrap" tabindex="1" id="assetType">
+								
+								</select>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- END FORM-->
+			</div>
+
+		</div>
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
+
+
+</div>
+
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+
+		<div class="portlet box red">
+
+			<div class="portlet-title">
+
+				<div class="caption">
+					<i class="icon-cogs"></i>设备列表
+				</div>
+			</div>
+
+			<div class="portlet-body">
+
+				<table class="table table-hover">
+
+					<thead>
+
+						<tr>
+
+							<th>#</th>
+
+							<th>First Name</th>
+
+							<th>Last Name</th>
+
+							<th class="hidden-480">Username</th>
+
+							<th>Status</th>
+
+						</tr>
+
+
+					</thead>
+
+					<tbody id="assetTbody">
+
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+		 <center>
+                   <!--  data-toggle="modal" -->
+                   	<a id="firstPage" href="javascript:findAssetInfoBytiaojian(1);" class="btn red ">首页</a>  |
+                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
+                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
+                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
+                   	第<span id="currentPage"></span>页 | 
+                   	共<span id="totalRecord"></span>条数据
+                   
+                   </center>
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+
+<script>
+	jQuery(document).ready(function() {
+		App.init();
+		selectSecondType();
+		alert(cur_ware_name);
+	});
+	
+		
+	//条件查询
+	function findAssetInfoBytiaojian(page) {
+		var assetInfoName = $("#assetInfoName").val();
+		var assetTypeName = $("#assetType").val();
+		
+		var tiaojian = {
+			"atname":assetTypeName,
+			"ahname":cur_ware_name,
+			"pageNum":page
+		};
+		$.ajax({
+			type:"post",
+			url:"/sam/infoController/findAssetByCondition",
+			data:tiaojian,
+			dataType:"JSON",
+			success:function(data) {
+			alert("success:function");
+				//总页数
+					var totalPage = data.totalPage;
+					alert("totalPage--"+totalPage);
+					
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html("");
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:findAssetInfoBytiaojian("+perPagenum+");"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:findAssetInfoBytiaojian("+nextPage+");");
+					$("#lastPage").attr("href","javascript:findAssetInfoBytiaojian("+totalPage+");");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html("");
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetInfoList = data.dataList;
+					$("#assetTbody").html("");
+					for(var i = 0;i < assetInfoList.length;i++) {
+						$("#assetTbody").append(
+							"<tr>"
+							+"<td>"+assetInfoList[i].aiid+"</td>"
+							+"<td>"+assetInfoList[i].ainame+"</td>"
+							+"<td>"+assetInfoList[i].aimodel+"</td>"
+							+"<td>"+assetInfoList[i].atname+"</td>"
+							+"<td>"+assetInfoList[i].asname+"</td>"
+							+"<td>"+assetInfoList[i].adname+"</td>"
+							+"</tr>"
+						);
+					}
+			},
+			error:function(data) {
+				alert("出错了"+data.status);
+			}
+		});
+	}
+	
+	//查询所有的类型
+	function selectSecondType(){
+			$.ajax({
+				type : "get",
+				url : "/sam/assetType/findAllSecondAssetType",
+				dataType : "JSON",
+				success : function(data) {
+				$("#assetType").empty();
+				 $("#assetType").append("<option value=''>请选择</option>");
+					$(data).each(
+							function(index, val) {
+								 $("#assetType").append(
+										"<option value='"+val.atname+"'>"
+												+ val.atname + "</option>"); 
+							});
+	
+				},
+				error : function(data) {
+					alert(data.status);
+				}
+			});
+	}
+
+</script>
+
+<!-- END JAVASCRIPTS -->

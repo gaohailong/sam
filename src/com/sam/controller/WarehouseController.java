@@ -62,4 +62,24 @@ public class WarehouseController extends BaseController {
 		}
 		return null;
 	}
+	
+	/**
+	 * 查询全部的仓库(用于下拉列表)
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="/findAllSecondAssetHouse", method = RequestMethod.GET)
+	public List<AssetHouse> findAllSecondAssetHouse() {
+		try {
+			List<AssetHouse> houseList = assetHouseService.findAllHouse();
+			for (AssetHouse assetHouse : houseList) {
+				System.out.println(assetHouse.getAhname());
+			}
+			return houseList;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 }
