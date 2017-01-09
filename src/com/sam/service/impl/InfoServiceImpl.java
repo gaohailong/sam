@@ -48,9 +48,6 @@ public class InfoServiceImpl implements InfoService {
 	@Override
 	public Pager<AssetInfo> findAssetByCondition(AssetInfo assetInfo,Integer pageNum,Integer pageSize)
 			throws Exception {
-		System.out.println("assetInfo.getAiname()"+assetInfo.getAiname());
-		System.out.println("assetInfo.getAiname()"+assetInfo.getAtname());
-		System.out.println("assetInfo.getAiname()"+assetInfo.getAhname());
 		List<AssetInfo> assetInfos= infoDao.findInfoByCondition(assetInfo);
 		System.out.println("findAssetByCondition"+assetInfos.size());
 		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfos);
