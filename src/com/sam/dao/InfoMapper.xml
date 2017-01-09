@@ -31,9 +31,9 @@
 		update assetinfo set
 		asname='维修中',repairid=#{repairid} where aiid=#{aiid}
 	</update>
-	<update id="updInfoAcid" parameterType="java.util.Map">
+	<update id="updInfoAcid" parameterType="com.sam.entity.AssetInfo">
 		update assetinfo set
-		acid=#{acid},asname=#{asname} where aiid=#{aiid}
+		acceptid=#{acceptid},ahname='',adname=#{adname},asname=#{asname} where aiid=#{aiid}
 	</update>
 
 	<select id="findInfoByCondition" parameterType="com.sam.entity.AssetInfo"
@@ -55,5 +55,11 @@
 	<!-- 查询全部的资产 -->
 	<select id="findAssetInfos" resultType="com.sam.entity.AssetInfo">
 		select * from AssetInfo
+	</select>
+	<select id="findInfoNumByAtname" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(1) from assetinfo where atname=#{atname} and asname='未使用'
+	</select>
+	<select id="findInfoByAtname" parameterType="java.lang.String" resultType="com.sam.entity.AssetInfo">
+		select * from assetinfo where atname=#{atname} and asname='未使用'
 	</select>
 </mapper>

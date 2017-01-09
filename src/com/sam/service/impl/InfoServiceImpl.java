@@ -71,4 +71,17 @@ public class InfoServiceImpl implements InfoService {
 		// TODO Auto-generated method stub
 		return infoDao.findInfoByAiid(aiid);
 	}
+
+	@Override
+	public List<AssetInfo> findInfoByAtname(String atname) throws Exception {
+		// TODO Auto-generated method stub
+		List<AssetInfo> assetInfoList = infoDao.findInfoByAtname(atname);
+		return assetInfoList;
+	}
+
+	@Override
+	public int findInfoNumByAtname(String atname) throws Exception {
+		// TODO Auto-generated method stub
+		return infoDao.findInfoNumByAtname(atname);
+	}
 }
