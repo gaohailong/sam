@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetChange;
 import com.sam.service.ChangeService;
@@ -26,17 +27,16 @@ public class ChangeController {
 	 * @return
 	 */
 	@RequestMapping(value="/addChange",method=RequestMethod.POST)
-	public String addChange(AssetChange change){
+	@ResponseBody
+	public int addChange(AssetChange change,String infoStr,String numStr){
+		int num = 0;
 		try {
-			int num = changeService.addChange(change);
-			if(num>0){
-				return "正确的页面";
-			}
-			return "错误的页面";
+			num = changeService.addChange(change,infoStr,numStr);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "exception";
+			return -1;
 		}
+		return num;
 	}
 }

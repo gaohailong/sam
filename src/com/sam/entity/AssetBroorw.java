@@ -1,6 +1,5 @@
 package com.sam.entity;
 
-import java.util.Date;
 
 /**
  * Assetbroorw entity. @author MyEclipse Persistence Tools
@@ -12,8 +11,8 @@ public class AssetBroorw implements java.io.Serializable {
 
 	private Long abid;
 	private String auname;
-	private Date abbackdate;
-	private Date abdate;
+	private String abbackdate;
+	private String abdate;
 	private String abstatus;
 	private String abreson;
 	private String abresult;
@@ -31,7 +30,7 @@ public class AssetBroorw implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetBroorw(Long abid, String auname, Date abbackdate, Date abdate,
+	public AssetBroorw(Long abid, String auname, String abbackdate, String abdate,
 			String abstatus, String abreson, String abresult,
 			String abresultremark) {
 		this.abid = abid;
@@ -62,19 +61,19 @@ public class AssetBroorw implements java.io.Serializable {
 		this.auname = auname;
 	}
 
-	public Date getAbbackdate() {
+	public String getAbbackdate() {
 		return this.abbackdate;
 	}
 
-	public void setAbbackdate(Date abbackdate) {
+	public void setAbbackdate(String abbackdate) {
 		this.abbackdate = abbackdate;
 	}
 
-	public Date getAbdate() {
+	public String getAbdate() {
 		return this.abdate;
 	}
 
-	public void setAbdate(Date abdate) {
+	public void setAbdate(String abdate) {
 		this.abdate = abdate;
 	}
 

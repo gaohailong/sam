@@ -462,7 +462,7 @@
 
 									<div class="caption">
 
-										<i class="icon-reorder"></i> <span class="hidden-480">维修单</span>
+										<i class="icon-reorder"></i> <span class="hidden-480">设备移交单</span>
 
 									</div>
 									<div class="actions">
@@ -492,7 +492,7 @@
 
 												<div class="control-group" style="float: left;">
 
-													<label class="control-label">维修开始时间</label>
+													<label class="control-label">负责人</label>
 
 													<div class="controls">
 
@@ -505,38 +505,12 @@
 												
 												<div class="control-group">
 
-													<label class="control-label" style=";">维修天数</label>
+													<label class="control-label" style=";">部门名称</label>
 
 													<div class="controls">
 
 														<input type="text" class="m-wrap medium" id="repairday" /> <span
 															class="help-inline"></span>
-
-													</div>
-
-												</div>
-											
-												<div class="control-group" style="float: left;">
-
-													<label class="control-label">维修人员</label>
-
-													<div class="controls">
-
-														<input type="text" class="m-wrap medium" id="repairname" /> <span
-															class="help-inline"></span>
-
-													</div>
-
-												</div>
-
-												<div class="control-group" style="float: left;">
-
-													<label class="control-label">联系电话</label>
-
-													<div class="controls">
-
-														<input type="text" class="m-wrap medium" id="repairphone" />
-														<span class="help-inline"></span>
 
 													</div>
 
@@ -576,11 +550,11 @@
 																<div class="control-group"></div>
 																<div class="control-group"></div>
 
-																<label class="control-label">设备编号</label>
+																<label class="control-label">设备名称</label>
 
 																<div class="controls">
 
-																	<input type="text" id="item_as_idcard"
+																	<input type="text" id="item_as_infoname"
 																		class="m-wrap medium" />
 
 																</div>
@@ -594,7 +568,29 @@
 																</div>
 
 															</div>
+															
+															<div class="control-group">
 
+																<label class="control-label">设备数量</label>
+
+																<div class="controls">
+
+																	<input type="text" id="item_as_num"
+																		class="m-wrap medium" />
+
+																</div>
+
+															</div>
+
+															<div class="control-group">
+
+																<div class="controls" id="showNumDiv">
+
+																</div>
+
+															</div>
+
+	
 															<button id="accept-tbody-reset" class="hide"
 																onclick="clearLittleForm()"></button>
 
@@ -828,9 +824,9 @@
 
 		});
 		
-		$("#item_as_idcard").keyup(
+		$("#item_as_infoname").keyup(
 			function(){
-				var aiid = document.getElementById("item_as_idcard").value;
+				var aiid = document.getElementById("item_as_infoname").value;
 				if(document.getElementById("showInfoSpan")!=null){
 					if(document.getElementById("showInfoSpan").innerHTML!=null){
 						document.getElementById("showInfoDiv").innerHTML="";
