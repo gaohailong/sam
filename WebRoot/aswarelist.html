@@ -41,29 +41,11 @@
 				<form action="#" class="form-horizontal">
 					<div class="row-fluid">
 						<div class="control-group">
-							<label class="control-label span2">设备名称</label>
+						<label class="control-label span2">类型名称</label>
 							<div class="controls span2">
-								<input type="text" placeholder="设备名称" class="m-wrap medium" />
-							</div>
-							<label class="control-label span3">类型名称</label>
-
-							<div class="controls span2">
-
 								<select class="medium m-wrap" tabindex="1" id="assetType">
 									<option value="">请选择</option>
 								</select>
-
-							</div>
-
-						</div>
-						<div class="row-fluid">
-							<div class="control-group">
-								<label class="control-label span2">仓库名称</label>
-								<div class="controls span2">
-									<select class="medium m-wrap" tabindex="1" id="wareHouse">
-										<option value="">请选择</option>
-									</select>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -113,9 +95,10 @@
 
 						</tr>
 
+
 					</thead>
 
-					<tbody>
+					<tbody id="assetTbody">
 
 						
 					</tbody>
@@ -135,24 +118,24 @@
 	});
 	
 	function selectDataByName(){
-	var sendParam={"ahname",cur_ware_name};
-		$.ajax({
-			type : "post",
-			url : "/sam/wareHouse/",
-			dataType : "JSON",
-			success : function(data) {
-				$(data).each(
-						function(index, val) {
-							/* $("#wareHouse").append(
-									"<option value='"+val.ahname+"'>"
-											+ val.ahname + "</option>"); */
-						});
-
-			},
-			error : function(data) {
-				alert(data.status);
-			}
-		});
+		var sendParam={"ahname",cur_ware_name};
+			$.ajax({
+				type : "post",
+				url : "/sam/wareHouse/",
+				dataType : "JSON",
+				success : function(data) {
+					$(data).each(
+							function(index, val) {
+								/* $("#wareHouse").append(
+										"<option value='"+val.ahname+"'>"
+												+ val.ahname + "</option>"); */
+							});
+	
+				},
+				error : function(data) {
+					alert(data.status);
+				}
+			});
 	}
 </script>
 

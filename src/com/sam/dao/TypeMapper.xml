@@ -5,12 +5,17 @@
 	<select id="findAll" resultType="com.sam.entity.AssetType">
 		select * from AssetType
 	</select>
-	<select id="findAssetTypeByAtlevel" parameterType="int" resultType="com.sam.entity.AssetType">
+	<select id="findAssetTypeByAtlevel" parameterType="int"
+		resultType="com.sam.entity.AssetType">
 		select * from AssetType where atlevel=#{atlevel}
 	</select>
 	<!-- 根据资产类型name查询资产 -->
-	<select id="findAssetInfosByatname" parameterType="String" resultType="com.sam.entity.AssetInfo">
+	<select id="findAssetInfosByatname" parameterType="String"
+		resultType="com.sam.entity.AssetInfo">
 		select * from AssetInfo where atname=#{atname}
 	</select>
-	
+
+	<select id="findAllSecondAssetType" resultType="com.sam.entity.AssetType">
+		select * from AssetType where atlevel=1
+	</select>
 </mapper>
