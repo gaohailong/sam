@@ -41,10 +41,10 @@
 				<form action="#" class="form-horizontal">
 					<div class="row-fluid">
 						<div class="control-group">
-						<label class="control-label span2">类型名称</label>
+							<label class="control-label span2">类型名称</label>
 							<div class="controls span2">
 								<select class="medium m-wrap" tabindex="1" id="assetType">
-									<option value="">请选择</option>
+								
 								</select>
 							</div>
 						</div>
@@ -100,7 +100,7 @@
 
 					<tbody id="assetTbody">
 
-						
+
 					</tbody>
 
 				</table>
@@ -108,6 +108,16 @@
 			</div>
 
 		</div>
+		 <center>
+                   <!--  data-toggle="modal" -->
+                   	<a id="firstPage" href="javascript:findAssetInfoBytiaojian(1);" class="btn red ">首页</a>  |
+                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
+                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
+                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
+                   	第<span id="currentPage"></span>页 | 
+                   	共<span id="totalRecord"></span>条数据
+                   
+                   </center>
 		<!-- END SAMPLE TABLE PORTLET-->
 	</div>
 </div>
@@ -115,20 +125,113 @@
 <script>
 	jQuery(document).ready(function() {
 		App.init();
+		selectSecondType();
+		
 	});
 	
-	function selectDataByName(){
-		var sendParam={"ahname",cur_ware_name};
+		
+	//条件查询
+	function findAssetInfoBytiaojian(page) {
+		var assetInfoName = $("#assetInfoName").val();
+		var assetTypeName = $("#assetType").val();
+		var tiaojian = {
+			"atname":assetTypeName,
+			"ahname":cur_ware_name,
+			"pageNum":page
+		};
+		$.ajax({
+			type:"post",
+			url:"/sam/infoController/findAssetByCondition",
+			data:tiaojian,
+			dataType:"JSON",
+			success:function(data) {
+			alert("success:function");
+				//总页数
+					var totalPage = data.totalPage;
+					alert("totalPage--"+totalPage);
+					
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html("");
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:findAssetInfoBytiaojian("+perPagenum+");"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:findAssetInfoBytiaojian("+nextPage+");");
+					$("#lastPage").attr("href","javascript:findAssetInfoBytiaojian("+totalPage+");");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html("");
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetInfoList = data.dataList;
+					$("#assetTbody").html("");
+					for(var i = 0;i < assetInfoList.length;i++) {
+						$("#assetTbody").append(
+							"<tr>"
+							+"<td>"+assetInfoList[i].aiid+"</td>"
+							+"<td>"+assetInfoList[i].ainame+"</td>"
+							+"<td>"+assetInfoList[i].aimodel+"</td>"
+							+"<td>"+assetInfoList[i].atname+"</td>"
+							+"<td>"+assetInfoList[i].asname+"</td>"
+							+"<td>"+assetInfoList[i].adname+"</td>"
+							+"</tr>"
+						);
+					}
+			},
+			error:function(data) {
+				alert("出错了"+data.status);
+			}
+		});
+	}
+	
+	//查询所有的类型
+	/* function selectDataByCondition(){
+		 $("#assetType").html();
 			$.ajax({
-				type : "post",
-				url : "/sam/wareHouse/",
+				type : "get",
+				url : "/sam/assetType/findAllSecondAssetType",
 				dataType : "JSON",
 				success : function(data) {
 					$(data).each(
 							function(index, val) {
-								/* $("#wareHouse").append(
-										"<option value='"+val.ahname+"'>"
-												+ val.ahname + "</option>"); */
+								 $("#assetType").append(
+										"<option value='"+val.atname+"'>"
+												+ val.atname + "</option>"); 
+							});
+	
+				},
+				error : function(data) {
+					alert(data.status);
+				}
+			});
+	} */
+	
+	//查询所有的类型
+	function selectSecondType(){
+			$.ajax({
+				type : "get",
+				url : "/sam/assetType/findAllSecondAssetType",
+				dataType : "JSON",
+				success : function(data) {
+				$("#assetType").empty();
+				 $("#assetType").append("<option value=''>请选择</option>");
+					$(data).each(
+							function(index, val) {
+								 $("#assetType").append(
+										"<option value='"+val.atname+"'>"
+												+ val.atname + "</option>"); 
 							});
 	
 				},
@@ -137,6 +240,7 @@
 				}
 			});
 	}
+
 </script>
 
 <!-- END JAVASCRIPTS -->
