@@ -133,6 +133,27 @@
 	jQuery(document).ready(function() {
 		App.init();
 	});
+	
+	function selectDataByName(){
+	var sendParam={"ahname",cur_ware_name};
+		$.ajax({
+			type : "post",
+			url : "/sam/wareHouse/",
+			dataType : "JSON",
+			success : function(data) {
+				$(data).each(
+						function(index, val) {
+							/* $("#wareHouse").append(
+									"<option value='"+val.ahname+"'>"
+											+ val.ahname + "</option>"); */
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	}
 </script>
 
 <!-- END JAVASCRIPTS -->
