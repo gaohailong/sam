@@ -276,61 +276,33 @@
 				<p>Here will be a configuration form</p>
 			</div>
 		</div>
-
 		<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
 		<!-- BEGIN SIDEBAR1 -->
-
 		<div class="page-sidebar nav-collapse collapse">
-
 			<!-- BEGIN SIDEBAR MENU1 -->         
-
 			<ul class="page-sidebar-menu">
-
 				<li>
-
 					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-
 					<div class="sidebar-toggler hidden-phone"></div>
-
 					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-
 				</li>
-
 				<li>
-
 					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-
 					<form class="sidebar-search">
-
 						<div class="input-box">
-
 							<a href="javascript:;" class="remove"></a>
-
 							<input type="text" placeholder="Search..." />            
-
 							<input type="button" class="submit" value=" " />
-
 						</div>
-
 					</form>
-
 					<!-- END RESPONSIVE QUICK SEARCH FORM -->
-
 				</li>
-
 				<li class="start">
-
 					<a class=" start" href="layout_ajax_content_1.html">
-
 					<i class="icon-home"></i> 
-
 					<span class="title">Dashboard</span>
-
 					<span class="selected"></span>
-
 					</a>
-
 				</li>
 
 				<li class="">
@@ -558,15 +530,14 @@
 		jQuery(document).ready(function() {    
 		   App.init();
 		   $('.page-sidebar .ajaxify.start').click();
-		    assettypefirst();
-		    initDepartment();
+		    //assettypefirst();
+		   // initDepartment();
 		    initWareHouse();
-		    userstatus();
-		    findAllUser();
+		  //  userstatus();
+		    //findAllUser();
 		});
 		
-			function initDepartment(){
-			
+		/* function initDepartment(){
 			$.ajax({
 				type : "GET",
 				url : "/sam/department/findDepartmentsFirst",
@@ -585,9 +556,9 @@
 					alert(data.status);
 				}
 			});
-		 }
+		 } */
 		 //遍历二级部门的方法
-		 function initSecondDepartment(adlevel) {
+		/*  function initSecondDepartment(adlevel) {
 		 	$.ajax({
 		 		type:"post",
 		 		url:"/sam/department/findDepartmentsSecond",
@@ -606,7 +577,7 @@
 		 			alert(data.status);
 		 		}
 		 	});
-		 }
+		 } */
 		 
 		  //遍历一级仓库
 		 function initWareHouse(){
@@ -631,7 +602,7 @@
 			});
 		 }
 		 
-		 
+		/*  
 		function userstatus(){
 			var data = { 
 				 "dicttype":0 
@@ -661,9 +632,9 @@
 					
 					});
 		}
-		
+		 */
 		//查询所有的员工
-		function findAllUser(){
+		/* function findAllUser(){
 				$.ajax({
 					type:"get",
 					url:"/sam/userController/findAllUser",
@@ -682,9 +653,9 @@
 						
 					}
 				});
-			}
+			} */
 			//查询一级类型菜单
-			function assettypefirst(){
+		/* 	function assettypefirst(){
 			
 			$.ajax({
 				type : "GET",
@@ -708,8 +679,8 @@
 	
 
 			});
-		 }
-		 //遍历二级类型菜单的方法
+		 } */
+		/*  //遍历二级类型菜单的方法
 		 function assettypesecond(atlevel) {
 		 
 		 var data = { 
@@ -736,8 +707,8 @@
 		 	});
 		
 		}
-		
-		
+		 */
+		/* 
 		var cur_user_id = null;
 		//查询所有的员工
 		function findAllUser() {
@@ -768,7 +739,7 @@
 
 		function findOneUser(id) {
 			cur_user_id = id;
-		}
+		} */
 	</script>
 	<!-- END JAVASCRIPTS -->
 </body>
