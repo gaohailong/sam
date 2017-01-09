@@ -119,7 +119,7 @@ public class InfoController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/findAssetByCondition", method = RequestMethod.GET)
+	@RequestMapping(value = "/findAssetByCondition", method = RequestMethod.POST)
 	public Pager<AssetInfo> findAssetByCondition(
 			@RequestParam(value = "ainame", required = false) String ainame,
 			@RequestParam(value = "atname", required = false) String atname,
@@ -127,13 +127,17 @@ public class InfoController {
 			@RequestParam(value = "aidate", required = false) Date aidate,
 			@RequestParam(value = "pageNum", required = false) int pageNum) {
 		try {
+			System.out.println("ainame:"+ainame);
+			System.out.println("进入findAssetByCondition");
 			AssetInfo assetInfo = new AssetInfo();
 			assetInfo.setAiname(ainame.trim());
 			assetInfo.setAtname(atname.trim());
 			assetInfo.setAhname(ahname.trim());
 			assetInfo.setAidate(aidate);
-			return infoService.findAssetByCondition(assetInfo, pageNum,
+			Pager<AssetInfo> pager = infoService.findAssetByCondition(assetInfo, pageNum,
 					ConstantUtil.DEFAULT_PAGE_SIZE);
+			System.out.println("aaa:"+pager.getDataList().size());
+			return pager;
 		} catch (Exception e) {
 			return null;
 		}
@@ -182,7 +186,13 @@ public class InfoController {
 		}
 		return null;
 	}
-		
+	
+	/**
+	 * 查询全部的资产
+	 * @author zhw
+	 * @param page
+	 * @return
+	 */
 	@RequestMapping(value="/findAssetInfos",method=RequestMethod.GET)
 	@ResponseBody
 	public Pager<AssetInfo> findAssetInfos(Integer page) {

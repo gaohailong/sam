@@ -29,7 +29,7 @@
 				</div>
 				<div class="actions">
 					<!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
-					<button href="#" data-toggle="modal" class="btn green ">
+					<button onclick="findAssetInfoBytiaojian(1)" href="#" data-toggle="modal" class="btn green ">
 						<i class="icon-search"></i> 查询
 					</button>
 				</div>
@@ -43,14 +43,14 @@
 						<div class="control-group">
 							<label class="control-label span2">设备名称</label>
 							<div class="controls span2">
-								<input type="text" placeholder="设备名称" class="m-wrap medium" />
+								<input id="assetInfoName" type="text" placeholder="设备名称" class="m-wrap medium" />
 							</div>
 							<label class="control-label span3">类型名称</label>
 
 							<div class="controls span2">
 
-								<select class="medium m-wrap" tabindex="1" id="assetType">
-									<option value="">请选择</option>
+								<select id="assetTypeName" class="medium m-wrap" tabindex="1" id="assetType">
+									<option value="-1">请选择</option>
 								</select>
 
 							</div>
@@ -60,10 +60,11 @@
 							<div class="control-group">
 								<label class="control-label span2">仓库名称</label>
 								<div class="controls span2">
-									<select class="medium m-wrap" tabindex="1" id="wareHouse">
+									<select id="assetHouseName" class="medium m-wrap" tabindex="1" id="wareHouse">
 										<option value="">请选择</option>
 									</select>
 								</div>
+								<!-- 
 								<label class="control-label span3">进库时间</label>
 
 								<div class="controls span2">
@@ -76,6 +77,7 @@
 											class="icon-calendar"></i></span>
 									</div>
 								</div>
+								 -->
 							</div>
 						</div>
 					</div>
@@ -127,8 +129,8 @@
 
 					</thead>
 
-					<tbody>
-
+					<tbody id="assetTbody">
+	<!-- 
 						<tr>
 
 							<td>1</td>
@@ -184,7 +186,7 @@
 							<td><span class="label label-danger">Blocked</span></td>
 
 						</tr>
-
+ -->
 					</tbody>
 
 				</table>
@@ -192,6 +194,16 @@
 			</div>
 
 		</div>
+		 <center>
+                   <!--  data-toggle="modal" -->
+                   	<a id="firstPage" href="javascript:initAllAssetInfo(1);" class="btn red ">首页</a>  |
+                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
+                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
+                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
+                   	第<span id="currentPage"></span>页 | 
+                   	共<span id="totalRecord"></span>条数据
+                   
+                   </center>
 		<!-- END SAMPLE TABLE PORTLET-->
 	</div>
 </div>
@@ -203,6 +215,7 @@
 		//initDepartment();
 		selectAssetType();
 		selectWareHouse();
+		initAllAssetInfo(1);
 	});
 	function initDepartment() {
 		$.ajax({
@@ -285,7 +298,135 @@
 				alert(data.status);
 			}
 		});
+	
+		
 	}
+	
+	
+	//初始化全部设备的分页信息
+	function initAllAssetInfo(page) {
+			$.ajax({
+				type : "GET",
+				url : "/sam/infoController/findAssetInfos",
+				data : "page="+page,
+				dataType : "JSON",
+				success : function(data) {
+				
+					//总页数
+					var totalPage = data.totalPage;
+					
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:initAllAssetInfo("+perPagenum+");"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:initAllAssetInfo("+nextPage+");");
+					$("#lastPage").attr("href","javascript:initAllAssetInfo("+totalPage+");");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetInfoList = data.dataList;
+					$("#assetTbody").html("");
+					for(var i = 0;i < assetInfoList.length;i++) {
+						$("#assetTbody").append(
+							"<tr>"
+							+"<td>"+assetInfoList[i].aiid+"</td>"
+							+"<td>"+assetInfoList[i].ainame+"</td>"
+							+"<td>"+assetInfoList[i].aimodel+"</td>"
+							+"<td>"+assetInfoList[i].atname+"</td>"
+							+"<td>"+assetInfoList[i].asname+"</td>"
+							+"<td>"+assetInfoList[i].adname+"</td>"
+							+"</tr>"
+						);
+					}
+				},
+				error : function() {
+				alert("出错了");
+				}
+			});
+	}
+	
+	//条件查询
+	function findAssetInfoBytiaojian(page) {
+		var assetInfoName = $("#assetInfoName").val();
+		var assetTypeName = $("#assetTypeName").val();
+		var assetHouseName = $("#assetHouseName").val();
+		var tiaojian = {
+			"ainame":assetInfoName,
+			"atname":assetTypeName,
+			"ahname":assetHouseName,
+			"pageNum":page,
+		};
+		$.ajax({
+			type:"post",
+			url:"/sam/infoController/findAssetByCondition",
+			data:tiaojian,
+			dataType:"JSON",
+			success:function(data) {
+			alert("success:function");
+				//总页数
+					var totalPage = data.totalPage;
+					alert("totalPage--"+totalPage);
+					
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html("");
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:findAssetInfoBytiaojian("+perPagenum+");"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:findAssetInfoBytiaojian("+nextPage+");");
+					$("#lastPage").attr("href","javascript:findAssetInfoBytiaojian("+totalPage+");");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html("");
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetInfoList = data.dataList;
+					$("#assetTbody").html("");
+					for(var i = 0;i < assetInfoList.length;i++) {
+						$("#assetTbody").append(
+							"<tr>"
+							+"<td>"+assetInfoList[i].aiid+"</td>"
+							+"<td>"+assetInfoList[i].ainame+"</td>"
+							+"<td>"+assetInfoList[i].aimodel+"</td>"
+							+"<td>"+assetInfoList[i].atname+"</td>"
+							+"<td>"+assetInfoList[i].asname+"</td>"
+							+"<td>"+assetInfoList[i].adname+"</td>"
+							+"</tr>"
+						);
+					}
+			},
+			error:function(data) {
+				alert("出错了"+data.status);
+			}
+		});
+	}
+		
 </script>
 
 <!-- END JAVASCRIPTS -->
