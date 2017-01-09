@@ -48,7 +48,11 @@ public class InfoServiceImpl implements InfoService {
 	@Override
 	public Pager<AssetInfo> findAssetByCondition(AssetInfo assetInfo,Integer pageNum,Integer pageSize)
 			throws Exception {
+		System.out.println("assetInfo.getAiname()"+assetInfo.getAiname());
+		System.out.println("assetInfo.getAiname()"+assetInfo.getAtname());
+		System.out.println("assetInfo.getAiname()"+assetInfo.getAhname());
 		List<AssetInfo> assetInfos= infoDao.findInfoByCondition(assetInfo);
+		System.out.println("findAssetByCondition"+assetInfos.size());
 		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfos);
 		return pager;
 	}
@@ -70,5 +74,18 @@ public class InfoServiceImpl implements InfoService {
 	public AssetInfo findInfoByAiid(Integer aiid) throws Exception {
 		// TODO Auto-generated method stub
 		return infoDao.findInfoByAiid(aiid);
+	}
+
+	@Override
+	public List<AssetInfo> findInfoByAtname(String atname) throws Exception {
+		// TODO Auto-generated method stub
+		List<AssetInfo> assetInfoList = infoDao.findInfoByAtname(atname);
+		return assetInfoList;
+	}
+
+	@Override
+	public int findInfoNumByAtname(String atname) throws Exception {
+		// TODO Auto-generated method stub
+		return infoDao.findInfoNumByAtname(atname);
 	}
 }

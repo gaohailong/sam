@@ -62,4 +62,20 @@ public interface InfoService {
 	 * @return
 	 */
 	public Pager<AssetInfo> findAssets(int pageNum,int pageSize);
+	
+	/**
+	 * 根据设备的类型查询的设备信息
+	 * @param atname
+	 * @return
+	 * @throws Exception
+	 */
+	List<AssetInfo> findInfoByAtname(String atname) throws Exception;
+	
+	/**
+	 * 根据设备类型名称查询剩余件数
+	 * @param atname
+	 * @return
+	 * @throws Exception
+	 */
+	int findInfoNumByAtname(String atname) throws Exception;
 }

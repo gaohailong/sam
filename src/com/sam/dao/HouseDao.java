@@ -26,4 +26,5 @@ public interface HouseDao {
 	
 	public List<AssetInfo> findAssetInfosByAhname(String ahname) throws Exception;
 	
+	
 }

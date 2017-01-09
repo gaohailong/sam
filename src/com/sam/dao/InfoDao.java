@@ -11,11 +11,28 @@ public interface InfoDao {
 
 	List<AssetInfo> findInfoByAiname(String ainame) throws Exception;
 
+	/**
+	 * 根据设备类型名称查询
+	 * @param atname
+	 * @return
+	 * @throws Exception
+	 */
+	List<AssetInfo> findInfoByAtname(String atname) throws Exception;
+	
+	/**
+	 * 根据设备类型名称查询剩余件数
+	 * @param atname
+	 * @return
+	 * @throws Exception
+	 */
+	int findInfoNumByAtname(String atname) throws Exception;
+	
+	
 	AssetInfo findInfoByAiid(Integer aiid) throws Exception;
 
 	int updInfoAsname(AssetInfo info) throws Exception;
 
-	int updInfoAcid(String asname, Integer acid, Integer aiid) throws Exception;
+	int updInfoAcid(AssetInfo info) throws Exception;
 
 	/**
 	 * 根据使用状态查询设备

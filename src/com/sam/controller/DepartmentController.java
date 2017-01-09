@@ -50,7 +50,7 @@ public class DepartmentController extends BaseController {
 	@ResponseBody
 	public List<AssetDepartment> findDepartmentsSecond(Integer adlevel) {
 		try {
-			System.out.println("adlevel:"+adlevel);
+			System.out.println("findDepartmentsSecond的adlevel:"+adlevel);
 			List<AssetDepartment> departmentList = departmentService.findAssetDepartmentsByAdlevel(adlevel);
 			return departmentList;
 		} catch (Exception e) {
