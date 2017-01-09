@@ -60,7 +60,7 @@
 							<div class="control-group">
 								<label class="control-label span2">仓库名称</label>
 								<div class="controls span2">
-									<select id="assetHouseName" class="medium m-wrap" tabindex="1" id="wareHouse">
+									<select class="medium m-wrap" tabindex="1" id="selectwareHouse">
 										<option value="">请选择</option>
 									</select>
 								</div>
@@ -214,7 +214,7 @@
 		App.init(); // initlayout and core plugins
 		//initDepartment();
 		selectAssetType();
-		//selectWareHouse();
+		selectWareHouse1();
 		initAllAssetInfo(1);
 	});
 	function initDepartment() {
@@ -280,17 +280,43 @@
 			}
 		});
 	}
-	function selectWareHouse() {
+	//遍历全部仓库
+	function selectWareHouse1() {
 		$.ajax({
 			type : "get",
-			url : "/sam/wareHouse/findAllHouse",
+			url : "/sam/wareHouse/findAllSecondAssetHouse",
 			dataType : "JSON",
 			success : function(data) {
+			$("#selectwareHouse").html("");
 				$(data).each(
-						function(index, val) {
-							$("#wareHouse").append(
-									"<option value='"+val.ahname+"'>"
-											+ val.ahname + "</option>");
+						function(index, value) {
+							$("#selectwareHouse").append(
+								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
+							);
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	
+		
+	}
+	
+	//遍历全部二级类型
+	function selectWareHouse1() {
+		$.ajax({
+			type : "get",
+			url : "/sam/wareHouse/findAllSecondAssetHouse",
+			dataType : "JSON",
+			success : function(data) {
+			$("#selectwareHouse").html("");
+				$(data).each(
+						function(index, value) {
+							$("#selectwareHouse").append(
+								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
+							);
 						});
 
 			},
@@ -376,10 +402,8 @@
 			data:tiaojian,
 			dataType:"JSON",
 			success:function(data) {
-			alert("success:function");
 				//总页数
 					var totalPage = data.totalPage;
-					alert("totalPage--"+totalPage);
 					
 					//当前页码
 					var currentPage = data.currentPage;

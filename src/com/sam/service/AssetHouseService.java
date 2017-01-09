@@ -28,5 +28,4 @@ public interface AssetHouseService {
 	
 	public Pager<AssetInfo> findAssetInfos(String ahname, int pageNum,int pageSize) throws Exception;
 
-
 }

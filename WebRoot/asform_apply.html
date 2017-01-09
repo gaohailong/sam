@@ -562,6 +562,7 @@
 				url: "/sam/apply/findAllSecondDepartments",
 				dataType:"JSON",
 				success:function(data) {
+					$("#assetDepartment").html("");
 					 $(data).each(
 					 	function (index, value) {
                             $("#assetDepartment").append(

@@ -13,4 +13,5 @@
 	<select id="findAssetInfosByAhname" parameterType="String" resultType="com.sam.entity.AssetInfo">
 		select * from AssetInfo where ahname=#{ahname}
 	</select>
+	
 </mapper>

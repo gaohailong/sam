@@ -39,16 +39,16 @@
 	<select id="findInfoByCondition" parameterType="com.sam.entity.AssetInfo"
 		resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where 1=1
-		<if test="ainame != null or ainame !=''">
-			AND ainame like '%#{ainame}%'
+		<if test="ainame != null and ainame !=''">
+			AND ainame like '%${ainame}%'
 		</if>
-		<!-- 
-		<if test="atname != null or atname !=''">
+		
+		<if test="atname != null and atname !=''">
 			AND atname=#{atname}
 		</if>
-		<if test="ahname != null or ahname !=''">
+		<if test="ahname != null and ahname !=''">
 			AND ahname=#{ahname}
-		</if> -->
+		</if>
 	</select>
 	<!-- 查询全部的资产 -->
 	<select id="findAssetInfos" resultType="com.sam.entity.AssetInfo">
