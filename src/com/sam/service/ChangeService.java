@@ -10,5 +10,5 @@ public interface ChangeService {
 	 * @return
 	 * @throws Exception
 	 */
-	int addChange(AssetChange change) throws Exception;
+	int addChange(AssetChange change,String infoStr,String numStr) throws Exception;
 }
