@@ -24,25 +24,24 @@ public class ChangeServiceImpl implements ChangeService{
 	 * 增加一条移交记录
 	 */
 	@Override
-	public int addChange(AssetChange change,String infoStr,String numStr) throws Exception {
+	public int addChange(AssetChange change,String numStr) throws Exception {
 		// TODO Auto-generated method stub
 		CreateRandom cr = new CreateRandom();
 		int acid = cr.createRandom();
 		change.setAcid(acid);
 		
-		String[] info = infoStr.split(",");
 		String[] num = numStr.split(",");
 		
-		for(int i=0;i<info.length;i++){
-			if(info[i]!=null){
-				List<AssetInfo> infoList = infoDao.findInfoByAiname(info[i]);
-				if(num[i]!=null){	
-					for(int j=0;j<Integer.parseInt(num[i]);j++){
-						infoList.get(j).setAsname("使用中");
-						infoDao.updInfoAcid("使用中", acid, infoList.get(j).getAiid());
-					}
+		for(int i=0;i<num.length;i++){
+			if(num[i]!=null){
+				System.out.println("acide"+acid);
+				AssetInfo info = new AssetInfo();
+				info.setAsname("使用中");
+				info.setAcceptid(acid);
+				info.setAdname(change.getAdname());
+				info.setAiid(Integer.parseInt(num[i]));
+					infoDao.updInfoAcid(info);
 				}
-			}
 		}
 		return changeDao.addChange(change);
 	}

@@ -126,7 +126,7 @@
 	jQuery(document).ready(function() {
 		App.init();
 		selectSecondType();
-		
+		alert(cur_ware_name);
 	});
 	
 		
@@ -134,6 +134,7 @@
 	function findAssetInfoBytiaojian(page) {
 		var assetInfoName = $("#assetInfoName").val();
 		var assetTypeName = $("#assetType").val();
+		
 		var tiaojian = {
 			"atname":assetTypeName,
 			"ahname":cur_ware_name,
@@ -195,28 +196,6 @@
 			}
 		});
 	}
-	
-	//查询所有的类型
-	/* function selectDataByCondition(){
-		 $("#assetType").html();
-			$.ajax({
-				type : "get",
-				url : "/sam/assetType/findAllSecondAssetType",
-				dataType : "JSON",
-				success : function(data) {
-					$(data).each(
-							function(index, val) {
-								 $("#assetType").append(
-										"<option value='"+val.atname+"'>"
-												+ val.atname + "</option>"); 
-							});
-	
-				},
-				error : function(data) {
-					alert(data.status);
-				}
-			});
-	} */
 	
 	//查询所有的类型
 	function selectSecondType(){

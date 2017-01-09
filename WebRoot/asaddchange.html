@@ -229,7 +229,7 @@
 
 						<li><a href="asform_layin.html"> 资产的出库</a></li>
 
-						<li><a href="asform_repaire.html"> 资产的维修 </a></li>
+						<li><a href="asform_repaire.html"> 资产的移交 </a></li>
 						<li><a href="asform_change.html"> 资产的变动 </a></li>
 
 
@@ -245,8 +245,8 @@
 
 						<li><a href="#"> 资产查询 </a></li>
 						<li><a href="#"> 变更查询 </a></li>
-						<li><a href="#"> 维修查询 </a></li>
-						<li><a href="#"> 维修中 </a></li>
+						<li><a href="#"> 移交查询 </a></li>
+						<li><a href="#"> 移交中 </a></li>
 						<li><a href="#"> 已报废处理 </a></li>
 
 					</ul></li>
@@ -316,7 +316,7 @@
 						<li><a href="#"> 使用中 </a></li>
 						<li><a href="#"> 未使用3 </a></li>
 						<li><a href="#"> 借出中 </a></li>
-						<li><a href="#"> 维修中 </a></li>
+						<li><a href="#"> 移交中 </a></li>
 						<li><a href="#"> 已报废处理 </a></li>
 
 					</ul></li>
@@ -448,71 +448,68 @@
 				<!-- END PAGE HEADER-->
 
 				<!-- BEGIN PAGE CONTENT-->
-				<form id="acceptForm">
-				</form>
-					<div class="row-fluid">
+				<form id="acceptForm"></form>
+				<div class="row-fluid">
 
-						<div class="span12">
+					<div class="span12">
 
-							<!-- BEGIN SAMPLE FORM PORTLET-->
+						<!-- BEGIN SAMPLE FORM PORTLET-->
 
-							<div class="portlet box red tabbable">
+						<div class="portlet box red tabbable">
 
-								<div class="portlet-title">
+							<div class="portlet-title">
 
-									<div class="caption">
+								<div class="caption">
 
-										<i class="icon-reorder"></i> <span class="hidden-480">设备移交单</span>
-
-									</div>
-									<div class="actions">
-
-										<button onclick="javascript:addRequestForm();" class="btn blue ">
-											<i class="icon-check"></i> 确定
-										</button>
-										<a href="#" data-toggle="modal" class="btn yellow "><i
-											class="icon-pencil"></i> Edit</a> <a href="#responsive"
-											data-toggle="modal" class="btn green "><i
-											class="icon-plus"></i> 添加</a>
-
-									</div>
-
+									<i class="icon-reorder"></i> <span class="hidden-480">设备移交单</span>
 
 								</div>
-								<div class="portlet-body form">
+								<div class="actions">
+
+									<button onclick="javascript:addChangeForm();" class="btn blue ">
+										<i class="icon-check"></i> 确定
+									</button>
+									<a href="#" data-toggle="modal" class="btn yellow "><i
+										class="icon-pencil"></i> Edit</a> <a href="#responsive"
+										data-toggle="modal" class="btn green "><i
+										class="icon-plus"></i> 添加</a>
+
+								</div>
 
 
-									<ul class="nav nav-tabs"></ul>
+							</div>
+							<div class="portlet-body form">
 
-									<div class="tab-content">
 
-										<div class="tab-pane active" id="portlet_tab1">
+								<ul class="nav nav-tabs"></ul>
 
-											<div class="form-horizontal">
+								<div class="tab-content">
 
-												<div class="control-group" style="float: left;">
+									<div class="tab-pane active" id="portlet_tab1">
 
-													<label class="control-label">负责人</label>
+										<div class="form-horizontal">
 
-													<div class="controls">
+											<div class="control-group" style="float: left;">
 
-														<input type="text" class="m-wrap medium" id="repairtime" /> <span
-															class="help-inline"></span>
+												<label class="control-label">负责人</label>
 
-													</div>
+												<div class="controls">
+
+													<input type="text" class="m-wrap medium" id="changeName" />
+													<span class="help-inline"></span>
 
 												</div>
-												
-												<div class="control-group">
 
-													<label class="control-label" style=";">部门名称</label>
+											</div>
 
-													<div class="controls">
+											<div class="control-group">
 
-														<input type="text" class="m-wrap medium" id="repairday" /> <span
-															class="help-inline"></span>
+												<label class="control-label" style=";">部门名称</label>
 
-													</div>
+												<div class="controls">
+
+													<input type="text" class="m-wrap medium" id="changeDepart" />
+													<span class="help-inline"></span>
 
 												</div>
 
@@ -524,181 +521,181 @@
 
 								</div>
 
-								<div id="responsive" class="modal hide fade" tabindex="-1"
-									data-width="760">
+							</div>
 
-									<div class="modal-header">
+							<div id="responsive" class="modal hide fade" tabindex="-1"
+								data-width="760">
 
-										<span class="hidden-480">资产维修表</span>
-									</div>
-									<div class="modal-body">
+								<div class="modal-header">
 
-										<div class="portlet-body form">
+									<span class="hidden-480">资产移交表</span>
+								</div>
+								<div class="modal-body">
 
-											<div class="tabbable portlet-tabs">
+									<div class="portlet-body form">
 
-												<div class="tab-content">
+										<div class="tabbable portlet-tabs">
 
-													<div class="tab-pane active" id="portlet_tab1">
+											<div class="tab-content">
 
-														<!-- BEGIN FORM-->
+												<div class="tab-pane active" id="portlet_tab1">
 
-														<div class="form-horizontal">
+													<!-- BEGIN FORM-->
 
-															<div class="control-group">
-																<div class="control-group"></div>
-																<div class="control-group"></div>
-																<div class="control-group"></div>
+													<div class="form-horizontal">
 
-																<label class="control-label">设备名称</label>
+														<div class="control-group">
+															<div class="control-group"></div>
+															<div class="control-group"></div>
+															<div class="control-group"></div>
 
-																<div class="controls">
+															<label class="control-label">设备类型</label>
 
-																	<input type="text" id="item_as_infoname"
-																		class="m-wrap medium" />
+															<div class="controls">
 
-																</div>
-
-															</div>
-
-															<div class="control-group">
-
-																<div class="controls" id="showInfoDiv">
-
-																</div>
+																<select class="m-wrap medium" onchange="atnameSelect();"
+																	id="item_as_atname">
+																	<option value="">请选择你设备类型</option>
+																	<option value="电脑">电脑</option>
+																	<option value="投影仪">投影仪</option>
+																</select>
 
 															</div>
-															
-															<div class="control-group">
-
-																<label class="control-label">设备数量</label>
-
-																<div class="controls">
-
-																	<input type="text" id="item_as_num"
-																		class="m-wrap medium" />
-
-																</div>
-
-															</div>
-
-															<div class="control-group">
-
-																<div class="controls" id="showNumDiv">
-
-																</div>
-
-															</div>
-
-	
-															<button id="accept-tbody-reset" class="hide"
-																onclick="clearLittleForm()"></button>
 
 														</div>
 
-														<!-- END FORM-->
+														<div class="control-group">
+
+															<div class="controls" id="showInfoDiv"></div>
+
+														</div>
+
+														<div class="control-group">
+
+															<label class="control-label">设备数量</label>
+
+															<div class="controls">
+
+																<input type="text" id="item_as_infonum"
+																	class="m-wrap medium" />
+
+															</div>
+
+														</div>
+
+														<div class="control-group">
+
+															<div class="controls" id="showNumDiv"></div>
+
+														</div>
+
+
+														<button id="accept-tbody-reset" class="hide"
+															onclick="clearLittleForm()"></button>
 
 													</div>
 
+													<!-- END FORM-->
 
 												</div>
+
 
 											</div>
 
 										</div>
-									</div>
-
-									<div class="modal-footer">
-
-										<button id="accept-tbody-close" type="button"
-											data-dismiss="modal" class="btn">关闭</button>
-
-										<button type="button" class="btn blue" onclick="addOne()">保存</button>
-
-
 
 									</div>
+								</div>
+
+								<div class="modal-footer">
+
+									<button id="accept-tbody-close" type="button"
+										data-dismiss="modal" class="btn">关闭</button>
+
+									<button id="accept-tbody-save" type="button" class="btn blue"
+										onclick="addMore()">保存</button>
+
+
 
 								</div>
 
 							</div>
-
-							<!-- BEGIN EXAMPLE TABLE PORTLET-->
-
-							<div class="portlet box red">
-
-								<div class="portlet-title">
-
-									<div class="caption">
-										<i class="icon-edit"></i>本次维修的:
-									</div>
-
-
-								</div>
-
-								<div class="portlet-body">
-
-									<table class="table table-striped table-hover table-bordered"
-										id="sample_editable_1">
-
-										<thead>
-
-											<tr>
-
-												<th>设备型号</th>
-
-												<th>设备名称</th>
-
-												<th>类型名称</th>
-
-												<th>仓库名称</th>
-
-												<th>生产日期</th>
-
-												<th>生产单位</th>
-
-												<th>保质期</th>
-
-												<th>折旧方法</th>
-
-												<th>残值率</th>
-
-												<th>设备备注</th>
-
-												<th>操作</th>
-
-												<th>删除本行</th>
-
-											</tr>
-
-										</thead>
-
-
-										<tbody id="accept-tbody">
-											
-
-										</tbody>
-
-
-									</table>
-
-
-
-									<!-- END EXAMPLE TABLE PORTLET-->
-
-									<!-- END SAMPLE FORM PORTLET-->
-
-								</div>
-
-							</div>
-
-							<!-- END PAGE CONTENT-->
 
 						</div>
 
-						<!-- END PAGE CONTAINER-->
+						<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+						<div class="portlet box red">
+
+							<div class="portlet-title">
+
+								<div class="caption">
+									<i class="icon-edit"></i>本次移交的:
+								</div>
+
+
+							</div>
+
+							<div class="portlet-body">
+
+								<table class="table table-hover">
+
+									<thead>
+
+										<tr>
+
+											<th>设备型号</th>
+
+											<th>设备名称</th>
+
+											<th>类型名称</th>
+
+											<th>仓库名称</th>
+
+											<th>生产日期</th>
+
+											<th>生产单位</th>
+
+											<th>保质期</th>
+
+											<th>折旧方法</th>
+
+											<th>残值率</th>
+
+											<th>设备备注</th>
+
+											<th>删除本行</th>
+
+										</tr>
+
+									</thead>
+
+
+									<tbody id="accept-tbody">
+
+
+									</tbody>
+
+
+								</table>
+
+
+
+								<!-- END EXAMPLE TABLE PORTLET-->
+
+								<!-- END SAMPLE FORM PORTLET-->
+
+							</div>
+
+						</div>
+
+						<!-- END PAGE CONTENT-->
 
 					</div>
+
+					<!-- END PAGE CONTAINER-->
+
+				</div>
 				<!-- END PAGE -->
 			</div>
 
@@ -740,10 +737,6 @@
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
 
 	<script type="text/javascript" src="media/js/select2.min.js"></script>
-	<!-- 
-			<script type="text/javascript" src="media/js/jquery.dataTables.js"></script> -->
-
-	<script type="text/javascript" src="media/js/DT_bootstrap.js"></script>
 
 	<!-- END PAGE LEVEL PLUGINS -->
 
@@ -764,42 +757,52 @@
 
 	<script src="media/js/app.js"></script>
 
-	<script src="media/js/table-editable.js"></script>
-
 	<script src="media/js/ui-modals.js"></script>
 
 
 	<!-- 小表单得东西给大table中添加 -->
 	<script type="text/javascript">
-		function addOne() {
-			var date  = document.getElementsByName("hiddenInfoInput");
-			var num = date.length;
-			var info = date[num-1].value;
-			var i = info.split(",");
-			var str = "<tr class=''><td>"
-					+ i[0]
-					+ "</td><td>"
-					+ i[1]
-					+ "</td><td>"
-					+ i[2]
-					+ "</td><td>"
-					+ i[3]
-					+ "</td><td>"
-					+ i[4]
-					+ "</td><td>"
-					+ i[5]
-					+ "</td><td>"
-					+ i[6]
-					+ "</td><td>"
-					+ i[7]
-					+ "</td><td>"
-					+ i[8]
-					+ "</td><td>"
-					+ i[9]
-					+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
-			$("#accept-tbody").prepend(str);
-			$("#accept-tbody-reset").click();
-			$("#accept-tbody-close").click(); 
+		function addMore() {
+			var atname = document.getElementById("item_as_atname").value;
+			var atnum = document.getElementById("item_as_infonum").value;
+			
+			$.ajax({
+				type:"post",
+					url:"/sam/changeController/findInfoByAtname",
+					data:"atname="+atname+"&atnum="+atnum,
+					dataType:"JSON",
+					success:function(date){
+						$(date).each(function(index, val) {
+							$("#accept-tbody").prepend(
+								"<tr class=''><input type='hidden' value='"+val.aiid+"' name='hiddenInfoId' /><td>"
+							+ val.aimodel
+							+ "</td><td>"
+							+ val.ainame
+							+ "</td><td>"
+							+ val.atname
+							+ "</td><td>"
+							+ val.ahname
+							+ "</td><td>"
+							+ val.aidate
+							+ "</td><td>"
+							+ val.aisupply
+							+ "</td><td>"
+							+ val.ailife
+							+ "</td><td>"
+							+ val.aidepreciation
+							+ "</td><td>"
+							+ val.airemainratio
+							+ "</td><td>"
+							+ val.airemark
+							+ "</td><td><a class='delete' href='javascript:;'>删除</a></td></tr>");
+						});
+						$("#accept-tbody-reset").click();
+						$("#accept-tbody-close").click(); 
+					},
+					error:function(date){
+						alert(date.status);
+					}
+			});
 		}
 
 		function clearLittleForm() {
@@ -818,36 +821,45 @@
 
 			App.init();
 
-			TableEditable.init();
-
 			UIModals.init();
 
 		});
 		
-		$("#item_as_infoname").keyup(
+		$("#item_as_infonum").keyup(
 			function(){
-				var aiid = document.getElementById("item_as_infoname").value;
-				if(document.getElementById("showInfoSpan")!=null){
-					if(document.getElementById("showInfoSpan").innerHTML!=null){
-						document.getElementById("showInfoDiv").innerHTML="";
-					}
+				var num = document.getElementById("hiddenNum").value;
+				var nownum = $("#item_as_infonum").val();
+				if(parseInt(nownum)>parseInt(num)){
+					alert("输入件数大于库存量");
+					$("#accept-tbody-save").attr("disabled", true);
+					$("#accept-tbody-save").attr("class", "btn");
+				}else{
+					$("#accept-tbody-save").attr("disabled", false);
+					$("#accept-tbody-save").attr("class", "btn blue");
 				}
-				checkInfoById(aiid);
 			}
-		)
+		);
 		
-		function checkInfoById(aiid){
+		function atnameSelect(){
+			var atname = document.getElementById("item_as_atname").value
+			if(document.getElementById("showInfoSpan")!=null){
+				if(document.getElementById("showInfoSpan").innerHTML!=null){
+					document.getElementById("showInfoDiv").innerHTML="";
+				}
+			}
+			checkInfoById(atname);
+		}
+		function checkInfoById(atname){
 			$.ajax({
 					type:"post",
-					url:"/sam/infoController/findInfoByAiid",
-					data:"aiid="+aiid,
+					url:"/sam/changeController/findInfoNumByAtname",
+					data:"atname="+atname,
 					dataType:"JSON",
 					success:function(date){
-						if(date!=null){
-							$("#showInfoDiv").append("<span id='showInfoSpan'>名称:"+date.ainame+",状态:"+date.asname+"</span>");
-							$("#acceptForm").append("<input type='hidden' name='hiddenInfoAiidInput' value='"+date.aiid+"' ><input type='hidden' name='hiddenInfoInput' value='"+date.aimodel+","+date.ainame+","+date.atname+","+date.ahname+","+date.aimeasuer+","+date.aisupply+","+date.ailife+","+date.aidepreciation+","+date.airemainratio+","+date.airemark+" '>");
+						if(date>0){
+							$("#showInfoDiv").append("<input type='hidden' value='"+date+"' id='hiddenNum' /><span id='showInfoSpan'>设备剩余:"+date+"件</span>");
 						}else{
-							$("#showInfoDiv").append("<span id='showInfoSpan'>未查到当前id对应的东西</span>");
+							$("#showInfoDiv").append("<input type='hidden' value='"+date+"' id='hiddenNum' /><span id='showInfoSpan'>未查到当前id对应的东西</span>");
 						}
 					},
 					error:function(date){
@@ -856,24 +868,23 @@
 				});
 		} 
 		
-		function addRequestForm() {
+		function addChangeForm() {
 		
-			var date  = document.getElementsByName("hiddenInfoAiidInput");
+			var date  = document.getElementsByName("hiddenInfoId");
 			var aiidStr = "";
 			for(var i=0;i<date.length;i++){
 				aiidStr += date[i].value+",";
 			}
+			alert(aiidStr);
 			
-			var artime = document.getElementById("repairtime").value;
-			var arday = document.getElementById("repairday").value;
-			var arperson = document.getElementById("repairname").value;
-			var arphone = document.getElementById("repairphone").value;
+			var acname =  document.getElementById("changeName").value;
+			var adname = document.getElementById("changeDepart").value;
 			
 			
 			$.ajax({
 				type:"post",
-				url:"/sam/requireController/addRequest",
-				data:"aiidStr="+aiidStr+"&artime="+artime+"&arday="+arday+"&arperson="+arperson+"&arphone="+arphone,
+				url:"/sam/changeController/addChange",
+				data:"aiidStr="+aiidStr+"&acname="+acname+"&adname="+adname,
 				dataType:"JSON",
 				success:function(date){
 					if(date>0){

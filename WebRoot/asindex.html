@@ -307,17 +307,7 @@
         	    </li>
 
 				<li class="">
-					<a class="active" href="javascript:;">
-					<i class="icon-sitemap"></i> 
-					<span class="title">资产存放地点</span>
-					<span class="selected"></span>
-					</a>
-					<ul class="sub-menu" id="firsthouse">
-					</ul>
-				</li>
-				
-				<li class="">
-					<a class="active" href="javascript:;">
+					<a  href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">资产管理</span>
 					<span class="selected"></span>
@@ -342,7 +332,7 @@
 				</li>
 				
 				<li class="">
-					<a class="active" href="javascript:;">
+					<a  href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">资产查询</span>
 					<span class="selected"></span>
@@ -362,7 +352,7 @@
 				</li>
 				
 				<li class="">
-					<a class="active" href="javascript:;">
+					<a  href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">资产使用部门</span>
 					<span class="selected"></span>
@@ -380,7 +370,7 @@
         	    </li>
 				
 				<li class="">
-					<a class="active" href="javascript:;">
+					<a href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">资产使用情况</span>
 					<span class="selected"></span>
@@ -410,17 +400,7 @@
 				</li>
 				
 				<li class="">
-					<a class="active" href="javascript:;">
-					<i class="icon-sitemap"></i> 
-					<span class="title">资产类别</span>
-					<span class="selected"></span>
-					</a>
-					<ul class="sub-menu" id="icon-assettype">
-					</ul>
-				</li>
-				
-				<li class="">
-					<a class="active" href="javascript:;">
+					<a  href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">系统管理</span>
 					<span class="selected"></span>
@@ -431,21 +411,27 @@
 								人员管理
 							</a>
 						</li>
-							<li>
+						<li>
 							<a class="ajaxify" href="asset_manager_warehouse.html">
 								仓库管理
 							</a>
 						</li>
-							<li>
+						<li>
 							<a class="ajaxify" href="asset_manager_department.html">
 								部门管理
+							</a>
+						</li>
+						</li>
+						<li>
+							<a class="ajaxify" href="asset_manager_department.html">
+								资产类别管理
 							</a>
 						</li>
 					</ul>
 				</li>
 				
 				<li class="">
-					<a class="active" href="javascript:;">
+					<a href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">图表统计</span>
 					<span class="selected"></span>
@@ -470,7 +456,7 @@
 				</li>
 				
 				<li class="">
-					<a class="active" href="javascript:;">
+					<a  href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">报表导出</span>
 					<span class="selected"></span>
@@ -602,6 +588,7 @@
 	<script src="media/js/index.js" type="text/javascript"></script>       
 	<script src="media/js/app.js"></script>      
 	<script>
+	 var cur_ware_name=null;
 		jQuery(document).ready(function() {    
 		   App.init();
 		   $('.page-sidebar .ajaxify.start').click();
@@ -664,7 +651,7 @@
 					$(data).each(
 						function(index,value){
 							$("#firsthouse").append(
-							"<li><a class='ajaxify' onclick='getcurid("+value.ahname+")' href='aswarelist.html'>"+value.ahname+"</a></li>"
+							"<li><a class='ajaxify' href='aswarelist.html'  onclick='getcurid("+value.ahname+")'>"+value.ahname+"</a></li>"
 							);
 						}
 					);
@@ -672,12 +659,10 @@
 				errot:function(data){
 					alert(data.status);
 				}
-	
-
 			});
 		 }
 		 
-		 var cur_ware_name=null;
+		
 		 function getcurid(name){
 			 cur_ware_name=name;
 		 }

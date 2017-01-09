@@ -87,4 +87,12 @@ public class AssetUser implements java.io.Serializable {
 		this.auphone = auphone;
 	}
 
+	@Override
+	public String toString() {
+		return "AssetUser [auid=" + auid + ", urname=" + urname + ", udname="
+				+ udname + ", auname=" + auname + ", aupass=" + aupass
+				+ ", auphone=" + auphone + "]";
+	}
+
+	
 }
