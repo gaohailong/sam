@@ -11,7 +11,7 @@
 
 <!-- BEGIN HEAD -->
 
-<head>60785952
+<head>
 
     <meta charset="utf-8"/>
 
@@ -718,13 +718,13 @@
 										<div class="control-group">
 											<label class="control-label span2">设备名称</label>
 											<div class="controls span2">
-												<input type="text" name="ainame" placeholder="设备名称" class="m-wrap medium" />
+												<input type="text" id="" name="ainame" placeholder="设备名称" class="m-wrap medium" />
 											</div>
 											<label class="control-label span3">申请部门</label>
 
 											<div class="controls span2">
 
-												<select class="medium m-wrap" tabindex="1" name="adname" id="assetDepartment">
+												<select class="medium m-wrap" tabindex="1" id="" name="adname" id="assetDepartment">
 													<option value="-1">请选择部门</option>
 												<!-- 
 													<option value="校长办公室">校长办公室</option>
@@ -1282,7 +1282,9 @@
 	  function findByCondition(page){
 	  alert("进入分页查询");
 	  var ainame = $("#ainame").val();
+	  alert("ainame:"+ainame);
 	  var adname = $("#adname").val();
+	  alert("adname:"+adname);
 	  var reqParam = {"ainame":ainame,"adname":adname};
 	  alert("reqParam"+reqParam);
 	  			$.ajax({
@@ -1408,15 +1410,16 @@
 		
 		//初始化查询模块中的部门下拉列表
 		function initAllSecondDepartment() {
+		alert("initAllSecondDepartment");
 			$.ajax({
 				type:"GET",
 				url: "/sam/apply/findAllSecondDepartments",
 				dataType:"JSON",
 				success:function(data) {
 					 $(data).each(
-					 	function (index, val) {
+					 	function (index, value) {
                             $("#assetDepartment").append(
-                                    "<option value='"+val.adname+"'>"+val.adname+"</option>"
+                                    "<option value='"+value.adname+"'>"+value.adname+"</option>"
                             );
                         }
 					 );
