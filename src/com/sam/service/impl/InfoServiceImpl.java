@@ -49,6 +49,7 @@ public class InfoServiceImpl implements InfoService {
 	public Pager<AssetInfo> findAssetByCondition(AssetInfo assetInfo,Integer pageNum,Integer pageSize)
 			throws Exception {
 		List<AssetInfo> assetInfos= infoDao.findInfoByCondition(assetInfo);
+		System.out.println("findAssetByCondition"+assetInfos.size());
 		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfos);
 		return pager;
 	}
