@@ -128,17 +128,23 @@ public class InfoController {
 			@RequestParam(value = "pageNum", required = false) int pageNum) {
 		try {
 			System.out.println("ainame:"+ainame);
+			System.out.println("atname:"+atname);
+			System.out.println("ahname:"+ahname);
+			System.out.println("aidate:"+aidate);
+			System.out.println("pageNum:"+pageNum);
 			System.out.println("进入findAssetByCondition");
 			AssetInfo assetInfo = new AssetInfo();
 			assetInfo.setAiname(ainame.trim());
 			assetInfo.setAtname(atname.trim());
 			assetInfo.setAhname(ahname.trim());
 			assetInfo.setAidate(aidate);
+			System.out.println("qqq");
 			Pager<AssetInfo> pager = infoService.findAssetByCondition(assetInfo, pageNum,
 					ConstantUtil.DEFAULT_PAGE_SIZE);
 			System.out.println("aaa:"+pager.getDataList().size());
 			return pager;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

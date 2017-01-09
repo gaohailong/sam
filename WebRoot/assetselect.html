@@ -50,7 +50,7 @@
 							<div class="controls span2">
 
 								<select id="assetTypeName" class="medium m-wrap" tabindex="1" id="assetType">
-									<option value="-1">请选择</option>
+									<option value="">请选择</option>
 								</select>
 
 							</div>
@@ -214,7 +214,7 @@
 		App.init(); // initlayout and core plugins
 		//initDepartment();
 		selectAssetType();
-		selectWareHouse();
+		//selectWareHouse();
 		initAllAssetInfo(1);
 	});
 	function initDepartment() {
@@ -368,7 +368,7 @@
 			"ainame":assetInfoName,
 			"atname":assetTypeName,
 			"ahname":assetHouseName,
-			"pageNum":page,
+			"pageNum":page
 		};
 		$.ajax({
 			type:"post",
