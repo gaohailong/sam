@@ -13,4 +13,20 @@
 	<select id="findfindUserById" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetUser">
 		select * from AssetUser where auid=#{auid}
 	</select>
+	
+	<select id="findUserByName" parameterType="java.lang.String" resultType="com.sam.entity.AssetUser">
+		select * from AssetUser where auname=#{auname}
+	</select>
+	
+	<insert id="addUser" parameterType="com.sam.entity.AssetUser">
+	 insert into AssetUser(auid,auname,aupass,auphone,urname,udname) values(AssetUser_seq.nextval,#{auname},#{aupass},#{auphone},#{urname},#{udname})
+	</insert>
+	
+	<delete id="deleteUser" parameterType="java.lang.Integer">
+	   delete from AssetUser where auid =#{auid}
+	</delete>
+	
+	<update id="updateUser"  parameterType="com.sam.entity.AssetUser">
+	  update AssetUser set auname =#{auname},auphone=#{auphone},udname=#{udname},urname=#{urname} where auid =#{auid}
+	</update>
 </mapper>

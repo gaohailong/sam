@@ -1,5 +1,6 @@
 package com.sam.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetRequire;
+import com.sam.entity.Pager;
 import com.sam.service.RequireService;
+import com.sam.util.ConstantUtil;
 
 /**
  * 设备修理时候的controller
@@ -51,6 +54,36 @@ public class RequireController {
 			e.printStackTrace();
 		}
 		return num;
+	}
+	
+	/**
+	 * @author zhw
+	 * 动态多条件查询维修单表
+	 * @param artime
+	 * @param arday
+	 * @param arstatus
+	 * @param page
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="/findAssetquires", method = RequestMethod.POST)
+	public Pager<AssetRequire> findAssetquires(
+			@RequestParam(value="artime", required = false) String artime,
+			@RequestParam(value="arday", required = false) Integer arday,
+			@RequestParam(value="arstatus", required = false) String arstatus,
+			@RequestParam(value="page", required = false) Integer page
+			) {
+		try {
+			AssetRequire require = new AssetRequire();
+			require.setArtime(artime);
+			require.setArstatus(arstatus);
+			require.setArday(arday);
+			Pager<AssetRequire> requirePager = requireService.findAssetRequires(require, page, ConstantUtil.DEFAULT_PAGE_SIZE);
+			return requirePager;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }
