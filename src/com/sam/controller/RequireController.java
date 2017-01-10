@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetRequire;
+import com.sam.entity.AssetRequiresSearch;
 import com.sam.entity.Pager;
 import com.sam.service.RequireService;
 import com.sam.util.ConstantUtil;
@@ -69,17 +70,22 @@ public class RequireController {
 	@RequestMapping(value="/findAssetquires", method = RequestMethod.POST)
 	public Pager<AssetRequire> findAssetquires(
 			@RequestParam(value="artime", required = false) String artime,
-			@RequestParam(value="arday", required = false) Integer arday,
+			@RequestParam(value="ardaynum", required = false) String ardaynum,
 			@RequestParam(value="arstatus", required = false) String arstatus,
 			@RequestParam(value="page", required = false) Integer page
 			) {
 		try {
-			AssetRequire require = new AssetRequire();
-			require.setArtime(artime);
-			require.setArstatus(arstatus);
-			require.setArday(arday);
-			Pager<AssetRequire> requirePager = requireService.findAssetRequires(require, page, ConstantUtil.DEFAULT_PAGE_SIZE);
-			return requirePager;
+			Integer beginDay = Integer.parseInt(ardaynum.split("-")[0]);
+			Integer endDay = Integer.parseInt(ardaynum.split("-")[1]);
+			AssetRequiresSearch assetRequiresSearch = new AssetRequiresSearch();
+			if(beginDay != null && !"".equals(beginDay)) {
+				assetRequiresSearch.setBeginDay(beginDay);
+			}
+			if(endDay != null && !"".equals(endDay)) {
+				assetRequiresSearch.setEndDay(endDay);
+			}
+			Pager<AssetRequire> requirePager = requireService.findAssetRequires(assetRequiresSearch, page, ConstantUtil.DEFAULT_PAGE_SIZE);
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

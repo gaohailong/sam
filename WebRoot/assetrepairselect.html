@@ -47,23 +47,31 @@
                             <form action="#" class="form-horizontal">
                                 <div class="row-fluid">
                                     <div class="control-group">
-                                        <label class="control-label span2">设备名称</label>
+                                        <label class="control-label span2">维修天数</label>
                                         <div class="controls span2">
-                                            <input type="text" placeholder="medium" class="m-wrap medium"/>
-                                        </div>
-                                        <label class="control-label span3">类型名称</label>
+                                        	<select id="repairdaynum" class="medium m-wrap" tabindex="1">
+
+                                                <option value="0-2">2天以内</option>
+
+                                                <option value="2-5">2天-5天</option>
+
+                                                <option value="5-10">5天-10天</option>
+
+                                                <option value="10-">10天以上</option>
+
+                                            </select>
+<!--                                             <input id="repairdaynum" type="text" placeholder="请输入维修天数" class="m-wrap medium"/>
+ -->                                      </div>
+                                        <label class="control-label span3">维修状态</label>
 
                                         <div class="controls span2">
 
-                                            <select class="medium m-wrap" tabindex="1">
+                                            <select id="repairstatus" class="medium m-wrap" tabindex="1">
 
-                                                <option value="Category 1">Category 1</option>
+												<option value="未维修">未维修</option>
+												
+                                                <option value="已维修">已维修</option>
 
-                                                <option value="Category 2">Category 2</option>
-
-                                                <option value="Category 3">Category 5</option>
-
-                                                <option value="Category 4">Category 4</option>
 
                                             </select>
 
@@ -71,7 +79,9 @@
 
                                     </div>
                                     <div class="row-fluid">
+                                  <!-- 
                                         <div class="control-group">
+                                    
                                             <label class="control-label span2">仓库名称</label>
                                             <div class="controls span2">
                                                 <select class="medium m-wrap" tabindex="1">
@@ -85,8 +95,10 @@
                                                     <option value="Category 4">Category 4</option>
 
                                                 </select>
+                                          
                                             </div>
-                                            <!-- 
+                                           
+                                            
                                             <label class="control-label span3">进库时间</label>
 
                                             <div class="controls span2">
@@ -100,8 +112,9 @@
                                                         class="icon-calendar"></i></span>
                                                 </div>
                                             </div>
-                                             --> 
+                                           
                                         </div>
+                                         -->
                                     </div>
                                 </div>
                             </form>
@@ -228,21 +241,73 @@
     jQuery(document).ready(function () {
 
         App.init(); // initlayout and core plugins
+        findAssetRepairsByTiaoJian(page);
     });
     
     
     //动态条件查询
     function findAssetRepairsByTiaoJian(page) {
+    	var repairdaynum = $("#repairdaynum").val();
+    	var repairstatus = $("#repairstatus").val();
+    	alert("repairdaynum:"+repairdaynum);
+    	alert("repairstatus:"+repairstatus);
     	var tiaojian = {
     		"page":page,
-    		"artime":artime,
-    		"arday":arday,
-    		"arstatus":arstatus
+    		"ardaynum":repairdaynum,
+    		"arstatus":repairstatus
     	};
     	$.ajax({
     		type="post",
     		data:tiaojian,
-    		url:"/sam/requireController/",
+    		url:"/sam/requireController/findAssetquires",
+    		dataType:"JSON",
+    		success:function(data) {
+    			//总页数
+					var totalPage = data.totalPage;
+					
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html("");
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:findAssetRepairsByTiaoJian("+perPagenum+");"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:findAssetRepairsByTiaoJian("+nextPage+");");
+					$("#lastPage").attr("href","javascript:findAssetRepairsByTiaoJian("+totalPage+");");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html("");
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetInfoList = data.dataList;
+					$("#assetTbody").html("");
+					for(var i = 0;i < assetInfoList.length;i++) {
+						$("#assetTbody").append(
+							"<tr>"
+							+"<td>"+assetInfoList[i].aiid+"</td>"
+							+"<td>"+assetInfoList[i].ainame+"</td>"
+							+"<td>"+assetInfoList[i].aimodel+"</td>"
+							+"<td>"+assetInfoList[i].atname+"</td>"
+							+"<td>"+assetInfoList[i].asname+"</td>"
+							+"<td>"+assetInfoList[i].adname+"</td>"
+							+"</tr>"
+						);
+					}
+    		},
+    		error:function(data) {
+    			alert(data.status);
+    		}
     		
     	});
     }
