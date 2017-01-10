@@ -36,7 +36,7 @@
                             <div class="caption"><i class="icon-cogs"></i>查询</div>
                             <div class="actions">
                                 <!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
-                                <a href="#" data-toggle="modal" class="btn green "><i class="icon-search"></i>
+                                <a href="javascript:;" onclick="findAssetRepairsByTiaoJian(1)" data-toggle="modal" class="btn green "><i class="icon-search"></i>
                                    查询</a>
                             </div>
                         </div>
@@ -50,14 +50,14 @@
                                         <label class="control-label span2">维修天数</label>
                                         <div class="controls span2">
                                         	<select id="repairdaynum" class="medium m-wrap" tabindex="1">
-
+												<option value="">请选择</option>
                                                 <option value="0-2">2天以内</option>
 
                                                 <option value="2-5">2天-5天</option>
 
                                                 <option value="5-10">5天-10天</option>
 
-                                                <option value="10-">10天以上</option>
+                                                <option value="10-1000000">10天以上</option>
 
                                             </select>
 <!--                                             <input id="repairdaynum" type="text" placeholder="请输入维修天数" class="m-wrap medium"/>
@@ -67,8 +67,8 @@
                                         <div class="controls span2">
 
                                             <select id="repairstatus" class="medium m-wrap" tabindex="1">
-
-												<option value="未维修">未维修</option>
+												<option value="">请选择</option>
+												<option value="维修中">维修中</option>
 												
                                                 <option value="已维修">已维修</option>
 
@@ -149,77 +149,23 @@
 
                                 <tr>
 
-                                    <th>#</th>
+                                    <th>编号</th>
 
-                                    <th>First Name</th>
+                                    <th>维修起始时间</th>
 
-                                    <th>Last Name</th>
+                                    <th>维修天数</th>
 
-                                    <th class="hidden-480">Username</th>
+                                    <th class="hidden-480">维修人员</th>
 
-                                    <th>Status</th>
-
+                                    <th>联系电话</th>
+									<th>维修状态</th>
                                 </tr>
 
                                 </thead>
 
-                                <tbody>
+                                <tbody id="assetTbody">
 
-                                <tr>
-
-                                    <td>1</td>
-
-                                    <td>Mark</td>
-
-                                    <td>Otto</td>
-
-                                    <td class="hidden-480">makr124</td>
-
-                                    <td><span class="label label-success">Approved</span></td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>2</td>
-
-                                    <td>Jacob</td>
-
-                                    <td>Nilson</td>
-
-                                    <td class="hidden-480">jac123</td>
-
-                                    <td><span class="label label-info">Pending</span></td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>3</td>
-
-                                    <td>Larry</td>
-
-                                    <td>Cooper</td>
-
-                                    <td class="hidden-480">lar</td>
-
-                                    <td><span class="label label-warning">Suspended</span></td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>3</td>
-
-                                    <td>Sandy</td>
-
-                                    <td>Lim</td>
-
-                                    <td class="hidden-480">sanlim</td>
-
-                                    <td><span class="label label-danger">Blocked</span></td>
-
-                                </tr>
+                               
 
                                 </tbody>
 
@@ -228,6 +174,16 @@
                         </div>
 
                     </div>
+                    <center>
+                   <!--  data-toggle="modal" -->
+                   	<a id="firstPage" href="javascript:findAssetRepairsByTiaoJian(1);" class="btn red ">首页</a>  |
+                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
+                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
+                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
+                   	第<span id="currentPage"></span>页 | 
+                   	共<span id="totalRecord"></span>条数据
+                   
+                   </center>
                     <!-- END SAMPLE TABLE PORTLET-->
                 </div>
             </div>
@@ -239,32 +195,32 @@
 <script>
 
     jQuery(document).ready(function () {
-
-        App.init(); // initlayout and core plugins
-        findAssetRepairsByTiaoJian(page);
+       App.init(); // initlayout and core plugins
+      
+        findAssetRepairsByTiaoJian(1);
     });
     
     
     //动态条件查询
+    
     function findAssetRepairsByTiaoJian(page) {
     	var repairdaynum = $("#repairdaynum").val();
     	var repairstatus = $("#repairstatus").val();
-    	alert("repairdaynum:"+repairdaynum);
-    	alert("repairstatus:"+repairstatus);
+    	//alert("repairdaynum:"+repairdaynum);
+    	//alert("repairstatus:"+repairstatus);
     	var tiaojian = {
     		"page":page,
     		"ardaynum":repairdaynum,
     		"arstatus":repairstatus
     	};
     	$.ajax({
-    		type="post",
-    		data:tiaojian,
+    		type:"post",
     		url:"/sam/requireController/findAssetquires",
+    		data:tiaojian,
     		dataType:"JSON",
     		success:function(data) {
     			//总页数
 					var totalPage = data.totalPage;
-					
 					//当前页码
 					var currentPage = data.currentPage;
 					$("#currentPage").html("");
@@ -290,17 +246,18 @@
 					$("#totalRecord").html(totalRecord);
 					
 										
-					var assetInfoList = data.dataList;
+					var assetRepairList = data.dataList;
 					$("#assetTbody").html("");
-					for(var i = 0;i < assetInfoList.length;i++) {
+					
+					for(var i = 0;i < assetRepairList.length;i++) {
 						$("#assetTbody").append(
 							"<tr>"
-							+"<td>"+assetInfoList[i].aiid+"</td>"
-							+"<td>"+assetInfoList[i].ainame+"</td>"
-							+"<td>"+assetInfoList[i].aimodel+"</td>"
-							+"<td>"+assetInfoList[i].atname+"</td>"
-							+"<td>"+assetInfoList[i].asname+"</td>"
-							+"<td>"+assetInfoList[i].adname+"</td>"
+							+"<td>"+assetRepairList[i].arid+"</td>"
+							+"<td>"+assetRepairList[i].artime+"</td>"
+							+"<td>"+assetRepairList[i].arday+"</td>"
+							+"<td>"+assetRepairList[i].arperson+"</td>"
+							+"<td>"+assetRepairList[i].arphone+"</td>"
+							+"<td>"+assetRepairList[i].arstatus+"</td>"
 							+"</tr>"
 						);
 					}
@@ -311,7 +268,7 @@
     		
     	});
     }
-   
+    
 </script>
 
 <!-- END JAVASCRIPTS -->

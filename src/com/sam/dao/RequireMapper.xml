@@ -15,7 +15,7 @@
 				and arday &gt;= #{beginDay}
 			</if>
 			<if test="endDay != null and endDay !=''">
-				and arperson &lt;= #{endDay}
+				and arday &lt;= #{endDay}
 			</if>
 			<if test="repairStatus != null and repairStatus != ''">
 				and arstatus=#{repairStatus}

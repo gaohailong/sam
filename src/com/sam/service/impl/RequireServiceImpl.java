@@ -1,5 +1,6 @@
 package com.sam.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +60,18 @@ public class RequireServiceImpl implements RequireService{
 	@Override
 	public Pager<AssetRequire> findAssetRequires(AssetRequiresSearch assetRequiresSearch,
 			Integer pageNum, Integer pageSize) throws Exception {
-		List<AssetRequire> requireList = findAssetRequires(assetRequiresSearch);
+		List<AssetRequire> requireList = findAssetRequiresNofenye(assetRequiresSearch);
+		SimpleDateFormat formatter;   
+	    formatter = new SimpleDateFormat ("yyyy-MM-dd"); 
+	    
+		for (AssetRequire assetRequire : requireList) {
+			assetRequire.setArtime(formatter.format(formatter.parse(assetRequire.getArtime())));  
+		}
 		Pager<AssetRequire> pager = new Pager<AssetRequire>(pageNum, pageSize, requireList);
 		return pager;
 	}
-	
-	private List<AssetRequire> findAssetRequires(AssetRequiresSearch assetRequiresSearch) throws Exception {
+	@Override
+	public List<AssetRequire> findAssetRequiresNofenye(AssetRequiresSearch assetRequiresSearch) throws Exception {
 		return requireDao.findAssetRequires(assetRequiresSearch);
 		
 		
