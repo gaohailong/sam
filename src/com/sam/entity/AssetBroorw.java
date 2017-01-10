@@ -1,6 +1,5 @@
 package com.sam.entity;
 
-
 /**
  * Assetbroorw entity. @author MyEclipse Persistence Tools
  */
@@ -9,11 +8,11 @@ public class AssetBroorw implements java.io.Serializable {
 
 	// Fields
 
-	private Long abid;
+	private Integer abid;
 	private String auname;
 	private String abbackdate;
 	private String abdate;
-	private String abstatus;
+	private String adname;
 	private String abreson;
 	private String abresult;
 	private String abresultremark;
@@ -25,19 +24,19 @@ public class AssetBroorw implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public AssetBroorw(Long abid) {
+	public AssetBroorw(Integer abid) {
 		this.abid = abid;
 	}
 
 	/** full constructor */
-	public AssetBroorw(Long abid, String auname, String abbackdate, String abdate,
-			String abstatus, String abreson, String abresult,
+	public AssetBroorw(Integer abid, String auname, String abbackdate,
+			String abdate, String abreson, String adname, String abresult,
 			String abresultremark) {
 		this.abid = abid;
 		this.auname = auname;
 		this.abbackdate = abbackdate;
 		this.abdate = abdate;
-		this.abstatus = abstatus;
+		this.adname = adname;
 		this.abreson = abreson;
 		this.abresult = abresult;
 		this.abresultremark = abresultremark;
@@ -45,11 +44,11 @@ public class AssetBroorw implements java.io.Serializable {
 
 	// Property accessors
 
-	public Long getAbid() {
+	public Integer getAbid() {
 		return this.abid;
 	}
 
-	public void setAbid(Long abid) {
+	public void setAbid(Integer abid) {
 		this.abid = abid;
 	}
 
@@ -77,12 +76,12 @@ public class AssetBroorw implements java.io.Serializable {
 		this.abdate = abdate;
 	}
 
-	public String getAbstatus() {
-		return this.abstatus;
+	public String getAdname() {
+		return adname;
 	}
 
-	public void setAbstatus(String abstatus) {
-		this.abstatus = abstatus;
+	public void setAdname(String adname) {
+		this.adname = adname;
 	}
 
 	public String getAbreson() {

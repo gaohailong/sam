@@ -3,6 +3,9 @@ package com.sam.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.controller.BaseController;
 import com.sam.entity.AssetBroorw;
@@ -28,10 +31,32 @@ public class BroorwController extends BaseController{
 	 * @param assetBroorw
 	 * @return
 	 */
-	@RequestMapping(value="addBroorw")
-	public int addBroorw(AssetBroorw assetBroorw) {
+	@RequestMapping(value="addBroorw",method=RequestMethod.POST)
+	@ResponseBody
+	public int addBroorw(
+			@RequestParam(value = "auname", required = false) String auname,
+			@RequestParam(value = "abbackDate", required = false) String abbackDate,
+			@RequestParam(value = "adname", required = false) String adname,
+			@RequestParam(value = "abreson", required = false) String abreson,
+			@RequestParam(value = "aiidStr", required = false) String aiidStr
+			){
+		System.out.println("sssssssssssssssssssssssssss"+auname);
+
+		System.out.println(abbackDate);
+
+		System.out.println(adname);
+
+		System.out.println(abreson);
+
+		System.out.println(aiidStr);
 		try {
-			int num = broorwService.addBroow();
+			AssetBroorw broorw = new AssetBroorw();
+			broorw.setAuname(auname);
+			broorw.setAbbackdate(abbackDate);
+			broorw.setAdname(adname);
+			broorw.setAbreson(abreson);
+			
+			int num = broorwService.addBroow(broorw,aiidStr);
 			return num;
 		} catch (Exception e) {
 			e.printStackTrace();

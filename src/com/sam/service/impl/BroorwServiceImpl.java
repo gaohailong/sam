@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sam.dao.BroorwDao;
+import com.sam.dao.InfoDao;
 import com.sam.entity.AssetBroorw;
+import com.sam.entity.AssetInfo;
 import com.sam.entity.Pager;
 import com.sam.service.BroorwService;
+import com.sam.util.CreateRandom;
 
 /**
  * 设备借出操作
@@ -20,14 +23,30 @@ public class BroorwServiceImpl implements BroorwService {
 	
 	@Autowired
 	private BroorwDao broorwDao;
+	@Autowired
+	private InfoDao infoDao;
 
 	/**
 	 * 添加设备借出申请
 	 */
 	@Override
-	public int addBroow() throws Exception {
+	public int addBroow(AssetBroorw broorw,String numStr) throws Exception {
 		// TODO Auto-generated method stub
-		return broorwDao.addBroow();
+		CreateRandom cr = new CreateRandom();
+		Integer abid = cr.createRandom();
+		broorw.setAbid(abid);
+		
+		String[] num = numStr.split(",");
+		for(int i=0;i<num.length;i++){
+			if(num!=null){
+				AssetInfo info = new AssetInfo();
+				info.setAiid(Integer.parseInt(num[i]));
+				info.setBroorwid(abid);
+				infoDao.updInfoAddBroorw(info);
+			}
+		}
+		
+		return broorwDao.addBroow(broorw);
 	}
 
 	@Override

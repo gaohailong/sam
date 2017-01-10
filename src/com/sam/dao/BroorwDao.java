@@ -17,7 +17,7 @@ public interface BroorwDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public int addBroow() throws Exception;
+	public int addBroow(AssetBroorw broorw) throws Exception;
 	
 	/**
 	 * 查询全部借出申请

@@ -4,14 +4,12 @@
 <mapper namespace="com.sam.dao.BroorwDao">
 	<!-- 添加借出申请 -->
 	<insert id="addBroow" parameterType="com.sam.entity.AssetBroorw">
-		insert into AssetBroorw(abid,ainame,aiid,auname,auid,abbackDate,abdate,abstatus,abreson,abnumebr,abResult,abResultRemark)
-			values(AssetBroorw_seq.nextval,#{ainame},#{aiid},#{auname},#{auid},#{abbackDate},#{abdate},#{abstatus}
-			,#{abreson},#{abnumebr},#{abResult},#{abResultRemark});
+		insert into AssetBroorw(abid,auname,abbackDate,abdate,adname,abreson,abResult)
+			values(#{abid},#{auname},to_date(#{abbackdate},'yyyy-mm-dd'),sysdate,#{adname},#{abreson},'待审批')
 	</insert>
 	
 	<select id="findBroorws" resultType="com.sam.entity.AssetBroorw">
 		select * from AssetBroorw
 	</select>
-	
 	
 </mapper>
