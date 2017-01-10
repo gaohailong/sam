@@ -246,6 +246,20 @@ function as_house_linechart() {
 		}
 	});
 }
+//资产统计2
+function as_house_linechart2() {
+	$.ajax({
+		type : "GET",
+		url : "/sam/chart/findHouseCateAndWareChart",
+		dataType : "JSON",
+		success : function(data) {
+			ware_category_chart(data);
+		},
+		error : function(jqXHR) {
+			alert("发生错误！" + jqXHR);
+		}
+	});
+}
 
 // 仓库折线图
 function set_asset_house_line_chart(housedata) {
@@ -353,4 +367,60 @@ function set_asset_house_line_chart(housedata) {
 	};
 
 	as_house_linechart.setOption(option);
+}
+
+function ware_category_chart(data) {
+	var as_house_ware_category = echarts.init(document.getElementById('as_house_ware_category'));
+	var assetCount = new Array();
+	var assetCategory = new Array();
+	for (var i = 0; i < eval(data).length; i++) {
+		assetCount[i] = data[i].assetCount;
+		assetCategory[i] = data[i].assetCategory;
+	}
+	var option = {
+		title : {
+			text : '资产统计折线图',
+			subtext : '数量/类别'
+		},
+		tooltip : {
+			trigger : 'axis'
+		},
+		xAxis : {
+			type : 'category',
+			boundaryGap : false,
+			data : assetCategory
+		},
+		yAxis : {
+			type : 'value'
+		},
+		series : [ {
+			name : '资产数量',
+			type : 'line',
+			smooth : true,
+			itemStyle : {
+				normal : {
+					color : new echarts.graphic.LinearGradient(0, 0, 0, 1, [ {
+						offset : 0,
+						color : '#35b5b0' // 0% 处的颜色
+					}, {
+						offset : 1,
+						color : '#35b5b0' // 100% 处的颜色
+					} ], false)
+				}
+			},
+			areaStyle : {
+				normal : {
+					color : new echarts.graphic.LinearGradient(0, 0, 0, 1, [ {
+						offset : 1,
+						color : '#35B5B0' // 0% 处的颜色
+					}, {
+						offset : 1,
+						color : '#35B5B0' // 100% 处的颜色
+					} ], false)
+				}
+			},
+			data : assetCount
+		} ]
+	};
+	as_house_ware_category.setOption(option);
 }

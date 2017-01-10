@@ -82,4 +82,10 @@ public interface InfoDao {
 	 * @author gaohailong
 	 */
 	List<AssetChartUtils> findHouseLineChart();
+	
+	/**
+	 * 查询分类和对应仓库的方法
+	 * @author gaohailong
+	 */
+	List<AssetChartUtils> findHouseCateAndWareChart();
 }

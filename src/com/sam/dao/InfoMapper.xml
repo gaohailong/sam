@@ -68,4 +68,8 @@
 	<select id="findHouseLineChart" resultType="com.sam.entity.AssetChartUtils">
 		select count(*) as assetCount,ahname as assetHouse from AssetInfo group by ahname
 	</select>
+	
+	<select id="findHouseCateAndWareChart" resultType="com.sam.entity.AssetChartUtils">
+		select count(*) as assetCount,ahname as assetHouse ,atname as assetCategory from AssetInfo group by ahname,atname
+	</select>
 </mapper>

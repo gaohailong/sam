@@ -11,6 +11,7 @@ import com.sam.service.AcceptChartService;
 
 /**
  * 图表
+ * 
  * @author gaohailong
  *
  */
@@ -18,7 +19,7 @@ import com.sam.service.AcceptChartService;
 public class AcceptChartServiceImpl implements AcceptChartService {
 	@Autowired
 	private InfoDao infoDao;
-	
+
 	@Override
 	public List<AssetChartUtils> findLineChart() {
 		return infoDao.findLineChart();
@@ -28,5 +29,10 @@ public class AcceptChartServiceImpl implements AcceptChartService {
 	public List<AssetChartUtils> findHouseLineChart() {
 		return infoDao.findHouseLineChart();
 	}
-	
+
+	@Override
+	public List<AssetChartUtils> findHouseCateAndWareChart() {
+		return infoDao.findHouseCateAndWareChart();
+	}
+
 }
