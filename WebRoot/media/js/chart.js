@@ -149,7 +149,7 @@ function set_asset_radar_chart(radardata) {
 	var max = 0;
 	// 判断最大值
 	for (var i = 0; i < eval(radardata).length; i++) {
-		if (radardata[i].assetCount > 0) {
+		if (radardata[i].assetCount > max) {
 			max = radardata[i].assetCount * 3;
 		}
 	}
@@ -247,10 +247,22 @@ function as_house_linechart() {
 	});
 }
 
-function set_asset_house_line_chart(data) {
+// 仓库折线图
+function set_asset_house_line_chart(housedata) {
 	var as_house_linechart = echarts.init(document
 			.getElementById('as_house_linechart'));
-
+	var max = 0;
+	
+	// 判断最大值
+	for (var i = 0; i < eval(housedata).length; i++) {
+		if (housedata[i].assetCount > max) {
+			max = housedata[i].assetCount * 3;
+		}
+	}
+	
+	for (var i = 0; i < eval(housedata).length; i++) {
+		
+	}
 	var dataAxis = [ '点', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏',
 			'上', '滑', '动', '能', '够', '自', '动', '缩', '放' ];
 	var data = [ 220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149,
@@ -341,20 +353,6 @@ function set_asset_house_line_chart(data) {
 			data : data
 		} ]
 	};
-
-	// Enable data zoom when user click bar.
-	var zoomSize = 6;
-	myChart.on('click', function(params) {
-		console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
-		myChart
-				.dispatchAction({
-					type : 'dataZoom',
-					startValue : dataAxis[Math.max(params.dataIndex - zoomSize
-							/ 2, 0)],
-					endValue : dataAxis[Math.min(params.dataIndex + zoomSize
-							/ 2, data.length - 1)]
-				});
-	});
 
 	as_house_linechart.setOption(option);
 }
