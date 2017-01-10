@@ -9,6 +9,7 @@ import com.sam.dao.InfoDao;
 import com.sam.dao.RequireDao;
 import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetRequire;
+import com.sam.entity.AssetRequiresSearch;
 import com.sam.entity.Pager;
 import com.sam.service.RequireService;
 import com.sam.util.CreateRandom;
@@ -56,15 +57,15 @@ public class RequireServiceImpl implements RequireService{
 	 * @throws Exception
 	 */
 	@Override
-	public Pager<AssetRequire> findAssetRequires(AssetRequire require,
+	public Pager<AssetRequire> findAssetRequires(AssetRequiresSearch assetRequiresSearch,
 			Integer pageNum, Integer pageSize) throws Exception {
-		List<AssetRequire> requireList = findAssetRequires(require);
+		List<AssetRequire> requireList = findAssetRequires(assetRequiresSearch);
 		Pager<AssetRequire> pager = new Pager<AssetRequire>(pageNum, pageSize, requireList);
 		return pager;
 	}
 	
-	private List<AssetRequire> findAssetRequires(AssetRequire require) throws Exception {
-		return requireDao.findAssetRequires(require);
+	private List<AssetRequire> findAssetRequires(AssetRequiresSearch assetRequiresSearch) throws Exception {
+		return requireDao.findAssetRequires(assetRequiresSearch);
 		
 		
 	}

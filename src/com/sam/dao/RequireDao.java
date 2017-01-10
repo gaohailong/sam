@@ -3,6 +3,7 @@ package com.sam.dao;
 import java.util.List;
 
 import com.sam.entity.AssetRequire;
+import com.sam.entity.AssetRequiresSearch;
 
 /**
  * 设备修理时候的Dao
@@ -25,5 +26,5 @@ public interface RequireDao {
 	 * @param require
 	 * @return
 	 */
-	public List<AssetRequire> findAssetRequires(AssetRequire require) throws Exception;
+	public List<AssetRequire> findAssetRequires(AssetRequiresSearch assetRequiresSearch) throws Exception;
 }
