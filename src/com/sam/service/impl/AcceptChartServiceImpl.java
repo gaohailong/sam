@@ -9,6 +9,11 @@ import com.sam.dao.InfoDao;
 import com.sam.entity.AssetChartUtils;
 import com.sam.service.AcceptChartService;
 
+/**
+ * 图表
+ * @author gaohailong
+ *
+ */
 @Service
 public class AcceptChartServiceImpl implements AcceptChartService {
 	@Autowired
@@ -16,8 +21,7 @@ public class AcceptChartServiceImpl implements AcceptChartService {
 	
 	@Override
 	public List<AssetChartUtils> findLineChart() {
-		infoDao.
-		return null;
+		return infoDao.findLineChart();
 	}
 	
 }

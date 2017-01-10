@@ -9,28 +9,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetChartUtils;
+import com.sam.service.AcceptChartService;
 import com.sam.service.InfoService;
 
 @Controller
-@RequestMapping(value="/chart")
+@RequestMapping(value = "/chart")
 public class ChartController {
-	
+
 	@Autowired
-	private InfoService infoSerice;
+	private AcceptChartService acceptChartService;
+
 	/**
 	 * 
 	 * @param change
 	 * @return
 	 */
-	@RequestMapping(value="/findLineChart",method=RequestMethod.GET)
+	@RequestMapping(value = "/findLineChart", method = RequestMethod.GET)
 	@ResponseBody
-	public List<AssetChartUtils> findLineChart(){
+	public List<AssetChartUtils> findLineChart() {
 		try {
-			
+			return acceptChartService.findLineChart();
 		} catch (Exception e) {
-		
+			e.printStackTrace();
 		}
 		return null;
 	}
-	
+
 }
