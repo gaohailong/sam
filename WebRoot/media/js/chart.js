@@ -75,169 +75,286 @@ function set_asset_pie_chart(piedata) {
 
 	var pieValueArray = new Array();
 	for (var i = 0; i < eval(piedata).length; i++) {
-		pieValueArray[i] = new Chart(piedata[i].assetCount,piedata[i].assetCategory);
+		pieValueArray[i] = new Chart(piedata[i].assetCount,
+				piedata[i].assetCategory);
 	}
 
 	var as_piechart = echarts.init(document.getElementById('as_piechart'));
-	
+
 	var option = {
-		    backgroundColor: '#fafafa',
+		backgroundColor : '#fafafa',
 
-		    title: {
-		        text: '饼状图',
-		        left: 'center',
-		        top: 20,
-		        textStyle: {
-		            color: '#3f3f3f'
-		        }
-		    },
+		title : {
+			text : '饼状图',
+			left : 'center',
+			top : 20,
+			textStyle : {
+				color : '#3f3f3f'
+			}
+		},
 
-		    tooltip : {
-		        trigger: 'item',
-		        formatter: "{a} <br/>{b} : {c} ({d}%)"
-		    },
+		tooltip : {
+			trigger : 'item',
+			formatter : "{a} <br/>{b} : {c} ({d}%)"
+		},
 
-		    visualMap: {
-		        show: false,
-		        min: 80,
-		        max: 600,
-		        inRange: {
-		            colorLightness: [0, 1]
-		        }
-		    },
-		    series : [
-		        {
-		            name:'',
-		            type:'pie',
-		            radius : '55%', 
-		            center: ['50%', '50%'],
-		            data:pieValueArray,
-		            roseType: 'angle',
-		            label: {
-		                normal: {
-		                    textStyle: {
-		                        color: 'rgba(63, 63, 63, 1)'
-		                    }
-		                }
-		            },
-		            labelLine: {
-		                normal: {
-		                    lineStyle: {
-		                        color: 'rgba(63, 63, 63, 1)'
-		                    },
-		                    smooth: 0.2,
-		                    length: 10,
-		                    length2: 20
-		                }
-		            },
-		            itemStyle: {
-		                normal: {
-		                    color: '#000000',
-		                    shadowBlur: 200,
-		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-		                }
-		            }
-		        }
-		    ]
-		};
+		visualMap : {
+			show : false,
+			min : 80,
+			max : 600,
+			inRange : {
+				colorLightness : [ 0, 1 ]
+			}
+		},
+		series : [ {
+			name : '',
+			type : 'pie',
+			radius : '55%',
+			center : [ '50%', '50%' ],
+			data : pieValueArray,
+			roseType : 'angle',
+			label : {
+				normal : {
+					textStyle : {
+						color : 'rgba(63, 63, 63, 1)'
+					}
+				}
+			},
+			labelLine : {
+				normal : {
+					lineStyle : {
+						color : 'rgba(63, 63, 63, 1)'
+					},
+					smooth : 0.2,
+					length : 10,
+					length2 : 20
+				}
+			},
+			itemStyle : {
+				normal : {
+					color : '#000000',
+					shadowBlur : 200,
+					shadowColor : 'rgba(0, 0, 0, 0.5)'
+				}
+			}
+		} ]
+	};
 	as_piechart.setOption(option);
 }
 
-//数量对应的资产类别
+// 数量对应的资产类别
 function set_asset_radar_chart(radardata) {
-    var dataNum = new Array();
-    var indicator2 = new Array();
-    var max = 0;
-    //判断最大值
-    for (var i = 0; i < eval(radardata).length; i++) {
-        if (radardata[i].assetCount > 0) {
-            max = radardata[i].assetCount * 3;
-        }
-    }
-    for (var i = 0; i < eval(radardata).length; i++) {
-        dataNum[i] = radardata[i].assetCount;
-        indicator2[i] = new ChartRadar(radardata[i].assetCategory, max * 2);
-    }
-    var dataCate = [
-        dataNum
-    ];
-    var as_radarchart = echarts.init(document.getElementById("as_radarchart"));
-    var lineStyle = {
-        normal: {
-            width: 1,
-            opacity: 0.5
-        }
-    };
-    var option = {
-        backgroundColor: '#FFFFFF',
-        title: {
-            text: '资产数量 - 雷达图',
-            left: 'center',
-            textStyle: {
-                color: '#0B0B0B'
-            }
-        },
-        radar: {
-            indicator: indicator2,
-            shape: 'circle',
-            splitNumber: 5,
-            name: {
-                textStyle: {
-                    color: 'rgb(11, 11, 11)'
-                }
-            },
-            splitLine: {
-                lineStyle: {
-                    color: [
-                        'rgba(11, 11, 11, 0.5)', 'rgba(11, 11, 11, 0.2)',
-                        'rgba(11, 11, 11, 0.3)', 'rgba(11, 11, 11, 0.3)',
-                        'rgba(11, 11, 11, 0.1)', 'rgba(11, 11, 11, 0.1)'
-                    ].reverse()
-                }
-            },
-            splitArea: {
-                show: false
-            },
-            axisLine: {
-                lineStyle: {
-                    color: 'rgba(11, 11, 11, 0.5)'
-                }
-            }
-        },
-        series: [
-            {
-                type: 'radar',
-                lineStyle: lineStyle,
-                data: dataCate,
-                symbol: 'none',
-                itemStyle: {
-                    normal: {
-                        color: '#0b0b0b'
-                    }
-                },
-                areaStyle: {
-                    normal: {
-                        opacity: 0.1
-                    }
-                }
-            }
-        ]
-    };
-    as_radarchart.setOption(option);
+	var dataNum = new Array();
+	var indicator2 = new Array();
+	var max = 0;
+	// 判断最大值
+	for (var i = 0; i < eval(radardata).length; i++) {
+		if (radardata[i].assetCount > 0) {
+			max = radardata[i].assetCount * 3;
+		}
+	}
+	for (var i = 0; i < eval(radardata).length; i++) {
+		dataNum[i] = radardata[i].assetCount;
+		indicator2[i] = new ChartRadar(radardata[i].assetCategory, max * 2);
+	}
+	var dataCate = [ dataNum ];
+	var as_radarchart = echarts.init(document.getElementById("as_radarchart"));
+	var lineStyle = {
+		normal : {
+			width : 1,
+			opacity : 0.5
+		}
+	};
+	var option = {
+		backgroundColor : '#FFFFFF',
+		title : {
+			text : '资产数量 - 雷达图',
+			left : 'center',
+			textStyle : {
+				color : '#0B0B0B'
+			}
+		},
+		radar : {
+			indicator : indicator2,
+			shape : 'circle',
+			splitNumber : 5,
+			name : {
+				textStyle : {
+					color : 'rgb(11, 11, 11)'
+				}
+			},
+			splitLine : {
+				lineStyle : {
+					color : [ 'rgba(11, 11, 11, 0.5)', 'rgba(11, 11, 11, 0.2)',
+							'rgba(11, 11, 11, 0.3)', 'rgba(11, 11, 11, 0.3)',
+							'rgba(11, 11, 11, 0.1)', 'rgba(11, 11, 11, 0.1)' ]
+							.reverse()
+				}
+			},
+			splitArea : {
+				show : false
+			},
+			axisLine : {
+				lineStyle : {
+					color : 'rgba(11, 11, 11, 0.5)'
+				}
+			}
+		},
+		series : [ {
+			type : 'radar',
+			lineStyle : lineStyle,
+			data : dataCate,
+			symbol : 'none',
+			itemStyle : {
+				normal : {
+					color : '#0b0b0b'
+				}
+			},
+			areaStyle : {
+				normal : {
+					opacity : 0.1
+				}
+			}
+		} ]
+	};
+	as_radarchart.setOption(option);
 }
 
 // 图表实体类
-function Chart(value,name) {
+function Chart(value, name) {
 	this.value = value;
 	this.name = name;
 }
 
-//雷达图实体类
-function ChartRadar(name,max) {
+// 雷达图实体类
+function ChartRadar(name, max) {
 	this.name = name;
 	this.max = max;
 }
 
-//仓库统计
+// 资产统计
+function as_house_linechart() {
+	$.ajax({
+		type : "GET",
+		url : "/sam/chart/findHouseLineChart",
+		dataType : "JSON",
+		success : function(data) {
+			set_asset_house_line_chart(data);
+		},
+		error : function(jqXHR) {
+			alert("发生错误！" + jqXHR);
+		}
+	});
+}
 
+function set_asset_house_line_chart(data) {
+	var as_house_linechart = echarts.init(document
+			.getElementById('as_house_linechart'));
 
+	var dataAxis = [ '点', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏',
+			'上', '滑', '动', '能', '够', '自', '动', '缩', '放' ];
+	var data = [ 220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149,
+			210, 122, 133, 334, 198, 123, 125, 220 ];
+	var yMax = 500;
+	var dataShadow = [];
+
+	for (var i = 0; i < data.length; i++) {
+		dataShadow.push(yMax);
+	}
+
+	var option = {
+		title : {
+			text : '特性示例：渐变色 阴影 点击缩放',
+			subtext : 'Feature Sample: Gradient Color, Shadow, Click Zoom'
+		},
+		xAxis : {
+			data : dataAxis,
+			axisLabel : {
+				inside : true,
+				textStyle : {
+					color : '#fff'
+				}
+			},
+			axisTick : {
+				show : false
+			},
+			axisLine : {
+				show : false
+			},
+			z : 10
+		},
+		yAxis : {
+			axisLine : {
+				show : false
+			},
+			axisTick : {
+				show : false
+			},
+			axisLabel : {
+				textStyle : {
+					color : '#999'
+				}
+			}
+		},
+		dataZoom : [ {
+			type : 'inside'
+		} ],
+		series : [ { // For shadow
+			type : 'bar',
+			itemStyle : {
+				normal : {
+					color : 'rgba(0,0,0,0.05)'
+				}
+			},
+			barGap : '-100%',
+			barCategoryGap : '40%',
+			data : dataShadow,
+			animation : false
+		}, {
+			type : 'bar',
+			itemStyle : {
+				normal : {
+					color : new echarts.graphic.LinearGradient(0, 0, 0, 1, [ {
+						offset : 0,
+						color : '#83bff6'
+					}, {
+						offset : 0.5,
+						color : '#188df0'
+					}, {
+						offset : 1,
+						color : '#188df0'
+					} ])
+				},
+				emphasis : {
+					color : new echarts.graphic.LinearGradient(0, 0, 0, 1, [ {
+						offset : 0,
+						color : '#2378f7'
+					}, {
+						offset : 0.7,
+						color : '#2378f7'
+					}, {
+						offset : 1,
+						color : '#83bff6'
+					} ])
+				}
+			},
+			data : data
+		} ]
+	};
+
+	// Enable data zoom when user click bar.
+	var zoomSize = 6;
+	myChart.on('click', function(params) {
+		console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+		myChart
+				.dispatchAction({
+					type : 'dataZoom',
+					startValue : dataAxis[Math.max(params.dataIndex - zoomSize
+							/ 2, 0)],
+					endValue : dataAxis[Math.min(params.dataIndex + zoomSize
+							/ 2, data.length - 1)]
+				});
+	});
+
+	as_house_linechart.setOption(option);
+}
