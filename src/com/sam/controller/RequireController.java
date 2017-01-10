@@ -114,10 +114,13 @@ public class RequireController {
 		return null;
 	}
 	
-	@RequestMapping("/exportProject.do")
+	@RequestMapping(value="/exportProject", method = RequestMethod.POST)
 	 public void exportProject(HttpServletResponse response, String export) {
 	  try {
+		  System.out.println("export:"+export);
+		 // export = "项目名称#artime,天数#arday";
 		  String[] excelHeader = export.split(",");
+		 
 		  assetRequiresSearch = new AssetRequiresSearch();
 		  assetRequiresSearch.setBeginDay(1);
 		  List<AssetRequire> projectList = requireService.findAssetRequiresNofenye(assetRequiresSearch);

@@ -185,6 +185,19 @@
                    
                    </center>
                     <!-- END SAMPLE TABLE PORTLET-->
+      <div style="margin-top: 5px;" class="am-input-group am-u-sm-4">
+      <form action="/sam/requireController/exportProject" method="post">
+		     <span id="excelcheckbox" class="am-input-group-label">
+		     	<input type="checkbox" value="维修天数#arday" name="export" checked="checked">维修天数
+		     	<input type="checkbox" value="起始时间#artime" name="export" checked="checked">起始时间
+		     	<input type="checkbox" value="维修人员#arperson" name="export" checked="checked">维修人员
+		     	<input type="checkbox" value="联系电话#arphone" name="export" checked="checked">联系电话
+		     	<input type="checkbox" value="维修状态#arstatus" name="export" checked="checked">维修状态
+		     </span>
+		     <br>
+		     <input type="submit" value="导出excel">
+		     </form>
+		</div>
                 </div>
             </div>
         </div>
@@ -200,6 +213,29 @@
         findAssetRepairsByTiaoJian(1);
     });
     
+    
+    function exportrepairexcel() {
+    	var val = ""; 
+    	$box = $("[name='export']:checked"),
+    	$.each($box,function (i,v){
+			val += i > 0 ? ","+v.value : v.value;
+		});
+
+		alert(val);
+		
+    	alert("val:"+val);
+    	$.ajax({
+    		type:"post",
+    		url:"/sam/requireController/exportProject",
+    		data:"export="+val,
+    		datatype:"json",
+    		success:function() {
+    		},
+    		error:function() {
+    		alert("出错");
+    		}
+    	});
+    }
     
     //动态条件查询
     
