@@ -61,7 +61,7 @@
 		select * from assetinfo where atname=#{atname} and asname='未使用'
 	</select>
 	<!-- 图表查询 -->
-	<select id="findAssetInfos" resultType="com.sam.entity.AssetChartUtils">
-		select count(*) as assetCount,atname as assetCategory from AssetInfo group by atname;
+	<select id="findLineChart" resultType="com.sam.entity.AssetChartUtils">
+		select count(*) as assetCount,atname as assetCategory from AssetInfo group by atname
 	</select>
 </mapper>

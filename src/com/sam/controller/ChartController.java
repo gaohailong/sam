@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetChartUtils;
 import com.sam.service.AcceptChartService;
-import com.sam.service.InfoService;
 
 @Controller
 @RequestMapping(value = "/chart")
