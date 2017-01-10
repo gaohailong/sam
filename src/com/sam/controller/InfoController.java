@@ -134,16 +134,20 @@ public class InfoController {
 			System.out.println("pageNum:"+pageNum);
 			System.out.println("进入findAssetByCondition");
 			AssetInfo assetInfo = new AssetInfo();
-
+			//不能写else if 啊
 			if(ainame!=null){
 				assetInfo.setAiname(ainame.trim());
-			}else if(atname!=null){
+			}
+			if(atname!=null){
 				assetInfo.setAtname(atname.trim());
-			}else if(ahname!=null){
+			}
+			if(ahname!=null){
 				assetInfo.setAhname(ahname.trim());
-			}else if(aidate!=null){
+			}
+			if(aidate!=null){
 				assetInfo.setAidate(aidate);
 			}
+			System.out.println("controller: "+assetInfo.getAiname()+","+assetInfo.getAhname()+","+assetInfo.getAtname());
 
 			Pager<AssetInfo> pager = infoService.findAssetByCondition(assetInfo, pageNum,
 					ConstantUtil.DEFAULT_PAGE_SIZE);
