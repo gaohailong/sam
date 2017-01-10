@@ -150,7 +150,7 @@ function set_asset_radar_chart(radardata) {
 	// 判断最大值
 	for (var i = 0; i < eval(radardata).length; i++) {
 		if (radardata[i].assetCount > max) {
-			max = radardata[i].assetCount * 3;
+			max = radardata[i].assetCount * 1;
 		}
 	}
 	for (var i = 0; i < eval(radardata).length; i++) {
@@ -166,7 +166,7 @@ function set_asset_radar_chart(radardata) {
 		}
 	};
 	var option = {
-		backgroundColor : '#FFFFFF',
+		backgroundColor : '#fafafa',
 		title : {
 			text : '资产数量 - 雷达图',
 			left : 'center',
@@ -252,22 +252,20 @@ function set_asset_house_line_chart(housedata) {
 	var as_house_linechart = echarts.init(document
 			.getElementById('as_house_linechart'));
 	var max = 0;
-	
+	var countArray=new Array();
+	var houseArray=new Array();
 	// 判断最大值
 	for (var i = 0; i < eval(housedata).length; i++) {
 		if (housedata[i].assetCount > max) {
-			max = housedata[i].assetCount * 3;
+			max = housedata[i].assetCount;
 		}
+		countArray[i]=housedata[i].assetCount;
+		houseArray[i]=housedata[i].assetHouse;
 	}
-	
-	for (var i = 0; i < eval(housedata).length; i++) {
-		
-	}
-	var dataAxis = [ '点', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏',
-			'上', '滑', '动', '能', '够', '自', '动', '缩', '放' ];
-	var data = [ 220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149,
-			210, 122, 133, 334, 198, 123, 125, 220 ];
-	var yMax = 500;
+
+	var dataAxis = houseArray;
+	var data = countArray;
+	var yMax = max;
 	var dataShadow = [];
 
 	for (var i = 0; i < data.length; i++) {
@@ -276,8 +274,8 @@ function set_asset_house_line_chart(housedata) {
 
 	var option = {
 		title : {
-			text : '特性示例：渐变色 阴影 点击缩放',
-			subtext : 'Feature Sample: Gradient Color, Shadow, Click Zoom'
+			text : '仓库-数量柱形图',
+			subtext : ''
 		},
 		xAxis : {
 			data : dataAxis,
