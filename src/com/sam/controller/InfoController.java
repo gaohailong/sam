@@ -72,8 +72,8 @@ public class InfoController {
 	@RequestMapping(value = "/findInfoByAsname", method = RequestMethod.POST)
 	@ResponseBody
 	public Pager<AssetInfo> findInfoByAsname(String asname,Integer page) {
+		System.out.println("进入findAssetInfosByasname控制器");
 		try {
-			System.out.println("进入findAssetInfosByasname控制器");
 			System.out.println("asname:"+asname);
 			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
 			if(page != null) {

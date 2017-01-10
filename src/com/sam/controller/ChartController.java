@@ -19,6 +19,7 @@ public class ChartController {
 	private AcceptChartService acceptChartService;
 
 	/**
+	 * 资产的图表
 	 * 
 	 * @param change
 	 * @return
@@ -28,6 +29,40 @@ public class ChartController {
 	public List<AssetChartUtils> findLineChart() {
 		try {
 			return acceptChartService.findLineChart();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * 仓库的图表
+	 * 
+	 * @param
+	 * @return
+	 */
+	@RequestMapping(value = "/findHouseLineChart", method = RequestMethod.GET)
+	@ResponseBody
+	public List<AssetChartUtils> findHouseLineChart() {
+		try {
+			return acceptChartService.findHouseLineChart();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * 仓库的图表
+	 * 
+	 * @param
+	 * @return
+	 */
+	@RequestMapping(value = "/findHouseCateAndWareChart", method = RequestMethod.GET)
+	@ResponseBody
+	public List<AssetChartUtils> findHouseCateAndWareChart() {
+		try {
+			return acceptChartService.findHouseCateAndWareChart();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
