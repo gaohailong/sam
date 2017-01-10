@@ -23,5 +23,10 @@ public class AcceptChartServiceImpl implements AcceptChartService {
 	public List<AssetChartUtils> findLineChart() {
 		return infoDao.findLineChart();
 	}
+
+	@Override
+	public List<AssetChartUtils> findHouseLineChart() {
+		return infoDao.findHouseLineChart();
+	}
 	
 }

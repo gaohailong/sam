@@ -1,10 +1,13 @@
+//资产统计
 function as_linechart() {
 	$.ajax({
 		type : "GET",
-		url : "/admin/selectAllTitleForChart",
+		url : "/sam/chart/findLineChart",
 		dataType : "JSON",
 		success : function(data) {
-			set_line_chart(data);
+			set_asset_line_chart(data);
+			set_asset_pie_chart(data);
+			set_asset_radar_chart(data);
 		},
 		error : function(jqXHR) {
 			alert("发生错误！" + jqXHR);
@@ -12,16 +15,13 @@ function as_linechart() {
 	});
 }
 
-function set_line_chart() {
-
+function set_asset_line_chart(data) {
 	var as_linechart = echarts.init(document.getElementById('as_linechart'));
-
-	var adminTitleCount = new Array();
-	var adminTitleDate = new Array();
+	var assetCount = new Array();
+	var assetCategory = new Array();
 	for (var i = 0; i < eval(data).length; i++) {
-		adminTitleCount[i] = data[i].adminTitleCount;
-		adminTitleDate[i] = data[i].adminTitleDate;
-	
+		assetCount[i] = data[i].assetCount;
+		assetCategory[i] = data[i].assetCategory;
 	}
 	var option = {
 		title : {
@@ -34,7 +34,7 @@ function set_line_chart() {
 		xAxis : {
 			type : 'category',
 			boundaryGap : false,
-			data : adminTitleDate
+			data : assetCategory
 		},
 		yAxis : {
 			type : 'value'
@@ -47,10 +47,10 @@ function set_line_chart() {
 				normal : {
 					color : new echarts.graphic.LinearGradient(0, 0, 0, 1, [ {
 						offset : 0,
-						color : '#c23531' // 0% 处的颜色
+						color : '#35b5b0' // 0% 处的颜色
 					}, {
 						offset : 1,
-						color : 'blue' // 100% 处的颜色
+						color : '#35b5b0' // 100% 处的颜色
 					} ], false)
 				}
 			},
@@ -58,15 +58,186 @@ function set_line_chart() {
 				normal : {
 					color : new echarts.graphic.LinearGradient(0, 0, 0, 1, [ {
 						offset : 1,
-						color : '#c23531' // 0% 处的颜色
+						color : '#35B5B0' // 0% 处的颜色
 					}, {
 						offset : 1,
-						color : 'blue' // 100% 处的颜色
+						color : '#35B5B0' // 100% 处的颜色
 					} ], false)
 				}
 			},
-			data : adminTitleCount
+			data : assetCount
 		} ]
 	};
 	as_linechart.setOption(option);
 }
+
+function set_asset_pie_chart(piedata) {
+
+	var pieValueArray = new Array();
+	for (var i = 0; i < eval(piedata).length; i++) {
+		pieValueArray[i] = new Chart(piedata[i].assetCount,piedata[i].assetCategory);
+	}
+
+	var as_piechart = echarts.init(document.getElementById('as_piechart'));
+	
+	var option = {
+		    backgroundColor: '#fafafa',
+
+		    title: {
+		        text: '饼状图',
+		        left: 'center',
+		        top: 20,
+		        textStyle: {
+		            color: '#3f3f3f'
+		        }
+		    },
+
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		    },
+
+		    visualMap: {
+		        show: false,
+		        min: 80,
+		        max: 600,
+		        inRange: {
+		            colorLightness: [0, 1]
+		        }
+		    },
+		    series : [
+		        {
+		            name:'',
+		            type:'pie',
+		            radius : '55%', 
+		            center: ['50%', '50%'],
+		            data:pieValueArray,
+		            roseType: 'angle',
+		            label: {
+		                normal: {
+		                    textStyle: {
+		                        color: 'rgba(63, 63, 63, 1)'
+		                    }
+		                }
+		            },
+		            labelLine: {
+		                normal: {
+		                    lineStyle: {
+		                        color: 'rgba(63, 63, 63, 1)'
+		                    },
+		                    smooth: 0.2,
+		                    length: 10,
+		                    length2: 20
+		                }
+		            },
+		            itemStyle: {
+		                normal: {
+		                    color: '#000000',
+		                    shadowBlur: 200,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+	as_piechart.setOption(option);
+}
+
+//数量对应的资产类别
+function set_asset_radar_chart(radardata) {
+    var dataNum = new Array();
+    var indicator2 = new Array();
+    var max = 0;
+    //判断最大值
+    for (var i = 0; i < eval(radardata).length; i++) {
+        if (radardata[i].assetCount > 0) {
+            max = radardata[i].assetCount * 3;
+        }
+    }
+    for (var i = 0; i < eval(radardata).length; i++) {
+        dataNum[i] = radardata[i].assetCount;
+        indicator2[i] = new ChartRadar(radardata[i].assetCategory, max * 2);
+    }
+    var dataCate = [
+        dataNum
+    ];
+    var as_radarchart = echarts.init(document.getElementById("as_radarchart"));
+    var lineStyle = {
+        normal: {
+            width: 1,
+            opacity: 0.5
+        }
+    };
+    var option = {
+        backgroundColor: '#FFFFFF',
+        title: {
+            text: '资产数量 - 雷达图',
+            left: 'center',
+            textStyle: {
+                color: '#0B0B0B'
+            }
+        },
+        radar: {
+            indicator: indicator2,
+            shape: 'circle',
+            splitNumber: 5,
+            name: {
+                textStyle: {
+                    color: 'rgb(11, 11, 11)'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: [
+                        'rgba(11, 11, 11, 0.5)', 'rgba(11, 11, 11, 0.2)',
+                        'rgba(11, 11, 11, 0.3)', 'rgba(11, 11, 11, 0.3)',
+                        'rgba(11, 11, 11, 0.1)', 'rgba(11, 11, 11, 0.1)'
+                    ].reverse()
+                }
+            },
+            splitArea: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(11, 11, 11, 0.5)'
+                }
+            }
+        },
+        series: [
+            {
+                type: 'radar',
+                lineStyle: lineStyle,
+                data: dataCate,
+                symbol: 'none',
+                itemStyle: {
+                    normal: {
+                        color: '#0b0b0b'
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        opacity: 0.1
+                    }
+                }
+            }
+        ]
+    };
+    as_radarchart.setOption(option);
+}
+
+// 图表实体类
+function Chart(value,name) {
+	this.value = value;
+	this.name = name;
+}
+
+//雷达图实体类
+function ChartRadar(name,max) {
+	this.name = name;
+	this.max = max;
+}
+
+//仓库统计
+
+

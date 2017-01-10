@@ -8,6 +8,7 @@ package com.sam.entity;
 public class AssetChartUtils {
 	private Integer assetCount;
 	private String assetCategory;
+	private String assetHouse;
 	public Integer getAssetCount() {
 		return assetCount;
 	}
@@ -20,5 +21,10 @@ public class AssetChartUtils {
 	public void setAssetCategory(String assetCategory) {
 		this.assetCategory = assetCategory;
 	}
-	
+	public String getAssetHouse() {
+		return assetHouse;
+	}
+	public void setAssetHouse(String assetHouse) {
+		this.assetHouse = assetHouse;
+	}
 }

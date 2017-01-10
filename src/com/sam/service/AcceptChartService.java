@@ -10,5 +10,15 @@ import com.sam.entity.AssetChartUtils;
  *
  */
 public interface AcceptChartService {
+	/**
+	 * 资产查询
+	 * @return
+	 */
 	List<AssetChartUtils> findLineChart();
+	
+	/**
+	 * 仓库查询
+	 * @author gaohailong
+	 */
+	List<AssetChartUtils> findHouseLineChart();
 }
