@@ -86,6 +86,7 @@
 
                                                 </select>
                                             </div>
+                                            <!-- 
                                             <label class="control-label span3">进库时间</label>
 
                                             <div class="controls span2">
@@ -99,6 +100,7 @@
                                                         class="icon-calendar"></i></span>
                                                 </div>
                                             </div>
+                                             --> 
                                         </div>
                                     </div>
                                 </div>
@@ -227,6 +229,23 @@
 
         App.init(); // initlayout and core plugins
     });
+    
+    
+    //动态条件查询
+    function findAssetRepairsByTiaoJian(page) {
+    	var tiaojian = {
+    		"page":page,
+    		"artime":artime,
+    		"arday":arday,
+    		"arstatus":arstatus
+    	};
+    	$.ajax({
+    		type="post",
+    		data:tiaojian,
+    		url:"/sam/requireController/",
+    		
+    	});
+    }
    
 </script>
 
