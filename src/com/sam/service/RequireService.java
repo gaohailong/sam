@@ -1,6 +1,9 @@
 package com.sam.service;
 
+import java.util.List;
+
 import com.sam.entity.AssetRequire;
+import com.sam.entity.AssetRequiresSearch;
 import com.sam.entity.Pager;
 
 public interface RequireService {
@@ -21,6 +24,7 @@ public interface RequireService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Pager<AssetRequire> findAssetRequires(AssetRequire require,Integer pageNum, Integer pageSize) throws Exception;
+	public Pager<AssetRequire> findAssetRequires(AssetRequiresSearch assetRequiresSearch,Integer pageNum, Integer pageSize) throws Exception;
 
+	public List<AssetRequire> findAssetRequiresNofenye(AssetRequiresSearch assetRequiresSearch) throws Exception;
 }

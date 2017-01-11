@@ -72,8 +72,8 @@ public class InfoController {
 	@RequestMapping(value = "/findInfoByAsname", method = RequestMethod.POST)
 	@ResponseBody
 	public Pager<AssetInfo> findInfoByAsname(String asname,Integer page) {
+		System.out.println("进入findAssetInfosByasname控制器");
 		try {
-			System.out.println("进入findAssetInfosByasname控制器");
 			System.out.println("asname:"+asname);
 			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
 			if(page != null) {
@@ -134,68 +134,28 @@ public class InfoController {
 			System.out.println("pageNum:"+pageNum);
 			System.out.println("进入findAssetByCondition");
 			AssetInfo assetInfo = new AssetInfo();
+			//不能写else if 啊
 			if(ainame!=null){
 				assetInfo.setAiname(ainame.trim());
-			}else if(atname!=null){
+			}
+			if(atname!=null){
 				assetInfo.setAtname(atname.trim());
-			}else if(ahname!=null){
+			}
+			if(ahname!=null){
 				assetInfo.setAhname(ahname.trim());
-			}else if(aidate!=null){
+			}
+			if(aidate!=null){
 				assetInfo.setAidate(aidate);
 			}
-			System.out.println("qqq");
+			System.out.println("controller: "+assetInfo.getAiname()+","+assetInfo.getAhname()+","+assetInfo.getAtname());
+
 			Pager<AssetInfo> pager = infoService.findAssetByCondition(assetInfo, pageNum,
 					ConstantUtil.DEFAULT_PAGE_SIZE);
-			System.out.println("aaa:"+pager.getDataList().size());
 			return pager;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	
-	/**
-	 * 资产的维修查询
-	 * @author zhw
-	 * @param require
-	 * @return
-	 * 	private Integer arid;
-	private Date artime;
-	private Integer arday;
-	private String arperson;
-	private String arphone;
-	private String arstatus;
-
-	 */
-	@RequestMapping(value="/findAssetRequires", method = RequestMethod.GET)
-	@ResponseBody
-	public Pager<AssetRequire> findAssetRequires(
-			Date artime
-			,Integer arday
-			, String arperson
-			, String arphone
-			, String arstatus
-			,Integer page) {
-		try {
-			
-			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
-			if(page != null) {
-				pageNum = page;
-			}
-			int pageSize = ConstantUtil.DEFAULT_PAGE_SIZE;
-			AssetRequire require = new AssetRequire();
-			require.setArday(arday);
-			require.setArperson(arperson.trim());
-			require.setArphone(arphone.trim());
-			require.setArstatus(arstatus.trim());
-			require.setArtime(artime.toString());
-			Pager<AssetRequire> requireResult = requireService.findAssetRequires(require, pageNum, pageSize);
-			return requireResult;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 	
 	/**

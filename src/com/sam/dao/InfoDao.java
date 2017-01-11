@@ -2,6 +2,7 @@ package com.sam.dao;
 
 import java.util.List;
 
+import com.sam.entity.AssetChartUtils;
 import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetRequire;
 
@@ -69,4 +70,22 @@ public interface InfoDao {
 	 * @return
 	 */
 	public List<AssetInfo> findAssetInfos();
+	
+	/**
+	 * 折线图查询
+	 * @author gaohailong
+	 */
+	List<AssetChartUtils> findLineChart();
+	
+	/**
+	 * 仓库查询
+	 * @author gaohailong
+	 */
+	List<AssetChartUtils> findHouseLineChart();
+	
+	/**
+	 * 查询分类和对应仓库的方法
+	 * @author gaohailong
+	 */
+	List<AssetChartUtils> findHouseCateAndWareChart();
 }

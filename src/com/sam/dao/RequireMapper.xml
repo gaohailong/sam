@@ -7,24 +7,18 @@
 		 values(#{arid},to_date(#{artime},'yyyy-mm-dd'),#{arday},#{arperson},#{arphone},'已受理')
 	</insert>
 	
-	<select id="findAssetRequires" parameterType="com.sam.entity.AssetRequire"
+	<select id="findAssetRequires" parameterType="com.sam.entity.AssetRequiresSearch"
 		resultType="com.sam.entity.AssetRequire">
 
 		select * from AssetRequire where 1=1
-			<if test="ainame != null">
-				and artime=#{artime}
+			<if test="beginDay != null and beginDay !=''">
+				and arday &gt;= #{beginDay}
 			</if>
-			<if test="ainame != null">
-				and arday=#{arday}
+			<if test="endDay != null and endDay !=''">
+				and arday &lt;= #{endDay}
 			</if>
-			<if test="ainame != null">
-				and arperson=#{arperson}
-			</if>
-			<if test="ainame != null">
-				and arphone=#{arphone}
-			</if>
-			<if test="ainame != null">
-				and arstatus=#{arstatus}
+			<if test="repairStatus != null and repairStatus != ''">
+				and arstatus=#{repairStatus}
 			</if>
 			
 	</select>

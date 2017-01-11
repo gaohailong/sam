@@ -41,7 +41,7 @@
 				<form action="#" class="form-horizontal">
 					<div class="row-fluid">
 						<div class="control-group">
-							<label class="control-label span2">设备名称</label>
+							<label class="control-label span2">资产名称</label>
 							<div class="controls span2">
 								<input id="assetInfoName" type="text" placeholder="设备名称" class="m-wrap medium" />
 							</div>
@@ -49,7 +49,7 @@
 
 							<div class="controls span2">
 
-								<select id="assetTypeName" class="medium m-wrap" tabindex="1" id="assetType">
+								<select class="medium m-wrap" tabindex="1" id="assetType">
 									<option value="">请选择</option>
 								</select>
 
@@ -115,15 +115,16 @@
 
 						<tr>
 
-							<th>#</th>
+							<th>编号</th>
 
-							<th>First Name</th>
+							<th>资产名称</th>
 
-							<th>Last Name</th>
+							<th>资产型号</th>
 
-							<th class="hidden-480">Username</th>
+							<th class="hidden-480">资产类型</th>
 
-							<th>Status</th>
+							<th>资产状况</th>
+							<th>资产所属部门</th>
 
 						</tr>
 
@@ -215,6 +216,7 @@
 		//initDepartment();
 		selectAssetType();
 		selectWareHouse1();
+		selectAllSecondAssetType();
 		initAllAssetInfo(1);
 	});
 	function initDepartment() {
@@ -288,6 +290,7 @@
 			dataType : "JSON",
 			success : function(data) {
 			$("#selectwareHouse").html("");
+			$("#selectwareHouse").append('<option value="">请选择</option>');
 				$(data).each(
 						function(index, value) {
 							$("#selectwareHouse").append(
@@ -305,17 +308,18 @@
 	}
 	
 	//遍历全部二级类型
-	function selectWareHouse1() {
+	function selectAllSecondAssetType() {
 		$.ajax({
 			type : "get",
-			url : "/sam/wareHouse/findAllSecondAssetHouse",
+			url : "/sam/assetType/findAllSecondAssetType",
 			dataType : "JSON",
 			success : function(data) {
-			$("#selectwareHouse").html("");
+			$("#assetType").html("");
+			$("#assetType").append('<option value="">请选择</option>');
 				$(data).each(
 						function(index, value) {
-							$("#selectwareHouse").append(
-								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
+							$("#assetType").append(
+								"<option value='"+value.atname+"'>"+value.atname+"</option>"
 							);
 						});
 
@@ -388,12 +392,14 @@
 	//条件查询
 	function findAssetInfoBytiaojian(page) {
 		var assetInfoName = $("#assetInfoName").val();
-		var assetTypeName = $("#assetTypeName").val();
-		var assetHouseName = $("#assetHouseName").val();
+		var assetType = $("#assetType").val();
+		var selectwareHouse = $("#selectwareHouse").val();
+		
+		
 		var tiaojian = {
 			"ainame":assetInfoName,
-			"atname":assetTypeName,
-			"ahname":assetHouseName,
+			"atname":assetType,
+			"ahname":selectwareHouse,
 			"pageNum":page
 		};
 		$.ajax({
