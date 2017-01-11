@@ -26,4 +26,12 @@
 	  insert into AssetType (atid,atname,atlevel) values(AssetType_seq.nextval,#{atname},#{atlevel})
 	</insert>
 	
+	<delete id="deleteType" parameterType="java.lang.Integer">
+	 delete from AssetType where atid =#{atid}
+	</delete>
+	
+	<update id="updateType"  parameterType="com.sam.entity.AssetType">
+	  update AssetType set atname =#{atname},atlevel =#{atlevel} where atid =#{atid}
+	</update>
+	
 </mapper>

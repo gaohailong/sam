@@ -47,4 +47,18 @@ public interface TypeDao {
 	 * @author wc
 	 */
 	int  addTypeSecond(AssetType assettype)throws Exception;
+	/**
+	 * 删除类型
+	 * @param atid
+	 * @return
+	 * @throws Exception
+	 */
+	int deleteType(Integer atid)throws Exception;
+	/**
+	 * 修该类型
+	 * @param sddettype
+	 * @return
+	 * @throws Exception
+	 */
+	int updateType(AssetType sddettype)throws Exception;
 }

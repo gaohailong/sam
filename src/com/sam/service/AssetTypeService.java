@@ -78,4 +78,19 @@ public interface AssetTypeService {
 	 * @throws Exception
 	 */
 	Pager<AssetType> findTypeSecond(int pageNum,int pageSize,int atid)throws Exception;
+	
+	/**
+	 * 删除类型
+	 * @param atid
+	 * @return
+	 * @throws Exception
+	 */
+	int deleteType(Integer atid)throws Exception;
+	/**
+	 * 修该类型
+	 * @param sddettype
+	 * @return
+	 * @throws Exception
+	 */
+	int updateType(AssetType sssettype)throws Exception;
 }

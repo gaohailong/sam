@@ -4,8 +4,10 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -216,5 +218,47 @@ public class AssetTypeController {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	/**
+	 * 删除类别
+	 * @param atid
+	 * @return
+	 * @author wc
+	 */
+	@RequestMapping(value="/deleteType/{atid}",method = RequestMethod.POST)
+	@ResponseBody
+	public int deleteType(
+			@PathVariable(value="atid")Integer atid){
+		int num = 0;
+		try{
+		   num = assetTypeService.deleteType(atid);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		if(num==0)
+			return -1;
+		return num;
+	}
+	
+	@RequestMapping(value="/updateType",method = RequestMethod.POST)
+	@ResponseBody
+	public int updateType(
+			@RequestParam(value="atid",required = false)Integer atid,
+			@RequestParam(value="atname",required = false)String atname,
+			@RequestParam(value="atlevel",required = false)Integer atlevel){
+		int num =0;
+		try{
+			System.out.println("进入修改"+atid+" "+atname+"  "+atlevel);
+		AssetType assettype = new AssetType();
+		assettype.setAtid(atid);
+		assettype.setAtname(atname);
+		assettype.setAtlevel(atlevel);
+		num = assetTypeService.updateType(assettype);
+		}catch(Exception ex){
+			ex.printStackTrace();
+			return -1;
+		}
+		return num;
+		
 	}
 }
