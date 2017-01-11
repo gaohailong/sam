@@ -246,7 +246,7 @@ function as_house_linechart() {
 		}
 	});
 }
-//资产统计2
+// 资产统计2
 function as_house_linechart2() {
 	$.ajax({
 		type : "GET",
@@ -266,15 +266,15 @@ function set_asset_house_line_chart(housedata) {
 	var as_house_linechart = echarts.init(document
 			.getElementById('as_house_linechart'));
 	var max = 0;
-	var countArray=new Array();
-	var houseArray=new Array();
+	var countArray = new Array();
+	var houseArray = new Array();
 	// 判断最大值
 	for (var i = 0; i < eval(housedata).length; i++) {
 		if (housedata[i].assetCount > max) {
 			max = housedata[i].assetCount;
 		}
-		countArray[i]=housedata[i].assetCount;
-		houseArray[i]=housedata[i].assetHouse;
+		countArray[i] = housedata[i].assetCount;
+		houseArray[i] = housedata[i].assetHouse;
 	}
 
 	var dataAxis = houseArray;
@@ -369,58 +369,85 @@ function set_asset_house_line_chart(housedata) {
 	as_house_linechart.setOption(option);
 }
 
-function ware_category_chart(data) {
-	var as_house_ware_category = echarts.init(document.getElementById('as_house_ware_category'));
-	var assetCount = new Array();
-	var assetCategory = new Array();
-	for (var i = 0; i < eval(data).length; i++) {
-		assetCount[i] = data[i].assetCount;
-		assetCategory[i] = data[i].assetCategory;
+function ware_category_chart(waredata) {
+	var as_house_ware_category = echarts.init(document
+			.getElementById('as_house_ware_category'));
+	var assetCountArray = new Array();
+	var assetCategoryArray = new Array();
+	var assetHouseArray = new Array();
+	var assetData=new Array();
+	var wareAndCate=null;
+	for (var i = 0; i < eval(waredata).length; i++) {
+		assetCategoryArray[i] = housedata[i].assetCategory;
+		assetCountArray[i] = housedata[i].assetCount;
+		assetHouseArray[i] = housedata[i].assetHouse;
+		wareAndCate=new WareAndCate(housedata[i].assetCategory,'line','总量',assetCountArray);
+		
 	}
+
 	var option = {
 		title : {
-			text : '资产统计折线图',
-			subtext : '数量/类别'
+			text : '折线图堆叠'
 		},
 		tooltip : {
 			trigger : 'axis'
 		},
+		legend : {
+			data : assetHouseArray
+		},
+		grid : {
+			left : '3%',
+			right : '4%',
+			bottom : '3%',
+			containLabel : true
+		},
+		toolbox : {
+			feature : {
+				saveAsImage : {}
+			}
+		},
 		xAxis : {
 			type : 'category',
 			boundaryGap : false,
-			data : assetCategory
+			data : assetCategoryArray
 		},
 		yAxis : {
 			type : 'value'
 		},
 		series : [ {
-			name : '资产数量',
+			name : '邮件营销',
 			type : 'line',
-			smooth : true,
-			itemStyle : {
-				normal : {
-					color : new echarts.graphic.LinearGradient(0, 0, 0, 1, [ {
-						offset : 0,
-						color : '#35b5b0' // 0% 处的颜色
-					}, {
-						offset : 1,
-						color : '#35b5b0' // 100% 处的颜色
-					} ], false)
-				}
-			},
-			areaStyle : {
-				normal : {
-					color : new echarts.graphic.LinearGradient(0, 0, 0, 1, [ {
-						offset : 1,
-						color : '#35B5B0' // 0% 处的颜色
-					}, {
-						offset : 1,
-						color : '#35B5B0' // 100% 处的颜色
-					} ], false)
-				}
-			},
-			data : assetCount
+			stack : '总量',
+			data : [ 120, 132, 101, 134, 90, 230, 210 ]
+		}, {
+			name : '联盟广告',
+			type : 'line',
+			stack : '总量',
+			data : [ 220, 182, 191, 234, 290, 330, 310 ]
+		}, {
+			name : '视频广告',
+			type : 'line',
+			stack : '总量',
+			data : [ 150, 232, 201, 154, 190, 330, 410 ]
+		}, {
+			name : '直接访问',
+			type : 'line',
+			stack : '总量',
+			data : [ 320, 332, 301, 334, 390, 330, 320 ]
+		}, {
+			name : '搜索引擎',
+			type : 'line',
+			stack : '总量',
+			data : [ 820, 932, 901, 934, 1290, 1330, 1320 ]
 		} ]
 	};
+
 	as_house_ware_category.setOption(option);
+}
+
+function WareAndCate(name,type,stack,data){
+	this.name=name;
+	this.type=type;
+	this.stack=stack;
+	this.data=data;
 }
