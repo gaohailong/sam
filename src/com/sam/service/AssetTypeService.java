@@ -2,6 +2,7 @@ package com.sam.service;
 
 import java.util.List;
 
+import com.sam.entity.AssetHouse;
 import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetType;
 import com.sam.entity.Pager;
@@ -44,4 +45,37 @@ public interface AssetTypeService {
 	 * @return
 	 */
 	List<AssetType>	findAllSecondAssetType();
+	
+	/**
+	 * 增加一级菜单
+	 * @param assettype
+	 * @return
+	 * @throws Exception
+	 * @author wc
+	 */
+	int  addType(AssetType assettype)throws Exception;
+	/**
+	 * 增加二级菜单
+	 * @param assettype
+	 * @param atid
+	 * @return
+	 * @throws Exception
+	 * @author wc
+	 */
+	int  addTypeSecond(AssetType assettype)throws Exception;
+	/**
+	 * 分页查询所有一级类型
+	 * @return
+	 * @throws Exception
+	 */
+	Pager<AssetType> findType(int pageNum,int pageSize,int ahlevel)throws Exception;
+	/**
+	 * 分页查询对应的二级菜单
+	 * @param pageNum
+	 * @param pageSize
+	 * @param atid
+	 * @return
+	 * @throws Exception
+	 */
+	Pager<AssetType> findTypeSecond(int pageNum,int pageSize,int atid)throws Exception;
 }
