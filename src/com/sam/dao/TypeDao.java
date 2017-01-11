@@ -15,8 +15,7 @@ public interface TypeDao {
 	 * @return
 	 */
 	public List<AssetType> findAssetTypeByAtlevel(Integer atlevel);
-	
-	
+		
 	/**
 	 * 根据类型查询资产
 	 * @param atame
@@ -30,4 +29,22 @@ public interface TypeDao {
 	 * @return
 	 */
 	List<AssetType> findAllSecondAssetType();
+	
+	/**
+	 * 增加一级菜单
+	 * @param assettype
+	 * @return
+	 * @throws Exception
+	 * @author wc
+	 */
+	int  addType(AssetType assettype)throws Exception;
+	/**
+	 * 增加二级菜单
+	 * @param assettype
+	 * @param atid
+	 * @return
+	 * @throws Exception
+	 * @author wc
+	 */
+	int  addTypeSecond(AssetType assettype)throws Exception;
 }

@@ -36,7 +36,7 @@
                             <div class="caption"><i class="icon-cogs"></i>查询</div>
                             <div class="actions">
                                 <!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
-                                <a href="#" data-toggle="modal" class="btn green "><i class="icon-search"></i>
+                                <a href="javascript:;" onclick="findAssetRepairsByTiaoJian(1)" data-toggle="modal" class="btn green "><i class="icon-search"></i>
                                    查询</a>
                             </div>
                         </div>
@@ -47,23 +47,31 @@
                             <form action="#" class="form-horizontal">
                                 <div class="row-fluid">
                                     <div class="control-group">
-                                        <label class="control-label span2">设备名称</label>
+                                        <label class="control-label span2">维修天数</label>
                                         <div class="controls span2">
-                                            <input type="text" placeholder="medium" class="m-wrap medium"/>
-                                        </div>
-                                        <label class="control-label span3">类型名称</label>
+                                        	<select id="repairdaynum" class="medium m-wrap" tabindex="1">
+												<option value="">请选择</option>
+                                                <option value="0-2">2天以内</option>
+
+                                                <option value="2-5">2天-5天</option>
+
+                                                <option value="5-10">5天-10天</option>
+
+                                                <option value="10-1000000">10天以上</option>
+
+                                            </select>
+<!--                                             <input id="repairdaynum" type="text" placeholder="请输入维修天数" class="m-wrap medium"/>
+ -->                                      </div>
+                                        <label class="control-label span3">维修状态</label>
 
                                         <div class="controls span2">
 
-                                            <select class="medium m-wrap" tabindex="1">
+                                            <select id="repairstatus" class="medium m-wrap" tabindex="1">
+												<option value="">请选择</option>
+												<option value="维修中">维修中</option>
+												
+                                                <option value="已维修">已维修</option>
 
-                                                <option value="Category 1">Category 1</option>
-
-                                                <option value="Category 2">Category 2</option>
-
-                                                <option value="Category 3">Category 5</option>
-
-                                                <option value="Category 4">Category 4</option>
 
                                             </select>
 
@@ -71,7 +79,9 @@
 
                                     </div>
                                     <div class="row-fluid">
+                                  <!-- 
                                         <div class="control-group">
+                                    
                                             <label class="control-label span2">仓库名称</label>
                                             <div class="controls span2">
                                                 <select class="medium m-wrap" tabindex="1">
@@ -85,8 +95,10 @@
                                                     <option value="Category 4">Category 4</option>
 
                                                 </select>
+                                          
                                             </div>
-                                            <!-- 
+                                           
+                                            
                                             <label class="control-label span3">进库时间</label>
 
                                             <div class="controls span2">
@@ -100,8 +112,9 @@
                                                         class="icon-calendar"></i></span>
                                                 </div>
                                             </div>
-                                             --> 
+                                           
                                         </div>
+                                         -->
                                     </div>
                                 </div>
                             </form>
@@ -136,77 +149,23 @@
 
                                 <tr>
 
-                                    <th>#</th>
+                                    <th>编号</th>
 
-                                    <th>First Name</th>
+                                    <th>维修起始时间</th>
 
-                                    <th>Last Name</th>
+                                    <th>维修天数</th>
 
-                                    <th class="hidden-480">Username</th>
+                                    <th class="hidden-480">维修人员</th>
 
-                                    <th>Status</th>
-
+                                    <th>联系电话</th>
+									<th>维修状态</th>
                                 </tr>
 
                                 </thead>
 
-                                <tbody>
+                                <tbody id="assetTbody">
 
-                                <tr>
-
-                                    <td>1</td>
-
-                                    <td>Mark</td>
-
-                                    <td>Otto</td>
-
-                                    <td class="hidden-480">makr124</td>
-
-                                    <td><span class="label label-success">Approved</span></td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>2</td>
-
-                                    <td>Jacob</td>
-
-                                    <td>Nilson</td>
-
-                                    <td class="hidden-480">jac123</td>
-
-                                    <td><span class="label label-info">Pending</span></td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>3</td>
-
-                                    <td>Larry</td>
-
-                                    <td>Cooper</td>
-
-                                    <td class="hidden-480">lar</td>
-
-                                    <td><span class="label label-warning">Suspended</span></td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>3</td>
-
-                                    <td>Sandy</td>
-
-                                    <td>Lim</td>
-
-                                    <td class="hidden-480">sanlim</td>
-
-                                    <td><span class="label label-danger">Blocked</span></td>
-
-                                </tr>
+                               
 
                                 </tbody>
 
@@ -215,7 +174,30 @@
                         </div>
 
                     </div>
+                    <center>
+                   <!--  data-toggle="modal" -->
+                   	<a id="firstPage" href="javascript:findAssetRepairsByTiaoJian(1);" class="btn red ">首页</a>  |
+                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
+                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
+                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
+                   	第<span id="currentPage"></span>页 | 
+                   	共<span id="totalRecord"></span>条数据
+                   
+                   </center>
                     <!-- END SAMPLE TABLE PORTLET-->
+      <div style="margin-top: 5px;" class="am-input-group am-u-sm-4">
+      <form action="/sam/requireController/exportProject" method="post">
+		     <span id="excelcheckbox" class="am-input-group-label">
+		     	<input type="checkbox" value="维修天数#arday" name="export" checked="checked">维修天数
+		     	<input type="checkbox" value="起始时间#artime" name="export" checked="checked">起始时间
+		     	<input type="checkbox" value="维修人员#arperson" name="export" checked="checked">维修人员
+		     	<input type="checkbox" value="联系电话#arphone" name="export" checked="checked">联系电话
+		     	<input type="checkbox" value="维修状态#arstatus" name="export" checked="checked">维修状态
+		     </span>
+		     <br>
+		     <input type="submit" value="导出excel">
+		     </form>
+		</div>
                 </div>
             </div>
         </div>
@@ -226,27 +208,103 @@
 <script>
 
     jQuery(document).ready(function () {
-
-        App.init(); // initlayout and core plugins
+       App.init(); // initlayout and core plugins
+      
+        findAssetRepairsByTiaoJian(1);
     });
     
     
+    function exportrepairexcel() {
+    	var val = ""; 
+    	$box = $("[name='export']:checked"),
+    	$.each($box,function (i,v){
+			val += i > 0 ? ","+v.value : v.value;
+		});
+
+		alert(val);
+		
+    	alert("val:"+val);
+    	$.ajax({
+    		type:"post",
+    		url:"/sam/requireController/exportProject",
+    		data:"export="+val,
+    		datatype:"json",
+    		success:function() {
+    		},
+    		error:function() {
+    		alert("出错");
+    		}
+    	});
+    }
+    
     //动态条件查询
+    
     function findAssetRepairsByTiaoJian(page) {
+    	var repairdaynum = $("#repairdaynum").val();
+    	var repairstatus = $("#repairstatus").val();
+    	//alert("repairdaynum:"+repairdaynum);
+    	//alert("repairstatus:"+repairstatus);
     	var tiaojian = {
     		"page":page,
-    		"artime":artime,
-    		"arday":arday,
-    		"arstatus":arstatus
+    		"ardaynum":repairdaynum,
+    		"arstatus":repairstatus
     	};
     	$.ajax({
-    		type="post",
+    		type:"post",
+    		url:"/sam/requireController/findAssetquires",
     		data:tiaojian,
-    		url:"/sam/requireController/",
+    		dataType:"JSON",
+    		success:function(data) {
+    			//总页数
+					var totalPage = data.totalPage;
+					//当前页码
+					var currentPage = data.currentPage;
+					$("#currentPage").html("");
+					$("#currentPage").html(currentPage);
+					
+					var perPagenum;
+					perPagenum = page-1;
+					if(perPagenum < 1) {
+						perPagenum = 1;
+					}
+					$("#perPage").attr("href","javascript:findAssetRepairsByTiaoJian("+perPagenum+");"); 
+					var lastpagenum;
+					nextPage = page+1;
+					if(nextPage > totalPage) {
+						nextPage = totalPage;
+					}
+					$("#nextPage").attr("href","javascript:findAssetRepairsByTiaoJian("+nextPage+");");
+					$("#lastPage").attr("href","javascript:findAssetRepairsByTiaoJian("+totalPage+");");
+					
+					//总条目数
+					var totalRecord = data.totalRecord;
+					$("#totalRecord").html("");
+					$("#totalRecord").html(totalRecord);
+					
+										
+					var assetRepairList = data.dataList;
+					$("#assetTbody").html("");
+					
+					for(var i = 0;i < assetRepairList.length;i++) {
+						$("#assetTbody").append(
+							"<tr>"
+							+"<td>"+assetRepairList[i].arid+"</td>"
+							+"<td>"+assetRepairList[i].artime+"</td>"
+							+"<td>"+assetRepairList[i].arday+"</td>"
+							+"<td>"+assetRepairList[i].arperson+"</td>"
+							+"<td>"+assetRepairList[i].arphone+"</td>"
+							+"<td>"+assetRepairList[i].arstatus+"</td>"
+							+"</tr>"
+						);
+					}
+    		},
+    		error:function(data) {
+    			alert(data.status);
+    		}
     		
     	});
     }
-   
+    
 </script>
 
 <!-- END JAVASCRIPTS -->

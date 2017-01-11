@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetChange;
+import com.sam.entity.AssetChartUtils;
 import com.sam.entity.AssetInfo;
 import com.sam.entity.Pager;
 import com.sam.service.ChangeService;
@@ -35,22 +36,9 @@ public class ChangeController {
 	 */
 	@RequestMapping(value="/addChange",method=RequestMethod.POST)
 	@ResponseBody
-	public int addChange(String acname,String adname,String aiidStr){
-		int num = 0;
-		try {
-			System.out.println(aiidStr);
-			System.out.println(acname);
-			System.out.println(adname);
-			AssetChange change =  new AssetChange();
-			change.setAuname(acname);
-			change.setAdname(adname);
-			num = changeService.addChange(change,aiidStr);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return -1;
-		}
-		return num;
+	public List<AssetChartUtils> addChange(String acname,String adname,String aiidStr){
+		
+		return null;
 	}
 	
 	@RequestMapping(value="/findInfoNumByAtname",method=RequestMethod.POST)

@@ -72,8 +72,8 @@ public class InfoController {
 	@RequestMapping(value = "/findInfoByAsname", method = RequestMethod.POST)
 	@ResponseBody
 	public Pager<AssetInfo> findInfoByAsname(String asname,Integer page) {
+		System.out.println("进入findAssetInfosByasname控制器");
 		try {
-			System.out.println("进入findAssetInfosByasname控制器");
 			System.out.println("asname:"+asname);
 			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
 			if(page != null) {
@@ -156,50 +156,6 @@ public class InfoController {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	
-	/**
-	 * 资产的维修查询
-	 * @author zhw
-	 * @param require
-	 * @return
-	 * 	private Integer arid;
-	private Date artime;
-	private Integer arday;
-	private String arperson;
-	private String arphone;
-	private String arstatus;
-
-	 */
-	@RequestMapping(value="/findAssetRequires", method = RequestMethod.GET)
-	@ResponseBody
-	public Pager<AssetRequire> findAssetRequires(
-			Date artime
-			,Integer arday
-			, String arperson
-			, String arphone
-			, String arstatus
-			,Integer page) {
-		try {
-			
-			int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
-			if(page != null) {
-				pageNum = page;
-			}
-			int pageSize = ConstantUtil.DEFAULT_PAGE_SIZE;
-			AssetRequire require = new AssetRequire();
-			require.setArday(arday);
-			require.setArperson(arperson.trim());
-			require.setArphone(arphone.trim());
-			require.setArstatus(arstatus.trim());
-			require.setArtime(artime.toString());
-			Pager<AssetRequire> requireResult = requireService.findAssetRequires(require, pageNum, pageSize);
-			return requireResult;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 	
 	/**

@@ -71,4 +71,16 @@
 	<select id="findInfoByAtname" parameterType="java.lang.String" resultType="com.sam.entity.AssetInfo">
 		select * from assetinfo where atname=#{atname} and asname='未使用'
 	</select>
+	
+	<!-- 图表查询 -->
+	<select id="findLineChart" resultType="com.sam.entity.AssetChartUtils">
+		select count(*) as assetCount,atname as assetCategory from AssetInfo group by atname
+	</select>
+	<select id="findHouseLineChart" resultType="com.sam.entity.AssetChartUtils">
+		select count(*) as assetCount,ahname as assetHouse from AssetInfo group by ahname
+	</select>
+	
+	<select id="findHouseCateAndWareChart" resultType="com.sam.entity.AssetChartUtils">
+		select count(*) as assetCount,ahname as assetHouse ,atname as assetCategory from AssetInfo group by atname, ahname
+	</select>
 </mapper>
