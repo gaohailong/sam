@@ -1,7 +1,18 @@
 package com.sam.controller;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +24,7 @@ import com.sam.entity.AssetRequiresSearch;
 import com.sam.entity.Pager;
 import com.sam.service.RequireService;
 import com.sam.util.ConstantUtil;
+import com.sam.util.ExportExcelUtil;
 
 /**
  * 设备修理时候的controller
@@ -22,6 +34,7 @@ import com.sam.util.ConstantUtil;
 @Controller
 @RequestMapping(value="/requireController")
 public class RequireController {
+	private AssetRequiresSearch assetRequiresSearch = null;
 
 	@Autowired
 	private RequireService requireService;
@@ -51,7 +64,6 @@ public class RequireController {
 			 num = requireService.addRequire(aiidStr,require);
 			 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return num;
@@ -75,21 +87,51 @@ public class RequireController {
 			@RequestParam(value="page", required = false) Integer page
 			) {
 		try {
-			Integer beginDay = Integer.parseInt(ardaynum.split("-")[0]);
-			Integer endDay = Integer.parseInt(ardaynum.split("-")[1]);
-			AssetRequiresSearch assetRequiresSearch = new AssetRequiresSearch();
+			System.out.println("进入findAssetquires");
+			Integer beginDay = null;
+			Integer endDay = null;
+			System.out.println("ardaynum:"+ardaynum);
+			if(ardaynum != null && ardaynum !="") {
+				beginDay = Integer.parseInt(ardaynum.split("-")[0]);
+				endDay = Integer.parseInt(ardaynum.split("-")[1]);
+			}
+			
+			assetRequiresSearch = new AssetRequiresSearch();
 			if(beginDay != null && !"".equals(beginDay)) {
 				assetRequiresSearch.setBeginDay(beginDay);
 			}
 			if(endDay != null && !"".equals(endDay)) {
 				assetRequiresSearch.setEndDay(endDay);
 			}
+			if(arstatus != null && arstatus != "") {
+				assetRequiresSearch.setRepairStatus(arstatus);
+			}
 			Pager<AssetRequire> requirePager = requireService.findAssetRequires(assetRequiresSearch, page, ConstantUtil.DEFAULT_PAGE_SIZE);
-			return null;
+			return requirePager;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+	
+	@RequestMapping(value="/exportProject", method = RequestMethod.POST)
+	 public void exportProject(HttpServletResponse response, String export) {
+	  try {
+		  System.out.println("export:"+export);
+		 // export = "项目名称#artime,天数#arday";
+		  String[] excelHeader = export.split(",");
+		 
+		  assetRequiresSearch = new AssetRequiresSearch();
+		  assetRequiresSearch.setBeginDay(1);
+		  List<AssetRequire> projectList = requireService.findAssetRequiresNofenye(assetRequiresSearch);
+		  for (AssetRequire assetRequire : projectList) {
+			System.out.println(assetRequire.getArid());
+		}
+		  ExportExcelUtil.export(response, "维修表", excelHeader, projectList);
+	  } catch (Exception e) {
+	   e.printStackTrace();
+	  }
+	 }
+
 	
 }
