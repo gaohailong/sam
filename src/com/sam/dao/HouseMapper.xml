@@ -14,4 +14,16 @@
 		select * from AssetInfo where ahname=#{ahname}
 	</select>
 	
+	<insert id="addHouse" parameterType="com.sam.entity.AssetHouse">
+	 insert into AssetHouse(ahid,ahname,auname,ahbeizhu) values(AssetHouse_seq.nextval,#{ahname},#{auname},#{ahbeizhu})
+	</insert>
+	
+	<delete id="deleteHouse" parameterType="java.lang.Integer">
+	   delete from AssetHouse where ahid =#{ahid}
+	</delete>
+	
+	<update id="updateHouse"  parameterType="com.sam.entity.AssetHouse">
+	  update AssetHouse set ahname =#{ahname},auname=#{auname},ahbeizhu=#{ahbeizhu} where ahid =#{ahid}
+	</update>
+	
 </mapper>

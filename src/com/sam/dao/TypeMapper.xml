@@ -5,7 +5,7 @@
 	<select id="findAll" resultType="com.sam.entity.AssetType">
 		select * from AssetType
 	</select>
-	<select id="findAssetTypeByAtlevel" parameterType="int"
+	<select id="findAssetTypeByAtlevel" parameterType="java.lang.Integer"
 		resultType="com.sam.entity.AssetType">
 		select * from AssetType where atlevel=#{atlevel}
 	</select>
@@ -18,4 +18,12 @@
 	<select id="findAllSecondAssetType" resultType="com.sam.entity.AssetType">
 		select * from AssetType where atlevel=1
 	</select>
+	<insert id="addType"  parameterType="com.sam.entity.AssetType">
+	  insert into AssetType (atid,atname,atlevel) values(AssetType_seq.nextval,#{atname},0)
+	</insert>
+	
+	<insert id="addTypeSecond" parameterType="com.sam.entity.AssetType">
+	  insert into AssetType (atid,atname,atlevel) values(AssetType_seq.nextval,#{atname},#{atlevel})
+	</insert>
+	
 </mapper>

@@ -4,7 +4,7 @@
 <mapper namespace="com.sam.dao.RequireDao">
 	<insert id="addRequire" parameterType="com.sam.entity.AssetRequire">
 		insert into AssetRequire(arid,artime,arday,arperson,arphone,arstatus)
-		 values(#{arid},to_date(#{artime},'yyyy-mm-dd'),#{arday},#{arperson},#{arphone},'已受理')
+		 values(#{arid},to_date(#{artime},'yyyy-mm-dd'),#{arday},#{arperson},#{arphone},'维修中')
 	</insert>
 	
 	<select id="findAssetRequires" parameterType="com.sam.entity.AssetRequiresSearch"

@@ -2,12 +2,12 @@
 <div class="row-fluid">
 	<div class="span12">
 		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-		<h3 class="page-title">资产查询</h3>
+		<h3 class="page-title">璧勪骇鏌ヨ</h3>
 		<ul class="breadcrumb">
-			<li><i class="icon-home"></i> <a href="index.html">首页</a> <i
+			<li><i class="icon-home"></i> <a href="index.html">棣栭〉</a> <i
 				class="icon-angle-right"></i></li>
-			<li><a href="#">资产查询</a> <i class="icon-angle-right"></i></li>
-			<li><a href="#">查询所有资产</a></li>
+			<li><a href="#">璧勪骇鏌ヨ</a> <i class="icon-angle-right"></i></li>
+			<li><a href="#">鏌ヨ鎵�湁璧勪骇</a></li>
 		</ul>
 		<!-- END PAGE TITLE & BREADCRUMB-->
 	</div>
@@ -25,12 +25,12 @@
 		<div class="portlet box red">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="icon-cogs"></i>查询
+					<i class="icon-cogs"></i>鏌ヨ
 				</div>
 				<div class="actions">
 					<!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
 					<button onclick="findAssetInfoBytiaojian(1)" href="#" data-toggle="modal" class="btn green ">
-						<i class="icon-search"></i> 查询
+						<i class="icon-search"></i> 鏌ヨ
 					</button>
 				</div>
 			</div>
@@ -41,16 +41,16 @@
 				<form action="#" class="form-horizontal">
 					<div class="row-fluid">
 						<div class="control-group">
-							<label class="control-label span2">资产名称</label>
+							<label class="control-label span2">璧勪骇鍚嶇О</label>
 							<div class="controls span2">
-								<input id="assetInfoName" type="text" placeholder="设备名称" class="m-wrap medium" />
+								<input id="assetInfoName" type="text" placeholder="璁惧鍚嶇О" class="m-wrap medium" />
 							</div>
-							<label class="control-label span3">类型名称</label>
+							<label class="control-label span3">绫诲瀷鍚嶇О</label>
 
 							<div class="controls span2">
 
 								<select class="medium m-wrap" tabindex="1" id="assetType">
-									<option value="">请选择</option>
+									<option value="">璇烽�鎷�/option>
 								</select>
 
 							</div>
@@ -58,14 +58,14 @@
 						</div>
 						<div class="row-fluid">
 							<div class="control-group">
-								<label class="control-label span2">仓库名称</label>
+								<label class="control-label span2">浠撳簱鍚嶇О</label>
 								<div class="controls span2">
 									<select class="medium m-wrap" tabindex="1" id="selectwareHouse">
-										<option value="">请选择</option>
+										<option value="">璇烽�鎷�/option>
 									</select>
 								</div>
 								<!-- 
-								<label class="control-label span3">进库时间</label>
+								<label class="control-label span3">杩涘簱鏃堕棿</label>
 
 								<div class="controls span2">
 									<div class="input-append date date-picker m-wrap medium"
@@ -103,7 +103,7 @@
 			<div class="portlet-title">
 
 				<div class="caption">
-					<i class="icon-cogs"></i>设备列表
+					<i class="icon-cogs"></i>璁惧鍒楄〃
 				</div>
 			</div>
 
@@ -115,16 +115,16 @@
 
 						<tr>
 
-							<th>编号</th>
+							<th>缂栧彿</th>
 
-							<th>资产名称</th>
+							<th>璧勪骇鍚嶇О</th>
 
-							<th>资产型号</th>
+							<th>璧勪骇鍨嬪彿</th>
 
-							<th class="hidden-480">资产类型</th>
+							<th class="hidden-480">璧勪骇绫诲瀷</th>
 
-							<th>资产状况</th>
-							<th>资产所属部门</th>
+							<th>璧勪骇鐘跺喌</th>
+							<th>璧勪骇鎵�睘閮ㄩ棬</th>
 
 						</tr>
 
@@ -197,12 +197,12 @@
 		</div>
 		 <center>
                    <!--  data-toggle="modal" -->
-                   	<a id="firstPage" href="javascript:initAllAssetInfo(1);" class="btn red ">首页</a>  |
-                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
-                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
-                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
-                   	第<span id="currentPage"></span>页 | 
-                   	共<span id="totalRecord"></span>条数据
+                   	<a id="firstPage" href="javascript:initAllAssetInfo(1);" class="btn red ">棣栭〉</a>  |
+                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">涓婁竴椤�/a> |
+                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">涓嬩竴椤�/a> |
+                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">灏鹃〉</a> |
+                   	绗�span id="currentPage"></span>椤�| 
+                   	鍏�span id="totalRecord"></span>鏉℃暟鎹�
                    
                    </center>
 		<!-- END SAMPLE TABLE PORTLET-->
@@ -242,7 +242,7 @@
 
 				});
 	}
-	//遍历二级部门的方法
+	//閬嶅巻浜岀骇閮ㄩ棬鐨勬柟娉�
 	function initSecondDepartment(adlevel) {
 		$.ajax({
 			type : "post",
@@ -282,7 +282,7 @@
 			}
 		});
 	}
-	//遍历全部仓库
+	//閬嶅巻鍏ㄩ儴浠撳簱
 	function selectWareHouse1() {
 		$.ajax({
 			type : "get",
@@ -290,7 +290,7 @@
 			dataType : "JSON",
 			success : function(data) {
 			$("#selectwareHouse").html("");
-			$("#selectwareHouse").append('<option value="">请选择</option>');
+			$("#selectwareHouse").append('<option value="">璇烽�鎷�/option>');
 				$(data).each(
 						function(index, value) {
 							$("#selectwareHouse").append(
@@ -307,7 +307,7 @@
 		
 	}
 	
-	//遍历全部二级类型
+	//閬嶅巻鍏ㄩ儴浜岀骇绫诲瀷
 	function selectAllSecondAssetType() {
 		$.ajax({
 			type : "get",
@@ -315,7 +315,7 @@
 			dataType : "JSON",
 			success : function(data) {
 			$("#assetType").html("");
-			$("#assetType").append('<option value="">请选择</option>');
+			$("#assetType").append('<option value="">璇烽�鎷�/option>');
 				$(data).each(
 						function(index, value) {
 							$("#assetType").append(
@@ -333,19 +333,19 @@
 	}
 	
 	
-	//初始化全部设备的分页信息
+	//鍒濆鍖栧叏閮ㄨ澶囩殑鍒嗛〉淇℃伅
 	function initAllAssetInfo(page) {
 			$.ajax({
 				type : "GET",
 				url : "/sam/infoController/findAssetInfos",
 				data : "page="+page,
 				dataType : "JSON",
-				success : function(data) {
+				success : function(data) { 
 				
-					//总页数
+					//鎬婚〉鏁�
 					var totalPage = data.totalPage;
 					
-					//当前页码
+					//褰撳墠椤电爜
 					var currentPage = data.currentPage;
 					$("#currentPage").html(currentPage);
 					
@@ -363,7 +363,7 @@
 					$("#nextPage").attr("href","javascript:initAllAssetInfo("+nextPage+");");
 					$("#lastPage").attr("href","javascript:initAllAssetInfo("+totalPage+");");
 					
-					//总条目数
+					//鎬绘潯鐩暟
 					var totalRecord = data.totalRecord;
 					$("#totalRecord").html(totalRecord);
 					
@@ -384,12 +384,12 @@
 					}
 				},
 				error : function() {
-				alert("出错了");
+				alert("鍑洪敊浜�);
 				}
 			});
 	}
 	
-	//条件查询
+	//鏉′欢鏌ヨ
 	function findAssetInfoBytiaojian(page) {
 		var assetInfoName = $("#assetInfoName").val();
 		var assetType = $("#assetType").val();
@@ -408,10 +408,10 @@
 			data:tiaojian,
 			dataType:"JSON",
 			success:function(data) {
-				//总页数
+				//鎬婚〉鏁�
 					var totalPage = data.totalPage;
 					
-					//当前页码
+					//褰撳墠椤电爜
 					var currentPage = data.currentPage;
 					$("#currentPage").html("");
 					$("#currentPage").html(currentPage);
@@ -430,7 +430,7 @@
 					$("#nextPage").attr("href","javascript:findAssetInfoBytiaojian("+nextPage+");");
 					$("#lastPage").attr("href","javascript:findAssetInfoBytiaojian("+totalPage+");");
 					
-					//总条目数
+					//鎬绘潯鐩暟
 					var totalRecord = data.totalRecord;
 					$("#totalRecord").html("");
 					$("#totalRecord").html(totalRecord);
@@ -452,7 +452,7 @@
 					}
 			},
 			error:function(data) {
-				alert("出错了"+data.status);
+				alert("鍑洪敊浜�+data.status);
 			}
 		});
 	}

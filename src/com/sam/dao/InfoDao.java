@@ -9,6 +9,12 @@ import com.sam.entity.AssetRequire;
 public interface InfoDao {
 
 	int addInfo(AssetInfo info) throws Exception;
+	
+	int updInfoAddBroorw(AssetInfo info) throws Exception;
+	
+	int updInfoWhenBroorwOk(AssetInfo info) throws Exception;
+	
+	int updInfoWhenBroorwRefuse(Integer broorwid) throws Exception;
 
 	List<AssetInfo> findInfoByAiname(String ainame) throws Exception;
 

@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetHouse;
 import com.sam.entity.AssetInfo;
+import com.sam.entity.AssetUser;
 import com.sam.entity.Pager;
 import com.sam.service.AssetHouseService;
 import com.sam.util.ConstantUtil;
@@ -82,4 +85,104 @@ public class WarehouseController extends BaseController {
 		return null;
 		
 	}
+	
+	/**
+	 * 分页查询出所有仓库
+	 * @author wc
+	 * @param page
+	 */
+	@RequestMapping(value="/findHouse",method=RequestMethod.GET)
+	@ResponseBody
+	public Pager<AssetHouse> findHouse(Integer page){
+		System.out.println("进findhouse方法");
+		try{
+		int pageNum = ConstantUtil.DEFAULT_PAGE_NUM;
+		if(page!=null){
+			pageNum = page;
+		}
+		int pageSize = ConstantUtil.DEFAULT_PAGE_SIZE;
+		Pager<AssetHouse> houseResult = assetHouseService.findHouse(pageNum, pageSize);
+		return houseResult;
+		}catch(Exception ex){
+			ex.printStackTrace();
+			return null;
+			
+		}
+	}
+	
+	/**
+	 * 添加仓库
+	 */
+	@RequestMapping(value="/addHouse",method=RequestMethod.POST)
+	@ResponseBody
+	public int addHouse(
+			@RequestParam(value="ahname",required= false)String ahname,
+			@RequestParam(value="auname",required= false)String auname,
+			@RequestParam(value="ahbeizhu",required = false)String ahbeizhu){
+		AssetHouse assethouse = new AssetHouse();
+		assethouse.setAhname(ahname);
+		assethouse.setAuname(auname);
+		assethouse.setAhbeizhu(ahbeizhu);
+		try{
+		int num = assetHouseService.addHouse(assethouse);
+		return num;
+		}catch(Exception ex){
+			ex.printStackTrace();
+			return 0;
+		}
+		
+		
+	}
+	/**
+	 * 删除仓库
+	 * @author wc
+	 */
+	@RequestMapping(value="/deleteHouse/{ahid}",method=RequestMethod.POST)
+	@ResponseBody
+	public int deleteHouse(
+			@PathVariable(value="ahid")Integer ahid){
+		System.out.println("ahid删除的"+ahid);
+		int num = 0;
+		try{
+		   num = assetHouseService.deleteHouse(ahid);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		if(num==0)
+			return -1;
+		return num;
+	}
+	
+	/**
+	 * 修改仓库
+	 * @author wc
+	 */
+	@RequestMapping(value="/updateHouse",method=RequestMethod.POST)
+	@ResponseBody
+	public int updateHouse(
+		@RequestParam(value="ahid",required=false)Integer ahid,
+		@RequestParam(value="ahname",required = false)String ahname,
+		@RequestParam(value="auname",required = false)String auname,
+		@RequestParam(value= "ahbeizhu",required = false)String ahbeizhu){
+		System.out.println("ahid:"+ahid);
+		int num = 0;
+		try {
+		AssetHouse assethouse = new AssetHouse();
+		assethouse.setAhid(ahid);
+		assethouse.setAhname(ahname);
+		assethouse.setAuname(auname);
+		assethouse.setAhbeizhu(ahbeizhu);
+			System.out.println(assethouse.toString());
+			num = assetHouseService.updateHouse(assethouse);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(num==0)
+		return -1;
+		  return num;
+		
+	}
+	
+
 }

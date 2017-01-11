@@ -13,6 +13,7 @@ public class AssetHouse implements java.io.Serializable {
 	private Integer auid;
 	private String auname;
 	private Integer ahlevel;
+	private String ahbeizhu;
 
 	// Constructors
 
@@ -26,19 +27,22 @@ public class AssetHouse implements java.io.Serializable {
 	}
 
 	/** full constructor */
+	
+	// Property accessors
+
+	public Integer getAhid() {
+		return this.ahid;
+	}
+
 	public AssetHouse(Integer ahid, String ahname, Integer auid, String auname,
-			Integer ahlevel) {
+			Integer ahlevel, String ahbeizhu) {
+		super();
 		this.ahid = ahid;
 		this.ahname = ahname;
 		this.auid = auid;
 		this.auname = auname;
 		this.ahlevel = ahlevel;
-	}
-
-	// Property accessors
-
-	public Integer getAhid() {
-		return this.ahid;
+		this.ahbeizhu = ahbeizhu;
 	}
 
 	public void setAhid(Integer ahid) {
@@ -76,5 +80,14 @@ public class AssetHouse implements java.io.Serializable {
 	public void setAhlevel(Integer ahlevel) {
 		this.ahlevel = ahlevel;
 	}
+
+	public String getAhbeizhu() {
+		return ahbeizhu;
+	}
+
+	public void setAhbeizhu(String ahbeizhu) {
+		this.ahbeizhu = ahbeizhu;
+	}
+	
 
 }
