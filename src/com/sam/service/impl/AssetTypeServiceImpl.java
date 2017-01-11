@@ -81,5 +81,17 @@ public class AssetTypeServiceImpl implements AssetTypeService {
 		return pager;
 	}
 
+	@Override
+	public int deleteType(Integer atid) throws Exception {
+		// TODO Auto-generated method stub
+		return typeDao.deleteType(atid);
+	}
+
+	@Override
+	public int updateType(AssetType assettype) throws Exception {
+		// TODO Auto-generated method stub
+		return typeDao.updateType(assettype);
+	}
+
 	
 }
