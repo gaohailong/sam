@@ -382,8 +382,6 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
-
 		</div>
 
 		<div class="footer-tools">
@@ -458,15 +456,11 @@
 		var usestatus = "维修中"; 
 		
 		jQuery(document).ready(function() {   
-
-		   // initiate layout and plugins
-
-		   App.init();
-		   
-		   Search.init();
+ 
 		  
 		   findAssetByasname(usestatus,1);
-			
+		   selectWareHouse1();
+		   selectAllSecondAssetType();
 		   /* userstatus(); */
 		});
 		//初始化全部设备的分页信息
@@ -576,16 +570,15 @@
 					for(var i = 0;i < assetInfoList.length;i++) {
 					
 						$("#accept-tbody").append(
-							"<tr>"
-							+"<td>"+assetInfoList[i].aiid+"</td>"
+								"<tr>"
 							+"<td>"+assetInfoList[i].ainame+"</td>"
 							+"<td>"+assetInfoList[i].aimodel+"</td>"
 							+"<td>"+assetInfoList[i].atname+"</td>"
 							+"<td>"+assetInfoList[i].ahname+"</td>"
-							+"<td>"+assetInfoList[i].aiMeasuer+"</td>"
-							+"<td>"+assetInfoList[i].aiSupply+"</td>"
-							+"<td>"+assetInfoList[i].aiLife+"</td>"
-							+"<td>"+assetInfoList[i].aiRemark+"</td>"
+							+"<td>"+assetInfoList[i].aimeasuer+"</td>"
+							+"<td>"+assetInfoList[i].aisupply+"</td>"
+							+"<td>"+assetInfoList[i].ailife+"</td>"
+							+"<td>"+assetInfoList[i].airemark+"</td>"
 							+"<td>"+assetInfoList[i].asname+"</td>"
 							+"</tr>"
 						);
@@ -668,6 +661,55 @@
 				alert("出错了"+data.status);
 			}
 		});
+	}
+	//遍历全部仓库
+	function selectWareHouse1() {
+		$.ajax({
+			type : "get",
+			url : "/sam/wareHouse/findAllSecondAssetHouse",
+			dataType : "JSON",
+			success : function(data) {
+			$("#selectwareHouse").html("");
+			$("#selectwareHouse").append('<option value="">请选择</option>');
+				$(data).each(
+						function(index, value) {
+							$("#selectwareHouse").append(
+								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
+							);
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	
+		
+	}
+	
+	//遍历全部二级类型
+	function selectAllSecondAssetType() {
+		$.ajax({
+			type : "get",
+			url : "/sam/assetType/findAllSecondAssetType",
+			dataType : "JSON",
+			success : function(data) {
+			$("#assetType").html("");
+			$("#assetType").append('<option value="">请选择</option>');
+				$(data).each(
+						function(index, value) {
+							$("#assetType").append(
+								"<option value='"+value.atname+"'>"+value.atname+"</option>"
+							);
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	
+		
 	}
 	</script>
 

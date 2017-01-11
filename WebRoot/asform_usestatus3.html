@@ -382,9 +382,7 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
-
-		</div>
+				</div>
 
 		<div class="footer-tools">
 
@@ -459,14 +457,11 @@
 		
 		jQuery(document).ready(function() {   
 
-		   // initiate layout and plugins
-
-		   App.init();
-		   
-		   Search.init();
+ 
 		  
 		   findAssetByasname(usestatus,1);
-			
+		   selectWareHouse1();
+		   selectAllSecondAssetType();
 		   /* userstatus(); */
 		});
 		
@@ -610,6 +605,55 @@
 				alert("出错了"+data.status);
 			}
 		});
+	}
+	//遍历全部仓库
+	function selectWareHouse1() {
+		$.ajax({
+			type : "get",
+			url : "/sam/wareHouse/findAllSecondAssetHouse",
+			dataType : "JSON",
+			success : function(data) {
+			$("#selectwareHouse").html("");
+			$("#selectwareHouse").append('<option value="">请选择</option>');
+				$(data).each(
+						function(index, value) {
+							$("#selectwareHouse").append(
+								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
+							);
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	
+		
+	}
+	
+	//遍历全部二级类型
+	function selectAllSecondAssetType() {
+		$.ajax({
+			type : "get",
+			url : "/sam/assetType/findAllSecondAssetType",
+			dataType : "JSON",
+			success : function(data) {
+			$("#assetType").html("");
+			$("#assetType").append('<option value="">请选择</option>');
+				$(data).each(
+						function(index, value) {
+							$("#assetType").append(
+								"<option value='"+value.atname+"'>"+value.atname+"</option>"
+							);
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	
+		
 	}
 	</script>
 

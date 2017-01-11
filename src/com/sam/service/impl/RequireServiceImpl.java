@@ -14,6 +14,7 @@ import com.sam.entity.AssetRequiresSearch;
 import com.sam.entity.Pager;
 import com.sam.service.RequireService;
 import com.sam.util.CreateRandom;
+import com.sam.util.StringDateToStringDateUtil;
 
 /**
  * 维修表的serviceimpl
@@ -61,11 +62,10 @@ public class RequireServiceImpl implements RequireService{
 	public Pager<AssetRequire> findAssetRequires(AssetRequiresSearch assetRequiresSearch,
 			Integer pageNum, Integer pageSize) throws Exception {
 		List<AssetRequire> requireList = findAssetRequiresNofenye(assetRequiresSearch);
-		SimpleDateFormat formatter;   
-	    formatter = new SimpleDateFormat ("yyyy-MM-dd"); 
+		
 	    
 		for (AssetRequire assetRequire : requireList) {
-			assetRequire.setArtime(formatter.format(formatter.parse(assetRequire.getArtime())));  
+			assetRequire.setArtime(StringDateToStringDateUtil.StringDateToStringDate(assetRequire.getArtime()));  
 		}
 		Pager<AssetRequire> pager = new Pager<AssetRequire>(pageNum, pageSize, requireList);
 		return pager;
