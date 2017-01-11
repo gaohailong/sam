@@ -157,7 +157,6 @@
 
 		
 		//initDepartment();
-		selectAssetType();
 		selectWareHouse1();
 		selectAllSecondAssetType();
 		initAllAssetInfo(1);
@@ -206,25 +205,7 @@
 		});
 	}
 
-	function selectAssetType() {
-		$.ajax({
-			type : "get",
-			url : "/sam/assetType/findAllAssetType",
-			dataType : "JSON",
-			success : function(data) {
-				$(data).each(
-						function(index, val) {
-							$("#assetType").append(
-									"<option value='"+val.atname+"'>"
-											+ val.atname + "</option>");
-						});
-
-			},
-			error : function(data) {
-				alert(data.status);
-			}
-		});
-	}
+	
 	//遍历全部仓库
 	function selectWareHouse1() {
 		$.ajax({
@@ -268,7 +249,7 @@
 
 			},
 			error : function(data) {
-				alert(data.status);
+				alert("selectAllSecondAssetType"+data.status);
 			}
 		});
 	
