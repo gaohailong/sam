@@ -53,6 +53,9 @@
 		<if test="ainame != null and ainame !=''">
 			AND ainame like '%${ainame}%'
 		</if>
+		<if test="asname != null and asname !=''">
+			AND asname=#{asname}
+		</if>
 		
 		<if test="atname != null and atname !=''">
 			AND atname=#{atname}
