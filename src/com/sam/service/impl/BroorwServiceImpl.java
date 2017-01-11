@@ -54,11 +54,39 @@ public class BroorwServiceImpl implements BroorwService {
 			throws Exception {
 		List<AssetBroorw> broorwList = findAllBroorws();
 		Pager<AssetBroorw> pager = new Pager<AssetBroorw>(pageNum, pageSize, broorwList);
-		return null;
+		return pager;
 	}
 	
 	public List<AssetBroorw> findAllBroorws() throws Exception {
 		return broorwDao.findBroorws();
+	}
+
+	@Override
+	public Pager<AssetBroorw> findBroorwsByCondition(AssetBroorw broorw,Integer page,Integer pageSize)
+			throws Exception {
+		// TODO Auto-generated method stub
+		List<AssetBroorw> broorwList = broorwDao.findBroorwsByCondition(broorw);
+		Pager<AssetBroorw> pager = new Pager<AssetBroorw>(page, pageSize, broorwList);
+		return pager;
+	}
+
+	@Override
+	public int updBroorwWhenOk(Integer abid) throws Exception {
+		// TODO Auto-generated method stub
+		AssetBroorw broorw = broorwDao.findBroorwByAbid(abid);
+		AssetInfo info = new AssetInfo();
+		info.setBroorwid(abid);
+		info.setAdname(broorw.getAdname());
+		infoDao.updInfoWhenBroorwOk(info);
+		return broorwDao.updBroorwWhenOk(abid);
+	}
+
+	@Override
+	public int updBroorwWhenRefuse(AssetBroorw broorw) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("sssssssssssssssss"+broorw.getAbid());
+		infoDao.updInfoWhenBroorwRefuse(broorw.getAbid());
+		return broorwDao.updBroorwWhenRefuse(broorw);
 	}
 
 

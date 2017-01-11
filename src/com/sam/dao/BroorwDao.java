@@ -19,6 +19,14 @@ public interface BroorwDao {
 	 */
 	public int addBroow(AssetBroorw broorw) throws Exception;
 	
+	int updBroorwWhenRefuse(AssetBroorw broorw) throws Exception;
+	
+	AssetBroorw findBroorwByAbid(Integer abid) throws Exception;
+	
+	int updBroorwWhenOk(Integer abid) throws Exception;
+	
+	List<AssetBroorw> findBroorwsByCondition(AssetBroorw broorw) throws Exception;
+	
 	/**
 	 * 查询全部借出申请
 	 * @author zhw
