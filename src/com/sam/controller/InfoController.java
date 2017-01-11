@@ -3,6 +3,8 @@ package com.sam.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import oracle.net.aso.a;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +17,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetRequire;
+import com.sam.entity.AssetRequiresSearch;
 import com.sam.entity.Pager;
 import com.sam.service.InfoService;
 import com.sam.service.RequireService;
 import com.sam.util.ConstantUtil;
+import com.sam.util.ExportExcelUtil;
 
 /**
  * 设备信息
@@ -184,6 +188,39 @@ public class InfoController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	@RequestMapping(value="/exportAssetInfoExcel", method=RequestMethod.POST)
+	public void exportAssetInfoExcel(HttpServletResponse response, String exportassetinfo,
+			@RequestParam(value = "ainame", required = false) String ainame,
+			@RequestParam(value = "atname", required = false) String atname,
+			@RequestParam(value = "ahname", required = false) String ahname
+			) {
+		try {
+			System.out.println("进入导出报表控制器");
+			System.out.println("ainame:"+ainame);
+			System.out.println("atname:"+atname);
+			System.out.println("ahname:"+ahname);
+			System.out.println("exportassetinfo:"+exportassetinfo);
+			 String[] excelHeader = exportassetinfo.split(",");
+			 AssetInfo assetInfo = new AssetInfo();
+			 if(ainame!=null){
+					assetInfo.setAiname(ainame.trim());
+				}
+				if(atname!=null){
+					assetInfo.setAtname(atname.trim());
+				}
+				if(ahname!=null){
+					assetInfo.setAhname(ahname.trim());
+				}
+			
+			 
+			  List<AssetInfo> assetInfoList = infoService.findAssetInfosByTiaojian(assetInfo);
+			  ExportExcelUtil.export(response, "资产明细报表", excelHeader, assetInfoList);
+		 
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

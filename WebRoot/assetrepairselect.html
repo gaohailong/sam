@@ -211,13 +211,9 @@
 		findAssetRepairsByTiaoJian(1);
 	});
 
-	function exportrepairexcel() {
-		var val = "";
-		$box = $("[name='export']:checked"), $.each($box, function(i, v) {
-			val += i > 0 ? "," + v.value : v.value;
-		});
 
-		alert(val);
+    function exportrepairexcel() {
+    	var val = ""; 
 
 		alert("val:" + val);
 		$.ajax({
