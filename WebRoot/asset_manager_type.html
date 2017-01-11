@@ -1,1431 +1,614 @@
-<!DOCTYPE html>
 
-<!--[if IE 8]>
-<html lang="en" class="ie8 no-js"> <![endif]-->
+<div class="row-fluid">
+	<div class="span12">
+		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+		<h3 class="page-title">系统管理</h3>
+		<ul class="breadcrumb">
 
-<!--[if IE 9]>
-<html lang="en" class="ie9 no-js"> <![endif]-->
+			<li><i class="icon-home"></i> <a href="index.html">首页</a> <span
+				class="icon-angle-right"></span></li>
 
-<!--[if !IE]><!-->
-<html lang="en" class="no-js"> <!--<![endif]-->
+			<li><a href="#">系统管理</a> <span class="icon-angle-right"></span>
 
-<!-- BEGIN HEAD -->
+			</li>
 
-<head>
+			<li><a href="#">类别管理</a></li>
 
-    <meta charset="utf-8"/>
-
-    <title>资产查询</title>
-
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-
-    <meta content="" name="description"/>
-
-    <meta content="" name="author"/>
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-
-    <link rel="stylesheet" type="text/css" href="media/css/bootstrap-fileupload.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/jquery.gritter.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/chosen.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/select2_metro.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/jquery.tagsinput.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/clockface.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/bootstrap-wysihtml5.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/datepicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/timepicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/colorpicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/bootstrap-toggle-buttons.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/daterangepicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/datetimepicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/multi-select-metro.css"/>
-
-    <link href="media/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
-
-    <!-- END PAGE LEVEL STYLES -->
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-
-    <link href="media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/style-metro.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/style.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-
-    <link href="media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-
-    <!-- END GLOBAL MANDATORY STYLES -->
-
-    <!-- BEGIN PAGE LEVEL STYLES -->
-
-    <link href="media/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/daterangepicker.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
-
-    <link href="media/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/datepicker.css"/>
-    <!-- END PAGE LEVEL STYLES -->
-
-    <link rel="shortcut icon" href="media/image/favicon.ico"/>
-
-</head>
-
-<!-- END HEAD -->
-
-<!-- BEGIN BODY -->
-
-<body class="page-header-fixed">
-
-<!-- BEGIN HEADER -->
-
-<div class="header navbar navbar-inverse navbar-fixed-top">
-
-    <!-- BEGIN TOP NAVIGATION BAR -->
-
-    <div class="navbar-inner">
-
-        <div class="container-fluid">
-
-            <!-- BEGIN LOGO -->
-
-            <a class="brand" href="index.html">
-
-                <img src="media/image/logo.png" alt="logo"/>
-
-            </a>
-
-            <!-- END LOGO -->
-
-            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-
-            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-
-                <img src="media/image/menu-toggler.png" alt=""/>
-
-            </a>
-
-            <!-- END RESPONSIVE MENU TOGGLER -->
-        </div>
-
-    </div>
-
-    <!-- END TOP NAVIGATION BAR -->
+		</ul>
+		<!-- END PAGE TITLE & BREADCRUMB-->
+	</div>
 
 </div>
 
-<!-- END HEADER -->
-<div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
+<!-- END PAGE HEADER-->
 
-<!-- BEGIN CONTAINER -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+	<div class="span12">
 
-<div class="page-container">
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
 
-    <!-- BEGIN SIDEBAR -->
+		<div class="portlet box red ">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-cogs"></i>查询
+				</div>
+				<div class="actions">
+					<!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
+					<a href="#responsive" data-toggle="modal" class="btn green"
+						id="addbtn"><i class="icon-search"></i>新增</a>
+				</div>
+			</div>
 
-    <div class="page-sidebar nav-collapse collapse">
+			<div class="portlet-body">
 
-        <!-- BEGIN SIDEBAR MENU -->
+				<table class="table table-hover">
 
-        <ul class="page-sidebar-menu">
+					<thead id="assetThead">
 
-            <li>
+						<th>类别名称</th>
 
-                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+						<th>增加子菜单</th>
 
-                <div class="sidebar-toggler hidden-phone"></div>
+						<th>修改</th>
 
-                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+						<th>删除</th>
 
-            </li>
+					</thead>
 
-            <li>
 
-                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<tbody id="assetTbody">
+						<a href="#responsive2" data-toggle="modal" class="hide"
+							id="addnbsp">&nbsp;</a>
+						<a href="#updateresponsive" data-toggle="modal" class="hide"
+							id="updatenbsp">&nbsp;</a>
 
-                <form class="sidebar-search">
+					</tbody>
 
-                    <div class="input-box">
+				</table>
 
-                        <a href="javascript:;" class="remove"></a>
+			</div>
 
-                        <input type="text" placeholder="Search..."/>
+			<div id="responsive" class="modal hide fade" tabindex="-1"
+				data-width="760" data-height="750">
 
-                        <input type="button" class="submit" value=" "/>
+				<div class="modal-header">
 
-                    </div>
+					<span class="hidden-480">新增类别表</span>
+				</div>
+				<div class="modal-body">
 
-                </form>
+					<div class="portlet-body form">
 
-                <!-- END RESPONSIVE QUICK SEARCH FORM -->
+						<div class="tabbable portlet-tabs">
 
-            </li>
+							<div class="tab-content">
 
-            <li class="start ">
+								<div class="tab-pane active" id="portlet_tab1">
 
-                <a href="asindex.html">
+									<!-- BEGIN FORM-->
 
-                    <i class="icon-home"></i>
+									<form class="form-horizontal" id="type1form">
 
-                    <span class="title">首页</span>
+										<div class="control-group">
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+											<div class="control-group"></div>
 
-                    <span class="selected"></span>
+											<label class="control-label">类别名称</label>
 
-                </a>
+											<div class="controls">
 
-            </li>
-			
-			<li>
-
-                <a href="asform_apply.html">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">购置申请</span>
-
-                    <span class="selected"></span>
-
-                </a>
-
-            </li>
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产存放地点</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="javascript:;">
-
-                            仓库
-
-                            <span class="arrow"></span>
-
-                        </a>
-
-                        <ul class="sub-menu">
-
-                            <li><a href="#">仓库1</a></li>
-
-                            <li><a href="#">仓库2</a></li>
-
-                            <li><a href="#">仓库3</a></li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-
-                        <a href="javascript:;">
-
-                            办公室
-
-                            <span class="arrow"></span>
-
-                        </a>
-
-                        <ul class="sub-menu">
-
-                            <li><a href="#">院长办公室</a></li>
-
-                            <li><a href="#">书记办公室</a></li>
-
-                            <li><a href="#">团委办公室</a></li>
-
-                            <li><a href="#">老师办公室</a></li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-
-                        <a href="javascript:;">
-
-                            实验室
-
-                            <span class="arrow"></span>
-
-                        </a>
-
-                        <ul class="sub-menu">
-
-                            <li><a href="#">东机房</a></li>
-
-                            <li><a href="#">西机房</a></li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-
-                        <a href="javascript:;">
-
-                            教室
-
-                            <span class="arrow"></span>
-
-                        </a>
-
-                        <ul class="sub-menu">
-
-                            <li><a href="#">1001教室</a></li>
-
-                            <li><a href="#">1002教室</a></li>
-
-                            <li><a href="#">1003教室</a></li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            财务室
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产管理</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="asform_layout.html">
-
-                            资产的入库
-
-                        </a>
-
-                    </li>
-
-
-                    <li>
-
-                        <a href="#">
-
-                            资产的维修
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            资产的变动
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            资产的事故
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            资产的运行情况
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产查询</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="#">
-
-                            资产查询
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            变更查询
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            维修查询
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            维修中
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            已报废处理
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产使用部门</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu" id="item_department">
-
-                </ul>
-
-            </li>
-
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产使用情况</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="#">
-
-                            使用中
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            未使用3
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            借出中
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            维修中
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            已报废处理
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-			
-			<li class="active">
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">系统管理</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="asset_manager_user.html">
-
-                            人员管理
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="asset_manager_warehouse.html">
-
-                            仓库管理
-
-                        </a>
-
-                    </li>
-					<li>
-
-                        <a href="asset_manager_department.html">
-
-                            部门管理
-
-                        </a>
-
-                    </li>
-					<li  class="active">
-
-                        <a href="asset_manager_type.html">
-
-                            类别管理
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产类别</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="#">
-
-                            器材
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            桌椅
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            电脑
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            等等.......
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产管理人员</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="#">
-
-                            张三
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            李四
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            王五
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            赵六
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-
-
-        </ul>
-
-        <!-- END SIDEBAR MENU -->
-
-    </div>
-
-    <!-- END SIDEBAR -->
-
-    <!-- BEGIN PAGE -->
-
-    <div class="page-content">
-        <!-- BEGIN PAGE -->
-        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-        <div id="portlet-config" class="modal hide">
-            <div class="modal-header">
-                <button data-dismiss="modal" class="close" type="button"></button>
-                <h3>portlet Settings</h3>
-            </div>
-            <div class="modal-body">
-                <p>Here will be a configuration form</p>
-            </div>
-        </div>
-        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-        <!-- BEGIN PAGE CONTAINER-->
-        <div class="container-fluid">
-            <!-- BEGIN PAGE HEADER-->
-            <div class="row-fluid">
-                <div class="span12">
-                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 class="page-title">
-                        系统管理
-                    </h3>
-                   				<ul class="breadcrumb">
-
-							<li>
-
-								<i class="icon-home"></i>
-
-								<a href="index.html">首页</a> 
-
-								<span class="icon-angle-right"></span>
-
-							</li>
-
-							<li>
-
-								<a href="#">系统管理</a>
-
-								<span class="icon-angle-right"></span>
-
-							</li>
-
-							<li><a href="#">类别管理</a></li>
-
-						</ul>
-                    <!-- END PAGE TITLE & BREADCRUMB-->
-                </div>
-
-            </div>
-
-            <!-- END PAGE HEADER-->
-
-            <!-- BEGIN PAGE CONTENT-->
-            <div class="row-fluid">
-                <div class="span12">
-
-                    <!-- BEGIN SAMPLE TABLE PORTLET-->
-
-                    <div class="portlet box red ">
-                        <div class="portlet-title">
-                            <div class="caption"><i class="icon-cogs"></i>查询</div>
-                            <div class="actions">
-                                <!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
-								  <a href="#responsive" data-toggle="modal" class="btn green" id="addbtn"><i class="icon-search"></i>新增</a>
-                            </div>
-                        </div>
-						
-						                        <div class="portlet-body">
-
-                            <table class="table table-hover">
-
-                                <thead id="assetThead">
-
-                                            <th>类别名称</th>
-                                            
-                                           <th>增加子菜单</th> 
-																					
-											<th>修改</th>
-
-											<th>删除</th>
-
-                                </thead>
-                                
-
-                                <tbody id="assetTbody">
-
-                               	<!-- <tr class="">
-
-											<td>A210</td>
-
-											<td>康佳相机</td>
-
-											<td>电子产品</td>
-
-											<td>东芝</td>
-
-											<td>1200</td>
-
-											<td>10</td>
-
-											<td>照相</td>
-											
-											<td><a href="javascript:;">编辑</a></td>
-
-											<td><a class="delete" href="javascript:;">删除</a></td>
-
-								</tr>
-
-								<tr class="">
-
-											<td>A210</td>
-
-											<td>康佳相机</td>
-
-											<td>电子产品</td>
-
-											<td>东芝</td>
-
-											<td>1200</td>
-
-											<td>10</td>
-
-											<td>照相</td>
-											
-											<td><a href="javascript:;">编辑</a></td>
-
-											<td><a class="delete" href="javascript:;">删除</a></td>
-
-								</tr>
- -->
-                                 <a href="#responsive2" data-toggle="modal" class="hide" id="addnbsp">&nbsp;</a>
-                                  <a href="#updateresponsive" data-toggle="modal" class="hide" id="updatenbsp">&nbsp;</a>
-                                 
-                                </tbody>
-
-                            </table>
-
-                        </div>
-
-						<div id="responsive" class="modal hide fade" tabindex="-1"
-								data-width="760" data-height="750">
-
-								<div class="modal-header">
-
-									<span class="hidden-480">新增类别表</span>
-								</div>
-								<div class="modal-body">
-
-									<div class="portlet-body form">
-
-										<div class="tabbable portlet-tabs">
-
-											<div class="tab-content">
-
-												<div class="tab-pane active" id="portlet_tab1">
-
-													<!-- BEGIN FORM-->
-
-													<form  class="form-horizontal" id="type1form">
-
-														<div class="control-group">
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-
-															<label class="control-label">类别名称</label>
-
-															<div class="controls">
-
-																<input type="text" id="item_as_type"
-																	class="m-wrap medium" name="atname"/>
-
-															</div>
-
-														</div>
-
-													<input type="hidden" name="atlevel" value="0"/>
-														<input id="accept-tbody-reset" type="reset" class="hide" />
-														
-													</form>
-
-													<!-- END FORM-->
-
-												</div>
-
+												<input type="text" id="item_as_type" class="m-wrap medium"
+													name="atname" />
 
 											</div>
 
 										</div>
 
-									</div>
-								</div>
+										<input type="hidden" name="atlevel" value="0" /> <input
+											id="accept-tbody-reset" type="reset" class="hide" />
 
-								<div class="modal-footer">
+									</form>
 
-									<button id="accept-tbody-close" type="button" data-dismiss="modal" class="btn">关闭</button>
-
-									<button type="button" class="btn blue" onclick="javascript:addType()">保存</button>
-									
-									
+									<!-- END FORM-->
 
 								</div>
+
+
+							</div>
 
 						</div>
-						
-						<div id="responsive2" class="modal hide fade" tabindex="-1"
-								data-width="760" data-height="750" >
 
-								<div class="modal-header">
+					</div>
+				</div>
 
-									<span class="hidden-480">新增类别表</span>
+				<div class="modal-footer">
+
+					<button id="accept-tbody-close" type="button" data-dismiss="modal"
+						class="btn">关闭</button>
+
+					<button type="button" class="btn blue"
+						onclick="javascript:addType()">保存</button>
+
+
+
+				</div>
+
+			</div>
+
+			<div id="responsive2" class="modal hide fade" tabindex="-1"
+				data-width="760" data-height="750">
+
+				<div class="modal-header">
+
+					<span class="hidden-480">新增类别表</span>
+				</div>
+				<div class="modal-body">
+
+					<div class="portlet-body form">
+
+						<div class="tabbable portlet-tabs">
+
+							<div class="tab-content">
+
+								<div class="tab-pane active" id="portlet_tab1">
+
+									<!-- BEGIN FORM-->
+
+									<form class="form-horizontal" id="type2form">
+
+										<div class="control-group">
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+
+											<label class="control-label">二级类别名称</label>
+
+											<div class="controls">
+
+												<input type="text" id="item_as_type" class="m-wrap medium"
+													name="atname" />
+
+											</div>
+
+										</div>
+										<input id="accept-tbody-reset" type="reset" class="hide" />
+
+									</form>
+
+									<!-- END FORM-->
+
 								</div>
-								<div class="modal-body">
 
-									<div class="portlet-body form">
 
-										<div class="tabbable portlet-tabs">
+							</div>
 
-											<div class="tab-content">
+						</div>
 
-												<div class="tab-pane active" id="portlet_tab1">
+					</div>
+				</div>
 
-													<!-- BEGIN FORM-->
+				<div class="modal-footer">
 
-													<form  class="form-horizontal" id="type2form">
+					<button id="accept-tbody-close" type="button" data-dismiss="modal"
+						class="btn">关闭</button>
 
-														<div class="control-group">
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-															<div class="control-group"></div>
+					<button type="button" class="btn blue"
+						onclick="javascript:addTypeSecond()">保存</button>
 
-															<label class="control-label">二级类别名称</label>
 
-															<div class="controls">
 
-																<input type="text" id="item_as_type"
-																	class="m-wrap medium" name="atname"/>
+				</div>
 
-															</div>
+			</div>
 
-														</div>
-														<input id="accept-tbody-reset" type="reset" class="hide" />
-														
-													</form>
+			<div id="updateresponsive" class="modal hide fade" tabindex="-1"
+				data-width="760" data-height="750">
 
-													<!-- END FORM-->
+				<div class="modal-header">
 
-												</div>
+					<span class="hidden-480">类型修改表</span>
+				</div>
+				<div class="modal-body">
 
+					<div class="portlet-body form">
+
+						<div class="tabbable portlet-tabs">
+
+							<div class="tab-content">
+
+								<div class="tab-pane active" id="portlet_tab1">
+
+									<!-- BEGIN FORM-->
+
+									<form class="form-horizontal" id="typeupdateform">
+
+										<div class="control-group">
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+
+											<label class="control-label">类型名称</label>
+
+											<div class="controls">
+
+												<input type="text" id="item_as_type_update"
+													class="m-wrap medium" name="atname" />
 
 											</div>
 
 										</div>
 
-									</div>
-								</div>
+										<div class="control-group hide">
 
-								<div class="modal-footer">
+											<label class="control-label">类型等级</label>
 
-									<button id="accept-tbody-close" type="button" data-dismiss="modal" class="btn">关闭</button>
+											<div class="controls">
 
-									<button type="button" class="btn blue" onclick="javascript:addTypeSecond()">保存</button>
-									
-									
-
-								</div>
-
-						</div>
-
-<div id="updateresponsive" class="modal hide fade" tabindex="-1"
-								data-width="760" data-height="750">
-
-								<div class="modal-header">
-
-									<span class="hidden-480">类型修改表</span>
-								</div>
-								<div class="modal-body">
-
-									<div class="portlet-body form">
-
-										<div class="tabbable portlet-tabs">
-
-											<div class="tab-content">
-
-												<div class="tab-pane active" id="portlet_tab1">
-
-													<!-- BEGIN FORM-->
-
-													<form  class="form-horizontal" id="typeupdateform">
-
-														<div class="control-group">
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-
-															<label class="control-label">类型名称</label>
-
-															<div class="controls">
-
-																<input type="text" id="item_as_type_update"
-																	class="m-wrap medium" name="atname"/>
-
-															</div>
-
-														</div>
-													
-														<div class="control-group hide">
-
-															<label class="control-label">类型等级</label>
-
-															<div class="controls">
-
-																<input type="text" id="item_as_name_update"
-																	class="m-wrap medium" name="atlevel" />
-
-															</div>
-
-														</div>
-															
-														<input id="accept-tbody-reset" type="reset" class="hide" />
-														
-													</form>
-
-													<!-- END FORM-->
-
-												</div>
-
+												<input type="text" id="item_as_name_update"
+													class="m-wrap medium" name="atlevel" />
 
 											</div>
 
 										</div>
 
-									</div>
-								</div>
+										<input id="accept-tbody-reset" type="reset" class="hide" />
 
-								<div class="modal-footer">
+									</form>
 
-									<button id="accept-tbody-close" type="button" data-dismiss="modal" class="btn">关闭</button>
-
-									<button type="button" class="btn blue" onclick="javascript:updateType()">保存</button>
-									
-									
+									<!-- END FORM-->
 
 								</div>
+
+
+							</div>
 
 						</div>
 
-                    </div>
-                    <!-- END SAMPLE TABLE PORTLET-->
-                </div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+
+					<button id="accept-tbody-close" type="button" data-dismiss="modal"
+						class="btn">关闭</button>
+
+					<button type="button" class="btn blue"
+						onclick="javascript:updateType()">保存</button>
 
 
-            </div>
 
-            <div class="row-fluid">
+				</div>
 
-                <div class="span12">
+			</div>
 
-                    <!-- BEGIN SAMPLE TABLE PORTLET-->
-                    <center>
-                   <a href="javascript:initAllAssetType(1);" data-toggle="modal" class="btn red ">首页</a>  |
-                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
-                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
-                   	<a id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
-                   	第<span id="currentPage"></span>页 | 
-                   	共<span id="totalRecord"></span>条数据
-                   </center>
+		</div>
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
 
-                    <!-- END SAMPLE TABLE PORTLET-->
-                </div>
-            </div>
-        </div>
-
-        <!-- END PAGE CONTAINER-->
-
-
-        <!-- END PAGE -->
-    </div>
-
-    <!-- END PAGE -->
 
 </div>
 
-<!-- END CONTAINER -->
+<div class="row-fluid">
 
-<!-- BEGIN FOOTER -->
-<script src="media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<div class="span12">
 
-<script type="text/javascript" src="media/js/ckeditor.js"></script>
-<script type="text/javascript" src="media/js/chosen.jquery.min.js"></script>
-<script type="text/javascript" src="media/js/select2.min.js"></script>
-<script type="text/javascript" src="media/js/wysihtml5-0.3.0.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-wysihtml5.js"></script>
-<script type="text/javascript" src="media/js/jquery.tagsinput.min.js"></script>
-<script type="text/javascript" src="media/js/jquery.toggle.buttons.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-datetimepicker.js"></script>
-<script type="text/javascript" src="media/js/clockface.js"></script>
-<script type="text/javascript" src="media/js/date.js"></script>
-<script type="text/javascript" src="media/js/daterangepicker.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-colorpicker.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-timepicker.js"></script>
-<script type="text/javascript" src="media/js/jquery.inputmask.bundle.min.js"></script>
-<script type="text/javascript" src="media/js/jquery.input-ip-address-control-1.0.min.js"></script>
-<script type="text/javascript" src="media/js/jquery.multi-select.js"></script>
-<script src="media/js/bootstrap-modal.js" type="text/javascript"></script>
-<script src="media/js/bootstrap-modalmanager.js" type="text/javascript"></script>
-<script src="media/js/app.js"></script>
-<script src="media/js/form-components.js"></script>
-<script src="media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-<script src="media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-<script src="media/js/bootstrap.min.js" type="text/javascript"></script>
-<!--[if lt IE 9]>
-<script src="media/js/excanvas.min.js"></script>
-<script src="media/js/respond.min.js"></script>
-<![endif]-->
-<script src="media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="media/js/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="media/js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="media/js/jquery.uniform.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
-<!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="media/js/jquery.vmap.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.russia.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.world.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.europe.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.germany.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.usa.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
-<script src="media/js/jquery.flot.js" type="text/javascript"></script>
-<script src="media/js/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="media/js/jquery.pulsate.min.js" type="text/javascript"></script>
-<script src="media/js/date.js" type="text/javascript"></script>
-<script src="media/js/daterangepicker.js" type="text/javascript"></script>
-<script src="media/js/jquery.gritter.js" type="text/javascript"></script>
-<script src="media/js/fullcalendar.min.js" type="text/javascript"></script>
-<script src="media/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
-<script src="media/js/jquery.sparkline.min.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="media/js/app.js" type="text/javascript"></script>
-<script src="media/js/index.js" type="text/javascript"></script>
-<script type="text/javascript" src="media/js/bootstrap-datepicker.js"></script>
-<!-- END PAGE LEVEL SCRIPTS -->
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+		<center>
+			<a href="javascript:initAllAssetType(1);" data-toggle="modal"
+				class="btn red ">首页</a> | <a id="perPage" href=""
+				data-toggle="modal" class="btn red ">上一页</a> | <a id="nextPage"
+				href="" data-toggle="modal" class="btn red ">下一页</a> | <a
+				id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
+			第<span id="currentPage"></span>页 | 共<span id="totalRecord"></span>条数据
+		</center>
+
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+
 
 <script>
-
-    jQuery(document).ready(function () {
-
-        App.init(); // initlayout and core plugins
-        
+	jQuery(document).ready(function() {
 		FormComponents.init();
-        
+
 		initDepartment();
-		
-		initAllAssetType(1,0);
-    });
-    function initDepartment() {
 
-        $.ajax({
-            type: "GET",
-            url: "/sam/department/findDepartmentsFirst",
-            dataType: "JSON",
-            success: function (data) {
-                $(data).each(
-                        function (index, value) {
-                            $("#item_department").append(
-                                    "<li><a href='#'>" + value.adname + "<span class='arrow'></span></a><ul id='second_department_" + value.adid + "' class='sub-menu'></ul></li>"
-                            );
-                            initSecondDepartment(value.adid);
-                        }
-                );
-            },
-            errot: function (data) {
-                alert(data.status);
-            }
+		initAllAssetType(1, 0);
+	});
+	function initDepartment() {
 
+		$
+				.ajax({
+					type : "GET",
+					url : "/sam/department/findDepartmentsFirst",
+					dataType : "JSON",
+					success : function(data) {
+						$(data)
+								.each(
+										function(index, value) {
+											$("#item_department")
+													.append(
+															"<li><a href='#'>"
+																	+ value.adname
+																	+ "<span class='arrow'></span></a><ul id='second_department_" + value.adid + "' class='sub-menu'></ul></li>");
+											initSecondDepartment(value.adid);
+										});
+					},
+					errot : function(data) {
+						alert(data.status);
+					}
 
-        });
-    }
-    //遍历二级部门的方法
-    function initSecondDepartment(adlevel) {
-        $.ajax({
-            type: "post",
-            url: "/sam/department/findDepartmentsSecond",
-            data: "adlevel=" + adlevel,
-            dataType: "JSON",
-            success: function (data) {
-                $(data).each(
-                        function (index, val) {
-                            $("#second_department_" + adlevel).append(
-                                    "<li><a href='#'>" + val.adname + "</a></li>"
-                            );
-                        }
-                );
-            },
-            error: function (data) {
-                alert(data.status);
-            }
-        });
-    }
-    
-	function addType(){
-	alert("进入注册的页面");
-	    $.ajax({
-		    type:"post",
-			url:"/sam/assetType/addType",
-			data:$('#type1form').serialize(),
-			dataType:"JSON",
-			success: function(data){
-			  if(data>0)
-			   alert("添加成功");
+				});
+	}
+	//遍历二级部门的方法
+	function initSecondDepartment(adlevel) {
+		$.ajax({
+			type : "post",
+			url : "/sam/department/findDepartmentsSecond",
+			data : "adlevel=" + adlevel,
+			dataType : "JSON",
+			success : function(data) {
+				$(data).each(
+						function(index, val) {
+							$("#second_department_" + adlevel).append(
+									"<li><a href='#'>" + val.adname
+											+ "</a></li>");
+						});
 			},
-			error:function(data){
-			  alert("添加错误");
+			error : function(data) {
+				alert(data.status);
 			}
 		});
 	}
-	
-	function addTypeSecond(){
-	alert("进入增加爱到底type");
-	  $.ajax({
-	    type: "post",
-	    url:"/sam/assetType/addTypeSecond",
-	    data:$('#type2form').serialize(),
-	    dataType:"JSON",
-	    success:function(data){
-	       if(data>0)
-	       alert("添加成功");
-	    },
-	    error:function(){
-	      alert("添加错误");
-	    }
-	  });
+
+	function addType() {
+		alert("进入注册的页面");
+		$.ajax({
+			type : "post",
+			url : "/sam/assetType/addType",
+			data : $('#type1form').serialize(),
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					alert("添加成功");
+			},
+			error : function(data) {
+				alert("添加错误");
+			}
+		});
 	}
-	
-                                      
-		//初始化全部设备的分页信息
-		function initAllAssetType(page,ahlevel) {
-		alert("进入初始化"+ahlevel);
-			$.ajax({
-				type : "GET",
-				url : "/sam/assetType/findType",
-				data : "page="+page+"&ahlevel="+ahlevel,
-				dataType : "JSON",
-				success : function(data) {
-				
-					//总页数
-					var totalPage = data.totalPage;
-					
-					//当前页码
-					var currentPage = data.currentPage;
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
+
+	function addTypeSecond() {
+		alert("进入增加爱到底type");
+		$.ajax({
+			type : "post",
+			url : "/sam/assetType/addTypeSecond",
+			data : $('#type2form').serialize(),
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					alert("添加成功");
+			},
+			error : function() {
+				alert("添加错误");
+			}
+		});
+	}
+
+	//初始化全部设备的分页信息
+	function initAllAssetType(page, ahlevel) {
+		alert("进入初始化" + ahlevel);
+		$
+				.ajax({
+					type : "GET",
+					url : "/sam/assetType/findType",
+					data : "page=" + page + "&ahlevel=" + ahlevel,
+					dataType : "JSON",
+					success : function(data) {
+
+						//总页数
+						var totalPage = data.totalPage;
+
+						//当前页码
+						var currentPage = data.currentPage;
+						$("#currentPage").html(currentPage);
+
+						var perPagenum;
+						perPagenum = page - 1;
+						if (perPagenum < 1) {
+							perPagenum = 1;
+						}
+						$("#perPage").attr(
+								"href",
+								"javascript:initAllAssetType(" + perPagenum
+										+ ");");
+						var lastpagenum;
+						nextPage = page + 1;
+						if (nextPage > totalPage) {
+							nextPage = totalPage;
+						}
+						$("#nextPage").attr(
+								"href",
+								"javascript:initAllAssetType(" + nextPage
+										+ ");");
+						$("#lastPage").attr(
+								"href",
+								"javascript:initAllAssetType(" + totalPage
+										+ ");");
+
+						//总条目数
+						var totalRecord = data.totalRecord;
+						$("#totalRecord").html(totalRecord);
+
+						var assetTypeList = data.dataList;
+						$("#assetTbody").html("");
+						for (var i = 0; i < assetTypeList.length; i++) {
+							$("#assetTbody")
+									.append(
+											"<tr>"
+													+ "<td><a href='javascript:initSecondAssetType(1,"
+													+ assetTypeList[i].atid
+													+ ")'>"
+													+ assetTypeList[i].atname
+													+ "</a></td>"
+													+ "<td id='addTypeTd'><a href='javascript:getTypeFirst("
+													+ assetTypeList[i].atid
+													+ ");' data-toggle='modal'>增加</a></td>"
+													+ "<td id='updateTypeTd'><a href=\"javascript:getHouse("
+													+ assetTypeList[i].atid
+													+ ","
+													+ assetTypeList[i].atlevel
+													+ ",'"
+													+ assetTypeList[i].atname
+													+ "');\" data-toggle='modal'>修改</a></td>"
+													+ "<td><a class='delete' href='javascript:deleteType("
+													+ assetTypeList[i].atid
+													+ ");'>删除</a></td>"
+													+ "</tr>");
+						}
+					},
+					error : function(data) {
+						alert("出错了" + data.status);
 					}
-					$("#perPage").attr("href","javascript:initAllAssetType("+perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
+				});
+	}
+
+	//显示二级类型菜单
+	function initSecondAssetType(page, atid) {
+		alert("进入初始化" + atid);
+		$
+				.ajax({
+					type : "post",
+					url : "/sam/assetType/findTypeSecond",
+					data : "page=" + page + "&atid=" + atid,
+					dataType : "JSON",
+					success : function(data) {
+
+						//总页数
+						var totalPage = data.totalPage;
+
+						//当前页码
+						var currentPage = data.currentPage;
+						$("#currentPage").html(currentPage);
+
+						var perPagenum;
+						perPagenum = page - 1;
+						if (perPagenum < 1) {
+							perPagenum = 1;
+						}
+						$("#perPage").attr(
+								"href",
+								"javascript:initSecondAssetType(" + perPagenum
+										+ ");");
+						var lastpagenum;
+						nextPage = page + 1;
+						if (nextPage > totalPage) {
+							nextPage = totalPage;
+						}
+						$("#nextPage").attr(
+								"href",
+								"javascript:initSecondAssetType(" + nextPage
+										+ ");");
+						$("#lastPage").attr(
+								"href",
+								"javascript:initSecondAssetType(" + totalPage
+										+ ");");
+
+						//总条目数
+						var totalRecord = data.totalRecord;
+						$("#totalRecord").html(totalRecord);
+
+						var assetTypeList = data.dataList;
+						$("#assetTbody").html("");
+						$("#assetThead").html("");
+						$("#addbtn").attr("class", "hide");
+						$("#assetThead").append(
+								"<th>类别名称</th><th>修改</th><th>删除</th>");
+
+						for (var i = 0; i < assetTypeList.length; i++) {
+							$("#assetTbody")
+									.append(
+											"<tr>"
+													+ "<td><a href='#'>"
+													+ assetTypeList[i].atname
+													+ "</a></td>"
+													+ "<td id='updateTypeTd'><a href=\"javascript:getHouse("
+													+ assetTypeList[i].atid
+													+ ","
+													+ assetTypeList[i].atlevel
+													+ ",'"
+													+ assetTypeList[i].atname
+													+ "');\" data-toggle='modal'>修改</a></td>"
+													+ "<td><a class='delete' href='javascript:deleteType("
+													+ assetTypeList[i].atid
+													+ ");'>删除</a></td>"
+													+ "</tr>");
+						}
+					},
+					error : function(data) {
+						alert("出错了" + data.status);
 					}
-					$("#nextPage").attr("href","javascript:initAllAssetType("+nextPage+");");
-					$("#lastPage").attr("href","javascript:initAllAssetType("+totalPage+");");
-					
-					//总条目数
-					var totalRecord = data.totalRecord;
-					$("#totalRecord").html(totalRecord);
-					
-										
-					var assetTypeList = data.dataList;
-					$("#assetTbody").html("");
-					for(var i = 0;i < assetTypeList.length;i++) {
-						$("#assetTbody").append(
-							"<tr>"
-							+"<td><a href='javascript:initSecondAssetType(1,"+assetTypeList[i].atid+")'>"+assetTypeList[i].atname+"</a></td>"	
-							+"<td id='addTypeTd'><a href='javascript:getTypeFirst("+assetTypeList[i].atid+");' data-toggle='modal'>增加</a></td>"
-							+"<td id='updateTypeTd'><a href=\"javascript:getHouse("+assetTypeList[i].atid+","+assetTypeList[i].atlevel+",'"+assetTypeList[i].atname+"');\" data-toggle='modal'>修改</a></td>"
-							+"<td><a class='delete' href='javascript:deleteType("+assetTypeList[i].atid+");'>删除</a></td>"
-							+"</tr>"
-						);
-					}
-				},
-				error : function(data) {
-				alert("出错了"+data.status);
-				}
-			});
-		}
-		
-		//显示二级类型菜单
-		function initSecondAssetType(page,atid) {
-		alert("进入初始化"+atid);
-			$.ajax({
-				type : "post",
-				url : "/sam/assetType/findTypeSecond",
-				data : "page="+page+"&atid="+atid,
-				dataType : "JSON",
-				success : function(data) {
-				
-					//总页数
-					var totalPage = data.totalPage;
-					
-					//当前页码
-					var currentPage = data.currentPage;
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
-					}
-					$("#perPage").attr("href","javascript:initSecondAssetType("+perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:initSecondAssetType("+nextPage+");");
-					$("#lastPage").attr("href","javascript:initSecondAssetType("+totalPage+");");
-					
-					//总条目数
-					var totalRecord = data.totalRecord;
-					$("#totalRecord").html(totalRecord);
-					
-										
-					var assetTypeList = data.dataList;
-					$("#assetTbody").html("");
-					$("#assetThead").html("");
-					$("#addbtn").attr("class","hide");
-					$("#assetThead").append("<th>类别名称</th><th>修改</th><th>删除</th>");
-					
-					for(var i = 0;i < assetTypeList.length;i++) {
-						$("#assetTbody").append(
-							"<tr>"
-							+"<td><a href='#'>"+assetTypeList[i].atname+"</a></td>"	
-+"<td id='updateTypeTd'><a href=\"javascript:getHouse("+assetTypeList[i].atid+","+assetTypeList[i].atlevel+",'"+assetTypeList[i].atname+"');\" data-toggle='modal'>修改</a></td>"
-							+"<td><a class='delete' href='javascript:deleteType("+assetTypeList[i].atid+");'>删除</a></td>"
-							+"</tr>"
-						);
-					}
-				},
-				error : function(data) {
-				alert("出错了"+data.status);
-				}
-			});
-		}
-		
+				});
+	}
+
 	//获取修改页面数据的方法
-	function getHouse(atid,atlevel,atname){
-	alert("进入修改页面");
-         document.getElementById("item_as_type_update").value=atname;
-         document.getElementById("item_as_name_update").value=atlevel;
-        
-         $("#typeupdateform").append("<input type='hidden' name='atid' value='"+atid+"'/>");
-          $("#typeupdateform").append("<input type='hidden' name='atlevel' value='"+atlevel+"'/>");
-         $("#updatenbsp").click();
-         
-          
+	function getHouse(atid, atlevel, atname) {
+		alert("进入修改页面");
+		document.getElementById("item_as_type_update").value = atname;
+		document.getElementById("item_as_name_update").value = atlevel;
+
+		$("#typeupdateform").append(
+				"<input type='hidden' name='atid' value='"+atid+"'/>");
+		$("#typeupdateform").append(
+				"<input type='hidden' name='atlevel' value='"+atlevel+"'/>");
+		$("#updatenbsp").click();
+
 	}
-	
+
 	//获取一级菜单的编号
-	function getTypeFirst(atid){
-	alert("进入gettypefirst");
-	   $("#type2form").append("<input type='text' name='atlevel' value='"+atid+"'/>");
-	   $("#addnbsp").click();
+	function getTypeFirst(atid) {
+		alert("进入gettypefirst");
+		$("#type2form").append(
+				"<input type='text' name='atlevel' value='"+atid+"'/>");
+		$("#addnbsp").click();
 	}
 	//删除用户
-  function deleteType(atid){
-	alert("进入删除的放发"+atid);
-	  $.ajax({
-	    type: "post",
-	    url:"/sam/assetType/deleteType/"+atid,
-	    dataType: "JSON",
-	    success:function(data){
-	    if(data>0)
-	    alert("删除成功");
-	     initAllAssetType(1);
-	    },
-	    error:function(data){
-	    alert("删除失败"+data.status);
-	    }
-	  });
+	function deleteType(atid) {
+		alert("进入删除的放发" + atid);
+		$.ajax({
+			type : "post",
+			url : "/sam/assetType/deleteType/" + atid,
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					alert("删除成功");
+				initAllAssetType(1);
+			},
+			error : function(data) {
+				alert("删除失败" + data.status);
+			}
+		});
 	}
-	
-	
+
 	//修改的方法
-	function updateType(){
-	alert("进入修改的方法");
-	  $.ajax({
-	   type: "post",
-	   url:"/sam/assetType/updateType",
-	   data:$("#typeupdateform").serialize(),
-	   dataType:"JSON",
-	   success:function(data){
-	      if(data>0)
-	      alert("修改成功");
-	       initAllAssetType(1,atlevel);
-	      
-	   },
-	   error:function(data){
-	   alert("修改失败");
-	   }
-	  });
+	function updateType() {
+		alert("进入修改的方法");
+		$.ajax({
+			type : "post",
+			url : "/sam/assetType/updateType",
+			data : $("#typeupdateform").serialize(),
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					alert("修改成功");
+				initAllAssetType(1, atlevel);
+
+			},
+			error : function(data) {
+				alert("修改失败");
+			}
+		});
 	}
-
 </script>
-
-<!-- END JAVASCRIPTS -->
-
-</body>
-
-<!-- END BODY -->
-
-</html>
