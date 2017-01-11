@@ -250,4 +250,85 @@
 	<!-- END PAGE CONTAINER-->
 </div>
 <!-- END PAGE -->
+<script type="text/javascript">
+		
+		function addOne() {
+			var type = document.getElementById("item_as_type").value;
+			var name = document.getElementById("item_as_name").value;
+			var cateDetail = document.getElementById("item_as_cateDetail").value;
+			var houseDetail = document.getElementById("item_as_houseDetail").value;
+			var measuer = document.getElementById("item_as_measuer").value;
+			var supply = document.getElementById("item_as_supply").value;
+			var life = document.getElementById("item_as_life").value;
+			var depreciation = document.getElementById("item_as_depreciation").value;
+			var remainratio = document.getElementById("item_as_remainratio").value;
+			var introduce = document.getElementById("item_as_introduce").value;
+			var strc = type + "~" + name + "~" + cateDetail + "~" + houseDetail
+					+ "~" + measuer + "~" + supply + "~" + life + "~"
+					+ depreciation + "~" + remainratio + "~" + introduce;
+			$("#acceptForm")
+					.append(
+							"<input type='hidden' name='acceptName' value='"+strc+"' />");
+			var str = "<tr class=''><td>"
+					+ type
+					+ "</td><td>"
+					+ name
+					+ "</td><td>"
+					+ cateDetail
+					+ "</td><td>"
+					+ houseDetail
+					+ "</td><td>"
+					+ measuer
+					+ "</td><td>"
+					+ supply
+					+ "</td><td>"
+					+ life
+					+ "</td><td>"
+					+ depreciation
+					+ "</td><td>"
+					+ remainratio
+					+ "</td><td>"
+					+ introduce
+					+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
+			$("#accept-tbody").prepend(str);
+			$("#accept-tbody-reset").click();
+			$("#accept-tbody-close").click();
+		}
 
+		function clearLittleForm() {
+			$("#accept-tbody-reset").siblings().children().find("input").attr(
+					"value", "");
+			$("#accept-tbody-reset").siblings().children().find("textarea")
+					.attr("value", "");
+		}
+		
+
+		function addAcceptForm() {
+			var accStr = document.getElementsByName("acceptName");
+			var acceptStr = "";
+			for(var i=0;i<accStr.length;i++){
+				acceptStr += accStr[i].value+",";
+			}
+			var ahname = document.getElementById("ahname").value;
+			var aatype = document.getElementById("aatype").value;
+			var aaname = document.getElementById("aaname").value;
+			var aaprice = document.getElementById("aaprice").value;
+			var aanumber = document.getElementById("aanumber").value;
+			$.ajax({
+				type:"post",
+				url:"/sam/accept/addAccept",
+				data:"acceptStr="+acceptStr+"&ahname="+ahname+"&aatype="+aatype+"&aaname="+aaname+"&aaprice="+aaprice+"&aanumber="+aanumber,
+				dataType:"JSON",
+				success:function(data){
+					if(data>0){
+						alert("添加成功");
+						 window.location.reload();
+					}
+				},
+				error:function(data){
+					alert(data.status);
+				}
+			});
+			
+		}
+	</script>

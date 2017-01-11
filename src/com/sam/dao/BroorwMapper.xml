@@ -4,14 +4,43 @@
 <mapper namespace="com.sam.dao.BroorwDao">
 	<!-- 添加借出申请 -->
 	<insert id="addBroow" parameterType="com.sam.entity.AssetBroorw">
-		insert into AssetBroorw(abid,ainame,aiid,auname,auid,abbackDate,abdate,abstatus,abreson,abnumebr,abResult,abResultRemark)
-			values(AssetBroorw_seq.nextval,#{ainame},#{aiid},#{auname},#{auid},#{abbackDate},#{abdate},#{abstatus}
-			,#{abreson},#{abnumebr},#{abResult},#{abResultRemark});
+		insert into AssetBroorw(abid,auname,abbackDate,abdate,adname,abreson,abResult)
+			values(#{abid},#{auname},to_date(#{abbackdate},'yyyy-mm-dd'),sysdate,#{adname},#{abreson},'待审批')
 	</insert>
+	
+	<update id="updBroorwWhenOk" parameterType="java.lang.Integer">
+		update assetbroorw set abresult='已通过' where abid=#{abid}
+	</update>
+	
+	<update id="updBroorwWhenRefuse" parameterType="com.sam.entity.AssetBroorw">
+		update assetbroorw set abresult='未通过',abresultremark=#{abresultremark} where abid=#{abid}
+	</update>
+	
+	<select id="findBroorwByAbid" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetBroorw">
+		select * from assetbroorw where abid=#{abid}
+	</select>
 	
 	<select id="findBroorws" resultType="com.sam.entity.AssetBroorw">
 		select * from AssetBroorw
 	</select>
 	
+	<select id="findBroorwsByCondition" resultType="com.sam.entity.AssetBroorw" parameterType="com.sam.entity.AssetBroorw">
+		select * from assetbroorw where 1=1 
+		<if test="auname != null and auname !=''">
+			and auname=#{auname}
+		</if>
+		<if test="adname != null and adname !=''">
+			and adname=#{adname}
+		</if>
+		<if test="abdate != null and abdate !=''">
+			and to_char(abdate,'yyyy-mm-dd')=#{abdate}
+		</if>
+		<if test="abbackdate != null and abbackdate !=''">
+			and to_char(abbackdate,'yyyy-mm-dd')=#{abbackdate}
+		</if>
+		<if test="abresult !=null and abresult !=''">
+			and abresult=#{abresult}
+		</if>
+	</select>
 	
 </mapper>

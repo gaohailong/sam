@@ -31,9 +31,20 @@
 		update assetinfo set
 		asname='维修中',repairid=#{repairid} where aiid=#{aiid}
 	</update>
+		
+	<update id="updInfoWhenBroorwRefuse" parameterType="java.lang.Integer">
+		update assetinfo set asname='未使用',broorwid='' where broorwid=#{broorwid}
+	</update>
+	
 	<update id="updInfoAcid" parameterType="com.sam.entity.AssetInfo">
 		update assetinfo set
 		acceptid=#{acceptid},ahname='',adname=#{adname},asname=#{asname} where aiid=#{aiid}
+	</update>
+	<update id="updInfoAddBroorw" parameterType="com.sam.entity.AssetInfo">
+		update assetinfo set broorwid=#{broorwid},asname='待借出' where aiid=#{aiid}
+	</update>
+	<update id="updInfoWhenBroorwOk" parameterType="com.sam.entity.AssetInfo">
+		update assetinfo set asname='使用中',ahname='',adname=#{adname} where broorwid=#{broorwid}
 	</update>
 
 	<select id="findInfoByCondition" parameterType="com.sam.entity.AssetInfo"
@@ -41,6 +52,9 @@
 		select * from assetinfo where 1=1
 		<if test="ainame != null and ainame !=''">
 			AND ainame like '%${ainame}%'
+		</if>
+		<if test="asname != null and asname !=''">
+			AND asname=#{asname}
 		</if>
 		
 		<if test="atname != null and atname !=''">

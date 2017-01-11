@@ -123,8 +123,9 @@ public class InfoController {
 	public Pager<AssetInfo> findAssetByCondition(
 			@RequestParam(value = "ainame", required = false) String ainame,
 			@RequestParam(value = "atname", required = false) String atname,
+			@RequestParam(value = "asname", required = false) String asname,
 			@RequestParam(value = "ahname", required = false) String ahname,
-			@RequestParam(value = "aidate", required = false) Date aidate,
+			@RequestParam(value = "aidate", required = false) String aidate,
 			@RequestParam(value = "pageNum", required = false) int pageNum) {
 		try {
 			System.out.println("ainame:"+ainame);
@@ -132,11 +133,15 @@ public class InfoController {
 			System.out.println("ahname:"+ahname);
 			System.out.println("aidate:"+aidate);
 			System.out.println("pageNum:"+pageNum);
+			System.out.println("asname:"+asname);
 			System.out.println("进入findAssetByCondition");
 			AssetInfo assetInfo = new AssetInfo();
 			//不能写else if 啊
 			if(ainame!=null){
 				assetInfo.setAiname(ainame.trim());
+			}
+			if(asname!=null){
+				assetInfo.setAsname(asname.trim());
 			}
 			if(atname!=null){
 				assetInfo.setAtname(atname.trim());
