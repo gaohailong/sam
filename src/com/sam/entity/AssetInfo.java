@@ -1,6 +1,5 @@
 package com.sam.entity;
 
-import java.util.Date;
 
 /**
  * Assetinfo entity. @author MyEclipse Persistence Tools
@@ -23,7 +22,7 @@ public class AssetInfo implements java.io.Serializable {
 	private Integer backid;
 	private Integer broorwid;
 	private Integer changeid;
-	private Date aidate;
+	private String aidate;
 	private String aimeasuer;
 	private String aisupply;
 	private Double aimoney;
@@ -47,7 +46,7 @@ public class AssetInfo implements java.io.Serializable {
 	public AssetInfo(Integer aiid, Integer aicard, String aimodel, String ainame,
 			String atname, String ahname, String adname, String asname,
 			Integer acceptid, Integer repairid, Integer backid, Integer broorwid,
-			Integer changeid, Date aidate, String aimeasuer, String aisupply,
+			Integer changeid, String aidate, String aimeasuer, String aisupply,
 			Double aimoney, String ailife, String airemark,
 			String aidepreciation, Double airemainratio) {
 		this.aiid = aiid;
@@ -179,11 +178,11 @@ public class AssetInfo implements java.io.Serializable {
 		this.changeid = changeid;
 	}
 
-	public Date getAidate() {
+	public String getAidate() {
 		return this.aidate;
 	}
 
-	public void setAidate(Date aidate) {
+	public void setAidate(String aidate) {
 		this.aidate = aidate;
 	}
 
@@ -241,6 +240,20 @@ public class AssetInfo implements java.io.Serializable {
 
 	public void setAiremainratio(Double airemainratio) {
 		this.airemainratio = airemainratio;
+	}
+
+	@Override
+	public String toString() {
+		return "AssetInfo [aiid=" + aiid + ", aicard=" + aicard + ", aimodel="
+				+ aimodel + ", ainame=" + ainame + ", atname=" + atname
+				+ ", ahname=" + ahname + ", adname=" + adname + ", asname="
+				+ asname + ", acceptid=" + acceptid + ", repairid=" + repairid
+				+ ", backid=" + backid + ", broorwid=" + broorwid
+				+ ", changeid=" + changeid + ", aidate=" + aidate
+				+ ", aimeasuer=" + aimeasuer + ", aisupply=" + aisupply
+				+ ", aimoney=" + aimoney + ", ailife=" + ailife + ", airemark="
+				+ airemark + ", aidepreciation=" + aidepreciation
+				+ ", airemainratio=" + airemainratio + "]";
 	}
 
 }
