@@ -13,6 +13,7 @@ import com.sam.entity.AssetRequire;
 import com.sam.entity.Pager;
 import com.sam.service.InfoService;
 import com.sam.util.ConstantUtil;
+import com.sam.util.StringDateToStringDateUtil;
 
 @Service
 public class InfoServiceImpl implements InfoService {
@@ -60,6 +61,10 @@ public class InfoServiceImpl implements InfoService {
 	@Override
 	public Pager<AssetInfo> findAssets(int pageNum, int pageSize) {
 		List<AssetInfo> assetInfoList = findAssetInfos();
+		for (AssetInfo assetInfo : assetInfoList) {
+			assetInfo.setAimeasuer(StringDateToStringDateUtil.StringDateToStringDate(assetInfo.getAimeasuer()));
+			assetInfo.setAidate(StringDateToStringDateUtil.StringDateToStringDate(assetInfo.getAidate()));
+		}
 		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfoList);
 		return pager;
 	}
