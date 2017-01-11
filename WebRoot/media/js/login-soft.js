@@ -22,10 +22,10 @@ var Login = function () {
 
 	            messages: {
 	                username: {
-	                    required: "Username is required."
+	                    required: "用户名不能为空."
 	                },
 	                password: {
-	                    required: "Password is required."
+	                    required: "密码不能为空."
 	                }
 	            },
 
@@ -75,7 +75,7 @@ var Login = function () {
 
 	            messages: {
 	                email: {
-	                    required: "Email is required."
+	                    required: "邮箱不能为空."
 	                }
 	            },
 
