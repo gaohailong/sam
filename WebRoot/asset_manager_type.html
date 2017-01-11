@@ -553,7 +553,7 @@
 
                     <li>
 
-                        <a href="#">
+                        <a href="asset_manager_user.html">
 
                             人员管理
 
@@ -562,7 +562,7 @@
                     </li>
                     <li>
 
-                        <a href="#">
+                        <a href="asset_manager_warehouse.html">
 
                             仓库管理
 
@@ -571,7 +571,7 @@
                     </li>
 					<li>
 
-                        <a href="#">
+                        <a href="asset_manager_department.html">
 
                             部门管理
 
@@ -580,7 +580,7 @@
                     </li>
 					<li  class="active">
 
-                        <a href="#">
+                        <a href="asset_manager_type.html">
 
                             类别管理
 
@@ -775,7 +775,7 @@
                             <div class="caption"><i class="icon-cogs"></i>查询</div>
                             <div class="actions">
                                 <!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
-								  <a href="#responsive" data-toggle="modal" class="btn green "><i class="icon-search"></i>新增</a>
+								  <a href="#responsive" data-toggle="modal" class="btn green" id="addbtn"><i class="icon-search"></i>新增</a>
                             </div>
                         </div>
 						
@@ -783,7 +783,7 @@
 
                             <table class="table table-hover">
 
-                                <thead>
+                                <thead id="assetThead">
 
                                             <th>类别名称</th>
                                             
@@ -843,6 +843,8 @@
 								</tr>
  -->
                                  <a href="#responsive2" data-toggle="modal" class="hide" id="addnbsp">&nbsp;</a>
+                                  <a href="#updateresponsive" data-toggle="modal" class="hide" id="updatenbsp">&nbsp;</a>
+                                 
                                 </tbody>
 
                             </table>
@@ -984,7 +986,7 @@
 
 								<div class="modal-header">
 
-									<span class="hidden-480">仓库修改表</span>
+									<span class="hidden-480">类型修改表</span>
 								</div>
 								<div class="modal-body">
 
@@ -998,48 +1000,37 @@
 
 													<!-- BEGIN FORM-->
 
-													<form  class="form-horizontal" id="houseupdateform">
+													<form  class="form-horizontal" id="typeupdateform">
 
 														<div class="control-group">
 															<div class="control-group"></div>
 															<div class="control-group"></div>
 															<div class="control-group"></div>
 
-															<label class="control-label">仓库名称</label>
+															<label class="control-label">类型名称</label>
 
 															<div class="controls">
 
 																<input type="text" id="item_as_type_update"
-																	class="m-wrap medium" name="ahname"/>
+																	class="m-wrap medium" name="atname"/>
 
 															</div>
 
 														</div>
 													
-														<div class="control-group">
+														<div class="control-group hide">
 
-															<label class="control-label">仓库管理人员</label>
+															<label class="control-label">类型等级</label>
 
 															<div class="controls">
 
 																<input type="text" id="item_as_name_update"
-																	class="m-wrap medium" name="auname" />
+																	class="m-wrap medium" name="atlevel" />
 
 															</div>
 
 														</div>
-															<div class="control-group">
-
-															<label class="control-label">仓库备注</label>
-
-															<div class="controls">
-
-																<textarea class="large m-wrap" id="item_as_cate_update"
-																	rows="3" name="ahbeizhu"></textarea>
-
-															</div>
-
-													</div>   
+															
 														<input id="accept-tbody-reset" type="reset" class="hide" />
 														
 													</form>
@@ -1060,7 +1051,7 @@
 
 									<button id="accept-tbody-close" type="button" data-dismiss="modal" class="btn">关闭</button>
 
-									<button type="button" class="btn blue" onclick="javascript:updateHouse()">保存</button>
+									<button type="button" class="btn blue" onclick="javascript:updateType()">保存</button>
 									
 									
 
@@ -1301,8 +1292,8 @@
 							"<tr>"
 							+"<td><a href='javascript:initSecondAssetType(1,"+assetTypeList[i].atid+")'>"+assetTypeList[i].atname+"</a></td>"	
 							+"<td id='addTypeTd'><a href='javascript:getTypeFirst("+assetTypeList[i].atid+");' data-toggle='modal'>增加</a></td>"
-							+"<td id='updateTypeTd'><a href='javascript:getHouse("+assetTypeList[i].atid+");' data-toggle='modal'>修改</a></td>"
-							+"<td><a class='delete' href='javascript:deleteHouse("+assetTypeList[i].atid+");'>删除</a></td>"
+							+"<td id='updateTypeTd'><a href=\"javascript:getHouse("+assetTypeList[i].atid+","+assetTypeList[i].atlevel+",'"+assetTypeList[i].atname+"');\" data-toggle='modal'>修改</a></td>"
+							+"<td><a class='delete' href='javascript:deleteType("+assetTypeList[i].atid+");'>删除</a></td>"
 							+"</tr>"
 						);
 					}
@@ -1351,12 +1342,16 @@
 										
 					var assetTypeList = data.dataList;
 					$("#assetTbody").html("");
+					$("#assetThead").html("");
+					$("#addbtn").attr("class","hide");
+					$("#assetThead").append("<th>类别名称</th><th>修改</th><th>删除</th>");
+					
 					for(var i = 0;i < assetTypeList.length;i++) {
 						$("#assetTbody").append(
 							"<tr>"
 							+"<td><a href='#'>"+assetTypeList[i].atname+"</a></td>"	
-							+"<td id='updateTypeTd'><a href='javascript:getHouse("+assetTypeList[i].ahid+");' data-toggle='modal'>修改</a></td>"
-							+"<td><a class='delete' href='javascript:deleteHouse("+assetTypeList[i].ahid+");'>删除</a></td>"
++"<td id='updateTypeTd'><a href=\"javascript:getHouse("+assetTypeList[i].atid+","+assetTypeList[i].atlevel+",'"+assetTypeList[i].atname+"');\" data-toggle='modal'>修改</a></td>"
+							+"<td><a class='delete' href='javascript:deleteType("+assetTypeList[i].atid+");'>删除</a></td>"
 							+"</tr>"
 						);
 					}
@@ -1368,16 +1363,14 @@
 		}
 		
 	//获取修改页面数据的方法
-	function getHouse(ahid){
-	
-         var gettd = $("#updateTypeTd").prevAll();
-         document.getElementById("item_as_type_update").value=gettd[2].innerHTML;
-         document.getElementById("item_as_name_update").value=gettd[1].innerHTML;
-         document.getElementById("item_as_cate_update").value=gettd[0].innerHTML;
+	function getHouse(atid,atlevel,atname){
+	alert("进入修改页面");
+         document.getElementById("item_as_type_update").value=atname;
+         document.getElementById("item_as_name_update").value=atlevel;
         
-         $("#userupdateform").append("<input type='hidden' name='ahid' value='"+ahid+"'/>");
+         $("#typeupdateform").append("<input type='hidden' name='atid' value='"+atid+"'/>");
+          $("#typeupdateform").append("<input type='hidden' name='atlevel' value='"+atlevel+"'/>");
          $("#updatenbsp").click();
-	alert("进入1213");
          
           
 	}
@@ -1389,11 +1382,11 @@
 	   $("#addnbsp").click();
 	}
 	//删除用户
-  function deleteHouse(ahid){
-	alert("进入删除的放发"+auid);
+  function deleteType(atid){
+	alert("进入删除的放发"+atid);
 	  $.ajax({
 	    type: "post",
-	    url:"/sam/wareHouse/deleteHouse/"+ahid,
+	    url:"/sam/assetType/deleteType/"+atid,
 	    dataType: "JSON",
 	    success:function(data){
 	    if(data>0)
@@ -1408,17 +1401,17 @@
 	
 	
 	//修改的方法
-	function updateUser(){
+	function updateType(){
 	alert("进入修改的方法");
 	  $.ajax({
 	   type: "post",
-	   url:"/sam/wareHouse/updateHouse",
-	   data:$("#userupdateform").serialize(),
+	   url:"/sam/assetType/updateType",
+	   data:$("#typeupdateform").serialize(),
 	   dataType:"JSON",
 	   success:function(data){
 	      if(data>0)
 	      alert("修改成功");
-	       initAllAssetType(1);
+	       initAllAssetType(1,atlevel);
 	      
 	   },
 	   error:function(data){
