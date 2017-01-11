@@ -1,134 +1,103 @@
 
-				<div class="row-fluid">
+<div class="row-fluid">
 
-					<div class="span12">
+	<div class="span12">
 
-						<!-- BEGIN STYLE CUSTOMIZER -->
+		<!-- BEGIN STYLE CUSTOMIZER -->
 
-						<div class="color-panel hidden-phone">
+		<div class="color-panel hidden-phone">
 
-							<div class="color-mode-icons icon-color"></div>
+			<div class="color-mode-icons icon-color"></div>
 
-							<div class="color-mode-icons icon-color-close"></div>
+			<div class="color-mode-icons icon-color-close"></div>
 
-							<div class="color-mode">
+			<div class="color-mode">
 
-								<p>THEME COLOR</p>
+				<p>THEME COLOR</p>
 
-								<ul class="inline">
+				<ul class="inline">
 
-									<li class="color-black current color-default" data-style="default"></li>
+					<li class="color-black current color-default" data-style="default"></li>
 
-									<li class="color-blue" data-style="blue"></li>
+					<li class="color-blue" data-style="blue"></li>
 
-									<li class="color-brown" data-style="brown"></li>
+					<li class="color-brown" data-style="brown"></li>
 
-									<li class="color-purple" data-style="purple"></li>
+					<li class="color-purple" data-style="purple"></li>
 
-									<li class="color-grey" data-style="grey"></li>
+					<li class="color-grey" data-style="grey"></li>
 
-									<li class="color-white color-light" data-style="light"></li>
+					<li class="color-white color-light" data-style="light"></li>
 
-								</ul>
+				</ul>
 
-								<label>
+				<label> <span>Layout</span> <select
+					class="layout-option m-wrap small">
 
-									<span>Layout</span>
+						<option value="fluid" selected>Fluid</option>
 
-									<select class="layout-option m-wrap small">
+						<option value="boxed">Boxed</option>
 
-										<option value="fluid" selected>Fluid</option>
+				</select>
 
-										<option value="boxed">Boxed</option>
+				</label> <label> <span>Header</span> <select
+					class="header-option m-wrap small">
 
-									</select>
+						<option value="fixed" selected>Fixed</option>
 
-								</label>
+						<option value="default">Default</option>
 
-								<label>
+				</select>
 
-									<span>Header</span>
+				</label> <label> <span>Sidebar</span> <select
+					class="sidebar-option m-wrap small">
 
-									<select class="header-option m-wrap small">
+						<option value="fixed">Fixed</option>
 
-										<option value="fixed" selected>Fixed</option>
+						<option value="default" selected>Default</option>
 
-										<option value="default">Default</option>
+				</select>
 
-									</select>
+				</label> <label> <span>Footer</span> <select
+					class="footer-option m-wrap small">
 
-								</label>
+						<option value="fixed">Fixed</option>
 
-								<label>
+						<option value="default" selected>Default</option>
 
-									<span>Sidebar</span>
+				</select>
 
-									<select class="sidebar-option m-wrap small">
+				</label>
 
-										<option value="fixed">Fixed</option>
+			</div>
 
-										<option value="default" selected>Default</option>
+		</div>
 
-									</select>
+		<!-- END BEGIN STYLE CUSTOMIZER -->
 
-								</label>
+		<h3 class="page-title">
 
-								<label>
+			资产使用情况 <small></small>
 
-									<span>Footer</span>
+		</h3>
 
-									<select class="footer-option m-wrap small">
+		<ul class="breadcrumb">
 
-										<option value="fixed">Fixed</option>
+			<li><i class="icon-home"></i> <a href="">主页</a> <span
+				class="icon-angle-right"></span></li>
 
-										<option value="default" selected>Default</option>
+			<li><a href="#">资产使用情况</a> <span class="icon-angle-right"></span>
 
-									</select>
+			</li>
 
-								</label>
+			<li><a href="asform_layin.html" id="useview"></a></li>
 
-							</div>
+		</ul>
 
-						</div>
+	</div>
 
-						<!-- END BEGIN STYLE CUSTOMIZER -->  
-
-						<h3 class="page-title">
-
-							资产使用情况
-
-							 <small></small>
-
-						</h3>
-
-						<ul class="breadcrumb">
-
-							<li>
-
-								<i class="icon-home"></i>
-
-								<a href="">主页</a> 
-
-								<span class="icon-angle-right"></span>
-
-							</li>
-
-							<li>
-
-								<a href="#">资产使用情况</a>
-
-								<span class="icon-angle-right"></span>
-
-							</li>
-
-							<li><a href="asform_layin.html" id="useview" ></a></li>
-
-						</ul>
-
-					</div>
-
-				</div>
-				<div class="row-fluid">
+</div>
+<div class="row-fluid">
 	<div class="span12">
 
 		<!-- BEGIN SAMPLE TABLE PORTLET-->
@@ -140,7 +109,8 @@
 				</div>
 				<div class="actions">
 					<!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
-					<button onclick="findAssetInfoBytiaojian(1)" href="#" data-toggle="modal" class="btn green ">
+					<button onclick="findAssetInfoBytiaojian(1)" href="#"
+						data-toggle="modal" class="btn green ">
 						<i class="icon-search"></i> 查询
 					</button>
 				</div>
@@ -154,7 +124,8 @@
 						<div class="control-group">
 							<label class="control-label span2">资产名称</label>
 							<div class="controls span2">
-								<input id="assetInfoName" type="text" placeholder="设备名称" class="m-wrap medium" />
+								<input id="assetInfoName" type="text" placeholder="设备名称"
+									class="m-wrap medium" />
 							</div>
 							<label class="control-label span3">类型名称</label>
 
@@ -203,462 +174,341 @@
 
 </div>
 
-				<!-- END PAGE HEADER-->
+<div class="row-fluid">
 
-				<!-- BEGIN PAGE CONTENT-->
+	<div class="span12">
 
-				<div class="row-fluid">
+		<!-- BEGIN SAMPLE FORM PORTLET-->
 
-					<div class="span12">
+		<div class="portlet box red tabbable">
 
-						<!-- BEGIN SAMPLE FORM PORTLET-->   
 
-						<div class="portlet box red tabbable">
 
+			<div class="portlet-body form" style="padding-left:10px;">
 
+				<div class="tabbable portlet-tabs">
 
-							<div class="portlet-body form" style="padding-left:10px;">
 
-								<div class="tabbable portlet-tabs">
 
-	
+					<div class="row-fluid"
+						style="margin-left:-10px;padding-right:10px;">
+						<div class="span12">
+							<div class="portlet box red">
 
-								<div class="row-fluid" style="margin-left:-10px;padding-right:10px;">
-									<div class="span12">
-										<div class="portlet box red">
+								<div class="portlet-title">
 
-							<div class="portlet-title">
+									<div class="caption">
+										<i class="icon-globe"></i>查询详情列表
+									</div>
 
-								<div class="caption"><i class="icon-globe"></i>查询详情列表</div>
+									<div class="tools">
 
-								<div class="tools">
-
-									<a href="javascript:;" class="reload"></a>
-
-									<a href="javascript:;" class="remove"></a>
-
-								</div>
-
-							</div>
-
-														<div class="portlet-body">
-
-								<table class="table ">
-
-									<thead>
-
-										<tr>
-											<th>设备名称</th>
-
-											<th>设备型号</th>
-
-											<th>类型名称</th>
-
-											<th>仓库名称</th>
-
-											<th>生产日期</th>
-
-											<th>生产单位</th>
-
-											<th>保质期</th>
-											
-											<th>设备备注</th>
-	
-											<th>设备状态</th>
-
-										</tr>
-
-									</thead>
-
-									<tbody id="accept-tbody">
-
-<!-- 
-										<tr class="">
-
-											<td>A210</td>
-
-											<td>康佳相机</td>
-
-											<td>电子产品</td>
-
-											<td>东仓</td>
-
-											<td>1200</td>
-
-											<td>太谷东厂</td>
-
-											<td>十年</td>
-
-											<td>恒定折旧</td>
-
-											<td>0.5%</td>
-
-											<td>低温,避光</td>
-
-											<td><a href="javascript:;">编辑</a></td>
-
-											<td><a class="delete" href="javascript:;">删除</a></td>
-
-										</tr>
-
-										<tr class="">
-
-											<td>A210</td>
-
-											<td>康佳相机</td>
-
-											<td>电子产品</td>
-
-											<td>东仓</td>
-
-											<td>1200</td>
-
-											<td>太谷东厂</td>
-
-											<td>十年</td>
-
-											<td>恒定折旧</td>
-
-											<td>0.5%</td>
-
-											<td>低温,避光</td>
-
-										</tr> -->
-
-									</tbody>
-
-								</table>
-
-
-
-								<!-- END EXAMPLE TABLE PORTLET-->
-
-								<!-- END SAMPLE FORM PORTLET-->
-
-							</div>
-
-						</div>
-  					<center>
-	                    <a href="javascript:findAssetByasname('维修中',1);" data-toggle="modal" class="btn red ">首页</a>  |
-	                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
-	                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
-	                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
-	                   	第<span id="currentPage"></span>页 | 
-	                   	共<span id="totalRecord"></span>条
-                   
-                   </center>
+										<a href="javascript:;" class="reload"></a> <a
+											href="javascript:;" class="remove"></a>
 
 									</div>
 
 								</div>
 
+								<div class="portlet-body">
+
+									<table class="table ">
+
+										<thead>
+
+											<tr>
+												<th>设备名称</th>
+
+												<th>设备型号</th>
+
+												<th>类型名称</th>
+
+												<th>仓库名称</th>
+
+												<th>生产日期</th>
+
+												<th>生产单位</th>
+
+												<th>保质期</th>
+
+												<th>设备备注</th>
+
+												<th>设备状态</th>
+
+											</tr>
+
+										</thead>
+
+										<tbody id="accept-tbody">
+
+										</tbody>
+
+									</table>
+
+
+
+									<!-- END EXAMPLE TABLE PORTLET-->
+
+									<!-- END SAMPLE FORM PORTLET-->
+
+								</div>
+
 							</div>
+							<center>
+								<a href="javascript:findAssetByasname('维修中',1);"
+									data-toggle="modal" class="btn red ">首页</a> | <a id="perPage"
+									href="" data-toggle="modal" class="btn red ">上一页</a> | <a
+									id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a>
+								| <a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a>
+								| 第<span id="currentPage"></span>页 | 共<span id="totalRecord"></span>条
+
+							</center>
 
 						</div>
-
-						<!-- END SAMPLE FORM PORTLET-->
 
 					</div>
 
 				</div>
 
-				<!-- END PAGE CONTENT-->         
-
 			</div>
 
-			<!-- END PAGE CONTAINER-->
-
-		</div>
-
-		<!-- END PAGE -->  
-
-	</div>
-
-	<!-- END CONTAINER -->
-
-	<!-- BEGIN FOOTER -->
-
-	<div class="footer">
-
-		<div class="footer-inner">
-
-		</div>
-
-		<div class="footer-tools">
-
-			<span class="go-top">
-
-			<i class="icon-angle-up"></i>
-
-			</span>
+			<!-- END SAMPLE FORM PORTLET-->
 
 		</div>
 
 	</div>
 
-	<!-- END FOOTER -->
+	<!-- END PAGE CONTENT-->
 
-	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+</div>
 
-	<!-- BEGIN CORE PLUGINS -->
+<script>
+	var usestatus = "维修中";
 
-	<script src="media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	jQuery(document).ready(function() {
 
-	<script src="media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+		findAssetByasname(usestatus, 1);
+		selectWareHouse1();
+		selectAllSecondAssetType();
+		/* userstatus(); */
+	});
+	//初始化全部设备的分页信息
+	function initAllAssetInfo(page) {
+		$.ajax({
+			type : "GET",
+			url : "/sam/department/findAssetInfos",
+			data : "page=" + page,
+			dataType : "JSON",
+			success : function(data) {
 
-	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+				//总页数
+				var totalPage = data.totalPage;
 
-	<script src="media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+				//当前页码
+				var currentPage = data.currentPage;
+				$("#currentPage").html(currentPage);
 
-	<script src="media/js/bootstrap.min.js" type="text/javascript"></script>
+				var perPagenum;
+				perPagenum = page - 1;
+				if (perPagenum < 1) {
+					perPagenum = 1;
+				}
+				$("#perPage").attr("href",
+						"javascript:initAllAssetInfo(" + perPagenum + ");");
+				var lastpagenum;
+				nextPage = page + 1;
+				if (nextPage > totalPage) {
+					nextPage = totalPage;
+				}
+				$("#nextPage").attr("href",
+						"javascript:initAllAssetInfo(" + nextPage + ");");
+				$("#lastPage").attr("href",
+						"javascript:initAllAssetInfo(" + totalPage + ");");
 
-	<!--[if lt IE 9]>
+				//总条目数
+				var totalRecord = data.totalRecord;
+				$("#totalRecord").html(totalRecord);
 
-	<script src="media/js/excanvas.min.js"></script>
-
-	<script src="media/js/respond.min.js"></script>  
-
-	<![endif]-->   
-
-	<script src="media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.blockui.min.js" type="text/javascript"></script>  
-
-	<script src="media/js/jquery.cookie.min.js" type="text/javascript"></script>
-
-	<script src="media/js/jquery.uniform.min.js" type="text/javascript" ></script>
-
-	<!-- END CORE PLUGINS -->
-
-	<script type="text/javascript" src="media/js/bootstrap-datepicker.js"></script>
-
-	<script src="media/js/jquery.fancybox.pack.js"></script>
-
-	<script src="media/js/app.js"></script>
-
-	<script src="media/js/search.js"></script> 	
-	
-	<script src="media/js/table-advanced.js"></script>
-	
-	<script src="media/js/table-editable.js"></script>  
-
-<!-- BEGIN PAGE LEVEL PLUGINS -->
-
-	<script type="text/javascript" src="media/js/select2.min.js"></script>
-
-	<script type="text/javascript" src="media/js/jquery.dataTables.min.js"></script>
-
-	<script type="text/javascript" src="media/js/DT_bootstrap.js"></script>
-
-	<!-- END PAGE LEVEL PLUGINS -->	
-
-	<script>
-		var usestatus = "维修中"; 
-		
-		jQuery(document).ready(function() {   
- 
-		  
-		   findAssetByasname(usestatus,1);
-		   selectWareHouse1();
-		   selectAllSecondAssetType();
-		   /* userstatus(); */
-		});
-		//初始化全部设备的分页信息
-		function initAllAssetInfo(page) {
-			$.ajax({
-				type : "GET",
-				url : "/sam/department/findAssetInfos",
-				data : "page="+page,
-				dataType : "JSON",
-				success : function(data) {
-				
-					//总页数
-					var totalPage = data.totalPage;
-					
-					//当前页码
-					var currentPage = data.currentPage;
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
-					}
-					$("#perPage").attr("href","javascript:initAllAssetInfo("+perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:initAllAssetInfo("+nextPage+");");
-					$("#lastPage").attr("href","javascript:initAllAssetInfo("+totalPage+");");
-					
-					//总条目数
-					var totalRecord = data.totalRecord;
-					$("#totalRecord").html(totalRecord);
-					
-										
-					var assetInfoList = data.dataList;
-					$("#accept-tbody").html("");
-					for(var i = 0;i < assetInfoList.length;i++) {
-						$("#accept-tbody").append(
-							"<tr>"
-							+"<td>"+assetInfoList[i].ainame+"</td>"
-							+"<td>"+assetInfoList[i].aimodel+"</td>"
-							+"<td>"+assetInfoList[i].atname+"</td>"
-							+"<td>"+assetInfoList[i].ahname+"</td>"
-							+"<td>"+assetInfoList[i].aimeasuer+"</td>"
-							+"<td>"+assetInfoList[i].aisupply+"</td>"
-							+"<td>"+assetInfoList[i].ailife+"</td>"
-							+"<td>"+assetInfoList[i].airemark+"</td>"
-							+"<td>"+assetInfoList[i].asname+"</td>"
-							+"</tr>"
-						);
-					}
-				},
-				error : function() {
+				var assetInfoList = data.dataList;
+				$("#accept-tbody").html("");
+				for (var i = 0; i < assetInfoList.length; i++) {
+					$("#accept-tbody").append(
+							"<tr>" + "<td>" + assetInfoList[i].ainame + "</td>"
+									+ "<td>" + assetInfoList[i].aimodel
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].atname + "</td>"
+									+ "<td>" + assetInfoList[i].ahname
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].aimeasuer + "</td>"
+									+ "<td>" + assetInfoList[i].aisupply
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].ailife + "</td>"
+									+ "<td>" + assetInfoList[i].airemark
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].asname + "</td>"
+									+ "</tr>");
+				}
+			},
+			error : function() {
 				alert("出错了");
+			}
+		});
+	}
+
+	//根据资产使用情况查询资产
+	function findAssetByasname(usestatus, page) {
+
+		$.ajax({
+			type : "POST",
+			url : "/sam/infoController/findInfoByAsname",
+			data : "asname=" + usestatus + "&page=" + page,
+			dataType : "JSON",
+			success : function(data) {
+				//总页数
+				var totalPage = data.totalPage;
+
+				//当前页码
+				var currentPage = data.currentPage;
+				$("#currentPage").html(currentPage);
+
+				var perPagenum;
+				perPagenum = page - 1;
+				if (perPagenum < 1) {
+					perPagenum = 1;
 				}
-			});
-		}
-		
-		//根据资产使用情况查询资产
-		function findAssetByasname(usestatus,page) {
-		
-			$.ajax({
-				type : "POST",
-				url : "/sam/infoController/findInfoByAsname",
-				data : "asname="+usestatus+"&page="+page,
-				dataType : "JSON",
-				success : function(data) {
-					//总页数
-					var totalPage = data.totalPage;
-					
-					//当前页码
-					var currentPage = data.currentPage;
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
-					}
-					$("#perPage").attr("href","javascript:findAssetByasname('"+usestatus+"','"+perPagenum+"')");
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:findAssetByasname('"+usestatus+"','"+nextPage+"')");
-					$("#lastPage").attr("href","javascript:findAssetByasname('"+usestatus+"','"+totalPage+"')");
-					
-					//总条目数
-					var totalRecord = data.totalRecord;
-					$("#totalRecord").html(totalRecord);
-					
-										
-					var assetInfoList = data.dataList;
-					if(assetInfoList.length==0){
+				$("#perPage").attr(
+						"href",
+						"javascript:findAssetByasname('" + usestatus + "','"
+								+ perPagenum + "')");
+				var lastpagenum;
+				nextPage = page + 1;
+				if (nextPage > totalPage) {
+					nextPage = totalPage;
+				}
+				$("#nextPage").attr(
+						"href",
+						"javascript:findAssetByasname('" + usestatus + "','"
+								+ nextPage + "')");
+				$("#lastPage").attr(
+						"href",
+						"javascript:findAssetByasname('" + usestatus + "','"
+								+ totalPage + "')");
+
+				//总条目数
+				var totalRecord = data.totalRecord;
+				$("#totalRecord").html(totalRecord);
+
+				var assetInfoList = data.dataList;
+				if (assetInfoList.length == 0) {
 					alert("没有该状态下的资产");
-					   $("#accept-tbody").append(
-						"<center>"
-						+"<h2>没有该状态下的资产</h2>"
-						+"</center>" 
-						);    
-					}
-					$("#accept-tbody").html("");
-					for(var i = 0;i < assetInfoList.length;i++) {
-					
-						$("#accept-tbody").append(
-								"<tr>"
-							+"<td>"+assetInfoList[i].ainame+"</td>"
-							+"<td>"+assetInfoList[i].aimodel+"</td>"
-							+"<td>"+assetInfoList[i].atname+"</td>"
-							+"<td>"+assetInfoList[i].ahname+"</td>"
-							+"<td>"+assetInfoList[i].aimeasuer+"</td>"
-							+"<td>"+assetInfoList[i].aisupply+"</td>"
-							+"<td>"+assetInfoList[i].ailife+"</td>"
-							+"<td>"+assetInfoList[i].airemark+"</td>"
-							+"<td>"+assetInfoList[i].asname+"</td>"
-							+"</tr>"
-						);
-					}
-				},
-				error : function() {
-					alert("出错了");
+					$("#accept-tbody").append(
+							"<center>" + "<h2>没有该状态下的资产</h2>" + "</center>");
 				}
-			});
-		}
+				$("#accept-tbody").html("");
+				for (var i = 0; i < assetInfoList.length; i++) {
+
+					$("#accept-tbody").append(
+							"<tr>" + "<td>" + assetInfoList[i].ainame + "</td>"
+									+ "<td>" + assetInfoList[i].aimodel
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].atname + "</td>"
+									+ "<td>" + assetInfoList[i].ahname
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].aimeasuer + "</td>"
+									+ "<td>" + assetInfoList[i].aisupply
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].ailife + "</td>"
+									+ "<td>" + assetInfoList[i].airemark
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].asname + "</td>"
+									+ "</tr>");
+				}
+			},
+			error : function() {
+				alert("出错了");
+			}
+		});
+	}
 	//在使用状态中条件查询
 	function findAssetInfoBytiaojian(page) {
 		var assetInfoName = $("#assetInfoName").val();
 		var assetType = $("#assetType").val();
 		var selectwareHouse = $("#selectwareHouse").val();
 		var asname = "维修中";
-		
-		
+
 		var tiaojian = {
-			"ainame":assetInfoName,
-			"atname":assetType,
-			"ahname":selectwareHouse,
-			"pageNum":page,
-			"asname":asname
-			
+			"ainame" : assetInfoName,
+			"atname" : assetType,
+			"ahname" : selectwareHouse,
+			"pageNum" : page,
+			"asname" : asname
+
 		};
 		$.ajax({
-			type:"post",
-			url:"/sam/infoController/findAssetByCondition",
-			data:tiaojian,
-			dataType:"JSON",
-			success:function(data) {
+			type : "post",
+			url : "/sam/infoController/findAssetByCondition",
+			data : tiaojian,
+			dataType : "JSON",
+			success : function(data) {
 				//总页数
-					var totalPage = data.totalPage;
-					
-					//当前页码
-					var currentPage = data.currentPage;
-					$("#currentPage").html("");
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
-					}
-					$("#perPage").attr("href","javascript:findAssetInfoBytiaojian("+perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:findAssetInfoBytiaojian("+nextPage+");");
-					$("#lastPage").attr("href","javascript:findAssetInfoBytiaojian("+totalPage+");");
-					
-					//总条目数
-					var totalRecord = data.totalRecord;
-					$("#totalRecord").html("");
-					$("#totalRecord").html(totalRecord);
-					
-										
-					var assetInfoList = data.dataList;
-					$("#accept-tbody").html("");
-					for(var i = 0;i < assetInfoList.length;i++) {
-						$("#accept-tbody").append(
-							"<tr>"
-							+"<td>"+assetInfoList[i].ainame+"</td>"
-							+"<td>"+assetInfoList[i].aimodel+"</td>"
-							+"<td>"+assetInfoList[i].atname+"</td>"
-							+"<td>"+assetInfoList[i].ahname+"</td>"
-							+"<td>"+assetInfoList[i].aimeasuer+"</td>"
-							+"<td>"+assetInfoList[i].aisupply+"</td>"
-							+"<td>"+assetInfoList[i].ailife+"</td>"
-							+"<td>"+assetInfoList[i].airemark+"</td>"
-							+"<td>"+assetInfoList[i].asname+"</td>"
-							+"</tr>"
-						);
-					}
+				var totalPage = data.totalPage;
+
+				//当前页码
+				var currentPage = data.currentPage;
+				$("#currentPage").html("");
+				$("#currentPage").html(currentPage);
+
+				var perPagenum;
+				perPagenum = page - 1;
+				if (perPagenum < 1) {
+					perPagenum = 1;
+				}
+				$("#perPage").attr(
+						"href",
+						"javascript:findAssetInfoBytiaojian(" + perPagenum
+								+ ");");
+				var lastpagenum;
+				nextPage = page + 1;
+				if (nextPage > totalPage) {
+					nextPage = totalPage;
+				}
+				$("#nextPage")
+						.attr(
+								"href",
+								"javascript:findAssetInfoBytiaojian("
+										+ nextPage + ");");
+				$("#lastPage").attr(
+						"href",
+						"javascript:findAssetInfoBytiaojian(" + totalPage
+								+ ");");
+
+				//总条目数
+				var totalRecord = data.totalRecord;
+				$("#totalRecord").html("");
+				$("#totalRecord").html(totalRecord);
+
+				var assetInfoList = data.dataList;
+				$("#accept-tbody").html("");
+				for (var i = 0; i < assetInfoList.length; i++) {
+					$("#accept-tbody").append(
+							"<tr>" + "<td>" + assetInfoList[i].ainame + "</td>"
+									+ "<td>" + assetInfoList[i].aimodel
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].atname + "</td>"
+									+ "<td>" + assetInfoList[i].ahname
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].aimeasuer + "</td>"
+									+ "<td>" + assetInfoList[i].aisupply
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].ailife + "</td>"
+									+ "<td>" + assetInfoList[i].airemark
+									+ "</td>" + "<td>"
+									+ assetInfoList[i].asname + "</td>"
+									+ "</tr>");
+				}
 			},
-			error:function(data) {
-				alert("出错了"+data.status);
+			error : function(data) {
+				alert("出错了" + data.status);
 			}
 		});
 	}
@@ -669,13 +519,13 @@
 			url : "/sam/wareHouse/findAllSecondAssetHouse",
 			dataType : "JSON",
 			success : function(data) {
-			$("#selectwareHouse").html("");
-			$("#selectwareHouse").append('<option value="">请选择</option>');
+				$("#selectwareHouse").html("");
+				$("#selectwareHouse").append('<option value="">请选择</option>');
 				$(data).each(
 						function(index, value) {
 							$("#selectwareHouse").append(
-								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
-							);
+									"<option value='"+value.ahname+"'>"
+											+ value.ahname + "</option>");
 						});
 
 			},
@@ -683,10 +533,9 @@
 				alert(data.status);
 			}
 		});
-	
-		
+
 	}
-	
+
 	//遍历全部二级类型
 	function selectAllSecondAssetType() {
 		$.ajax({
@@ -694,13 +543,13 @@
 			url : "/sam/assetType/findAllSecondAssetType",
 			dataType : "JSON",
 			success : function(data) {
-			$("#assetType").html("");
-			$("#assetType").append('<option value="">请选择</option>');
+				$("#assetType").html("");
+				$("#assetType").append('<option value="">请选择</option>');
 				$(data).each(
 						function(index, value) {
 							$("#assetType").append(
-								"<option value='"+value.atname+"'>"+value.atname+"</option>"
-							);
+									"<option value='"+value.atname+"'>"
+											+ value.atname + "</option>");
 						});
 
 			},
@@ -708,8 +557,7 @@
 				alert(data.status);
 			}
 		});
-	
-		
+
 	}
-	</script>
+</script>
 

@@ -51,6 +51,15 @@ public interface InfoService {
 	 */
 	Pager<AssetInfo> findAssetByCondition(AssetInfo assetInfo,Integer pageNum,Integer pageSize) throws Exception;
 	
+	
+	/**
+	 * @author zhw
+	 * 动态条件查询list
+	 * @param assetInfo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<AssetInfo> findAssetInfosByTiaojian(AssetInfo assetInfo) throws Exception;
 
 	/**
 	 * 

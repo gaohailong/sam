@@ -1,130 +1,179 @@
 
-				<div class="row-fluid">
+<div class="row-fluid">
 
-					<div class="span12">
+	<div class="span12">
 
-						<h3 class="page-title">
+		<h3 class="page-title">
 
-							审批管理 <small></small>
+			审批管理 <small></small>
 
-						</h3>
+		</h3>
 
-						<ul class="breadcrumb">
+		<ul class="breadcrumb">
 
-							<li><i class="icon-home"></i> <a href="">主页</a> <span
-								class="icon-angle-right"></span></li>
+			<li><i class="icon-home"></i> <a href="">主页</a> <span
+				class="icon-angle-right"></span></li>
 
-							<li><a href="#">审批管理</a> <span class="icon-angle-right"></span>
+			<li><a href="#">审批管理</a> <span class="icon-angle-right"></span>
 
-							</li>
+			</li>
 
-							<li><a href="asbroorwcheck.html">借用审批</a></li>
+			<li><a href="asbroorwcheck.html">借用审批</a></li>
 
-						</ul>
+		</ul>
+
+	</div>
+
+</div>
+
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN PAGE CONTENT-->
+<form id="acceptForm"></form>
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN SAMPLE FORM PORTLET-->
+
+		<div class="portlet box red tabbable">
+
+			<div class="portlet-title">
+
+				<div class="caption">
+
+					<i class="icon-reorder"></i> <span class="hidden-480">查询条件</span>
+
+				</div>
+				<div class="actions">
+
+					<button onclick="findBroorwBytiaojian(1)" href="#"
+						data-toggle="modal" class="btn green ">
+						<i class="icon-search"></i>查询
+					</button>
+
+				</div>
+
+
+			</div>
+			<div class="portlet-body form">
+
+
+				<ul class="nav nav-tabs"></ul>
+
+				<div class="tab-content">
+
+					<div class="tab-pane active" id="portlet_tab1">
+
+						<div class="form-horizontal">
+
+							<div class="control-group" style="float: left;">
+
+								<label class="control-label">借用人</label>
+
+								<div class="controls">
+
+									<input type="text" class="m-wrap medium" id="broorwName" /> <span
+										class="help-inline"></span>
+
+								</div>
+
+							</div>
+
+							<div class="control-group">
+
+								<label class="control-label" style=";">部门名称</label>
+
+								<div class="controls">
+
+									<input type="text" class="m-wrap medium" id="broorwAdname" />
+									<span class="help-inline"></span>
+
+								</div>
+
+							</div>
+
+							<div class="control-group" style="float: left;">
+
+								<label class="control-label">归还日期</label>
+
+								<div class="controls">
+
+									<input type="text" class="m-wrap medium" id="broorwBackDate" />
+									<span class="help-inline"></span>
+
+								</div>
+
+							</div>
+
+							<div class="control-group" style="float: left;">
+
+								<label class="control-label">借用日期</label>
+
+								<div class="controls">
+
+									<input type="text" class="m-wrap medium" id="broorwDate" /> <span
+										class="help-inline"></span>
+
+								</div>
+
+							</div>
+
+							<div class="control-group" style="float: left;">
+
+								<label class="control-label">借用状态</label>
+
+								<div class="controls">
+
+									<input type="text" class="m-wrap medium" id="broorwResu" /> <span
+										class="help-inline"></span>
+
+								</div>
+
+							</div>
+
+						</div>
 
 					</div>
 
 				</div>
 
-				<!-- END PAGE HEADER-->
+			</div>
 
-				<!-- BEGIN PAGE CONTENT-->
-				<form id="acceptForm"></form>
-				<div class="row-fluid">
+			<div id="responsive" class="modal hide fade" tabindex="-1"
+				data-width="760">
 
-					<div class="span12">
+				<div class="modal-header">
 
-						<!-- BEGIN SAMPLE FORM PORTLET-->
+					<span class="hidden-480">意见填写处</span>
+				</div>
+				<div class="modal-body">
 
-						<div class="portlet box red tabbable">
+					<div class="portlet-body form">
 
-							<div class="portlet-title">
+						<div class="tabbable portlet-tabs">
 
-								<div class="caption">
+							<div class="tab-content">
 
-									<i class="icon-reorder"></i> <span class="hidden-480">查询条件</span>
+								<div class="tab-pane active" id="portlet_tab1">
 
-								</div>
-								<div class="actions">
+									<!-- BEGIN FORM-->
 
-									<button onclick="findBroorwBytiaojian(1)" href="#" data-toggle="modal" class="btn green ">
-							<i class="icon-search"></i>查询</button>
+									<div class="form-horizontal">
 
-								</div>
-
-
-							</div>
-							<div class="portlet-body form">
-
-
-								<ul class="nav nav-tabs"></ul>
-
-								<div class="tab-content">
-
-									<div class="tab-pane active" id="portlet_tab1">
-
-										<div class="form-horizontal">
-
-											<div class="control-group" style="float: left;">
-
-												<label class="control-label">借用人</label>
-
-												<div class="controls">
-
-													<input type="text" class="m-wrap medium" id="broorwName" />
-													<span class="help-inline"></span>
-
-												</div>
-
-											</div>
+										<div class="control-group">
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+											<div class="control-group"></div>
 
 											<div class="control-group">
 
-												<label class="control-label" style=";">部门名称</label>
+												<label class="control-label">不通过意见</label>
 
 												<div class="controls">
 
-													<input type="text" class="m-wrap medium" id="broorwAdname" />
-													<span class="help-inline"></span>
-
-												</div>
-
-											</div>
-
-											<div class="control-group" style="float: left;">
-
-												<label class="control-label">归还日期</label>
-
-												<div class="controls">
-
-													<input type="text" class="m-wrap medium"
-														id="broorwBackDate" /> <span class="help-inline"></span>
-
-												</div>
-
-											</div>
-
-											<div class="control-group" style="float: left;">
-
-												<label class="control-label">借用日期</label>
-
-												<div class="controls">
-
-													<input type="text" class="m-wrap medium" id="broorwDate" />
-													<span class="help-inline"></span>
-
-												</div>
-
-											</div>
-											
-											<div class="control-group" style="float: left;">
-
-												<label class="control-label">借用状态</label>
-
-												<div class="controls">
-
-													<input type="text" class="m-wrap medium" id="broorwResu" />
-													<span class="help-inline"></span>
+													<textarea id="item_as_suggest" class="m-wrap medium"
+														style="height: 100px"></textarea>
 
 												</div>
 
@@ -134,364 +183,340 @@
 
 									</div>
 
-								</div>
+									<!-- END FORM-->
 
-							</div>	
-							
-							<div id="responsive" class="modal hide fade" tabindex="-1"
-								data-width="760">
-
-								<div class="modal-header">
-
-									<span class="hidden-480">意见填写处</span>
-								</div>
-								<div class="modal-body">
-
-									<div class="portlet-body form">
-
-										<div class="tabbable portlet-tabs">
-
-											<div class="tab-content">
-
-												<div class="tab-pane active" id="portlet_tab1">
-
-													<!-- BEGIN FORM-->
-
-													<div class="form-horizontal">
-
-														<div class="control-group">
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-
-															<div class="control-group">
-
-															<label class="control-label">不通过意见</label>
-
-															<div class="controls">
-
-																<textarea id="item_as_suggest"
-																	class="m-wrap medium" style="height: 100px"></textarea>
-
-															</div>
-
-														</div>
-
-														</div>
-
-													</div>
-
-													<!-- END FORM-->
-
-												</div>
-
-
-											</div>
-
-										</div>
-
-									</div>
-								</div>
-
-								<div class="modal-footer">
-									<a data-toggle="modal" id="openResp" class="hide" href="#responsive"></a>
-									
-									<button id="accept-tbody-close" type="button"
-										data-dismiss="modal" class="btn">关闭</button>
-
-									<button id="accept-tbody-save" type="button" class="btn blue"
-										onclick="addSuggest()">保存</button>
-
-
-
-								</div>
-
-							</div>
-
-						</div>
-							
-						<!-- BEGIN EXAMPLE TABLE PORTLET-->
-
-						<div class="portlet box red">
-
-							<div class="portlet-title">
-
-								<div class="caption">
-									<i class="icon-edit"></i>借出单:
-								</div>
-
-
-							</div>
-
-							<div class="portlet-body">
-
-								<table class="table table-hover">
-
-									<thead>
-
-										<tr>
-
-											<th>借用人</th>
-
-											<th>借用日期</th>
-
-											<th>归还日期</th>
-
-											<th>借用单位</th>
-
-											<th>借用缘由</th>
-
-											<th>借用状态</th>
-
-											<th>通过</th>
-
-											<th>不通过</th>
-
-										</tr>
-
-									</thead>
-
-
-									<tbody id="accept-tbody">
-
-
-									</tbody>
-
-
-								</table>
-
-
-
-								<!-- END EXAMPLE TABLE PORTLET-->
 								</div>
 
 
 							</div>
 
 						</div>
-
-
-								<!-- END SAMPLE FORM PORTLET-->
-
-							</div>
-
-						</div>
-
-						<center>
-							<!--  data-toggle="modal" -->
-							<a id="firstPage" href="javascript:findBroorwBytiaojian(1);"
-								class="btn red ">首页</a> | <a id="perPage" href=""
-								data-toggle="modal" class="btn red ">上一页</a> | <a id="nextPage"
-								href="" data-toggle="modal" class="btn red ">下一页</a> | <a
-								id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a>
-							| 第<span id="currentPage"></span>页| 共<span id="totalPage"></span>页
-
-						</center>
-						<!-- END PAGE CONTENT-->
 
 					</div>
+				</div>
 
-					<!-- END PAGE CONTAINER-->
+				<div class="modal-footer">
+					<a data-toggle="modal" id="openResp" class="hide"
+						href="#responsive"></a>
+
+					<button id="accept-tbody-close" type="button" data-dismiss="modal"
+						class="btn">关闭</button>
+
+					<button id="accept-tbody-save" type="button" class="btn blue"
+						onclick="addSuggest()">保存</button>
+
+
 
 				</div>
-				<!-- END PAGE -->
-	<!-- END CONTAINER -->
+
+			</div>
+
+		</div>
+
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+		<div class="portlet box red">
+
+			<div class="portlet-title">
+
+				<div class="caption">
+					<i class="icon-edit"></i>借出单:
+				</div>
 
 
-	<!-- 小表单得东西给大table中添加 -->
-	<script type="text/javascript">
-		function addSuggest(){
-			var suggest = $("#item_as_suggest").val();
-			var abid = $("#hiddenAbid").val();
-			$("#accept-tbody-close").click();
-			var sj = {
-				"abid":abid,
-				"suggest":suggest
-			}
-			$.ajax({
-				type:"post",
-				url:"/sam/broorw/refuseBroorw",
-				data:sj,
-				dataType:"JSON",
-				success:function(date){
-				if(date>0){
+			</div>
+
+			<div class="portlet-body">
+
+				<table class="table table-hover">
+
+					<thead>
+
+						<tr>
+
+							<th>借用人</th>
+
+							<th>借用日期</th>
+
+							<th>归还日期</th>
+
+							<th>借用单位</th>
+
+							<th>借用缘由</th>
+
+							<th>借用状态</th>
+
+							<th>通过</th>
+
+							<th>不通过</th>
+
+						</tr>
+
+					</thead>
+
+
+					<tbody id="accept-tbody">
+
+
+					</tbody>
+
+
+				</table>
+
+
+
+				<!-- END EXAMPLE TABLE PORTLET-->
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+	<!-- END SAMPLE FORM PORTLET-->
+
+</div>
+
+</div>
+
+<center>
+	<!--  data-toggle="modal" -->
+	<a id="firstPage" href="javascript:findBroorwBytiaojian(1);"
+		class="btn red ">首页</a> | <a id="perPage" href="" data-toggle="modal"
+		class="btn red ">上一页</a> | <a id="nextPage" href=""
+		data-toggle="modal" class="btn red ">下一页</a> | <a id="lastPage"
+		href="" data-toggle="modal" class="btn red ">尾页</a> | 第<span
+		id="currentPage"></span>页| 共<span id="totalPage"></span>页
+
+</center>
+<!-- END PAGE CONTENT-->
+
+</div>
+
+<!-- END PAGE CONTAINER-->
+
+</div>
+<!-- END PAGE -->
+<!-- END CONTAINER -->
+
+
+<!-- 小表单得东西给大table中添加 -->
+<script type="text/javascript">
+	function addSuggest() {
+		var suggest = $("#item_as_suggest").val();
+		var abid = $("#hiddenAbid").val();
+		$("#accept-tbody-close").click();
+		var sj = {
+			"abid" : abid,
+			"suggest" : suggest
+		}
+		$.ajax({
+			type : "post",
+			url : "/sam/broorw/refuseBroorw",
+			data : sj,
+			dataType : "JSON",
+			success : function(date) {
+				if (date > 0) {
 					alert("操作成功");
 					initBroorw(1);
 				}
-				},
-				error:function(date){
-					alert(date.status);
-				}
-			});
-		}
-		
-		function findBroorwBytiaojian(page){
-		
+			},
+			error : function(date) {
+				alert(date.status);
+			}
+		});
+	}
+
+	function findBroorwBytiaojian(page) {
+
 		var bname = $("#broorwName").val();
 		var badname = $("#broorwAdname").val();
 		var backdate = $("#broorwBackDate").val();
 		var abdate = $("#broorwDate").val();
 		var result = $("#broorwResu").val()
-		
+
 		var tiaojian = {
-			"auname":bname,
-			"adname":badname,
-			"abdate":backdate,
-			"abbackdate":abdate,
-			"abresult":result,
-			"page":page
+			"auname" : bname,
+			"adname" : badname,
+			"abdate" : backdate,
+			"abbackdate" : abdate,
+			"abresult" : result,
+			"page" : page
 		};
-		$.ajax({
-			type:"post",
-			url:"/sam/broorw/findBroorwByCondition",
-			data:tiaojian,
-			dataType:"JSON",
-			success:function(data) {
-					var totalPage = data.totalPage;
-					$("#totalPage").html("");
-					$("#totalPage").html(totalPage);
-					
-					var currentPage = data.currentPage;
-					$("#currentPage").html("");
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
-					}
-					$("#perPage").attr("href","javascript:findBroorwBytiaojian("+perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:findBroorwBytiaojian("+nextPage+");");
-					$("#lastPage").attr("href","javascript:findBroorwBytiaojian("+totalPage+");");
-					
-					var totalRecord = data.totalRecord;
-										
-					var broorwList = data.dataList;
-					$("#accept-tbody").html("");
-					for(var i = 0;i < broorwList.length;i++) {
-						$("#accept-tbody").prepend(
-							"<tr class=''><td>"
-							+ broorwList[i].auname
-							+ "</td><td>"
-							+ broorwList[i].abbackdate
-							+ "</td><td>"
-							+ broorwList[i].abdate
-							+ "</td><td>"
-							+ broorwList[i].adname
-							+ "</td><td>"
-							+ broorwList[i].abreson
-							+ "</td><td>"
-							+ broorwList[i].abresult
-							+ "</td><td><a href='javascript:checkBroorwOk("+broorwList[i].abid+");'>通过</a></td><td><a href='javascript:openReponsive("+broorwList[i].abid+");'>不通过</a></td></tr>");
-						};
-			},
-			error:function(data){
-				alert(data.status);
-				}
-			});
-		}
-		
-		function openReponsive(abid){
-			$("#acceptForm").append("<input type='text' value='"+abid+"' id='hiddenAbid'/>");
-			$("#openResp").click();
-		}
-		
-	
-		function initBroorw(page) {
-			$.ajax({
-				type:"post",
-				url:"/sam/broorw/findBroorws",
-				data:"page="+1, 
-				dataType:"JSON",
-				success:function(data){
-					var totalPage = data.totalPage;
-					$("#totalPage").html("");
-					$("#totalPage").html(totalPage);
-					
-					var currentPage = data.currentPage;
-					$("#currentPage").html("");
-					$("#currentPage").html(currentPage);
-					
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
-					}
-					$("#perPage").attr("href","javascript:findBroorwBytiaojian("+perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:findBroorwBytiaojian("+nextPage+");");
-					$("#lastPage").attr("href","javascript:findBroorwBytiaojian("+totalPage+");");
-					
-					var totalRecord = data.totalRecord;
-					
-										
-					var broorwList = data.dataList;
-					$("#accept-tbody").html("");
-					for(var i = 0;i < broorwList.length;i++) {
-						$("#accept-tbody").prepend(
-							"<tr class=''><td>"
-							+ broorwList[i].auname
-							+ "</td><td>"
-							+ broorwList[i].abbackdate
-							+ "</td><td>"
-							+ broorwList[i].abdate
-							+ "</td><td>"
-							+ broorwList[i].adname
-							+ "</td><td>"
-							+ broorwList[i].abreson
-							+ "</td><td>"
-							+ broorwList[i].abresult
-							+ "</td><td><a href='javascript:checkBroorwOk("+broorwList[i].abid+");'>通过</a></td><td><a href='javascript:openReponsive("+broorwList[i].abid+");'>不通过</a></td></tr>");
-						};
+		$
+				.ajax({
+					type : "post",
+					url : "/sam/broorw/findBroorwByCondition",
+					data : tiaojian,
+					dataType : "JSON",
+					success : function(data) {
+						var totalPage = data.totalPage;
+						$("#totalPage").html("");
+						$("#totalPage").html(totalPage);
+
+						var currentPage = data.currentPage;
+						$("#currentPage").html("");
+						$("#currentPage").html(currentPage);
+
+						var perPagenum;
+						perPagenum = page - 1;
+						if (perPagenum < 1) {
+							perPagenum = 1;
+						}
+						$("#perPage").attr(
+								"href",
+								"javascript:findBroorwBytiaojian(" + perPagenum
+										+ ");");
+						var lastpagenum;
+						nextPage = page + 1;
+						if (nextPage > totalPage) {
+							nextPage = totalPage;
+						}
+						$("#nextPage").attr(
+								"href",
+								"javascript:findBroorwBytiaojian(" + nextPage
+										+ ");");
+						$("#lastPage").attr(
+								"href",
+								"javascript:findBroorwBytiaojian(" + totalPage
+										+ ");");
+
+						var totalRecord = data.totalRecord;
+
+						var broorwList = data.dataList;
+						$("#accept-tbody").html("");
+						for (var i = 0; i < broorwList.length; i++) {
+							$("#accept-tbody")
+									.prepend(
+											"<tr class=''><td>"
+													+ broorwList[i].auname
+													+ "</td><td>"
+													+ broorwList[i].abbackdate
+													+ "</td><td>"
+													+ broorwList[i].abdate
+													+ "</td><td>"
+													+ broorwList[i].adname
+													+ "</td><td>"
+													+ broorwList[i].abreson
+													+ "</td><td>"
+													+ broorwList[i].abresult
+													+ "</td><td><a href='javascript:checkBroorwOk("
+													+ broorwList[i].abid
+													+ ");'>通过</a></td><td><a href='javascript:openReponsive("
+													+ broorwList[i].abid
+													+ ");'>不通过</a></td></tr>");
+						}
+						;
 					},
-					error:function(date){
+					error : function(data) {
+						alert(data.status);
+					}
+				});
+	}
+
+	function openReponsive(abid) {
+		$("#acceptForm").append(
+				"<input type='text' value='"+abid+"' id='hiddenAbid'/>");
+		$("#openResp").click();
+	}
+
+	function initBroorw(page) {
+		$
+				.ajax({
+					type : "post",
+					url : "/sam/broorw/findBroorws",
+					data : "page=" + 1,
+					dataType : "JSON",
+					success : function(data) {
+						var totalPage = data.totalPage;
+						$("#totalPage").html("");
+						$("#totalPage").html(totalPage);
+
+						var currentPage = data.currentPage;
+						$("#currentPage").html("");
+						$("#currentPage").html(currentPage);
+
+						perPagenum = page - 1;
+						if (perPagenum < 1) {
+							perPagenum = 1;
+						}
+						$("#perPage").attr(
+								"href",
+								"javascript:findBroorwBytiaojian(" + perPagenum
+										+ ");");
+						var lastpagenum;
+						nextPage = page + 1;
+						if (nextPage > totalPage) {
+							nextPage = totalPage;
+						}
+						$("#nextPage").attr(
+								"href",
+								"javascript:findBroorwBytiaojian(" + nextPage
+										+ ");");
+						$("#lastPage").attr(
+								"href",
+								"javascript:findBroorwBytiaojian(" + totalPage
+										+ ");");
+
+						var totalRecord = data.totalRecord;
+
+						var broorwList = data.dataList;
+						$("#accept-tbody").html("");
+						for (var i = 0; i < broorwList.length; i++) {
+							$("#accept-tbody")
+									.prepend(
+											"<tr class=''><td>"
+													+ broorwList[i].auname
+													+ "</td><td>"
+													+ broorwList[i].abbackdate
+													+ "</td><td>"
+													+ broorwList[i].abdate
+													+ "</td><td>"
+													+ broorwList[i].adname
+													+ "</td><td>"
+													+ broorwList[i].abreson
+													+ "</td><td>"
+													+ broorwList[i].abresult
+													+ "</td><td><a href='javascript:checkBroorwOk("
+													+ broorwList[i].abid
+													+ ");'>通过</a></td><td><a href='javascript:openReponsive("
+													+ broorwList[i].abid
+													+ ");'>不通过</a></td></tr>");
+						}
+						;
+					},
+					error : function(date) {
 						alert(date.status);
 					}
-			});
-		}
-		
-		function checkBroorwOk(abid){
-			$.ajax({
-				type:"post",
-				url:"/sam/broorw/checkBroorwOk",
-				data:"abid="+abid, 
-				dataType:"JSON",
-				success:function(date){
-					if(date>0){
-						alert("修改成功");
-						initBroorw(1);
-					}
-				},
-				error:function(date){
-					alert(date.status)
+				});
+	}
+
+	function checkBroorwOk(abid) {
+		$.ajax({
+			type : "post",
+			url : "/sam/broorw/checkBroorwOk",
+			data : "abid=" + abid,
+			dataType : "JSON",
+			success : function(date) {
+				if (date > 0) {
+					alert("修改成功");
+					initBroorw(1);
 				}
-			});
-		}
-
-	</script>
-
-
-	<script>
-		jQuery(document).ready(function() {
-			
-			initBroorw(1);
-
+			},
+			error : function(date) {
+				alert(date.status)
+			}
 		});
+	}
+</script>
 
-		
-	</script>
 
-	<!-- END JAVASCRIPTS -->
-</body>
+<script>
+	jQuery(document).ready(function() {
 
-<!-- END BODY -->
+		initBroorw(1);
 
-</html>
+	});
+</script>
+
