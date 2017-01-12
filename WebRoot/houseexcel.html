@@ -92,7 +92,7 @@
 			<!-- 隐藏的exceldiv -->
 			 <div id="exporthouseexcel" class="modal hide fade" tabindex="-1"
 				data-width="760">
-				<form action="/sam/wareHouse/exportHouseExcel" method="post">
+				<form action="/sam/wareHouse/exportHouseExcel" method="post" onsubmit="return submitExcelForm();">
 				
 				<input type="hidden" id="ainameexcel" name="ainame" value="">
 				<input type="hidden" id="assettypeexcel" name="atname" value="">
@@ -282,6 +282,12 @@
 						alert("出错了" + data.status);
 					}
 				});
+	}
+	
+	
+	function submitExcelForm() {
+		$("#accept-tbody-close").click();
+		return true;
 	}
 
 </script>

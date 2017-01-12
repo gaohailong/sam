@@ -68,18 +68,10 @@
 
 			</div>
 
-			<center>
-				<a href="javascript:initAllAssetUser(1);" data-toggle="modal"
-					class="btn red ">首页</a> | <a id="perPage" href=""
-					data-toggle="modal" class="btn red ">上一页</a> | <a id="nextPage"
-					href="" data-toggle="modal" class="btn red ">下一页</a> | <a
-					id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a>
-				| 第<span id="currentPage"></span>页 | 共<span id="totalRecord"></span>条数据
-			</center>
 			<!-- 隐藏的exceldiv -->
 			 <div id="exportuserexcel" class="modal hide fade" tabindex="-1"
 				data-width="760">
-				<form action="/sam/userController/exportUserExcel" method="post">
+				<form action="/sam/userController/exportUserExcel" method="post" onsubmit=" return submitExcelForm();">
 				
 				<input type="hidden" id="ainameexcel" name="ainame" value="">
 				<input type="hidden" id="assettypeexcel" name="atname" value="">
@@ -143,6 +135,15 @@
 			</div>
 			<!-- 隐藏的exceldiv结束 -->
 		</div>
+		
+			<center>
+				<a href="javascript:initAllAssetUser(1);"
+					class="btn red ">首页</a> | <a id="perPage" href=""
+					data-toggle="modal" class="btn red ">上一页</a> | <a id="nextPage"
+					href="" data-toggle="modal" class="btn red ">下一页</a> | <a
+					id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a>
+				| 第<span id="currentPage"></span>页 | 共<span id="totalRecord"></span>条数据
+			</center>
 		<!-- END SAMPLE TABLE PORTLET-->
 	</div>
 </div>
@@ -290,6 +291,10 @@
 				});
 	}
 
+	function submitExcelForm() {
+		$("#accept-tbody-close").click();
+		return true;
+	}
 	
 	
 </script>
