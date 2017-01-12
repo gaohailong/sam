@@ -1,136 +1,131 @@
 
-        <div class="container-fluid">
-            <!-- BEGIN PAGE HEADER-->
-            <div class="row-fluid">
-                <div class="span12">
-                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 class="page-title">
-                        购置申请
-                    </h3>
-                    <ul class="breadcrumb">
-                        <li>
-                            <i class="icon-home"></i>
-                            <a href="index.html">首页</a>
-                            <i class="icon-angle-right"></i>
-                        </li>
-                        <li><a href="#">购置申请</a></li>
-                    </ul>
-                    <!-- END PAGE TITLE & BREADCRUMB-->
-                </div>
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+	<div class="span12">
+		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+		<h3 class="page-title">购置申请</h3>
+		<ul class="breadcrumb">
+			<li><i class="icon-home"></i> <a href="index.html">首页</a> <i
+				class="icon-angle-right"></i></li>
+			<li><a href="#">购置申请</a></li>
+		</ul>
+		<!-- END PAGE TITLE & BREADCRUMB-->
+	</div>
 
-            </div>
+</div>
 
-            <!-- END PAGE HEADER-->
+<!-- END PAGE HEADER-->
 
-            <!-- BEGIN PAGE CONTENT-->
-            <div class="row-fluid">
-                <div class="span12">
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+	<div class="span12">
 
-                    <!-- BEGIN SAMPLE TABLE PORTLET-->
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
 
-                    <div class="portlet box red ">
-                        <div class="portlet-title">
-                            <div class="caption"><i class="icon-cogs"></i>查询</div>
-                            <div class="actions">
-								  <a href="#responsive" data-toggle="modal" class="btn green "><i class="icon-search"></i>申请</a>
-                                <a href="javascript:findByCondition('1');" data-toggle="modal" class="btn green "><i class="icon-search"></i>查询</a>
-                            </div>
-                        </div>
+		<div class="portlet box red ">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-cogs"></i>查询
+				</div>
+				<div class="actions">
+					<a href="#responsive" data-toggle="modal" class="btn green "><i
+						class="icon-search"></i>申请</a> <a
+						href="javascript:findByCondition('1');" data-toggle="modal"
+						class="btn green "><i class="icon-search"></i>查询</a>
+				</div>
+			</div>
 
-                        <div class="portlet-body">
-                            <!-- BEGIN FORM-->
+			<div class="portlet-body">
+				<!-- BEGIN FORM-->
 
-                            <form action="#" class="form-horizontal" id="selectform">
-                                <div class="row-fluid">
+				<form action="#" class="form-horizontal" id="selectform">
+					<div class="row-fluid">
+						<div class="control-group">
+							<label class="control-label span2">设备名称</label>
+							<div class="controls span2">
+								<input id="assetname" type="text" name="ainame"
+									placeholder="设备名称" class="m-wrap medium" value="" />
+
+							</div>
+							<label class="control-label span3">申请部门</label>
+
+							<div class="controls span2">
+
+								<select class="medium m-wrap" tabindex="1" name="adname"
+									id="assetDepartment">
+									<option value="-1">请选择部门</option>
+								</select>
+
+							</div>
+
+						</div>
+					</div>
+				</form>
+				<!-- END FORM-->
+			</div>
+			<!-- 购置审核单 -->
+
+			<div id="editor" class="modal hide fade" tabindex="-1"
+				data-width="760" data-height="750">
+				<div class="modal-header">
+
+					<span class="hidden-480">申请审核表</span>
+				</div>
+
+				<div class="modal-body">
+
+					<div class="portlet-body form">
+
+						<div class="tabbable portlet-tabs">
+
+							<div class="tab-content">
+
+								<div class="tab-pane active" id="portlet_tab1">
+
+									<!-- BEGIN FORM-->
+
+									<form class="form-horizontal" id="checkform">
+
 										<div class="control-group">
-											<label class="control-label span2">设备名称</label>
-											<div class="controls span2">
-												<input id="assetname" type="text" name="ainame" placeholder="设备名称" class="m-wrap medium" value=""/>
+											<div class="control-group"></div>
+											<div class="control-group"></div>
 
-											</div>
-											<label class="control-label span3">申请部门</label>
+										</div>
 
-											<div class="controls span2">
 
-												<select class="medium m-wrap" tabindex="1"  name="adname" id="assetDepartment">
-													<option value="-1">请选择部门</option>
-												</select>
 
-											</div>
 
-										</div>					
-									</div>
-                            </form>
-                            <!-- END FORM-->
-                        </div>
-                        <!-- 购置审核单 -->
-                        
-                        <div id="editor" class="modal hide fade" tabindex="-1"
-                           data-width="760" data-height="750">
-                              <div class="modal-header">
+										<div class="control-group">
 
-									<span class="hidden-480">申请审核表</span>
-								</div>
-								
-								<div class="modal-body">
+											<label class="control-label">购置备注</label>
 
-									<div class="portlet-body form">
+											<div class="controls">
 
-										<div class="tabbable portlet-tabs">
-
-											<div class="tab-content">
-
-												<div class="tab-pane active" id="portlet_tab1">
-
-													<!-- BEGIN FORM-->
-
-													<form  class="form-horizontal" id="checkform">
-
-														<div class="control-group">
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-
-														</div>
-
-			
-														
-
-														<div class="control-group">
-
-															<label class="control-label">购置备注</label>
-
-															<div class="controls">
-
-																<textarea class="large m-wrap" id="item_as_introduce"
-																	rows="3" name="auRemark"></textarea>
-
-															</div>
-
-														</div>
-
-														<input id="accept-tbody-reset" type="reset" class="hide" />
-														
-													</form>
-
-													<!-- END FORM-->
-
-												</div>
-
+												<textarea class="large m-wrap" id="item_as_introduce"
+													rows="3" name="auRemark"></textarea>
 
 											</div>
 
 										</div>
 
-									</div>
+										<input id="accept-tbody-reset" type="reset" class="hide" />
+
+									</form>
+
+									<!-- END FORM-->
+
 								</div>
-								<div class="modal-footer">
 
-									<button id="accept-tbody-close" type="button" data-dismiss="modal" class="btn">关闭</button>
 
-									<button type="button" class="btn blue" onclick="javascript:addApply()">保存</button>
-									
-									
+							</div>
 
+						</div>
+
+					</div>
+				</div>
+				<div class="modal-footer">
+
+<<<<<<< HEAD
 								</div>
 			
                           
@@ -138,448 +133,529 @@
                           <!-- 增加申请订单 -->
 						<div id="responsive" class="modal hide fade" tabindex="-1"
 								data-width="760" data-height="550">
+=======
+					<button id="accept-tbody-close" type="button" data-dismiss="modal"
+						class="btn">关闭</button>
+>>>>>>> a1a6a771f92710808f8782d73e238cd466a23f5c
 
-								<div class="modal-header">
-
-									<span class="hidden-480">申请购置表</span>
-								</div>
-								<div class="modal-body">
-
-									<div class="portlet-body form">
-
-										<div class="tabbable portlet-tabs">
-
-											<div class="tab-content">
-
-												<div class="tab-pane active" id="portlet_tab1">
-
-													<!-- BEGIN FORM-->
-
-													<form  class="form-horizontal" id="applyform">
-
-														<div class="control-group">
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-
-															<label class="control-label">申请人</label>
-
-															<div class="controls">
-
-																<input type="text" name="auname" id="item_as_type" class="m-wrap medium" />
-
-															</div>
-
-														</div>
-
-														<div class="control-group">
-
-															<label class="control-label">设备名称</label>
-
-															<div class="controls">
-
-																<input type="text" id="item_as_name"
-																	class="m-wrap medium" name="ainame" />
-
-															</div>
-
-														</div>
+					<button type="button" class="btn blue"
+						onclick="javascript:addApply()">保存</button>
 
 
-														<div class="control-group">
 
-															<label class="control-label">申请部门</label>
+				</div>
 
-															<div class="controls">
 
-																<select class="medium m-wrap" id="item_as_cate"
-																	tabindex="1" name="adname">
+			</div>
+			<!-- 增加申请订单 -->
+			<div id="responsive" class="modal hide fade" tabindex="-1"
+				data-width="760" data-height="750">
 
-																	<option value="校长办公室">校长办公室</option>
+				<div class="modal-header">
 
-																	<option value="院长室">院长室</option>
+					<span class="hidden-480">申请购置表</span>
+				</div>
+				<div class="modal-body">
 
-																	<option value="老师办公室">老师办公室</option>
+					<div class="portlet-body form">
 
+						<div class="tabbable portlet-tabs">
+
+							<div class="tab-content">
+
+								<div class="tab-pane active" id="portlet_tab1">
+
+									<!-- BEGIN FORM-->
+
+									<form class="form-horizontal" id="applyform">
+
+										<div class="control-group">
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+
+											<label class="control-label">申请人</label>
+
+											<div class="controls">
+
+												<input type="text" name="auname" id="item_as_type"
+													class="m-wrap medium" />
+
+											</div>
+
+										</div>
+
+										<div class="control-group">
+
+											<label class="control-label">设备名称</label>
+
+											<div class="controls">
+
+												<input type="text" id="item_as_name" class="m-wrap medium"
+													name="ainame" />
+
+											</div>
+
+										</div>
+
+
+										<div class="control-group">
+
+<<<<<<< HEAD
 																	<option value="教室">教室</option>
 																	
 																	<option value="分团委">分团委</option>
+=======
+											<label class="control-label">申请部门</label>
+>>>>>>> a1a6a771f92710808f8782d73e238cd466a23f5c
 
-																</select> 
-															</div>
+											<div class="controls">
 
-														</div>
+												<select class="medium m-wrap" id="item_as_cate" tabindex="1"
+													name="adname">
 
-														<div class="control-group">
+													<option value="校长办公室">校长办公室</option>
 
-															<label class="control-label">生产单位</label>
+													<option value="院长室">院长室</option>
 
-															<div class="controls">
+													<option value="老师办公室">老师办公室</option>
 
-																<input class="m-wrap medium" id="item_as_supply"
-																	type="text" placeholder="" name="auSupply" />
+													<option value="教室">教室</option>
 
+												</select>
+											</div>
 
-															</div>
+										</div>
 
-														</div>
+										<div class="control-group">
 
-														<div class="control-group">
+											<label class="control-label">生产单位</label>
 
-															<label class="control-label">所需资金</label>
+											<div class="controls">
 
-															<div class="controls">
-
-																<input class="m-wrap medium" type="text"
-																	id="item_as_life" placeholder="" name="auMoney" />
-
-															</div>
-
-														</div>
-
-														<div class="control-group">
-
-															<label class="control-label">购买数量</label>
-
-															<div class="controls">
-
-																<input class="m-wrap medium" id="item_as_depreciation"
-																	type="text" placeholder="" name="auNumber" />
-
-
-															</div>
-
-														</div>
-
-														<div class="control-group">
-
-															<label class="control-label">购买理由</label>
-
-															<div class="controls">
-
-																<input class="m-wrap medium" id="item_as_remainratio"
-																	type="text" placeholder="" name="auReason" />
-
-
-															</div>
-
-														</div>
-
-														<div class="control-group">
-
-															<label class="control-label">购置备注</label>
-
-															<div class="controls">
-
-																<textarea class="large m-wrap" id="item_as_introduce"
-																	rows="3" name="auRemark"></textarea>
-
-															</div>
-
-														</div>
-
-														<input id="accept-tbody-reset" type="reset" class="hide" />
-														
-													</form>
-
-													<!-- END FORM-->
-
-												</div>
+												<input class="m-wrap medium" id="item_as_supply" type="text"
+													placeholder="" name="auSupply" />
 
 
 											</div>
 
 										</div>
 
-									</div>
+										<div class="control-group">
+
+											<label class="control-label">所需资金</label>
+
+											<div class="controls">
+
+												<input class="m-wrap medium" type="text" id="item_as_life"
+													placeholder="" name="auMoney" />
+
+											</div>
+
+										</div>
+
+										<div class="control-group">
+
+											<label class="control-label">购买数量</label>
+
+											<div class="controls">
+
+												<input class="m-wrap medium" id="item_as_depreciation"
+													type="text" placeholder="" name="auNumber" />
+
+
+											</div>
+
+										</div>
+
+										<div class="control-group">
+
+											<label class="control-label">购买理由</label>
+
+											<div class="controls">
+
+												<input class="m-wrap medium" id="item_as_remainratio"
+													type="text" placeholder="" name="auReason" />
+
+
+											</div>
+
+										</div>
+
+										<div class="control-group">
+
+											<label class="control-label">购置备注</label>
+
+											<div class="controls">
+
+												<textarea class="large m-wrap" id="item_as_introduce"
+													rows="3" name="auRemark"></textarea>
+
+											</div>
+
+										</div>
+
+										<input id="accept-tbody-reset" type="reset" class="hide" />
+
+									</form>
+
+									<!-- END FORM-->
+
 								</div>
 
-								<div class="modal-footer">
 
-									<button id="accept-tbody-close" type="button" data-dismiss="modal" class="btn">关闭</button>
+							</div>
 
-									<button type="button" class="btn blue" onclick="javascript:addApply()">保存</button>
-								</div>
 						</div>
 
-                    </div>
-                    <!-- END SAMPLE TABLE PORTLET-->
-                </div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+
+					<button id="accept-tbody-close" type="button" data-dismiss="modal"
+						class="btn">关闭</button>
+
+					<button type="button" class="btn blue"
+						onclick="javascript:addApply()">保存</button>
+				</div>
+			</div>
+
+		</div>
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
 
 
-            </div>
+</div>
 
-            <div class="row-fluid">
+<div class="row-fluid">
 
-                <div class="span12">
+	<div class="span12">
 
-                    <!-- BEGIN SAMPLE TABLE PORTLET-->
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
 
-                    <div class="portlet box red">
+		<div class="portlet box red">
 
-                        <div class="portlet-title">
+			<div class="portlet-title">
 
-                            <div class="caption"><i class="icon-cogs"></i>申请设备列表</div>
-                        </div>
+				<div class="caption">
+					<i class="icon-cogs"></i>申请设备列表
+				</div>
+			</div>
 
-                        <div class="portlet-body">
+			<div class="portlet-body">
 
-                            <table class="table table-hover">
+				<table class="table table-hover">
 
-                                <thead>
-                                       <tr>
+					<thead>
+						<tr>
 
-											<th>申请设备名称</th>
+							<th>申请设备名称</th>
 
-											<th>申请部门</th>
-                                          
-                                            <th>申请人</th>
+							<th>申请部门</th>
 
-											<th>生产单位</th>
+							<th>申请人</th>
 
-											<th>所需资金</th>
+							<th>生产单位</th>
 
-											<th>申请数量</th>
+							<th>所需资金</th>
 
-											<th >购买理由</th>
-											
-											<th >申请状态</th>
+							<th>申请数量</th>
 
-											<th >操</th>
-                                            <th >作</th>
-											<th>删除本行</th>
-                                     </tr>
-                                </thead>
+							<th>购买理由</th>
 
-                                <tbody id="assetTbody">
-                                </tbody>
+							<th>申请状态</th>
 
-                            </table>
+							<th>操</th>
+							<th>作</th>
+							<th>删除本行</th>
+						</tr>
+					</thead>
 
-                        </div>
+					<tbody id="assetTbody">
+					</tbody>
 
-                  <center>
-                   <a href="javascript:initAllAssetApply(1);" data-toggle="modal" class="btn red ">首页</a>  |
-                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
-                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
-                   	<a id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
-                   	第<span id="currentPage"></span>页 | 
-                   	共<span id="totalRecord"></span>条数据
-                   </center>
-                    <!-- END SAMPLE TABLE PORTLET-->
-                </div>
-            </div>
-        </div>
+				</table>
+
+			</div>
+
+			<center>
+				<a href="javascript:initAllAssetApply(1);" data-toggle="modal"
+					class="btn red ">首页</a> | <a id="perPage" href=""
+					data-toggle="modal" class="btn red ">上一页</a> | <a id="nextPage"
+					href="" data-toggle="modal" class="btn red ">下一页</a> | <a
+					id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a>
+				| 第<span id="currentPage"></span>页 | 共<span id="totalRecord"></span>条数据
+			</center>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>
+	</div>
+</div>
 
 <script>
-
-    jQuery(document).ready(function () {
-        App.init(); // initlayout and core plugins
+	jQuery(document).ready(function() {
 		initAllAssetApply(1);
 		initAllDepartment();
-    });
-   
-	function addApply(){
-		alert("进入apply方法:"+$('#applyform').serialize());
-		    $.ajax({
-			    type:"post",
-				url:"/sam/apply/addApply",
-				data:$('#applyform').serialize(),
-				dataType:"JSON",
-				success: function(data){
-				  if(data>0)
-				   initAllAssetApply(1);
-				},
-				error:function(data){
-				  alert("添加错误");
-				}
-			});
+	});
+
+	function addApply() {
+		alert("进入apply方法:" + $('#applyform').serialize());
+		$.ajax({
+			type : "post",
+			url : "/sam/apply/addApply",
+			data : $('#applyform').serialize(),
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					initAllAssetApply(1);
+			},
+			error : function(data) {
+				alert("添加错误");
+			}
+		});
 	}
-	
-	function deleteApply(aaid){
-	  $.ajax({
-	    type: "post",
-	    url:"/sam/apply/deleteApply/"+aaid,
-	    dataType: "JSON",
-	    success:function(data){
-	    if(data>0)
-	    alert("删除成功");
-	     initAllAssetApply(1);
-	    },
-	    error:function(data){
-	    alert("删除失败"+data.status);
-	    }
-	  });
+
+	function deleteApply(aaid) {
+		$.ajax({
+			type : "post",
+			url : "/sam/apply/deleteApply/" + aaid,
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					alert("删除成功");
+				initAllAssetApply(1);
+			},
+			error : function(data) {
+				alert("删除失败" + data.status);
+			}
+		});
 	}
-	
-	function updateApply(aaid){
-	alert("进入修改的方法");
-	  $.ajax({
-	   type: "post",
-	   url:"/sam/apply/updateApply",
-	   data:"aaid="+aaid,
-	   dataType:"JSON",
-	   success:function(data){
-	      if(data>0)
-	      alert("修改成功");
-	      initAllAssetApply(1);
-	      
-	   },
-	   error:function(data){
-	   alert("修改失败");
-	   }
-	  });
+
+	function updateApply(aaid) {
+		alert("进入修改的方法");
+		$.ajax({
+			type : "post",
+			url : "/sam/apply/updateApply",
+			data : "aaid=" + aaid,
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					alert("修改成功");
+				initAllAssetApply(1);
+
+			},
+			error : function(data) {
+				alert("修改失败");
+			}
+		});
 	}
-	
+
 	//多条件分页查询
-	  function findByCondition(page){
-		  var ainame = $("#assetname").val();
-		  var adname = $("#assetDepartment").val();
-		  var reqParam = {"ainame":ainame,"adname":adname};
-	  			$.ajax({
-				type : "post",
-				url : "/sam/apply/findApplyByAinameAndAdname",
-				data : reqParam,
-				dataType : "JSON",
-				success : function(data) {
-				alert(data);
-					//总页数
-					var totalPage = data.totalPage;
-					
-					//当前页码
-					var currentPage = data.currentPage;
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
+	function findByCondition(page) {
+		var ainame = $("#assetname").val();
+		var adname = $("#assetDepartment").val();
+		var reqParam = {
+			"ainame" : ainame,
+			"adname" : adname
+		};
+		$
+				.ajax({
+					type : "post",
+					url : "/sam/apply/findApplyByAinameAndAdname",
+					data : reqParam,
+					dataType : "JSON",
+					success : function(data) {
+						alert(data);
+						//总页数
+						var totalPage = data.totalPage;
+
+						//当前页码
+						var currentPage = data.currentPage;
+						$("#currentPage").html(currentPage);
+
+						var perPagenum;
+						perPagenum = page - 1;
+						if (perPagenum < 1) {
+							perPagenum = 1;
+						}
+						$("#perPage").attr(
+								"href",
+								"javascript:findByCondition(" + perPagenum
+										+ ");");
+						var lastpagenum;
+						nextPage = page + 1;
+						if (nextPage > totalPage) {
+							nextPage = totalPage;
+						}
+						$("#nextPage")
+								.attr(
+										"href",
+										"javascript:findByCondition("
+												+ nextPage + ");");
+						$("#lastPage").attr(
+								"href",
+								"javascript:findByCondition(" + totalPage
+										+ ");");
+
+						//总条目数
+						var totalRecord = data.totalRecord;
+						$("#totalRecord").html(totalRecord);
+
+						var assetApplyList = data.dataList;
+						$("#assetTbody").html("");
+						for (var i = 0; i < assetApplyList.length; i++) {
+							$("#assetTbody")
+									.append(
+											"<tr>" + "<td>"
+													+ assetApplyList[i].ainame
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].adname
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].auname
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].ausupply
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].aumoney
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].aunumber
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].aureason
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].auresult
+													+ "</td>"
+													+ "<td><a href='javascript:updateApply("
+													+ assetApplyList[i].aaid
+													+ ");' data-toggle='modal' >同意</a></td>"
+													+ "<td><a href='#editor' data-toggle='modal' >不同意</a></td>"
+													+ "<td><a  href='javascript:deleteApply("
+													+ assetApplyList[i].aaid
+													+ ");'>删除</a></td>"
+													+ "</tr>");
+						}
+					},
+					error : function(data) {
+						alert("出错了" + data.status);
 					}
-					$("#perPage").attr("href","javascript:findByCondition("+perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:findByCondition("+nextPage+");");
-					$("#lastPage").attr("href","javascript:findByCondition("+totalPage+");");
-					
-					//总条目数
-					var totalRecord = data.totalRecord;
-					$("#totalRecord").html(totalRecord);
-					
-										
-					var assetApplyList = data.dataList;
-					$("#assetTbody").html("");
-					for(var i = 0;i < assetApplyList.length;i++) {
-						$("#assetTbody").append(
-							"<tr>"
-							+"<td>"+assetApplyList[i].ainame+"</td>"
-							+"<td>"+assetApplyList[i].adname+"</td>"
-							+"<td>"+assetApplyList[i].auname+"</td>"
-							+"<td>"+assetApplyList[i].ausupply+"</td>"
-							+"<td>"+assetApplyList[i].aumoney+"</td>"
-							+"<td>"+assetApplyList[i].aunumber+"</td>"
-							+"<td>"+assetApplyList[i].aureason+"</td>"
-							+"<td>"+assetApplyList[i].auresult+"</td>"
-							+"<td><a href='javascript:updateApply("+assetApplyList[i].aaid+");' data-toggle='modal' >同意</a></td>"
-							+"<td><a href='#editor' data-toggle='modal' >不同意</a></td>"
-							+"<td><a  href='javascript:deleteApply("+assetApplyList[i].aaid+");'>删除</a></td>"
-							+"</tr>"
-						);
-					}
-				},
-				error : function(data) {
-				alert("出错了"+data.status);
-				}
-			});
-	   
-	  }
-	
+				});
+
+	}
+
 	//初始化全部设备的分页信息
-		function initAllAssetApply(page) {
-			$.ajax({
-				type : "GET",
-				url : "/sam/apply/findAllApply",
-				data : "page="+page,
-				dataType : "JSON",
-				success : function(data) {
-				
-					//总页数
-					var totalPage = data.totalPage;
-					
-					//当前页码
-					var currentPage = data.currentPage;
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
-					}
-					$("#perPage").attr("href","javascript:initAllAssetApply("+perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:initAllAssetApply("+nextPage+");");
-					$("#lastPage").attr("href","javascript:initAllAssetApply("+totalPage+");");
-					
-					//总条目数
-					var totalRecord = data.totalRecord;
-					$("#totalRecord").html(totalRecord);
-					
-										
-					var assetApplyList = data.dataList;
-					$("#assetTbody").html("");
-					for(var i = 0;i < assetApplyList.length;i++) {
-						$("#assetTbody").append(
-							"<tr>"
-							+"<td>"+assetApplyList[i].ainame+"</td>"
-							+"<td>"+assetApplyList[i].adname+"</td>"
-							+"<td>"+assetApplyList[i].auname+"</td>"
-							+"<td>"+assetApplyList[i].ausupply+"</td>"
-							+"<td>"+assetApplyList[i].aumoney+"</td>"
-							+"<td>"+assetApplyList[i].aunumber+"</td>"
-							+"<td>"+assetApplyList[i].aureason+"</td>"
-							+"<td>"+assetApplyList[i].auresult+"</td>"
-							+"<td><a href='javascript:updateApply("+assetApplyList[i].aaid+");' data-toggle='modal' >同意</a></td>"
-							+"<td><a href='#editor' data-toggle='modal' >不同意</a></td>"
-							+"<td><a class='delete' href='javascript:deleteApply("+assetApplyList[i].aaid+");'>删除</a></td>"
-							+"</tr>"
-						);
-					}
-				},
-				error : function(data) {
-				alert("出错了"+data.status);
-				}
-			});
-		}
-		
-		//初始化查询模块中的部门下拉列表
-		function initAllDepartment() {
-			$.ajax({
-				type:"GET",
-				url: "/sam/apply/findAllSecondDepartments",
-				dataType:"JSON",
-				success:function(data) {
-					$("#assetDepartment").html("");
-					 $(data).each(
-					 	function (index, value) {
-                            $("#assetDepartment").append(
-                                    "<option value='"+value.adname+"'>"+value.adname+"</option>"
-                            );
-                        }
-					 );
-					
-				},
-				error:function(data) {
-					alert("出错了："+data.status);
-				}	
-			});
-		}
+	function initAllAssetApply(page) {
+		$
+				.ajax({
+					type : "GET",
+					url : "/sam/apply/findAllApply",
+					data : "page=" + page,
+					dataType : "JSON",
+					success : function(data) {
 
+						//总页数
+						var totalPage = data.totalPage;
 
+						//当前页码
+						var currentPage = data.currentPage;
+						$("#currentPage").html(currentPage);
+
+						var perPagenum;
+						perPagenum = page - 1;
+						if (perPagenum < 1) {
+							perPagenum = 1;
+						}
+						$("#perPage").attr(
+								"href",
+								"javascript:initAllAssetApply(" + perPagenum
+										+ ");");
+						var lastpagenum;
+						nextPage = page + 1;
+						if (nextPage > totalPage) {
+							nextPage = totalPage;
+						}
+						$("#nextPage").attr(
+								"href",
+								"javascript:initAllAssetApply(" + nextPage
+										+ ");");
+						$("#lastPage").attr(
+								"href",
+								"javascript:initAllAssetApply(" + totalPage
+										+ ");");
+
+						//总条目数
+						var totalRecord = data.totalRecord;
+						$("#totalRecord").html(totalRecord);
+
+						var assetApplyList = data.dataList;
+						$("#assetTbody").html("");
+						for (var i = 0; i < assetApplyList.length; i++) {
+							$("#assetTbody")
+									.append(
+											"<tr>" + "<td>"
+													+ assetApplyList[i].ainame
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].adname
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].auname
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].ausupply
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].aumoney
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].aunumber
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].aureason
+													+ "</td>"
+													+ "<td>"
+													+ assetApplyList[i].auresult
+													+ "</td>"
+													+ "<td><a href='javascript:updateApply("
+													+ assetApplyList[i].aaid
+													+ ");' data-toggle='modal' >同意</a></td>"
+													+ "<td><a href='#editor' data-toggle='modal' >不同意</a></td>"
+													+ "<td><a class='delete' href='javascript:deleteApply("
+													+ assetApplyList[i].aaid
+													+ ");'>删除</a></td>"
+													+ "</tr>");
+						}
+					},
+					error : function(data) {
+						alert("出错了" + data.status);
+					}
+				});
+	}
+
+	//初始化查询模块中的部门下拉列表
+	function initAllDepartment() {
+		$.ajax({
+			type : "GET",
+			url : "/sam/apply/findAllSecondDepartments",
+			dataType : "JSON",
+			success : function(data) {
+				$("#assetDepartment").html("");
+				$(data).each(
+						function(index, value) {
+							$("#assetDepartment").append(
+									"<option value='"+value.adname+"'>"
+											+ value.adname + "</option>");
+						});
+
+			},
+			error : function(data) {
+				alert("出错了：" + data.status);
+			}
+		});
+	}
 </script>
 

@@ -1,807 +1,67 @@
-<!DOCTYPE html>
 
-<!--[if IE 8]>
-<html lang="en" class="ie8 no-js"> <![endif]-->
+<div class="row-fluid">
+	<div class="span12">
+		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+		<h3 class="page-title">系统管理</h3>
+		<ul class="breadcrumb">
 
-<!--[if IE 9]>
-<html lang="en" class="ie9 no-js"> <![endif]-->
+			<li><i class="icon-home"></i> <a href="index.html">首页</a> <span
+				class="icon-angle-right"></span></li>
 
-<!--[if !IE]><!-->
-<html lang="en" class="no-js"> <!--<![endif]-->
+			<li><a href="#">系统管理</a> <span class="icon-angle-right"></span>
 
-<!-- BEGIN HEAD -->
+			</li>
 
-<head>
+			<li><a href="#">仓库管理</a></li>
 
-    <meta charset="utf-8"/>
-
-    <title>资产查询</title>
-
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-
-    <meta content="" name="description"/>
-
-    <meta content="" name="author"/>
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-
-    <link rel="stylesheet" type="text/css" href="media/css/bootstrap-fileupload.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/jquery.gritter.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/chosen.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/select2_metro.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/jquery.tagsinput.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/clockface.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/bootstrap-wysihtml5.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/datepicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/timepicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/colorpicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/bootstrap-toggle-buttons.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/daterangepicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/datetimepicker.css"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/multi-select-metro.css"/>
-
-    <link href="media/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
-
-    <!-- END PAGE LEVEL STYLES -->
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-
-    <link href="media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/style-metro.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/style.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-
-    <link href="media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-
-    <!-- END GLOBAL MANDATORY STYLES -->
-
-    <!-- BEGIN PAGE LEVEL STYLES -->
-
-    <link href="media/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/daterangepicker.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
-
-    <link href="media/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
-
-    <link href="media/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
-
-    <link rel="stylesheet" type="text/css" href="media/css/datepicker.css"/>
-    <!-- END PAGE LEVEL STYLES -->
-
-    <link rel="shortcut icon" href="media/image/favicon.ico"/>
-
-</head>
-
-<!-- END HEAD -->
-
-<!-- BEGIN BODY -->
-
-<body class="page-header-fixed">
-
-<!-- BEGIN HEADER -->
-
-<div class="header navbar navbar-inverse navbar-fixed-top">
-
-    <!-- BEGIN TOP NAVIGATION BAR -->
-
-    <div class="navbar-inner">
-
-        <div class="container-fluid">
-
-            <!-- BEGIN LOGO -->
-
-            <a class="brand" href="index.html">
-
-                <img src="media/image/logo.png" alt="logo"/>
-
-            </a>
-
-            <!-- END LOGO -->
-
-            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-
-            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-
-                <img src="media/image/menu-toggler.png" alt=""/>
-
-            </a>
-
-            <!-- END RESPONSIVE MENU TOGGLER -->
-        </div>
-
-    </div>
-
-    <!-- END TOP NAVIGATION BAR -->
+		</ul>
+		<!-- END PAGE TITLE & BREADCRUMB-->
+	</div>
 
 </div>
 
-<!-- END HEADER -->
-<div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
+<!-- END PAGE HEADER-->
 
-<!-- BEGIN CONTAINER -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+	<div class="span12">
 
-<div class="page-container">
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
 
-    <!-- BEGIN SIDEBAR -->
+		<div class="portlet box red ">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-cogs"></i>查询
+				</div>
+				<div class="actions">
+					<!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
+					<a href="#responsive" data-toggle="modal" class="btn green "><i
+						class="icon-search"></i>新增</a> <a href="#" data-toggle="modal"
+						class="btn green "><i class="icon-search"></i>查询</a>
+				</div>
+			</div>
 
-    <div class="page-sidebar nav-collapse collapse">
+			<div class="portlet-body">
 
-        <!-- BEGIN SIDEBAR MENU -->
+				<table class="table table-hover">
 
-        <ul class="page-sidebar-menu">
+					<thead>
 
-            <li>
+						<th>仓库名称</th>
 
-                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+						<th>管理人员名称</th>
 
-                <div class="sidebar-toggler hidden-phone"></div>
+						<th>备注</th>
 
-                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+						<th>操作</th>
 
-            </li>
+						<th>删除本行</th>
 
-            <li>
+					</thead>
 
-                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<tbody id="assetTbody">
 
-                <form class="sidebar-search">
-
-                    <div class="input-box">
-
-                        <a href="javascript:;" class="remove"></a>
-
-                        <input type="text" placeholder="Search..."/>
-
-                        <input type="button" class="submit" value=" "/>
-
-                    </div>
-
-                </form>
-
-                <!-- END RESPONSIVE QUICK SEARCH FORM -->
-
-            </li>
-
-            <li class="start ">
-
-                <a href="asindex.html">
-
-                    <i class="icon-home"></i>
-
-                    <span class="title">首页</span>
-
-                    <span class="selected"></span>
-
-                </a>
-
-            </li>
-			
-			<li>
-
-                <a href="asform_apply.html">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">购置申请</span>
-
-                    <span class="selected"></span>
-
-                </a>
-
-            </li>
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产存放地点</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="javascript:;">
-
-                            仓库
-
-                            <span class="arrow"></span>
-
-                        </a>
-
-                        <ul class="sub-menu">
-
-                            <li><a href="#">仓库1</a></li>
-
-                            <li><a href="#">仓库2</a></li>
-
-                            <li><a href="#">仓库3</a></li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-
-                        <a href="javascript:;">
-
-                            办公室
-
-                            <span class="arrow"></span>
-
-                        </a>
-
-                        <ul class="sub-menu">
-
-                            <li><a href="#">院长办公室</a></li>
-
-                            <li><a href="#">书记办公室</a></li>
-
-                            <li><a href="#">团委办公室</a></li>
-
-                            <li><a href="#">老师办公室</a></li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-
-                        <a href="javascript:;">
-
-                            实验室
-
-                            <span class="arrow"></span>
-
-                        </a>
-
-                        <ul class="sub-menu">
-
-                            <li><a href="#">东机房</a></li>
-
-                            <li><a href="#">西机房</a></li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-
-                        <a href="javascript:;">
-
-                            教室
-
-                            <span class="arrow"></span>
-
-                        </a>
-
-                        <ul class="sub-menu">
-
-                            <li><a href="#">1001教室</a></li>
-
-                            <li><a href="#">1002教室</a></li>
-
-                            <li><a href="#">1003教室</a></li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            财务室
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产管理</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="asform_layout.html">
-
-                            资产的入库
-
-                        </a>
-
-                    </li>
-
-
-                    <li>
-
-                        <a href="#">
-
-                            资产的维修
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            资产的变动
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            资产的事故
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            资产的运行情况
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产查询</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="#">
-
-                            资产查询
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            变更查询
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            维修查询
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            维修中
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            已报废处理
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产使用部门</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu" id="item_department">
-
-                </ul>
-
-            </li>
-
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产使用情况</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="#">
-
-                            使用中
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            未使用3
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            借出中
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            维修中
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            已报废处理
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-			
-			<li class="active">
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">系统管理</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="asset_manager_user.html">
-
-                            人员管理
-
-                        </a>
-
-                    </li>
-                    <li  class="active">
-
-                        <a href="asset_manager_warehouse.html">
-
-                            仓库管理
-
-                        </a>
-
-                    </li>
-					<li>
-
-                        <a href="asset_manager_department.html">
-
-                            部门管理
-
-                        </a>
-
-                    </li>
-                    
-                    <li>
-
-                        <a href="asset_manager_type.html">
-
-                          类别管理
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产类别</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="#">
-
-                            器材
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            桌椅
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            电脑
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            等等.......
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-            <li>
-
-                <a class="active" href="javascript:;">
-
-                    <i class="icon-sitemap"></i>
-
-                    <span class="title">资产管理人员</span>
-
-                    <span class="arrow "></span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li>
-
-                        <a href="#">
-
-                            张三
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            李四
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            王五
-
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="#">
-
-                            赵六
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </li>
-
-
-        </ul>
-
-        <!-- END SIDEBAR MENU -->
-
-    </div>
-
-    <!-- END SIDEBAR -->
-
-    <!-- BEGIN PAGE -->
-
-    <div class="page-content">
-        <!-- BEGIN PAGE -->
-        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-        <div id="portlet-config" class="modal hide">
-            <div class="modal-header">
-                <button data-dismiss="modal" class="close" type="button"></button>
-                <h3>portlet Settings</h3>
-            </div>
-            <div class="modal-body">
-                <p>Here will be a configuration form</p>
-            </div>
-        </div>
-        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-        <!-- BEGIN PAGE CONTAINER-->
-        <div class="container-fluid">
-            <!-- BEGIN PAGE HEADER-->
-            <div class="row-fluid">
-                <div class="span12">
-                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 class="page-title">
-                        系统管理
-                    </h3>
-                   				<ul class="breadcrumb">
-
-							<li>
-
-								<i class="icon-home"></i>
-
-								<a href="index.html">首页</a> 
-
-								<span class="icon-angle-right"></span>
-
-							</li>
-
-							<li>
-
-								<a href="#">系统管理</a>
-
-								<span class="icon-angle-right"></span>
-
-							</li>
-
-							<li><a href="#">仓库管理</a></li>
-
-						</ul>
-                    <!-- END PAGE TITLE & BREADCRUMB-->
-                </div>
-
-            </div>
-
-            <!-- END PAGE HEADER-->
-
-            <!-- BEGIN PAGE CONTENT-->
-            <div class="row-fluid">
-                <div class="span12">
-
-                    <!-- BEGIN SAMPLE TABLE PORTLET-->
-
-                    <div class="portlet box red ">
-                        <div class="portlet-title">
-                            <div class="caption"><i class="icon-cogs"></i>查询</div>
-                            <div class="actions">
-                                <!--<a href="#" class="btn yellow "><i class="icon-pencil"></i> Edit</a>-->
-								  <a href="#responsive" data-toggle="modal" class="btn green "><i class="icon-search"></i>新增</a>
-                                <a href="#" data-toggle="modal" class="btn green "><i class="icon-search"></i>查询</a>
-                            </div>
-                        </div>
-						
-						                        <div class="portlet-body">
-
-                            <table class="table table-hover">
-
-                                <thead>
-
-                                            <th>仓库名称</th>
-
-											<th>管理人员名称</th>
-											
-											<th>备注</th>
-																					
-											<th>操作</th>
-
-											<th>删除本行</th>
-
-                                </thead>
-
-                                <tbody id="assetTbody">
-
-                               	<!-- <tr class="">
+						<!-- <tr class="">
 
 											<td>A210</td>
 
@@ -845,481 +105,414 @@
 
 								</tr>
  -->
-                                 <a href="#updateresponsive" data-toggle="modal" class="hide" id="updatenbsp">&nbsp;</a>
-                                </tbody>
+						<a href="#updateresponsive" data-toggle="modal" class="hide"
+							id="updatenbsp">&nbsp;</a>
+					</tbody>
 
-                            </table>
+				</table>
 
-                        </div>
+			</div>
 
-						<div id="responsive" class="modal hide fade" tabindex="-1"
-								data-width="760" data-height="750">
+			<div id="responsive" class="modal hide fade" tabindex="-1"
+				data-width="760" data-height="750">
 
-								<div class="modal-header">
+				<div class="modal-header">
 
-									<span class="hidden-480">新增仓库表</span>
-								</div>
-								<div class="modal-body">
+					<span class="hidden-480">新增仓库表</span>
+				</div>
+				<div class="modal-body">
 
-									<div class="portlet-body form">
+					<div class="portlet-body form">
 
-										<div class="tabbable portlet-tabs">
+						<div class="tabbable portlet-tabs">
 
-											<div class="tab-content">
+							<div class="tab-content">
 
-												<div class="tab-pane active" id="portlet_tab1">
+								<div class="tab-pane active" id="portlet_tab1">
 
-													<!-- BEGIN FORM-->
+									<!-- BEGIN FORM-->
 
-													<form  class="form-horizontal" id="houseform">
+									<form class="form-horizontal" id="houseform">
 
-														<div class="control-group">
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-															<div class="control-group"></div>
+										<div class="control-group">
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+											<div class="control-group"></div>
 
-															<label class="control-label">仓库名称</label>
+											<label class="control-label">仓库名称</label>
 
-															<div class="controls">
+											<div class="controls">
 
-																<input type="text" id="item_as_type"
-																	class="m-wrap medium" name="ahname"/>
+												<input type="text" id="item_as_type" class="m-wrap medium"
+													name="ahname" />
 
-															</div>
+											</div>
 
-														</div>
-														<div class="control-group">
+										</div>
+										<div class="control-group">
 
-															<label class="control-label">仓库管理员</label>
+											<label class="control-label">仓库管理员</label>
 
-															<div class="controls">
+											<div class="controls">
 
-																<input class="m-wrap medium" id="item_as_supply"
-																name="auname"	type="text" placeholder="" />
-
-
-															</div>
-
-														</div>
-
-													<div class="control-group">
-
-															<label class="control-label">仓库备注</label>
-
-															<div class="controls">
-
-																<textarea class="large m-wrap" id="item_as_introduce"
-																	rows="3" name="ahbeizhu"></textarea>
-
-															</div>
-
-													</div>
-													
-														<input id="accept-tbody-reset" type="reset" class="hide" />
-														
-													</form>
-
-													<!-- END FORM-->
-
-												</div>
+												<input class="m-wrap medium" id="item_as_supply"
+													name="auname" type="text" placeholder="" />
 
 
 											</div>
 
 										</div>
 
-									</div>
-								</div>
+										<div class="control-group">
 
-								<div class="modal-footer">
+											<label class="control-label">仓库备注</label>
 
-									<button id="accept-tbody-close" type="button" data-dismiss="modal" class="btn">关闭</button>
+											<div class="controls">
 
-									<button type="button" class="btn blue" onclick="javascript:addHouse()">保存</button>
-									
-									
-
-								</div>
-
-						</div>
-
-<div id="updateresponsive" class="modal hide fade" tabindex="-1"
-								data-width="760" data-height="750">
-
-								<div class="modal-header">
-
-									<span class="hidden-480">仓库修改表</span>
-								</div>
-								<div class="modal-body">
-
-									<div class="portlet-body form">
-
-										<div class="tabbable portlet-tabs">
-
-											<div class="tab-content">
-
-												<div class="tab-pane active" id="portlet_tab1">
-
-													<!-- BEGIN FORM-->
-
-													<form  class="form-horizontal" id="houseupdateform">
-
-														<div class="control-group">
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-
-															<label class="control-label">仓库名称</label>
-
-															<div class="controls">
-
-																<input type="text" id="item_as_type_update"
-																	class="m-wrap medium" name="ahname"/>
-
-															</div>
-
-														</div>
-													
-														<div class="control-group">
-
-															<label class="control-label">仓库管理人员</label>
-
-															<div class="controls">
-
-																<input type="text" id="item_as_name_update"
-																	class="m-wrap medium" name="auname" />
-
-															</div>
-
-														</div>
-															<div class="control-group">
-
-															<label class="control-label">仓库备注</label>
-
-															<div class="controls">
-
-																<textarea class="large m-wrap" id="item_as_cate_update"
-																	rows="3" name="ahbeizhu"></textarea>
-
-															</div>
-
-													</div>   
-														<input id="accept-tbody-reset" type="reset" class="hide" />
-														
-													</form>
-
-													<!-- END FORM-->
-
-												</div>
-
+												<textarea class="large m-wrap" id="item_as_introduce"
+													rows="3" name="ahbeizhu"></textarea>
 
 											</div>
 
 										</div>
 
-									</div>
-								</div>
+										<input id="accept-tbody-reset" type="reset" class="hide" />
 
-								<div class="modal-footer">
+									</form>
 
-									<button id="accept-tbody-close" type="button" data-dismiss="modal" class="btn">关闭</button>
-
-									<button type="button" class="btn blue" onclick="javascript:updateHouse()">保存</button>
-									
-									
+									<!-- END FORM-->
 
 								</div>
+
+
+							</div>
 
 						</div>
 
-                    </div>
-                    <!-- END SAMPLE TABLE PORTLET-->
-                </div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+
+					<button id="accept-tbody-close" type="button" data-dismiss="modal"
+						class="btn">关闭</button>
+
+					<button type="button" class="btn blue"
+						onclick="javascript:addHouse()">保存</button>
 
 
-            </div>
 
-            <div class="row-fluid">
+				</div>
 
-                <div class="span12">
+			</div>
 
-                    <!-- BEGIN SAMPLE TABLE PORTLET-->
-                    <center>
-                   <a href="javascript:initAllAssetHouse(1);" data-toggle="modal" class="btn red ">首页</a>  |
-                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
-                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
-                   	<a id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
-                   	第<span id="currentPage"></span>页 | 
-                   	共<span id="totalRecord"></span>条数据
-                   </center>
+			<div id="updateresponsive" class="modal hide fade" tabindex="-1"
+				data-width="760" data-height="750">
 
-                    <!-- END SAMPLE TABLE PORTLET-->
-                </div>
-            </div>
-        </div>
+				<div class="modal-header">
 
-        <!-- END PAGE CONTAINER-->
+					<span class="hidden-480">仓库修改表</span>
+				</div>
+				<div class="modal-body">
+
+					<div class="portlet-body form">
+
+						<div class="tabbable portlet-tabs">
+
+							<div class="tab-content">
+
+								<div class="tab-pane active" id="portlet_tab1">
+
+									<!-- BEGIN FORM-->
+
+									<form class="form-horizontal" id="houseupdateform">
+
+										<div class="control-group">
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+
+											<label class="control-label">仓库名称</label>
+
+											<div class="controls">
+
+												<input type="text" id="item_as_type_update"
+													class="m-wrap medium" name="ahname" />
+
+											</div>
+
+										</div>
+
+										<div class="control-group">
+
+											<label class="control-label">仓库管理人员</label>
+
+											<div class="controls">
+
+												<input type="text" id="item_as_name_update"
+													class="m-wrap medium" name="auname" />
+
+											</div>
+
+										</div>
+										<div class="control-group">
+
+											<label class="control-label">仓库备注</label>
+
+											<div class="controls">
+
+												<textarea class="large m-wrap" id="item_as_cate_update"
+													rows="3" name="ahbeizhu"></textarea>
+
+											</div>
+
+										</div>
+										<input id="accept-tbody-reset" type="reset" class="hide" />
+
+									</form>
+
+									<!-- END FORM-->
+
+								</div>
 
 
-        <!-- END PAGE -->
-    </div>
+							</div>
 
-    <!-- END PAGE -->
+						</div>
+
+					</div>
+				</div>
+
+				<div class="modal-footer">
+
+					<button id="accept-tbody-close" type="button" data-dismiss="modal"
+						class="btn">关闭</button>
+
+					<button type="button" class="btn blue"
+						onclick="javascript:updateHouse()">保存</button>
+
+
+
+				</div>
+
+			</div>
+
+		</div>
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
+
 
 </div>
 
-<!-- END CONTAINER -->
+<div class="row-fluid">
 
-<!-- BEGIN FOOTER -->
-<script src="media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<div class="span12">
 
-<script type="text/javascript" src="media/js/ckeditor.js"></script>
-<script type="text/javascript" src="media/js/chosen.jquery.min.js"></script>
-<script type="text/javascript" src="media/js/select2.min.js"></script>
-<script type="text/javascript" src="media/js/wysihtml5-0.3.0.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-wysihtml5.js"></script>
-<script type="text/javascript" src="media/js/jquery.tagsinput.min.js"></script>
-<script type="text/javascript" src="media/js/jquery.toggle.buttons.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-datetimepicker.js"></script>
-<script type="text/javascript" src="media/js/clockface.js"></script>
-<script type="text/javascript" src="media/js/date.js"></script>
-<script type="text/javascript" src="media/js/daterangepicker.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-colorpicker.js"></script>
-<script type="text/javascript" src="media/js/bootstrap-timepicker.js"></script>
-<script type="text/javascript" src="media/js/jquery.inputmask.bundle.min.js"></script>
-<script type="text/javascript" src="media/js/jquery.input-ip-address-control-1.0.min.js"></script>
-<script type="text/javascript" src="media/js/jquery.multi-select.js"></script>
-<script src="media/js/bootstrap-modal.js" type="text/javascript"></script>
-<script src="media/js/bootstrap-modalmanager.js" type="text/javascript"></script>
-<script src="media/js/app.js"></script>
-<script src="media/js/form-components.js"></script>
-<script src="media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-<script src="media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-<script src="media/js/bootstrap.min.js" type="text/javascript"></script>
-<!--[if lt IE 9]>
-<script src="media/js/excanvas.min.js"></script>
-<script src="media/js/respond.min.js"></script>
-<![endif]-->
-<script src="media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="media/js/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="media/js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="media/js/jquery.uniform.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
-<!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="media/js/jquery.vmap.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.russia.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.world.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.europe.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.germany.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.usa.js" type="text/javascript"></script>
-<script src="media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
-<script src="media/js/jquery.flot.js" type="text/javascript"></script>
-<script src="media/js/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="media/js/jquery.pulsate.min.js" type="text/javascript"></script>
-<script src="media/js/date.js" type="text/javascript"></script>
-<script src="media/js/daterangepicker.js" type="text/javascript"></script>
-<script src="media/js/jquery.gritter.js" type="text/javascript"></script>
-<script src="media/js/fullcalendar.min.js" type="text/javascript"></script>
-<script src="media/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
-<script src="media/js/jquery.sparkline.min.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="media/js/app.js" type="text/javascript"></script>
-<script src="media/js/index.js" type="text/javascript"></script>
-<script type="text/javascript" src="media/js/bootstrap-datepicker.js"></script>
-<!-- END PAGE LEVEL SCRIPTS -->
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+		<center>
+			<a href="javascript:initAllAssetHouse(1);" data-toggle="modal"
+				class="btn red ">首页</a> | <a id="perPage" href=""
+				data-toggle="modal" class="btn red ">上一页</a> | <a id="nextPage"
+				href="" data-toggle="modal" class="btn red ">下一页</a> | <a
+				id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
+			第<span id="currentPage"></span>页 | 共<span id="totalRecord"></span>条数据
+		</center>
 
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
+</div>
 <script>
-
-    jQuery(document).ready(function () {
-
-        App.init(); // initlayout and core plugins
-        
-		FormComponents.init();
-        
+	jQuery(document).ready(function() {
 		initDepartment();
-		
 		initAllAssetHouse(1);
-    });
-    function initDepartment() {
+	});
+	function initDepartment() {
 
-        $.ajax({
-            type: "GET",
-            url: "/sam/department/findDepartmentsFirst",
-            dataType: "JSON",
-            success: function (data) {
-                $(data).each(
-                        function (index, value) {
-                            $("#item_department").append(
-                                    "<li><a href='#'>" + value.adname + "<span class='arrow'></span></a><ul id='second_department_" + value.adid + "' class='sub-menu'></ul></li>"
-                            );
-                            initSecondDepartment(value.adid);
-                        }
-                );
-            },
-            errot: function (data) {
-                alert(data.status);
-            }
+		$
+				.ajax({
+					type : "GET",
+					url : "/sam/department/findDepartmentsFirst",
+					dataType : "JSON",
+					success : function(data) {
+						$(data)
+								.each(
+										function(index, value) {
+											$("#item_department")
+													.append(
+															"<li><a href='#'>"
+																	+ value.adname
+																	+ "<span class='arrow'></span></a><ul id='second_department_" + value.adid + "' class='sub-menu'></ul></li>");
+											initSecondDepartment(value.adid);
+										});
+					},
+					errot : function(data) {
+						alert(data.status);
+					}
 
-
-        });
-    }
-    //遍历二级部门的方法
-    function initSecondDepartment(adlevel) {
-        $.ajax({
-            type: "post",
-            url: "/sam/department/findDepartmentsSecond",
-            data: "adlevel=" + adlevel,
-            dataType: "JSON",
-            success: function (data) {
-                $(data).each(
-                        function (index, val) {
-                            $("#second_department_" + adlevel).append(
-                                    "<li><a href='#'>" + val.adname + "</a></li>"
-                            );
-                        }
-                );
-            },
-            error: function (data) {
-                alert(data.status);
-            }
-        });
-    }
-    
-	function addHouse(){
-	alert("进入注册的页面");
-	    $.ajax({
-		    type:"post",
-			url:"/sam/wareHouse/addHouse",
-			data:$('#houseform').serialize(),
-			dataType:"JSON",
-			success: function(data){
-			  if(data>0)
-			   alert("添加成功");
+				});
+	}
+	//遍历二级部门的方法
+	function initSecondDepartment(adlevel) {
+		$.ajax({
+			type : "post",
+			url : "/sam/department/findDepartmentsSecond",
+			data : "adlevel=" + adlevel,
+			dataType : "JSON",
+			success : function(data) {
+				$(data).each(
+						function(index, val) {
+							$("#second_department_" + adlevel).append(
+									"<li><a href='#'>" + val.adname
+											+ "</a></li>");
+						});
 			},
-			error:function(data){
-			  alert("添加错误");
+			error : function(data) {
+				alert(data.status);
 			}
 		});
 	}
-	
-                                      
-		//初始化全部设备的分页信息
-		function initAllAssetHouse(page) {
+
+	function addHouse() {
+		alert("进入注册的页面");
+		$.ajax({
+			type : "post",
+			url : "/sam/wareHouse/addHouse",
+			data : $('#houseform').serialize(),
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					alert("添加成功");
+			},
+			error : function(data) {
+				alert("添加错误");
+			}
+		});
+	}
+
+	//初始化全部设备的分页信息
+	function initAllAssetHouse(page) {
 		alert("进入初始化");
-			$.ajax({
-				type : "GET",
-				url : "/sam/wareHouse/findHouse",
-				data : "page="+page,
-				dataType : "JSON",
-				success : function(data) {
-				
-					//总页数
-					var totalPage = data.totalPage;
-					
-					//当前页码
-					var currentPage = data.currentPage;
-					$("#currentPage").html(currentPage);
-					
-					var perPagenum;
-					perPagenum = page-1;
-					if(perPagenum < 1) {
-						perPagenum = 1;
+		$
+				.ajax({
+					type : "GET",
+					url : "/sam/wareHouse/findHouse",
+					data : "page=" + page,
+					dataType : "JSON",
+					success : function(data) {
+
+						//总页数
+						var totalPage = data.totalPage;
+
+						//当前页码
+						var currentPage = data.currentPage;
+						$("#currentPage").html(currentPage);
+
+						var perPagenum;
+						perPagenum = page - 1;
+						if (perPagenum < 1) {
+							perPagenum = 1;
+						}
+						$("#perPage").attr(
+								"href",
+								"javascript:initAllAssetHouse(" + perPagenum
+										+ ");");
+						var lastpagenum;
+						nextPage = page + 1;
+						if (nextPage > totalPage) {
+							nextPage = totalPage;
+						}
+						$("#nextPage").attr(
+								"href",
+								"javascript:initAllAssetHouse(" + nextPage
+										+ ");");
+						$("#lastPage").attr(
+								"href",
+								"javascript:initAllAssetHouse(" + totalPage
+										+ ");");
+
+						//总条目数
+						var totalRecord = data.totalRecord;
+						$("#totalRecord").html(totalRecord);
+
+						var assetHouseList = data.dataList;
+						$("#assetTbody").html("");
+						for (var i = 0; i < assetHouseList.length; i++) {
+							$("#assetTbody")
+									.append(
+											"<tr>"
+													+ "<td>"
+													+ assetHouseList[i].ahname
+													+ "</td>"
+													+ "<td>"
+													+ assetHouseList[i].auname
+													+ "</td>"
+													+ "<td>"
+													+ assetHouseList[i].ahbeizhu
+													+ "</td>"
+													+ "<td id='updateHouseTd'><a href='javascript:getHouse("
+													+ assetHouseList[i].ahid
+													+ ");' data-toggle='modal'>修改</a></td>"
+													+ "<td><a class='delete' href='javascript:deleteHouse("
+													+ assetHouseList[i].ahid
+													+ ");'>删除</a></td>"
+													+ "</tr>");
+						}
+					},
+					error : function(data) {
+						alert("出错了" + data.status);
 					}
-					$("#perPage").attr("href","javascript:initAllAssetHouse("+perPagenum+");"); 
-					var lastpagenum;
-					nextPage = page+1;
-					if(nextPage > totalPage) {
-						nextPage = totalPage;
-					}
-					$("#nextPage").attr("href","javascript:initAllAssetHouse("+nextPage+");");
-					$("#lastPage").attr("href","javascript:initAllAssetHouse("+totalPage+");");
-					
-					//总条目数
-					var totalRecord = data.totalRecord;
-					$("#totalRecord").html(totalRecord);
-					
-										
-					var assetHouseList = data.dataList;
-					$("#assetTbody").html("");
-					for(var i = 0;i < assetHouseList.length;i++) {
-						$("#assetTbody").append(
-							"<tr>"
-							+"<td>"+assetHouseList[i].ahname+"</td>"
-							+"<td>"+assetHouseList[i].auname+"</td>"
-							+"<td>"+assetHouseList[i].ahbeizhu+"</td>"
-							+"<td id='updateHouseTd'><a href='javascript:getHouse("+assetHouseList[i].ahid+");' data-toggle='modal'>修改</a></td>"
-							+"<td><a class='delete' href='javascript:deleteHouse("+assetHouseList[i].ahid+");'>删除</a></td>"
-							+"</tr>"
-						);
-					}
-				},
-				error : function(data) {
-				alert("出错了"+data.status);
-				}
-			});
-		}
-		
+				});
+	}
+
 	//获取修改页面数据的方法
-	function getHouse(ahid){
-	alert("进入getHouse"+ahid);
-         var gettd = $("#updateHouseTd").prevAll();
-         document.getElementById("item_as_type_update").value=gettd[2].innerHTML;
-         document.getElementById("item_as_name_update").value=gettd[1].innerHTML;
-         document.getElementById("item_as_cate_update").value=gettd[0].innerHTML;
-        
-         $("#houseupdateform").append("<input type='hidden' name='ahid' value='"+ahid+"'/>");
-         $("#updatenbsp").click();
-	alert("进入1213");
-         
-          
+	function getHouse(ahid) {
+		alert("进入getHouse" + ahid);
+		var gettd = $("#updateHouseTd").prevAll();
+		document.getElementById("item_as_type_update").value = gettd[2].innerHTML;
+		document.getElementById("item_as_name_update").value = gettd[1].innerHTML;
+		document.getElementById("item_as_cate_update").value = gettd[0].innerHTML;
+
+		$("#houseupdateform").append(
+				"<input type='hidden' name='ahid' value='"+ahid+"'/>");
+		$("#updatenbsp").click();
+		alert("进入1213");
+
 	}
 	//删除用户
-  function deleteHouse(ahid){
-	alert("进入删除的放发"+ahid);
-	  $.ajax({
-	    type: "post",
-	    url:"/sam/wareHouse/deleteHouse/"+ahid,
-	    dataType: "JSON",
-	    success:function(data){
-	    if(data>0)
-	    alert("删除成功");
-	     initAllAssetHouse(1);
-	    },
-	    error:function(data){
-	    alert("删除失败"+data.status);
-	    }
-	  });
+	function deleteHouse(ahid) {
+		alert("进入删除的放发" + ahid);
+		$.ajax({
+			type : "post",
+			url : "/sam/wareHouse/deleteHouse/" + ahid,
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					alert("删除成功");
+				initAllAssetHouse(1);
+			},
+			error : function(data) {
+				alert("删除失败" + data.status);
+			}
+		});
 	}
-	
-	
+
 	//修改的方法
-	function updateHouse(){
-	alert("进入修改的方法");
-	  $.ajax({
-	   type: "post",
-	   url:"/sam/wareHouse/updateHouse",
-	   data:$("#houseupdateform").serialize(),
-	   dataType:"JSON",
-	   success:function(data){
-	      if(data>0)
-	      alert("修改成功");
-	       initAllAssetHouse(1);
-	      
-	   },
-	   error:function(data){
-	   alert("修改失败");
-	   }
-	  });
+	function updateHouse() {
+		alert("进入修改的方法");
+		$.ajax({
+			type : "post",
+			url : "/sam/wareHouse/updateHouse",
+			data : $("#houseupdateform").serialize(),
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0)
+					alert("修改成功");
+				initAllAssetHouse(1);
+
+			},
+			error : function(data) {
+				alert("修改失败");
+			}
+		});
 	}
-
 </script>
-
-<!-- END JAVASCRIPTS -->
-
-</body>
-
-<!-- END BODY -->
-
-</html>

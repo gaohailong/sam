@@ -360,6 +360,11 @@
 				<div class="caption">
 					<i class="icon-cogs"></i>人员
 				</div>
+				<div class="actions">
+				 	<a href="#exportuserexcel"
+						data-toggle="modal" class="btn green "><i class="icon-check"></i>
+						导出EXCEL</a>
+				</div>
 			</div>
 
 			<div class="portlet-body">
@@ -400,6 +405,72 @@
 					id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a>
 				| 第<span id="currentPage"></span>页 | 共<span id="totalRecord"></span>条数据
 			</center>
+			<!-- 隐藏的exceldiv -->
+			 <div id="exportuserexcel" class="modal hide fade" tabindex="-1"
+				data-width="760">
+				<form action="/sam/infoController/exportAssetInfoExcel" method="post" onsubmit="return exportassetinfoexcel()">
+				
+				<input type="hidden" id="ainameexcel" name="ainame" value="">
+				<input type="hidden" id="assettypeexcel" name="atname" value="">
+				<input type="hidden" id="assethouseexcel" name="ahname" value="">
+				
+					<div class="modal-header">
+						<span class="hidden-480">请选择要导出的列</span>
+					</div>
+					<div class="modal-body">
+						<div class="portlet-body form">
+							<div class="tabbable portlet-tabs">
+								<div class="tab-content">
+									<div class="tab-pane active" id="portlet_tab1">
+										<!-- BEGIN FORM-->
+										
+										<div class="form-horizontal">
+											<div class="control-group">
+												<div class="control-group"></div>
+												<div class="control-group"></div>
+												<div class="control-group"></div>
+												
+												
+												<label class="control-label">
+													<input type="hidden" value="人员编号#auid" name="exportuser" checked="checked">
+													<input type="checkbox" value="人员编号#auid" name="exportuser" checked="checked" disabled="disabled">人员编号(必选)
+											    </label>     
+												<label class="control-label">
+													<input type="checkbox" value="人员名称#auname" name="exportuser" checked="checked">人员名称
+											    </label>     
+												<label class="control-label">
+													<input type="checkbox" value="角色名称#urname" name="exportuser" checked="checked">角色名称
+											    </label>     
+												<label class="control-label">
+													<input type="checkbox" value="部门名称#udname" name="exportuser" checked="checked">部门名称
+											    </label>     
+												     
+											</div>
+											<div class="control-group">
+												<label class="control-label">
+													<input type="checkbox" value="人员电话#auphone" name="exportuser" checked="checked">人员电话
+											    </label>     
+												   
+											</div>
+											
+										
+											
+										</div>
+										
+										<!-- END FORM-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="accept-tbody-close" type="button" data-dismiss="modal"
+							class="btn">关闭</button>
+						<input type="submit" class="btn blue" value="确认并导出">
+					</div>
+				</form>
+			</div>
+			<!-- 隐藏的exceldiv结束 -->
 		</div>
 		<!-- END SAMPLE TABLE PORTLET-->
 	</div>
@@ -476,7 +547,7 @@
 
 	//初始化全部设备的分页信息
 	function initAllAssetUser(page) {
-		alert("进入初始化");
+		//alert("进入初始化");
 		$
 				.ajax({
 					type : "GET",
@@ -587,7 +658,7 @@
 
 	//修改的方法
 	function updateUser() {
-		alert("进入修改的方法");
+		//alert("进入修改的方法");
 		$.ajax({
 			type : "post",
 			url : "/sam/userController/updateUser",

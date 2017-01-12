@@ -51,7 +51,12 @@ public class InfoServiceImpl implements InfoService {
 			throws Exception {
 		
 		List<AssetInfo> assetInfos= infoDao.findInfoByCondition(assetInfo);
-		System.out.println("findAssetByCondition"+assetInfos.size());
+
+		for (AssetInfo assetInfo2 : assetInfos) {
+			assetInfo2.setAimeasuer(StringDateToStringDateUtil.StringDateToStringDate(assetInfo2.getAimeasuer()));
+			assetInfo2.setAidate(StringDateToStringDateUtil.StringDateToStringDate(assetInfo2.getAidate()));
+
+		}
 		Pager<AssetInfo> pager = new Pager<AssetInfo>(pageNum, pageSize, assetInfos);
 		return pager;
 	}
@@ -90,5 +95,12 @@ public class InfoServiceImpl implements InfoService {
 	public int findInfoNumByAtname(String atname) throws Exception {
 		// TODO Auto-generated method stub
 		return infoDao.findInfoNumByAtname(atname);
+	}
+
+	@Override
+	public List<AssetInfo> findAssetInfosByTiaojian(AssetInfo assetInfo)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return infoDao.findInfoByCondition(assetInfo);
 	}
 }
