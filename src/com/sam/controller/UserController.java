@@ -2,6 +2,8 @@ package com.sam.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,7 @@ import com.sam.entity.AssetUser;
 import com.sam.entity.Pager;
 import com.sam.service.UserService;
 import com.sam.util.ConstantUtil;
+import com.sam.util.ExportExcelUtil;
 
 /**
  * 用户表的controller
@@ -182,6 +185,26 @@ public class UserController {
 		  return num;
 		
 	}
+	
+	/**
+	 * 人员的报表导出
+	 * @author zhw
+	 * @param response
+	 * @param exportuser
+	 */
+	@RequestMapping(value="/exportUserExcel", method=RequestMethod.POST)
+	public void exportUserExcel(HttpServletResponse response,String exportuser) {
+		try {
+			 String[] excelHeader = exportuser.split(",");
+			 List<AssetUser> userList = userService.findAllUser();
+			  ExportExcelUtil.export(response, "人员明细表", excelHeader, userList);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 	
 }
