@@ -1,387 +1,369 @@
 
-				<div class="row-fluid">
+<div class="row-fluid">
 
-					<div class="span12">
+	<div class="span12">
 
-						<h3 class="page-title">
+		<h3 class="page-title">
 
-							资产管理 <small></small>
+			资产管理 <small></small>
 
-						</h3>
+		</h3>
 
-						<ul class="breadcrumb">
+		<ul class="breadcrumb">
 
-							<li><i class="icon-home"></i> <a href="">主页</a> <span
-								class="icon-angle-right"></span></li>
+			<li><i class="icon-home"></i> <a href="">主页</a> <span
+				class="icon-angle-right"></span></li>
 
-							<li><a href="#">资产管理</a> <span class="icon-angle-right"></span>
+			<li><a href="#">资产管理</a> <span class="icon-angle-right"></span>
 
-							</li>
+			</li>
 
-							<li><a href="asform_layout.html">资产的变更</a></li>
+			<li><a href="asform_layout.html">资产的变更</a></li>
 
-						</ul>
+		</ul>
 
-					</div>
+	</div>
+
+</div>
+
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN PAGE CONTENT-->
+<form id="acceptForm"></form>
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN SAMPLE FORM PORTLET-->
+
+		<div class="portlet box red tabbable">
+
+			<div class="portlet-title">
+
+				<div class="caption">
+
+					<i class="icon-reorder"></i> <span class="hidden-480">设备移交单</span>
+
+				</div>
+				<div class="actions">
+
+					<button onclick="javascript:addChangeForm();" class="btn blue ">
+						<i class="icon-check"></i> 确定
+					</button>
+					<a href="#" data-toggle="modal" class="btn yellow "><i
+						class="icon-pencil"></i> Edit</a> <a href="#responsive"
+						data-toggle="modal" class="btn green "><i class="icon-plus"></i>
+						添加</a>
 
 				</div>
 
-				<!-- END PAGE HEADER-->
 
-				<!-- BEGIN PAGE CONTENT-->
-				<form id="acceptForm"></form>
-				<div class="row-fluid">
+			</div>
+			<div class="portlet-body">
 
-					<div class="span12">
-
-						<!-- BEGIN SAMPLE FORM PORTLET-->
-
-						<div class="portlet box red tabbable">
-
-							<div class="portlet-title">
-
-								<div class="caption">
-
-									<i class="icon-reorder"></i> <span class="hidden-480">设备移交单</span>
-
-								</div>
-								<div class="actions">
-
-									<button onclick="javascript:addChangeForm();" class="btn blue ">
-										<i class="icon-check"></i> 确定
-									</button>
-									<a href="#" data-toggle="modal" class="btn yellow "><i
-										class="icon-pencil"></i> Edit</a> <a href="#responsive"
-										data-toggle="modal" class="btn green "><i
-										class="icon-plus"></i> 添加</a>
-
-								</div>
-
-
+				<form action="#" class="form-horizontal">
+					<div class="row-fluid">
+						<div class="control-group" style="margin-top:25px;">
+							<label class="control-label span2">负责人</label>
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" id="changeName" />
 							</div>
-							<div class="portlet-body form">
+							<label class="control-label span3">部门名称</label>
 
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" id="changeDepart" />
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
 
-								<ul class="nav nav-tabs"></ul>
+			<div id="responsive" class="modal hide fade" tabindex="-1"
+				data-width="760">
 
-								<div class="tab-content">
+				<div class="modal-header">
 
-									<div class="tab-pane active" id="portlet_tab1">
+					<span class="hidden-480">资产移交表</span>
+				</div>
+				<div class="modal-body">
 
-										<div class="form-horizontal">
+					<div class="portlet-body form">
 
-											<div class="control-group" style="float: left;">
+						<div class="tabbable portlet-tabs">
 
-												<label class="control-label">负责人</label>
+							<div class="tab-content">
 
-												<div class="controls">
+								<div class="tab-pane active" id="portlet_tab1">
 
-													<input type="text" class="m-wrap medium" id="changeName" />
-													<span class="help-inline"></span>
+									<!-- BEGIN FORM-->
 
-												</div>
+									<div class="form-horizontal">
 
-											</div>
+										<div class="control-group">
+											<div class="control-group"></div>
+											<div class="control-group"></div>
+											<div class="control-group"></div>
 
-											<div class="control-group">
+											<label class="control-label">设备类型</label>
 
-												<label class="control-label" style=";">部门名称</label>
+											<div class="controls">
 
-												<div class="controls">
-
-													<input type="text" class="m-wrap medium" id="changeDepart" />
-													<span class="help-inline"></span>
-
-												</div>
+												<select class="m-wrap medium" onchange="atnameSelect();"
+													id="item_as_atname">
+													<option value="">请选择你设备类型</option>
+													<option value="电脑">电脑</option>
+													<option value="投影仪">投影仪</option>
+												</select>
 
 											</div>
 
 										</div>
 
-									</div>
+										<div class="control-group">
 
-								</div>
+											<div class="controls" id="showInfoDiv"></div>
 
-							</div>
+										</div>
 
-							<div id="responsive" class="modal hide fade" tabindex="-1"
-								data-width="760">
+										<div class="control-group">
 
-								<div class="modal-header">
+											<label class="control-label">设备数量</label>
 
-									<span class="hidden-480">资产移交表</span>
-								</div>
-								<div class="modal-body">
+											<div class="controls">
 
-									<div class="portlet-body form">
-
-										<div class="tabbable portlet-tabs">
-
-											<div class="tab-content">
-
-												<div class="tab-pane active" id="portlet_tab1">
-
-													<!-- BEGIN FORM-->
-
-													<div class="form-horizontal">
-
-														<div class="control-group">
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-															<div class="control-group"></div>
-
-															<label class="control-label">设备类型</label>
-
-															<div class="controls">
-
-																<select class="m-wrap medium" onchange="atnameSelect();"
-																	id="item_as_atname">
-																	<option value="">请选择你设备类型</option>
-																	<option value="电脑">电脑</option>
-																	<option value="投影仪">投影仪</option>
-																</select>
-
-															</div>
-
-														</div>
-
-														<div class="control-group">
-
-															<div class="controls" id="showInfoDiv"></div>
-
-														</div>
-
-														<div class="control-group">
-
-															<label class="control-label">设备数量</label>
-
-															<div class="controls">
-
-																<input type="text" id="item_as_infonum"
-																	class="m-wrap medium" />
-
-															</div>
-
-														</div>
-
-														<div class="control-group">
-
-															<div class="controls" id="showNumDiv"></div>
-
-														</div>
-
-
-														<button id="accept-tbody-reset" class="hide"
-															onclick="clearLittleForm()"></button>
-
-													</div>
-
-													<!-- END FORM-->
-
-												</div>
-
+												<input type="text" id="item_as_infonum"
+													class="m-wrap medium" />
 
 											</div>
 
 										</div>
 
+										<div class="control-group">
+
+											<div class="controls" id="showNumDiv"></div>
+
+										</div>
+
+
+										<button id="accept-tbody-reset" class="hide"
+											onclick="clearLittleForm()"></button>
+
 									</div>
-								</div>
 
-								<div class="modal-footer">
-
-									<button id="accept-tbody-close" type="button"
-										data-dismiss="modal" class="btn">关闭</button>
-
-									<button id="accept-tbody-save" type="button" class="btn blue"
-										onclick="addMore()">保存</button>
-
-
+									<!-- END FORM-->
 
 								</div>
+
 
 							</div>
 
 						</div>
 
-						<!-- BEGIN EXAMPLE TABLE PORTLET-->
-
-						<div class="portlet box red">
-
-							<div class="portlet-title">
-
-								<div class="caption">
-									<i class="icon-edit"></i>本次移交的:
-								</div>
-							</div>
-
-							<div class="portlet-body">
-
-								<table class="table table-hover">
-
-									<thead>
-
-										<tr>
-
-											<th>设备型号</th>
-
-											<th>设备名称</th>
-
-											<th>类型名称</th>
-
-											<th>仓库名称</th>
-
-											<th>生产日期</th>
-
-											<th>生产单位</th>
-
-											<th>保质期</th>
-
-											<th>折旧方法</th>
-
-											<th>残值率</th>
-
-											<th>设备备注</th>
-
-											<th>删除本行</th>
-
-										</tr>
-
-									</thead>
-									<tbody id="accept-tbody">
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<!-- END PAGE CONTENT-->
 					</div>
-					<!-- END PAGE CONTAINER-->
 				</div>
 
-	<!-- 小表单得东西给大table中添加 -->
-	<script type="text/javascript">
-		function addMore() {
-			var atname = document.getElementById("item_as_atname").value;
-			var atnum = document.getElementById("item_as_infonum").value;
-			
-			$.ajax({
-				type:"post",
-					url:"/sam/changeController/findInfoByAtname",
-					data:"atname="+atname+"&atnum="+atnum,
-					dataType:"JSON",
-					success:function(date){
-						$(date).each(function(index, val) {
-							$("#accept-tbody").prepend(
-								"<tr class=''><input type='hidden' value='"+val.aiid+"' name='hiddenInfoId' /><td>"
-							+ val.aimodel
-							+ "</td><td>"
-							+ val.ainame
-							+ "</td><td>"
-							+ val.atname
-							+ "</td><td>"
-							+ val.ahname
-							+ "</td><td>"
-							+ val.aidate
-							+ "</td><td>"
-							+ val.aisupply
-							+ "</td><td>"
-							+ val.ailife
-							+ "</td><td>"
-							+ val.aidepreciation
-							+ "</td><td>"
-							+ val.airemainratio
-							+ "</td><td>"
-							+ val.airemark
-							+ "</td><td><a class='delete' href='javascript:;'>删除</a></td></tr>");
-						});
+				<div class="modal-footer">
+
+					<button id="accept-tbody-close" type="button" data-dismiss="modal"
+						class="btn">关闭</button>
+
+					<button id="accept-tbody-save" type="button" class="btn blue"
+						onclick="addMore()">保存</button>
+
+
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+		<div class="portlet box red">
+
+			<div class="portlet-title">
+
+				<div class="caption">
+					<i class="icon-edit"></i>本次移交的:
+				</div>
+			</div>
+
+			<div class="portlet-body">
+
+				<table class="table table-hover">
+
+					<thead>
+
+						<tr>
+
+							<th>设备型号</th>
+
+							<th>设备名称</th>
+
+							<th>类型名称</th>
+
+							<th>仓库名称</th>
+
+							<th>生产日期</th>
+
+							<th>生产单位</th>
+
+							<th>保质期</th>
+
+							<th>折旧方法</th>
+
+							<th>残值率</th>
+
+							<th>设备备注</th>
+
+							<th>删除本行</th>
+
+						</tr>
+
+					</thead>
+					<tbody id="accept-tbody">
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+	</div>
+	<!-- END PAGE CONTAINER-->
+</div>
+
+<!-- 小表单得东西给大table中添加 -->
+<script type="text/javascript">
+	function addMore() {
+		var atname = document.getElementById("item_as_atname").value;
+		var atnum = document.getElementById("item_as_infonum").value;
+
+		$
+				.ajax({
+					type : "post",
+					url : "/sam/changeController/findInfoByAtname",
+					data : "atname=" + atname + "&atnum=" + atnum,
+					dataType : "JSON",
+					success : function(date) {
+						$(date)
+								.each(
+										function(index, val) {
+											$("#accept-tbody")
+													.prepend(
+															"<tr class=''><input type='hidden' value='"+val.aiid+"' name='hiddenInfoId' /><td>"
+																	+ val.aimodel
+																	+ "</td><td>"
+																	+ val.ainame
+																	+ "</td><td>"
+																	+ val.atname
+																	+ "</td><td>"
+																	+ val.ahname
+																	+ "</td><td>"
+																	+ val.aidate
+																	+ "</td><td>"
+																	+ val.aisupply
+																	+ "</td><td>"
+																	+ val.ailife
+																	+ "</td><td>"
+																	+ val.aidepreciation
+																	+ "</td><td>"
+																	+ val.airemainratio
+																	+ "</td><td>"
+																	+ val.airemark
+																	+ "</td><td><a class='delete' href='javascript:;'>删除</a></td></tr>");
+										});
 						$("#accept-tbody-reset").click();
-						$("#accept-tbody-close").click(); 
+						$("#accept-tbody-close").click();
 					},
-					error:function(date){
-						alert(date.status);
-					}
-			});
-		}
-
-		function clearLittleForm() {
-			$("#accept-tbody-reset").siblings().children().find("input").attr(
-					"value", "");
-			$("#accept-tbody-reset").siblings().children().find("textarea")
-					.attr("value", "");
-		}
-
-		$("#item_as_infonum").keyup(
-			function(){
-				var num = document.getElementById("hiddenNum").value;
-				var nownum = $("#item_as_infonum").val();
-				if(parseInt(nownum)>parseInt(num)){
-					alert("输入件数大于库存量");
-					$("#accept-tbody-save").attr("disabled", true);
-					$("#accept-tbody-save").attr("class", "btn");
-				}else{
-					$("#accept-tbody-save").attr("disabled", false);
-					$("#accept-tbody-save").attr("class", "btn blue");
-				}
-			}
-		);
-		
-		function atnameSelect(){
-			var atname = document.getElementById("item_as_atname").value
-			if(document.getElementById("showInfoSpan")!=null){
-				if(document.getElementById("showInfoSpan").innerHTML!=null){
-					document.getElementById("showInfoDiv").innerHTML="";
-				}
-			}
-			checkInfoById(atname);
-		}
-		function checkInfoById(atname){
-			$.ajax({
-					type:"post",
-					url:"/sam/changeController/findInfoNumByAtname",
-					data:"atname="+atname,
-					dataType:"JSON",
-					success:function(date){
-						if(date>0){
-							$("#showInfoDiv").append("<input type='hidden' value='"+date+"' id='hiddenNum' /><span id='showInfoSpan'>设备剩余:"+date+"件</span>");
-						}else{
-							$("#showInfoDiv").append("<input type='hidden' value='"+date+"' id='hiddenNum' /><span id='showInfoSpan'>未查到当前id对应的东西</span>");
-						}
-					},
-					error:function(date){
+					error : function(date) {
 						alert(date.status);
 					}
 				});
-		} 
-		
-		function addChangeForm() {
-		
-			var date  = document.getElementsByName("hiddenInfoId");
-			var aiidStr = "";
-			for(var i=0;i<date.length;i++){
-				aiidStr += date[i].value+",";
-			}
-			alert(aiidStr);
-			
-			var acname =  document.getElementById("changeName").value;
-			var adname = document.getElementById("changeDepart").value;
-			
-			
-			$.ajax({
-				type:"post",
-				url:"/sam/changeController/addChange",
-				data:"aiidStr="+aiidStr+"&acname="+acname+"&adname="+adname,
-				dataType:"JSON",
-				success:function(date){
-					if(date>0){
-						alert("添加成功");
-						 window.location.reload();
-					}
-				},
-				error:function(date){
-					alert(date.status);
-				}
-			});
-			
+	}
+
+	function clearLittleForm() {
+		$("#accept-tbody-reset").siblings().children().find("input").attr(
+				"value", "");
+		$("#accept-tbody-reset").siblings().children().find("textarea").attr(
+				"value", "");
+	}
+
+	$("#item_as_infonum").keyup(function() {
+		var num = document.getElementById("hiddenNum").value;
+		var nownum = $("#item_as_infonum").val();
+		if (parseInt(nownum) > parseInt(num)) {
+			alert("输入件数大于库存量");
+			$("#accept-tbody-save").attr("disabled", true);
+			$("#accept-tbody-save").attr("class", "btn");
+		} else {
+			$("#accept-tbody-save").attr("disabled", false);
+			$("#accept-tbody-save").attr("class", "btn blue");
 		}
-	</script>
+	});
+
+	function atnameSelect() {
+		var atname = document.getElementById("item_as_atname").value
+		if (document.getElementById("showInfoSpan") != null) {
+			if (document.getElementById("showInfoSpan").innerHTML != null) {
+				document.getElementById("showInfoDiv").innerHTML = "";
+			}
+		}
+		checkInfoById(atname);
+	}
+	function checkInfoById(atname) {
+		$
+				.ajax({
+					type : "post",
+					url : "/sam/changeController/findInfoNumByAtname",
+					data : "atname=" + atname,
+					dataType : "JSON",
+					success : function(date) {
+						if (date > 0) {
+							$("#showInfoDiv")
+									.append(
+											"<input type='hidden' value='"+date+"' id='hiddenNum' /><span id='showInfoSpan'>设备剩余:"
+													+ date + "件</span>");
+						} else {
+							$("#showInfoDiv")
+									.append(
+											"<input type='hidden' value='"+date+"' id='hiddenNum' /><span id='showInfoSpan'>未查到当前id对应的东西</span>");
+						}
+					},
+					error : function(date) {
+						alert(date.status);
+					}
+				});
+	}
+
+	function addChangeForm() {
+
+		var date = document.getElementsByName("hiddenInfoId");
+		var aiidStr = "";
+		for (var i = 0; i < date.length; i++) {
+			aiidStr += date[i].value + ",";
+		}
+		alert(aiidStr);
+
+		var acname = document.getElementById("changeName").value;
+		var adname = document.getElementById("changeDepart").value;
+
+		$.ajax({
+			type : "post",
+			url : "/sam/changeController/addChange",
+			data : "aiidStr=" + aiidStr + "&acname=" + acname + "&adname="
+					+ adname,
+			dataType : "JSON",
+			success : function(date) {
+				if (date > 0) {
+					alert("添加成功");
+					window.location.reload();
+				}
+			},
+			error : function(date) {
+				alert(date.status);
+			}
+		});
+
+	}
+</script>
 

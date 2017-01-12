@@ -191,6 +191,15 @@ public class InfoController {
 		}
 	}
 	
+	/**
+	 * 资产的报表导出
+	 * @author zhw
+	 * @param response
+	 * @param exportassetinfo
+	 * @param ainame
+	 * @param atname
+	 * @param ahname
+	 */
 	@RequestMapping(value="/exportAssetInfoExcel", method=RequestMethod.POST)
 	public void exportAssetInfoExcel(HttpServletResponse response, String exportassetinfo,
 			@RequestParam(value = "ainame", required = false) String ainame,
