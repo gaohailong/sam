@@ -47,8 +47,8 @@
 				</div>
 				<div class="actions">
 
-					<button onclick="findBroorwBytiaojian(1)" href="#"
-						data-toggle="modal" class="btn green ">
+					<button onclick="findBroorwBytiaojian(1)" data-toggle="modal"
+						class="btn green ">
 						<i class="icon-search"></i>查询
 					</button>
 
@@ -56,88 +56,59 @@
 
 
 			</div>
-			<div class="portlet-body form">
-
-
-				<ul class="nav nav-tabs"></ul>
-
-				<div class="tab-content">
-
-					<div class="tab-pane active" id="portlet_tab1">
-
-						<div class="form-horizontal">
-
-							<div class="control-group" style="float: left;">
-
-								<label class="control-label">借用人</label>
-
-								<div class="controls">
-
-									<input type="text" class="m-wrap medium" id="broorwName" /> <span
-										class="help-inline"></span>
-
-								</div>
-
+			<div class="portlet-body">
+				<form action="#" class="form-horizontal">
+					<div class="row-fluid">
+						<div class="control-group" style="margin-top:25px">
+							<label class="control-label span2">借用人</label>
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" id="broorwName" /> <span
+									class="help-inline"></span>
 							</div>
+							<label class="control-label span3">部门名称</label>
 
-							<div class="control-group">
-
-								<label class="control-label" style=";">部门名称</label>
-
-								<div class="controls">
-
-									<input type="text" class="m-wrap medium" id="broorwAdname" />
-									<span class="help-inline"></span>
-
-								</div>
-
-							</div>
-
-							<div class="control-group" style="float: left;">
-
-								<label class="control-label">归还日期</label>
-
-								<div class="controls">
-
-									<input type="text" class="m-wrap medium" id="broorwBackDate" />
-									<span class="help-inline"></span>
-
-								</div>
-
-							</div>
-
-							<div class="control-group" style="float: left;">
-
-								<label class="control-label">借用日期</label>
-
-								<div class="controls">
-
-									<input type="text" class="m-wrap medium" id="broorwDate" /> <span
-										class="help-inline"></span>
-
-								</div>
-
-							</div>
-
-							<div class="control-group" style="float: left;">
-
-								<label class="control-label">借用状态</label>
-
-								<div class="controls">
-
-									<input type="text" class="m-wrap medium" id="broorwResu" /> <span
-										class="help-inline"></span>
-
-								</div>
-
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" id="broorwAdname" />
 							</div>
 
 						</div>
+						<div class="control-group">
+							<label class="control-label span2">归还日期</label>
+							<div class="controls span2">
+								<div class="input-append date date-picker m-wrap medium"
+									data-date="2016/12/02" data-date-format="yyyy/mm/dd"
+									data-date-viewmode="years">
 
+									<input class="m-wrap m-ctrl-medium date-picker" readonly
+										size="16" type="text" value="" id="broorwBackDate" /> <span
+										class="add-on"><i class="icon-calendar"></i></span>
+								</div>
+							</div>
+
+							<label class="control-label span3">借用日期</label>
+
+							<div class="controls span2">
+								<div class="input-append date date-picker m-wrap medium"
+									data-date="2016/12/02" data-date-format="yyyy/mm/dd"
+									data-date-viewmode="years">
+
+									<input class="m-wrap m-ctrl-medium date-picker" readonly
+										size="16" type="text" value="" id="broorwDate" /> <span
+										class="add-on"><i class="icon-calendar"></i></span>
+								</div>
+							</div>
+						</div>
+						<div class="control-group" style="margin-top:25px">
+							<label class="control-label span2">借用状态</label>
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" id="broorwResu" /> <span
+									class="help-inline"></span>
+							</div>
+
+
+						</div>
 					</div>
-
-				</div>
-
+				</form>
 			</div>
 
 			<div id="responsive" class="modal hide fade" tabindex="-1"
@@ -253,31 +224,14 @@
 						</tr>
 
 					</thead>
-
-
 					<tbody id="accept-tbody">
-
-
 					</tbody>
-
-
 				</table>
-
-
-
 				<!-- END EXAMPLE TABLE PORTLET-->
 			</div>
-
-
 		</div>
-
 	</div>
-
-
 	<!-- END SAMPLE FORM PORTLET-->
-
-</div>
-
 </div>
 
 <center>
@@ -290,19 +244,15 @@
 		id="currentPage"></span>页| 共<span id="totalPage"></span>页
 
 </center>
-<!-- END PAGE CONTENT-->
-
-</div>
-
-<!-- END PAGE CONTAINER-->
-
-</div>
-<!-- END PAGE -->
-<!-- END CONTAINER -->
 
 
 <!-- 小表单得东西给大table中添加 -->
 <script type="text/javascript">
+	jQuery(document).ready(function() {
+		CommonCalendarComponents.init();
+		initBroorw(1);
+	});
+
 	function addSuggest() {
 		var suggest = $("#item_as_suggest").val();
 		var abid = $("#hiddenAbid").val();
@@ -509,14 +459,5 @@
 			}
 		});
 	}
-</script>
-
-
-<script>
-	jQuery(document).ready(function() {
-
-		initBroorw(1);
-
-	});
 </script>
 

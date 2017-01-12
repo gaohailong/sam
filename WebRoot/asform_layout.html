@@ -33,64 +33,53 @@
 						添加产品</a>
 				</div>
 			</div>
-			<div class="portlet-body form">
-				<ul class="nav nav-tabs"></ul>
-				<div class="tab-content">
-					<div class="tab-pane active" id="portlet_tab1">
-						<div class="form-horizontal">
-							<div class="control-group" style="float: left;">
-								<label class="control-label">存放地点</label>
-								<div class="controls">
-									<select class="medium m-wrap" tabindex="1">
-										<option value="Category 1">仓库</option>
-										<option value="Category 2">办公室</option>
-										<option value="Category 3">实验室</option>
-										<option value="Category 4">教室</option>
-										<option value="Category 4">财务室</option>
-									</select> <select class="medium m-wrap" tabindex="1" id="ahname">
+			<div class="portlet-body">
+					<form action="#" class="form-horizontal">
+					<div class="row-fluid">
+						<div class="control-group" style="margin-top: 25px;">
+							<label class="control-label span2">存放地点</label>
+							<div class="controls span2">
+								<select class="medium m-wrap" tabindex="1" id="ahname">
 										<option value="Category 1">仓库</option>
 										<option value="Category 2">办公室</option>
 										<option value="Category 3">实验室</option>
 										<option value="Category 4">教室</option>
 										<option value="Category 4">财务室</option>
 									</select>
-								</div>
 							</div>
-							<div class="control-group" style="float: left;">
-								<label class="control-label">增加方式</label>
-								<div class="controls">
-									<select class="medium m-wrap" tabindex="1" id="aatype">
+							<label class="control-label span3">增加方式</label>
+							<div class="controls span2">
+								<select class="medium m-wrap" tabindex="1" id="aatype">
 										<option value="Category 1">购买</option>
 										<option value="Category 2">租赁</option>
 										<option value="Category 3">抢的</option>
 										<option value="Category 4">偷的</option>
 									</select>
-								</div>
 							</div>
-							<div class="control-group" style="float: left;">
-								<label class="control-label">入库人</label>
-								<div class="controls">
-									<input type="text" class="m-wrap medium" id="aaname" /> <span
-										class="help-inline"></span>
-								</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label span2">入库人</label>
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" id="aaname" /> <span
+									></span>
 							</div>
-							<div class="control-group" style="float: left;">
-								<label class="control-label">总件数</label>
-								<div class="controls">
-									<input type="text" class="m-wrap medium" id="aanumber" /> <span
+							<label class="control-label span3">总件数</label>
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" id="aanumber" /> <span
 										class="help-inline"></span>
-								</div>
 							</div>
-							<div class="control-group" style="float: left;">
-								<label class="control-label">总价格</label>
-								<div class="controls">
-									<input type="text" class="m-wrap medium" id="aaprice" /> <span
-										class="help-inline"></span>
-								</div>
+						</div>
+						
+						<div class="control-group" style="margin-top: -18px;">
+							<label class="control-label span2">总价格</label>
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" id="aaprice" /> 
 							</div>
 						</div>
 					</div>
-				</div>
+				</form>
+					
+				
 			</div>
 			<div id="responsive" class="modal hide fade" tabindex="-1"
 				data-width="760">
