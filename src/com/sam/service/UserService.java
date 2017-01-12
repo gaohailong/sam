@@ -20,6 +20,9 @@ public interface UserService {
 	 */
 	int addUser(AssetUser assetuser) throws Exception;
 	
+
+	AssetUser findUserWhenLogin(AssetUser user) throws Exception;
+	
 	/**
 	 * 删除人员
 	 * @param auid

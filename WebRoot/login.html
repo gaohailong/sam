@@ -67,7 +67,7 @@
 
 		<!-- BEGIN LOGIN FORM -->
 
-		<form class="form-vertical login-form" action="index.html">
+		<form class="form-vertical login-form" id="loginForm">
 
 			<h3 class="form-title">资产管理系统</h3>
 
@@ -75,7 +75,7 @@
 
 				<button class="close" data-dismiss="alert"></button>
 
-				<span>请输入您的用户名和密码.</span>
+				<span id="alertMsg">请输入您的用户名和密码.</span>
 
 			</div>
 
@@ -91,7 +91,7 @@
 
 						<i class="icon-user"></i>
 
-						<input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="username"/>
+						<input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" id="loginname" name="username"/>
 
 					</div>
 
@@ -109,7 +109,7 @@
 
 						<i class="icon-lock"></i>
 
-						<input class="m-wrap placeholder-no-fix" type="password" placeholder="密码" name="password"/>
+						<input class="m-wrap placeholder-no-fix" type="password" placeholder="密码" id="loginpass" name="password"/>
 
 					</div>
 
@@ -153,7 +153,7 @@
 
 		<!-- BEGIN FORGOT PASSWORD FORM -->
 
-		<form class="form-vertical forget-form hide" action="index.html">
+		<form class="form-vertical forget-form hide">
 
 			<h3 class="">忘记密码 ?</h3>
 
@@ -196,6 +196,7 @@
 		<!-- END FORGOT PASSWORD FORM -->
 
 	</div>
+	
 
 	<!-- END LOGIN -->
 
@@ -206,6 +207,36 @@
 		2016 &copy; 164D1. 
 
 	</div>
+	
+	<script type="text/javascript">
+		function loginCheck(){
+			var name = $("#loginname").val();
+			var pass = $("#loginpass").val();
+			var mes = {
+				"username":name,
+				"password":pass
+			}
+			$.ajax({
+				type:"post",
+					url:"/sam/userController/loginCheck",
+					data:mes,
+					dataType:"JSON",
+					success:function(date){
+						if(date!=null){
+							sessionStorage.setItem("urname", date.urname);
+							sessionStorage.setItem("auid", date.auid);
+							window.location.href="asindex.html";
+						}else{
+							document.getElementById("alertMsg").innerHTML="用户名或密码错误.";
+							$('.alert-error', $('.login-form')).show();
+						}
+					},
+					error:function(date){
+						alert(date.status);
+					}
+			});
+		}
+	</script>
 	<!-- END COPYRIGHT -->
 
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->

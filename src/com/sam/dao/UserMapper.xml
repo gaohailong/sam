@@ -10,6 +10,10 @@
 		select * from AssetUser
 	</select>
 	
+	<select id="findUserWhenLogin" resultType="com.sam.entity.AssetUser" parameterType="com.sam.entity.AssetUser">
+		select * from assetuser where auname=#{auname} and aupass=#{aupass}
+	</select>
+	
 	<select id="findfindUserById" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetUser">
 		select * from AssetUser where auid=#{auid}
 	</select>

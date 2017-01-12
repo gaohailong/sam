@@ -73,4 +73,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.updateUser(assetuser);
 	}
 
+	@Override
+	public AssetUser findUserWhenLogin(AssetUser user) throws Exception {
+		// TODO Auto-generated method stub
+		return userDao.findUserWhenLogin(user);
+	}
+
 }

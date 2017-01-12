@@ -442,7 +442,7 @@
 					</ul>
 				</li>
 				
-				<li class="">
+				<li class="" id="shenPiLi">
 					<a  href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">审批管理</span>
@@ -507,6 +507,7 @@
 					</ul>
 				</li>
 				
+				
 			</ul>
 			<!-- END SIDEBAR MENU1 -->
 		</div>
@@ -569,7 +570,16 @@
 		    initWareHouse();
 		  //  userstatus();
 		    //findAllUser();
+		    getUser();
 		});
+		
+		function getUser(){
+			var urname = sessionStorage.getItem("urname");
+			var auid = sessionStorage.getItem("auid");
+			if(urname==0){
+				$("#shenPiLi").attr("style", "display:none");
+			}
+		}
 		
 		 function initDepartment(){
 			$.ajax({

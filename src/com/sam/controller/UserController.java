@@ -2,6 +2,8 @@ package com.sam.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -183,5 +185,30 @@ public class UserController {
 		
 	}
 	
+	@RequestMapping(value="/loginCheck",method=RequestMethod.POST)
+	@ResponseBody
+	public AssetUser loginCheck(String username,String password){
+		AssetUser user = new AssetUser();
+		user.setAuname(username);
+		user.setAupass(password);
+		try {
+			AssetUser nowUser = userService.findUserWhenLogin(user);
+			if(nowUser==null){
+				return null;
+			}
+			if(nowUser.getUrname().equals("管理员")){
+				System.out.println("asfhaskdjfhlkasdhfkjadsflasdhfhasdh"+nowUser.getUrname().equals("管理员"));
+				nowUser.setUrname("0");
+			}else{
+				nowUser.setUrname("1");
+			}
+			return nowUser;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
 	
 }

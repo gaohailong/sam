@@ -27,6 +27,8 @@ public interface UserDao {
 	 */
 	int deleteUser(Integer auid)throws Exception;
 	
+	AssetUser findUserWhenLogin(AssetUser user) throws Exception;
+	
 	/**
 	 * 修改用户
 	 * @param auid
