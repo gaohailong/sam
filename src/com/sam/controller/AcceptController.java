@@ -45,16 +45,13 @@ public class AcceptController extends BaseController {
 		accept.setAaname(aaname);
 		accept.setAaprice(aaprice);
 		accept.setAanumber(aanumber);
-		System.out.println(accept);
-		System.out.println(acceptStr);
-
 		try {
 			int num = acceptService.addAccept(acceptStr, accept);
 			return num;
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			return -1;
+			return 0;
 		}
 		
 	}

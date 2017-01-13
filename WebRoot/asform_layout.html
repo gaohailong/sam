@@ -24,7 +24,7 @@
 					<i class="icon-reorder"></i> <span class="hidden-480">入库单</span>
 				</div>
 				<div class="actions">
-					<button  class="btn blue ">
+					<button class="btn blue" onclick="javascript:addAcceptForm();">
 						<i class="icon-check"></i> 确定
 					</button>
 					<a href="#" data-toggle="modal" class="btn yellow "><i
@@ -34,52 +34,51 @@
 				</div>
 			</div>
 			<div class="portlet-body">
-					<form action="#" class="form-horizontal">
+				<form action="#" class="form-horizontal">
 					<div class="row-fluid">
 						<div class="control-group" style="margin-top: 25px;">
 							<label class="control-label span2">存放地点</label>
 							<div class="controls span2">
 								<select class="medium m-wrap" tabindex="1" id="ahname">
-										<option value="Category 1">仓库</option>
-										<option value="Category 2">办公室</option>
-										<option value="Category 3">实验室</option>
-										<option value="Category 4">教室</option>
-										<option value="Category 4">财务室</option>
-									</select>
+									<option value="Category 1">仓库</option>
+									<option value="Category 2">办公室</option>
+									<option value="Category 3">实验室</option>
+									<option value="Category 4">教室</option>
+									<option value="Category 4">财务室</option>
+								</select>
 							</div>
 							<label class="control-label span3">增加方式</label>
 							<div class="controls span2">
 								<select class="medium m-wrap" tabindex="1" id="aatype">
-										<option value="Category 1">购买</option>
-										<option value="Category 2">租赁</option>
-										<option value="Category 3">抢的</option>
-										<option value="Category 4">偷的</option>
-									</select>
+									<option value="Category 1">购买</option>
+									<option value="Category 2">租赁</option>
+									<option value="Category 3">抢的</option>
+									<option value="Category 4">偷的</option>
+								</select>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label span2">入库人</label>
 							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="aaname" /> <span
-									></span>
+								<input type="text" class="m-wrap medium" id="aaname" /> <span></span>
 							</div>
 							<label class="control-label span3">总件数</label>
 							<div class="controls span2">
 								<input type="text" class="m-wrap medium" id="aanumber" /> <span
-										class="help-inline"></span>
+									class="help-inline"></span>
 							</div>
 						</div>
-						
+
 						<div class="control-group" style="margin-top: -18px;">
 							<label class="control-label span2">总价格</label>
 							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="aaprice" /> 
+								<input type="text" class="m-wrap medium" id="aaprice" />
 							</div>
 						</div>
 					</div>
 				</form>
-					
-				
+
+
 			</div>
 			<div id="responsive" class="modal hide fade" tabindex="-1"
 				data-width="760">
@@ -240,84 +239,84 @@
 </div>
 <!-- END PAGE -->
 <script type="text/javascript">
-		
-		function addOne() {
-			var type = document.getElementById("item_as_type").value;
-			var name = document.getElementById("item_as_name").value;
-			var cateDetail = document.getElementById("item_as_cateDetail").value;
-			var houseDetail = document.getElementById("item_as_houseDetail").value;
-			var measuer = document.getElementById("item_as_measuer").value;
-			var supply = document.getElementById("item_as_supply").value;
-			var life = document.getElementById("item_as_life").value;
-			var depreciation = document.getElementById("item_as_depreciation").value;
-			var remainratio = document.getElementById("item_as_remainratio").value;
-			var introduce = document.getElementById("item_as_introduce").value;
-			var strc = type + "~" + name + "~" + cateDetail + "~" + houseDetail
-					+ "~" + measuer + "~" + supply + "~" + life + "~"
-					+ depreciation + "~" + remainratio + "~" + introduce;
-			$("#acceptForm")
-					.append(
-							"<input type='hidden' name='acceptName' value='"+strc+"' />");
-			var str = "<tr class=''><td>"
-					+ type
-					+ "</td><td>"
-					+ name
-					+ "</td><td>"
-					+ cateDetail
-					+ "</td><td>"
-					+ houseDetail
-					+ "</td><td>"
-					+ measuer
-					+ "</td><td>"
-					+ supply
-					+ "</td><td>"
-					+ life
-					+ "</td><td>"
-					+ depreciation
-					+ "</td><td>"
-					+ remainratio
-					+ "</td><td>"
-					+ introduce
-					+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
-			$("#accept-tbody").prepend(str);
-			$("#accept-tbody-reset").click();
-			$("#accept-tbody-close").click();
-		}
+	function addOne() {
+		var type = document.getElementById("item_as_type").value;
+		var name = document.getElementById("item_as_name").value;
+		var cateDetail = document.getElementById("item_as_cateDetail").value;
+		var houseDetail = document.getElementById("item_as_houseDetail").value;
+		var measuer = document.getElementById("item_as_measuer").value;
+		var supply = document.getElementById("item_as_supply").value;
+		var life = document.getElementById("item_as_life").value;
+		var depreciation = document.getElementById("item_as_depreciation").value;
+		var remainratio = document.getElementById("item_as_remainratio").value;
+		var introduce = document.getElementById("item_as_introduce").value;
+		var strc = type + "~" + name + "~" + cateDetail + "~" + houseDetail
+				+ "~" + measuer + "~" + supply + "~" + life + "~"
+				+ depreciation + "~" + remainratio + "~" + introduce;
+		$("#acceptForm").append(
+				"<input type='hidden' name='acceptName' value='"+strc+"' />");
+		var str = "<tr class=''><td>"
+				+ type
+				+ "</td><td>"
+				+ name
+				+ "</td><td>"
+				+ cateDetail
+				+ "</td><td>"
+				+ houseDetail
+				+ "</td><td>"
+				+ measuer
+				+ "</td><td>"
+				+ supply
+				+ "</td><td>"
+				+ life
+				+ "</td><td>"
+				+ depreciation
+				+ "</td><td>"
+				+ remainratio
+				+ "</td><td>"
+				+ introduce
+				+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
+		$("#accept-tbody").prepend(str);
+		$("#accept-tbody-reset").click();
+		$("#accept-tbody-close").click();
+	}
 
-		function clearLittleForm() {
-			$("#accept-tbody-reset").siblings().children().find("input").attr(
-					"value", "");
-			$("#accept-tbody-reset").siblings().children().find("textarea")
-					.attr("value", "");
-		}
-		
+	function clearLittleForm() {
+		$("#accept-tbody-reset").siblings().children().find("input").attr(
+				"value", "");
+		$("#accept-tbody-reset").siblings().children().find("textarea").attr(
+				"value", "");
+	}
 
-		function addAcceptForm() {
-			var accStr = document.getElementsByName("acceptName");
-			var acceptStr = "";
-			for(var i=0;i<accStr.length;i++){
-				acceptStr += accStr[i].value+",";
-			}
-			var ahname = document.getElementById("ahname").value;
-			var aatype = document.getElementById("aatype").value;
-			var aaname = document.getElementById("aaname").value;
-			var aaprice = document.getElementById("aaprice").value;
-			var aanumber = document.getElementById("aanumber").value;
-			$.ajax({
-				type:"post",
-				url:"/sam/accept/addAccept",
-				data:"acceptStr="+acceptStr+"&ahname="+ahname+"&aatype="+aatype+"&aaname="+aaname+"&aaprice="+aaprice+"&aanumber="+aanumber,
-				dataType:"JSON",
-				success:function(data){
-					if(data>0){
-						alert("添加成功");
-						 window.location.reload();
-					}
-				},
-				error:function(data){
-					alert(data.status);
+	function addAcceptForm() {
+		var accStr = document.getElementsByName("acceptName");
+		var acceptStr = "";
+		for (var i = 0; i < accStr.length; i++) {
+			acceptStr += accStr[i].value + ",";
+		}
+		var ahname = document.getElementById("ahname").value;
+		var aatype = document.getElementById("aatype").value;
+		var aaname = document.getElementById("aaname").value;
+		var aaprice = document.getElementById("aaprice").value;
+		var aanumber = document.getElementById("aanumber").value;
+		alert("123")
+		$.ajax({
+			type : "post",
+			url : "/sam/accept/addAccept",
+			data : "acceptStr=" + acceptStr + "&ahname=" + ahname + "&aatype="
+					+ aatype + "&aaname=" + aaname + "&aaprice=" + aaprice
+					+ "&aanumber=" + aanumber,
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0) {
+					alert("添加成功");
+					window.location.reload();
 				}
-			});
-			
-		}
-	</script>
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+
+	}
+</script>

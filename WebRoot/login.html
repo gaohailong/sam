@@ -223,6 +223,7 @@
 					dataType:"JSON",
 					success:function(date){
 						if(date!=null){
+							sessionStorage.setItem("auname", date.auname);
 							sessionStorage.setItem("urname", date.urname);
 							sessionStorage.setItem("auid", date.auid);
 							window.location.href="asindex.html";
