@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sam.entity.AssetDepartment;
+import com.sam.entity.AssetHouse;
 import com.sam.entity.AssetInfo;
 import com.sam.entity.AssetType;
 import com.sam.entity.AssetUser;
@@ -47,7 +48,18 @@ public class AssetTypeController {
 	public List<AssetType> findAllAssetType() throws Exception {
 		return assetTypeService.findAssetType();
 	}
-
+	
+	/**
+	 * 根据一级ID查询二级ID
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/findAllSecondAssetHouse", method = RequestMethod.POST)
+	@ResponseBody
+	public List<AssetType> findAllSecondAssetHouse(Integer atid) throws Exception {
+		return assetTypeService.findAssetTypeByAtlevel(atid);
+	}
+	
 	/**
 	 * 查询所有的二级类型
 	 * 

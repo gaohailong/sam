@@ -40,11 +40,6 @@
 							<label class="control-label span2">存放地点</label>
 							<div class="controls span2">
 								<select class="medium m-wrap" tabindex="1" id="ahname">
-									<option value="Category 1">仓库</option>
-									<option value="Category 2">办公室</option>
-									<option value="Category 3">实验室</option>
-									<option value="Category 4">教室</option>
-									<option value="Category 4">财务室</option>
 								</select>
 							</div>
 							<label class="control-label span3">增加方式</label>
@@ -110,37 +105,18 @@
 										<div class="control-group">
 											<label class="control-label">资产类别</label>
 											<div class="controls">
-												<select class="medium m-wrap" id="item_as_cate" tabindex="1">
-													<option value="1">器材</option>
-													<option value="2">桌椅</option>
-													<option value="3">电脑</option>
-													<option value="4">等等。。。</option>
-												</select> <select class="medium m-wrap" id="item_as_cateDetail"
+												<select class="medium m-wrap" onchange="javascript:selectSencondAssetType(this.value);" id="item_as_cate" tabindex="1">
+												</select> 
+												<select class="medium m-wrap" id="item_as_cateDetail"
 													tabindex="1">
-													<option value="1">显示屏</option>
-													<option value="2">鼠标</option>
-													<option value="3">键盘</option>
-													<option value="4">音响。。。</option>
 												</select>
 											</div>
 										</div>
 										<div class="control-group">
 											<label class="control-label">仓库名称</label>
 											<div class="controls">
-												<select class="medium m-wrap" id="item_as_house"
-													tabindex="1">
-													<option value="1">仓库</option>
-													<option value="2">办公室</option>
-													<option value="3">实验室</option>
-													<option value="4">教室</option>
-													<option value="5">财务室</option>
-												</select> <select class="medium m-wrap" tabindex="1"
+												<select class="medium m-wrap" tabindex="1"
 													id="item_as_houseDetail">
-													<option value="1">仓库</option>
-													<option value="2">办公室</option>
-													<option value="3">实验室</option>
-													<option value="4">教室</option>
-													<option value="5">财务室</option>
 												</select>
 											</div>
 										</div>
@@ -168,8 +144,9 @@
 										<div class="control-group">
 											<label class="control-label">资产折旧方法</label>
 											<div class="controls">
-												<input class="m-wrap medium" id="item_as_depreciation"
-													type="text" placeholder="" />
+												<select class="medium m-wrap" id="item_as_depreciation" tabindex="1">
+													<option value="平均折旧法">平均折旧法</option>
+												</select>
 											</div>
 										</div>
 										<div class="control-group">
@@ -239,6 +216,90 @@
 </div>
 <!-- END PAGE -->
 <script type="text/javascript">
+
+		jQuery(document).ready(function() {
+		
+		findAssetTypeFirst();
+		selectWareHouse1();
+	});
+	
+	
+		function findAssetTypeFirst() {
+			$.ajax({
+				type : "get",
+				url : "/sam/assetType/findAssetTypeFirst",
+				dataType : "JSON",
+				success : function(data) {
+					$("#item_as_cate").append('<option value="">请选择</option>');
+					$(data).each(
+							function(index, val) {
+								$("#item_as_cate").append(
+										"<option value='"+val.atid+"'>"
+												+ val.atname + "</option>");
+							});
+	
+				},
+				error : function(data) {
+					alert(data.status);
+				}
+			});
+		}
+		
+		function selectSencondAssetType(atid){
+			alert(atid)
+			$.ajax({
+			type : "POST",
+			url : "/sam/assetType/findAllSecondAssetHouse",
+			data : "atid="+atid,
+			dataType : "JSON",
+			success : function(data) {
+			$("#item_as_cateDetail").html("");
+			$("#item_as_cateDetail").append('<option value="">请选择</option>');
+				$(data).each(
+						function(index, value) {
+							$("#item_as_cateDetail").append(
+								"<option value='"+value.atname+"'>"+value.atname+"</option>"
+							);
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+		
+		}
+		
+		function selectWareHouse1() {
+		$.ajax({
+			type : "get",
+			url : "/sam/wareHouse/findAllSecondAssetHouse",
+			dataType : "JSON",
+			success : function(data) {
+			$("#ahname").html("");
+			$("#ahname").append('<option value="">请选择</option>');
+			$("#item_as_houseDetail").html("");
+			$("#item_as_houseDetail").append('<option value="">请选择</option>');
+				$(data).each(
+						function(index, value) {
+							$("#ahname").append(
+								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
+							);
+							$("#item_as_houseDetail").append(
+								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
+							);
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	
+		
+	}
+
+
 	function addOne() {
 		var type = document.getElementById("item_as_type").value;
 		var name = document.getElementById("item_as_name").value;
