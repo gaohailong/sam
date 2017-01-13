@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.sam.entity.AssetDepartment;
 import com.sam.entity.AssetInfo;
+import com.sam.entity.AssetType;
 import com.sam.entity.Pager;
 
 public interface DepartmentService {
@@ -40,5 +41,52 @@ public interface DepartmentService {
 	 */
 	public List<AssetDepartment> findAllSecondDepartments() throws Exception;
 	
+	/**
+	 * 增加一级菜单
+	 * @param assettype
+	 * @return
+	 * @throws Exception
+	 * @author wc
+	 */
+	int  addDepartment(AssetDepartment assetdepartment)throws Exception;
+	/**
+	 * 增加二级菜单
+	 * @param assetdepartment
+	 * @param adid
+	 * @return
+	 * @throws Exception
+	 * @author wc
+	 */
+	int  addDepartmentSecond(AssetDepartment assetdepartment)throws Exception;
+	/**
+	 * 分页查询所有一级类型
+	 * @return
+	 * @throws Exception
+	 */
+	Pager<AssetDepartment> findDepartment(int pageNum,int pageSize,int adlevel)throws Exception;
+	/**
+	 * 分页查询对应的二级菜单
+	 * @param pageNum
+	 * @param pageSize
+	 * @param adid
+	 * @return
+	 * @throws Exception
+	 */
+	Pager<AssetDepartment> findDepartmentSecond(int pageNum,int pageSize,int adid)throws Exception;
+	
+	/**
+	 * 删除类型
+	 * @param adid
+	 * @return
+	 * @throws Exception
+	 */
+	int deleteDepartment(Integer adid)throws Exception;
+	/**
+	 * 修该类型
+	 * @param sddetdepartment
+	 * @return
+	 * @throws Exception
+	 */
+	int updateDepartment(AssetDepartment assetdepartment)throws Exception;
 	
 }
