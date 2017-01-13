@@ -103,4 +103,6 @@ public class InfoServiceImpl implements InfoService {
 		// TODO Auto-generated method stub
 		return infoDao.findInfoByCondition(assetInfo);
 	}
+
+	
 }

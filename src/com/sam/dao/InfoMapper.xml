@@ -86,4 +86,8 @@
 	<select id="findHouseCateAndWareChart" resultType="com.sam.entity.AssetChartUtils">
 		select count(*) as assetCount,ahname as assetHouse ,atname as assetCategory from AssetInfo group by atname, ahname
 	</select>
+	
+	<update id="updateAssetInfoByAsname" parameterType="java.lang.Integer">
+		update assetinfo set asname = '已维修' where broorwid=#{broorwid}
+	</update>
 </mapper>
