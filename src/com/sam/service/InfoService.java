@@ -87,4 +87,5 @@ public interface InfoService {
 	 * @throws Exception
 	 */
 	int findInfoNumByAtname(String atname) throws Exception;
+	
 }

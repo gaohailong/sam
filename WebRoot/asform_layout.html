@@ -24,7 +24,7 @@
 					<i class="icon-reorder"></i> <span class="hidden-480">入库单</span>
 				</div>
 				<div class="actions">
-					<button  class="btn blue ">
+					<button class="btn blue" onclick="javascript:addAcceptForm();">
 						<i class="icon-check"></i> 确定
 					</button>
 					<a href="#" data-toggle="modal" class="btn yellow "><i
@@ -34,52 +34,46 @@
 				</div>
 			</div>
 			<div class="portlet-body">
-					<form action="#" class="form-horizontal">
+				<form action="#" class="form-horizontal">
 					<div class="row-fluid">
 						<div class="control-group" style="margin-top: 25px;">
 							<label class="control-label span2">存放地点</label>
 							<div class="controls span2">
 								<select class="medium m-wrap" tabindex="1" id="ahname">
-										<option value="Category 1">仓库</option>
-										<option value="Category 2">办公室</option>
-										<option value="Category 3">实验室</option>
-										<option value="Category 4">教室</option>
-										<option value="Category 4">财务室</option>
-									</select>
+								</select>
 							</div>
 							<label class="control-label span3">增加方式</label>
 							<div class="controls span2">
 								<select class="medium m-wrap" tabindex="1" id="aatype">
-										<option value="Category 1">购买</option>
-										<option value="Category 2">租赁</option>
-										<option value="Category 3">抢的</option>
-										<option value="Category 4">偷的</option>
-									</select>
+									<option value="Category 1">购买</option>
+									<option value="Category 2">租赁</option>
+									<option value="Category 3">抢的</option>
+									<option value="Category 4">偷的</option>
+								</select>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label span2">入库人</label>
 							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="aaname" /> <span
-									></span>
+								<input type="text" class="m-wrap medium" id="aaname" /> <span></span>
 							</div>
 							<label class="control-label span3">总件数</label>
 							<div class="controls span2">
 								<input type="text" class="m-wrap medium" id="aanumber" /> <span
-										class="help-inline"></span>
+									class="help-inline"></span>
 							</div>
 						</div>
-						
+
 						<div class="control-group" style="margin-top: -18px;">
 							<label class="control-label span2">总价格</label>
 							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="aaprice" /> 
+								<input type="text" class="m-wrap medium" id="aaprice" />
 							</div>
 						</div>
 					</div>
 				</form>
-					
-				
+
+
 			</div>
 			<div id="responsive" class="modal hide fade" tabindex="-1"
 				data-width="760">
@@ -111,37 +105,18 @@
 										<div class="control-group">
 											<label class="control-label">资产类别</label>
 											<div class="controls">
-												<select class="medium m-wrap" id="item_as_cate" tabindex="1">
-													<option value="1">器材</option>
-													<option value="2">桌椅</option>
-													<option value="3">电脑</option>
-													<option value="4">等等。。。</option>
-												</select> <select class="medium m-wrap" id="item_as_cateDetail"
+												<select class="medium m-wrap" onchange="javascript:selectSencondAssetType(this.value);" id="item_as_cate" tabindex="1">
+												</select> 
+												<select class="medium m-wrap" id="item_as_cateDetail"
 													tabindex="1">
-													<option value="1">显示屏</option>
-													<option value="2">鼠标</option>
-													<option value="3">键盘</option>
-													<option value="4">音响。。。</option>
 												</select>
 											</div>
 										</div>
 										<div class="control-group">
 											<label class="control-label">仓库名称</label>
 											<div class="controls">
-												<select class="medium m-wrap" id="item_as_house"
-													tabindex="1">
-													<option value="1">仓库</option>
-													<option value="2">办公室</option>
-													<option value="3">实验室</option>
-													<option value="4">教室</option>
-													<option value="5">财务室</option>
-												</select> <select class="medium m-wrap" tabindex="1"
+												<select class="medium m-wrap" tabindex="1"
 													id="item_as_houseDetail">
-													<option value="1">仓库</option>
-													<option value="2">办公室</option>
-													<option value="3">实验室</option>
-													<option value="4">教室</option>
-													<option value="5">财务室</option>
 												</select>
 											</div>
 										</div>
@@ -169,8 +144,9 @@
 										<div class="control-group">
 											<label class="control-label">资产折旧方法</label>
 											<div class="controls">
-												<input class="m-wrap medium" id="item_as_depreciation"
-													type="text" placeholder="" />
+												<select class="medium m-wrap" id="item_as_depreciation" tabindex="1">
+													<option value="平均折旧法">平均折旧法</option>
+												</select>
 											</div>
 										</div>
 										<div class="control-group">
@@ -240,84 +216,168 @@
 </div>
 <!-- END PAGE -->
 <script type="text/javascript">
-		
-		function addOne() {
-			var type = document.getElementById("item_as_type").value;
-			var name = document.getElementById("item_as_name").value;
-			var cateDetail = document.getElementById("item_as_cateDetail").value;
-			var houseDetail = document.getElementById("item_as_houseDetail").value;
-			var measuer = document.getElementById("item_as_measuer").value;
-			var supply = document.getElementById("item_as_supply").value;
-			var life = document.getElementById("item_as_life").value;
-			var depreciation = document.getElementById("item_as_depreciation").value;
-			var remainratio = document.getElementById("item_as_remainratio").value;
-			var introduce = document.getElementById("item_as_introduce").value;
-			var strc = type + "~" + name + "~" + cateDetail + "~" + houseDetail
-					+ "~" + measuer + "~" + supply + "~" + life + "~"
-					+ depreciation + "~" + remainratio + "~" + introduce;
-			$("#acceptForm")
-					.append(
-							"<input type='hidden' name='acceptName' value='"+strc+"' />");
-			var str = "<tr class=''><td>"
-					+ type
-					+ "</td><td>"
-					+ name
-					+ "</td><td>"
-					+ cateDetail
-					+ "</td><td>"
-					+ houseDetail
-					+ "</td><td>"
-					+ measuer
-					+ "</td><td>"
-					+ supply
-					+ "</td><td>"
-					+ life
-					+ "</td><td>"
-					+ depreciation
-					+ "</td><td>"
-					+ remainratio
-					+ "</td><td>"
-					+ introduce
-					+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
-			$("#accept-tbody").prepend(str);
-			$("#accept-tbody-reset").click();
-			$("#accept-tbody-close").click();
-		}
 
-		function clearLittleForm() {
-			$("#accept-tbody-reset").siblings().children().find("input").attr(
-					"value", "");
-			$("#accept-tbody-reset").siblings().children().find("textarea")
-					.attr("value", "");
-		}
+		jQuery(document).ready(function() {
 		
-
-		function addAcceptForm() {
-			var accStr = document.getElementsByName("acceptName");
-			var acceptStr = "";
-			for(var i=0;i<accStr.length;i++){
-				acceptStr += accStr[i].value+",";
-			}
-			var ahname = document.getElementById("ahname").value;
-			var aatype = document.getElementById("aatype").value;
-			var aaname = document.getElementById("aaname").value;
-			var aaprice = document.getElementById("aaprice").value;
-			var aanumber = document.getElementById("aanumber").value;
+		findAssetTypeFirst();
+		selectWareHouse1();
+	});
+	
+	
+		function findAssetTypeFirst() {
 			$.ajax({
-				type:"post",
-				url:"/sam/accept/addAccept",
-				data:"acceptStr="+acceptStr+"&ahname="+ahname+"&aatype="+aatype+"&aaname="+aaname+"&aaprice="+aaprice+"&aanumber="+aanumber,
-				dataType:"JSON",
-				success:function(data){
-					if(data>0){
-						alert("添加成功");
-						 window.location.reload();
-					}
+				type : "get",
+				url : "/sam/assetType/findAssetTypeFirst",
+				dataType : "JSON",
+				success : function(data) {
+					$("#item_as_cate").append('<option value="">请选择</option>');
+					$(data).each(
+							function(index, val) {
+								$("#item_as_cate").append(
+										"<option value='"+val.atid+"'>"
+												+ val.atname + "</option>");
+							});
+	
 				},
-				error:function(data){
+				error : function(data) {
 					alert(data.status);
 				}
 			});
-			
 		}
-	</script>
+		
+		function selectSencondAssetType(atid){
+			alert(atid)
+			$.ajax({
+			type : "POST",
+			url : "/sam/assetType/findAllSecondAssetHouse",
+			data : "atid="+atid,
+			dataType : "JSON",
+			success : function(data) {
+			$("#item_as_cateDetail").html("");
+			$("#item_as_cateDetail").append('<option value="">请选择</option>');
+				$(data).each(
+						function(index, value) {
+							$("#item_as_cateDetail").append(
+								"<option value='"+value.atname+"'>"+value.atname+"</option>"
+							);
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+		
+		}
+		
+		function selectWareHouse1() {
+		$.ajax({
+			type : "get",
+			url : "/sam/wareHouse/findAllSecondAssetHouse",
+			dataType : "JSON",
+			success : function(data) {
+			$("#ahname").html("");
+			$("#ahname").append('<option value="">请选择</option>');
+			$("#item_as_houseDetail").html("");
+			$("#item_as_houseDetail").append('<option value="">请选择</option>');
+				$(data).each(
+						function(index, value) {
+							$("#ahname").append(
+								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
+							);
+							$("#item_as_houseDetail").append(
+								"<option value='"+value.ahname+"'>"+value.ahname+"</option>"
+							);
+						});
+
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	
+		
+	}
+
+
+	function addOne() {
+		var type = document.getElementById("item_as_type").value;
+		var name = document.getElementById("item_as_name").value;
+		var cateDetail = document.getElementById("item_as_cateDetail").value;
+		var houseDetail = document.getElementById("item_as_houseDetail").value;
+		var measuer = document.getElementById("item_as_measuer").value;
+		var supply = document.getElementById("item_as_supply").value;
+		var life = document.getElementById("item_as_life").value;
+		var depreciation = document.getElementById("item_as_depreciation").value;
+		var remainratio = document.getElementById("item_as_remainratio").value;
+		var introduce = document.getElementById("item_as_introduce").value;
+		var strc = type + "~" + name + "~" + cateDetail + "~" + houseDetail
+				+ "~" + measuer + "~" + supply + "~" + life + "~"
+				+ depreciation + "~" + remainratio + "~" + introduce;
+		$("#acceptForm").append(
+				"<input type='hidden' name='acceptName' value='"+strc+"' />");
+		var str = "<tr class=''><td>"
+				+ type
+				+ "</td><td>"
+				+ name
+				+ "</td><td>"
+				+ cateDetail
+				+ "</td><td>"
+				+ houseDetail
+				+ "</td><td>"
+				+ measuer
+				+ "</td><td>"
+				+ supply
+				+ "</td><td>"
+				+ life
+				+ "</td><td>"
+				+ depreciation
+				+ "</td><td>"
+				+ remainratio
+				+ "</td><td>"
+				+ introduce
+				+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
+		$("#accept-tbody").prepend(str);
+		$("#accept-tbody-reset").click();
+		$("#accept-tbody-close").click();
+	}
+
+	function clearLittleForm() {
+		$("#accept-tbody-reset").siblings().children().find("input").attr(
+				"value", "");
+		$("#accept-tbody-reset").siblings().children().find("textarea").attr(
+				"value", "");
+	}
+
+	function addAcceptForm() {
+		var accStr = document.getElementsByName("acceptName");
+		var acceptStr = "";
+		for (var i = 0; i < accStr.length; i++) {
+			acceptStr += accStr[i].value + ",";
+		}
+		var ahname = document.getElementById("ahname").value;
+		var aatype = document.getElementById("aatype").value;
+		var aaname = document.getElementById("aaname").value;
+		var aaprice = document.getElementById("aaprice").value;
+		var aanumber = document.getElementById("aanumber").value;
+		alert("123")
+		$.ajax({
+			type : "post",
+			url : "/sam/accept/addAccept",
+			data : "acceptStr=" + acceptStr + "&ahname=" + ahname + "&aatype="
+					+ aatype + "&aaname=" + aaname + "&aaprice=" + aaprice
+					+ "&aanumber=" + aanumber,
+			dataType : "JSON",
+			success : function(data) {
+				if (data > 0) {
+					alert("添加成功");
+					window.location.reload();
+				}
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+
+	}
+</script>
