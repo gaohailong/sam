@@ -45,10 +45,9 @@
 							<label class="control-label span3">增加方式</label>
 							<div class="controls span2">
 								<select class="medium m-wrap" tabindex="1" id="aatype">
-									<option value="Category 1">购买</option>
-									<option value="Category 2">租赁</option>
-									<option value="Category 3">抢的</option>
-									<option value="Category 4">偷的</option>
+									<option value="购买">购买</option>
+									<option value="租赁">租赁</option>
+									<option value="捐赠">捐赠</option>
 								</select>
 							</div>
 						</div>
@@ -59,7 +58,7 @@
 							</div>
 							<label class="control-label span3">总件数</label>
 							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="aanumber" /> <span
+								<input type="text" class="m-wrap medium" placeholder="请输入整数" id="aanumber" /> <span
 									class="help-inline"></span>
 							</div>
 						</div>
@@ -67,7 +66,7 @@
 						<div class="control-group" style="margin-top: -18px;">
 							<label class="control-label span2">总价格</label>
 							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="aaprice" />
+								<input type="text" class="m-wrap medium" placeholder="请输入数字" id="aaprice" />
 							</div>
 						</div>
 					</div>
@@ -123,8 +122,14 @@
 										<div class="control-group">
 											<label class="control-label">生产日期</label>
 											<div class="controls">
-												<input class="m-wrap medium" id="item_as_measuer"
-													type="text" placeholder="" />
+												<div class="input-append date date-picker m-wrap medium"
+													data-date="2016/12/02" data-date-format="yyyy/mm/dd"
+													data-date-viewmode="years">
+				
+													<input class="m-wrap m-ctrl-medium date-picker" readonly
+														size="16" type="text" value="" id="item_as_measuer" /> <span
+														class="add-on"><i class="icon-calendar"></i></span>
+												</div>
 											</div>
 										</div>
 										<div class="control-group">
@@ -137,8 +142,14 @@
 										<div class="control-group">
 											<label class="control-label">资产保质期</label>
 											<div class="controls">
-												<input class="m-wrap medium" type="text" id="item_as_life"
-													placeholder="" />
+												<div class="input-append date date-picker m-wrap medium"
+													data-date="2016/12/02" data-date-format="yyyy/mm/dd"
+													data-date-viewmode="years">
+				
+													<input class="m-wrap m-ctrl-medium date-picker" readonly
+														size="16" type="text" value="" id="item_as_life" /> <span
+														class="add-on"><i class="icon-calendar"></i></span>
+												</div>
 											</div>
 										</div>
 										<div class="control-group">
@@ -219,6 +230,7 @@
 
 		jQuery(document).ready(function() {
 		
+		CommonCalendarComponents.init();
 		findAssetTypeFirst();
 		selectWareHouse1();
 	});
