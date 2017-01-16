@@ -107,7 +107,7 @@
 
 				<div class="modal-header">
 
-					<span class="hidden-480">意见填写处</span>
+					<span class="hidden-480">填写归还信息</span>
 				</div>
 				<div class="modal-body">
 
@@ -129,14 +129,12 @@
 											<div class="control-group"></div>
 
 											<div class="control-group">
-
-												<label class="control-label">不通过意见</label>
+												
+												<label class="control-label">处理人</label>
 
 												<div class="controls">
-
-													<textarea id="item_as_suggest" class="m-wrap medium"
-														style="height: 100px"></textarea>
-
+													<input type="hidden" id="item_as_abid" value="">
+													<input type="text" id="item_as_abdeluser" class="m-wrap medium" />
 												</div>
 
 											</div>
@@ -165,7 +163,7 @@
 						class="btn">关闭</button>
 
 					<button id="accept-tbody-save" type="button" class="btn blue"
-						onclick="addSuggest()">保存</button>
+						onclick="addAssetback()">提交</button>
 
 
 
@@ -427,7 +425,32 @@
 	
 	function backAsset(abid) {
 		alert("abid:"+abid);
-		location.href="#";
+		$("#item_as_abid").attr("value",abid);
+		$("#openResp").click();
 	}
+	
+	function addAssetback() {
+	var abid=$("#item_as_abid").val();
+	var abdeluser = $("#item_as_abdeluser").val();
+	
+		data={
+			"abid":abid,
+			"abdeluser":abdeluser
+		};
+		$.ajax({
+			type:"post",
+			url : "/sam/back/addAssetBack",
+			data : data,
+			dataType:"JSON",
+			success:function(data) {
+				alert(data);
+			},
+			error:function(data) {
+				alert("出错了："+data.status);
+			}
+		});
+	}
+	
+	
 </script>
 

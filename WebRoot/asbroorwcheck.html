@@ -372,8 +372,8 @@
 	}
 
 	function initBroorw(page) {
-		$
-				.ajax({
+		
+				$.ajax({
 					type : "post",
 					url : "/sam/broorw/findBroorws",
 					data : "page=" + 1,
@@ -455,7 +455,7 @@
 				}
 			},
 			error : function(date) {
-				alert(date.status)
+				alert(date.status);
 			}
 		});
 	}

@@ -78,5 +78,12 @@ public class AssetBack implements java.io.Serializable {
 		this.abroorwid = abroorwid;
 	}
 
+	@Override
+	public String toString() {
+		return "AssetBack [abid=" + abid + ", auname=" + auname + ", abdate="
+				+ abdate + ", abdeluser=" + abdeluser + ", abroorwid="
+				+ abroorwid + "]";
+	}
+
 
 }
