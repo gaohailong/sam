@@ -337,7 +337,7 @@
 													+ "</td><td>"
 													+ broorwList[i].abreson
 													+ "</td><td>"
-													+"<a href='javascript:backAsset('"+broorwList[i].abid+"')'>归还</a>"
+													+"<a href='javascript:backAsset("+broorwList[i].abid+")'>归还</a>"
 													);
 						}
 						;
@@ -426,15 +426,8 @@
 	}
 	
 	function backAsset(abid) {
-		$.ajax({
-			type : "post",
-			url : "/sam/broorw/findBroorws",
-			data : "page=" + 1,
-			dataType : "JSON",
-			success : function(data) {
-			},
-					
-		});
+		alert("abid:"+abid);
+		location.href="#";
 	}
 </script>
 
