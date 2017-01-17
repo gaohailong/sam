@@ -64,32 +64,38 @@
 				<form action="#" class="form-horizontal">
 					<div class="row-fluid">
 						<div class="control-group" style="margin-top:20px">
-							<label class="control-label span2">维修开始时间</label>
-							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="repairtime" /> <span
-										class="help-inline"></span>
+							<label class="control-label  span2">维修开始时间</label>
+							<div class="controls  span2">
+								<div class="input-append date date-picker m-wrap medium"
+									data-date="2016/12/02" data-date-format="yyyy/mm/dd"
+									data-date-viewmode="years">
+
+									<input class="m-wrap m-ctrl-medium date-picker" readonly
+										size="16" type="text" value="" id="repairtime" /> <span
+										class="add-on"><i class="icon-calendar"></i></span>
+								</div>
 							</div>
 							<label class="control-label span3">维修天数</label>
 
 							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="repairday" /> <span
-										class="help-inline"></span>
+								<input type="text" class="m-wrap medium" placeholder="请输入天数" id="repairday" /> <span
+									class="help-inline" ></span>
 							</div>
 
 						</div>
-							<div class="control-group">
-								<label class="control-label span2">维修人员</label>
-								<div class="controls span2">
-									<input type="text" class="m-wrap medium" id="repairname" /> <span
-										class="help-inline"></span>
-								</div>
-								<label class="control-label span3">联系电话</label>
-
-								<div class="controls span2">
-									<input type="text" class="m-wrap medium" id="repairphone" /> <span
-											class="help-inline"></span>
-								</div>
+						<div class="control-group">
+							<label class="control-label span2">维修人员</label>
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" placeholder="请输入维修人员名字" id="repairname" /> <span
+									class="help-inline"></span>
 							</div>
+							<label class="control-label span3">联系电话</label>
+
+							<div class="controls span2">
+								<input type="text" class="m-wrap medium" placeholder="请输入电话号码,例:152xxxx4398" id="repairphone" /> <span
+									class="help-inline"></span>
+							</div>
+						</div>
 					</div>
 				</form>
 
@@ -125,7 +131,7 @@
 
 											<div class="controls">
 
-												<input type="text" id="item_as_idcard" class="m-wrap medium" />
+												<input type="text" id="item_as_idcard" placeholder="请输入设备编号" class="m-wrap medium" />
 
 											</div>
 
@@ -248,6 +254,12 @@
 
 <!-- 小表单得东西给大table中添加 -->
 <script type="text/javascript">
+
+	jQuery(document).ready(function() {
+		
+		CommonCalendarComponents.init();
+	});
+
 	function addOne() {
 		var date = document.getElementsByName("hiddenInfoInput");
 		var num = date.length;

@@ -108,6 +108,7 @@
 												</select> 
 												<select class="medium m-wrap" id="item_as_cateDetail"
 													tabindex="1">
+													<option value="">请先选择一级类型</option>
 												</select>
 											</div>
 										</div>
@@ -164,7 +165,7 @@
 											<label class="control-label">资产残值率</label>
 											<div class="controls">
 												<input class="m-wrap medium" id="item_as_remainratio"
-													type="text" placeholder="" />
+													type="text" placeholder="请输入数字" />
 											</div>
 										</div>
 										<div class="control-group">
@@ -258,7 +259,6 @@
 		}
 		
 		function selectSencondAssetType(atid){
-			alert(atid)
 			$.ajax({
 			type : "POST",
 			url : "/sam/assetType/findAllSecondAssetHouse",

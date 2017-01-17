@@ -68,10 +68,15 @@
 							<div class="controls span2">
 								<input type="text" class="m-wrap medium" id="changeName" />
 							</div>
-							<label class="control-label span3">部门名称</label>
-
-							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="changeDepart" />
+							
+							<label class="control-label span2">部门名称</label>
+							<div class="controls span6">
+								<select class="medium m-wrap"
+									onchange="javascript:initSecondDepartment(this.value);"
+									id="firstDepart" tabindex="1">
+								</select>
+								 <select class="medium m-wrap" id="changeDepart" tabindex="1">
+								</select>
 							</div>
 						</div>
 					</div>
@@ -234,6 +239,52 @@
 
 <!-- 小表单得东西给大table中添加 -->
 <script type="text/javascript">
+	jQuery(document).ready(function() {
+		initDepartment();
+	});
+	//遍历一级部门
+	function initDepartment() {
+		$.ajax({
+			type : "GET",
+			url : "/sam/department/findDepartmentsFirst",
+			dataType : "JSON",
+			success : function(data) {
+				$(data).each(
+						function(index, value) {
+							$("#firstDepart").append(
+									"<option value='"+value.adid+"'>"
+											+ value.adname + "</option>");
+									initSecondDepartment(value.adid);			
+						});
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+
+		});
+	}
+	//遍历二级部门的方法
+	function initSecondDepartment(adlevel) {
+		$.ajax({
+			type : "post",
+			url : "/sam/department/findDepartmentsSecond",
+			data : "adlevel=" + adlevel,
+			dataType : "JSON",
+			success : function(data) {
+				$("#changeDepart").html("");
+				$(data).each(
+						function(index, val) {
+							$("#changeDepart").append(
+									"<option value='"+val.adname+"'>"
+											+ val.adname + "</option>");
+						});
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	}
+
 	function addMore() {
 		var atname = document.getElementById("item_as_atname").value;
 		var atnum = document.getElementById("item_as_infonum").value;
