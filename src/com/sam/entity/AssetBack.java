@@ -10,7 +10,6 @@ public class AssetBack implements java.io.Serializable {
 	// Fields
 
 	private Integer abid;
-	private String auname;
 	private String abdate;
 	private String abdeluser;
 	private Integer abroorwid;
@@ -27,10 +26,9 @@ public class AssetBack implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetBack(Integer abid, String auname, String abdate, String abdeluser,
+	public AssetBack(Integer abid, String abdate, String abdeluser,
 			Integer abroorwid) {
 		this.abid = abid;
-		this.auname = auname;
 		this.abdate = abdate;
 		this.abdeluser = abdeluser;
 		this.abroorwid = abroorwid;
@@ -44,14 +42,6 @@ public class AssetBack implements java.io.Serializable {
 
 	public void setAbid(Integer abid) {
 		this.abid = abid;
-	}
-
-	public String getAuname() {
-		return this.auname;
-	}
-
-	public void setAuname(String auname) {
-		this.auname = auname;
 	}
 
 	public String getAbdate() {
@@ -80,9 +70,8 @@ public class AssetBack implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "AssetBack [abid=" + abid + ", auname=" + auname + ", abdate="
-				+ abdate + ", abdeluser=" + abdeluser + ", abroorwid="
-				+ abroorwid + "]";
+		return "AssetBack [abid=" + abid + ", abdate=" + abdate
+				+ ", abdeluser=" + abdeluser + ", abroorwid=" + abroorwid + "]";
 	}
 
 
