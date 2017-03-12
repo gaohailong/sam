@@ -362,7 +362,6 @@
 	}
 
 	function addType() {
-		alert("进入注册的页面");
 		$.ajax({
 			type : "post",
 			url : "/sam/assetType/addType",
@@ -379,7 +378,6 @@
 	}
 
 	function addTypeSecond() {
-		alert("进入增加爱到底type");
 		$.ajax({
 			type : "post",
 			url : "/sam/assetType/addTypeSecond",
@@ -397,7 +395,6 @@
 
 	//初始化全部设备的分页信息
 	function initAllAssetType(page, ahlevel) {
-		alert("进入初始化" + ahlevel);
 		$
 				.ajax({
 					type : "GET",
@@ -475,7 +472,6 @@
 
 	//显示二级类型菜单
 	function initSecondAssetType(page, atid) {
-		alert("进入初始化" + atid);
 		$
 				.ajax({
 					type : "post",
@@ -553,7 +549,6 @@
 
 	//获取修改页面数据的方法
 	function getHouse(atid, atlevel, atname) {
-		alert("进入修改页面");
 		document.getElementById("item_as_type_update").value = atname;
 		document.getElementById("item_as_name_update").value = atlevel;
 
@@ -567,14 +562,12 @@
 
 	//获取一级菜单的编号
 	function getTypeFirst(atid) {
-		alert("进入gettypefirst");
 		$("#type2form").append(
 				"<input type='hidden' name='atlevel' value='"+atid+"'/>");
 		$("#addnbsp").click();
 	}
 	//删除用户
 	function deleteType(atid) {
-		alert("进入删除的放发" + atid);
 		$.ajax({
 			type : "post",
 			url : "/sam/assetType/deleteType/" + atid,
@@ -592,7 +585,6 @@
 
 	//修改的方法
 	function updateType() {
-		alert("进入修改的方法");
 		$.ajax({
 			type : "post",
 			url : "/sam/assetType/updateType",

@@ -362,7 +362,6 @@
 	}
 
 	function addType() {
-		alert("进入注册的页面");
 		$.ajax({
 			type : "post",
 			url : "/sam/department/addDepartment",
@@ -472,7 +471,6 @@
 
 	//显示二级类型菜单
 	function initSecondAssetType(page, adid) {
-		alert("进入初始化" + adid);
 		$
 				.ajax({
 					type : "post",
@@ -550,7 +548,6 @@
 
 	//获取修改页面数据的方法
 	function getHouse(adid, adlevel, adname) {
-		alert("进入修改页面");
 		document.getElementById("item_as_type_update").value = adname;
 		document.getElementById("item_as_name_update").value = adlevel;
 
@@ -587,7 +584,6 @@
 
 	//修改的方法
 	function updateType() {
-		alert("进入修改的方法");
 		$.ajax({
 			type : "post",
 			url : "/sam/department/updateDepartment",

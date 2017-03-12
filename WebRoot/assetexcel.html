@@ -2,12 +2,12 @@
 <div class="row-fluid">
 	<div class="span12">
 		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-		<h3 class="page-title">资产报表</h3>
+		<h3 class="page-title">璧勪骇鎶ヨ〃</h3>
 		<ul class="breadcrumb">
-			<li><i class="icon-home"></i> <a href="index.html">首页</a> <i
+			<li><i class="icon-home"></i> <a href="index.html">棣栭〉</a> <i
 				class="icon-angle-right"></i></li>
-			<li><a href="#">报表导出</a> <i class="icon-angle-right"></i></li>
-			<li><a href="#">资产明细报表</a></li>
+			<li><a href="#">鎶ヨ〃瀵煎嚭</a> <i class="icon-angle-right"></i></li>
+			<li><a href="#">璧勪骇鏄庣粏鎶ヨ〃</a></li>
 		</ul>
 		<!-- END PAGE TITLE & BREADCRUMB-->
 	</div>
@@ -25,11 +25,11 @@
 		<div class="portlet box red">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="icon-cogs"></i>查询
+					<i class="icon-cogs"></i>鏌ヨ
 				</div>
 				<div class="actions">
 					<button onclick="findAssetInfoBytiaojian(1)" href="#" data-toggle="modal" class="btn green ">
-						<i class="icon-search"></i>查询
+						<i class="icon-search"></i>鏌ヨ
 					</button>
 				</div>
 			</div>
@@ -40,16 +40,16 @@
 				<form action="#" class="form-horizontal">
 					<div class="row-fluid">
 						<div class="control-group">
-							<label class="control-label span2">资产名称</label>
+							<label class="control-label span2">璧勪骇鍚嶇О</label>
 							<div class="controls span2">
-								<input id="assetInfoName" type="text" placeholder="设备名称" class="m-wrap medium" />
+								<input id="assetInfoName" type="text" placeholder="璁惧鍚嶇О" class="m-wrap medium" />
 							</div>
-							<label class="control-label span3">类型名称</label>
+							<label class="control-label span3">绫诲瀷鍚嶇О</label>
 
 							<div class="controls span2">
 
 								<select class="medium m-wrap" tabindex="1" id="assetType">
-									<option value="">请选择</option>
+									<option value="">璇烽�鎷�/option>
 								</select>
 
 							</div>
@@ -57,14 +57,14 @@
 						</div>
 						<div class="row-fluid">
 							<div class="control-group">
-								<label class="control-label span2">仓库名称</label>
+								<label class="control-label span2">浠撳簱鍚嶇О</label>
 								<div class="controls span2">
 									<select class="medium m-wrap" tabindex="1" id="selectwareHouse">
-										<option value="">请选择</option>
+										<option value="">璇烽�鎷�/option>
 									</select>
 								</div>
 								<!-- 
-								<label class="control-label span3">进库时间</label>
+								<label class="control-label span3">杩涘簱鏃堕棿</label>
 
 								<div class="controls span2">
 									<div class="input-append date date-picker m-wrap medium"
@@ -102,12 +102,12 @@
 			<div class="portlet-title">
 
 				<div class="caption">
-					<i class="icon-cogs"></i>资产列表
+					<i class="icon-cogs"></i>璧勪骇鍒楄〃
 				</div>
 				<div class="actions">
 				 	<a href="#exportassetinfoexcel"
 						data-toggle="modal" class="btn green "><i class="icon-check"></i>
-						导出EXCEL</a>
+						瀵煎嚭EXCEL</a>
 				</div>
 				
 			</div>
@@ -120,21 +120,21 @@
 
 						<tr>
 
-							<th>资产编号</th>
-							<th>资产名称</th>
-							<th>资产型号</th>
-							<th class="hidden-480">资产类型</th>
-							<th>资产状况</th>
-							<th>所在仓库</th>
-							<th>资产所属部门</th>
-							<th>入库时间</th>
-							<th>生产日期</th>
-							<th>生产单位</th>
-							<th>设备价值</th>
-							<th>保质期</th>
-							<th>设备备注</th>
-							<th>折旧方法</th>
-							<th>残值率</th>
+							<th>璧勪骇缂栧彿</th>
+							<th>璧勪骇鍚嶇О</th>
+							<th>璧勪骇鍨嬪彿</th>
+							<th class="hidden-480">璧勪骇绫诲瀷</th>
+							<th>璧勪骇鐘跺喌</th>
+							<th>鎵�湪浠撳簱</th>
+							<th>璧勪骇鎵�睘閮ㄩ棬</th>
+							<th>鍏ュ簱鏃堕棿</th>
+							<th>鐢熶骇鏃ユ湡</th>
+							<th>鐢熶骇鍗曚綅</th>
+							<th>璁惧浠峰�</th>
+							<th>淇濊川鏈�/th>
+							<th>璁惧澶囨敞</th>
+							<th>鎶樻棫鏂规硶</th>
+							<th>娈嬪�鐜�/th>
 							
 						</tr>
 
@@ -207,12 +207,12 @@
 		</div>
 		 <center>
                    <!--  data-toggle="modal" -->
-                   	<a id="firstPage" href="javascript:initAllAssetInfo(1);" class="btn red ">首页</a>  |
-                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">上一页</a> |
-                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">下一页</a> |
-                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
-                   	第<span id="currentPage"></span>页 | 
-                   	共<span id="totalRecord"></span>条数据
+                   	<a id="firstPage" href="javascript:initAllAssetInfo(1);" class="btn red ">棣栭〉</a>  |
+                   	<a id="perPage" href="" data-toggle="modal" class="btn red ">涓婁竴椤�/a> |
+                   	<a id="nextPage" href="" data-toggle="modal" class="btn red ">涓嬩竴椤�/a> |
+                   	<a id="lastPage" href="" data-toggle="modal" class="btn red ">灏鹃〉</a> |
+                   	绗�span id="currentPage"></span>椤�| 
+                   	鍏�span id="totalRecord"></span>鏉℃暟鎹�
                    
                    </center>
                    <br> <br> <br>
@@ -225,7 +225,7 @@
 				<input type="hidden" id="assethouseexcel" name="ahname" value="">
 				
 					<div class="modal-header">
-						<span class="hidden-480">请选择要导出的列</span>
+						<span class="hidden-480">璇烽�鎷╄瀵煎嚭鐨勫垪</span>
 					</div>
 					<div class="modal-body">
 						<div class="portlet-body form">
@@ -242,57 +242,57 @@
 												
 												
 												<label class="control-label">
-													<input type="hidden" value="资产编号#aicard" name="exportassetinfo" checked="checked">
-													<input type="checkbox" value="资产编号#aicard" name="exportassetinfo" checked="checked" disabled="disabled">资产编号(必选)
+													<input type="hidden" value="璧勪骇缂栧彿#aicard" name="exportassetinfo" checked="checked">
+													<input type="checkbox" value="璧勪骇缂栧彿#aicard" name="exportassetinfo" checked="checked" disabled="disabled">璧勪骇缂栧彿(蹇呴�)
 											    </label>     
 												<label class="control-label">
-													<input type="checkbox" value="资产名称#ainame" name="exportassetinfo" checked="checked">资产名称
+													<input type="checkbox" value="璧勪骇鍚嶇О#ainame" name="exportassetinfo" checked="checked">璧勪骇鍚嶇О
 											    </label>     
 												<label class="control-label">
-													<input type="checkbox" value="资产型号#aimodel" name="exportassetinfo" checked="checked">资产型号
+													<input type="checkbox" value="璧勪骇鍨嬪彿#aimodel" name="exportassetinfo" checked="checked">璧勪骇鍨嬪彿
 											    </label>     
 												<label class="control-label">
-													<input type="checkbox" value="资产类型#atname" name="exportassetinfo" checked="checked">资产类型
+													<input type="checkbox" value="璧勪骇绫诲瀷#atname" name="exportassetinfo" checked="checked">璧勪骇绫诲瀷
 											    </label>     
 												     
 											</div>
 											<div class="control-group">
 												<label class="control-label">
-													<input type="checkbox" value="资产状况#asname" name="exportassetinfo" checked="checked">资产状况
+													<input type="checkbox" value="璧勪骇鐘跺喌#asname" name="exportassetinfo" checked="checked">璧勪骇鐘跺喌
 											    </label>     
 												<label class="control-label">
-													<input type="checkbox" value="所在仓库#ahname" name="exportassetinfo" checked="checked">所在仓库
+													<input type="checkbox" value="鎵�湪浠撳簱#ahname" name="exportassetinfo" checked="checked">鎵�湪浠撳簱
 											    </label>     
 												<label class="control-label">
-													<input type="checkbox" value="资产所属部门#adname" name="exportassetinfo" checked="checked">资产所属部门
+													<input type="checkbox" value="璧勪骇鎵�睘閮ㄩ棬#adname" name="exportassetinfo" checked="checked">璧勪骇鎵�睘閮ㄩ棬
 											    </label>     
 												<label class="control-label">
-													<input type="checkbox" value="入库时间#aidate" name="exportassetinfo" checked="checked">入库时间
-											    </label>     
-											</div>
-											<div class="control-group">
-												<label class="control-label">
-													<input type="checkbox" value="生产日期#aimeasuer" name="exportassetinfo" checked="checked">生产日期
-											    </label>     
-												<label class="control-label">
-													<input type="checkbox" value="生产单位#aisupply" name="exportassetinfo" checked="checked">生产单位
-											    </label>     
-												<label class="control-label">
-													<input type="checkbox" value="设备价值#aimoney" name="exportassetinfo" checked="checked">设备价值
-											    </label>     
-												<label class="control-label">
-													<input type="checkbox" value="保质期#ailife" name="exportassetinfo" checked="checked">保质期
+													<input type="checkbox" value="鍏ュ簱鏃堕棿#aidate" name="exportassetinfo" checked="checked">鍏ュ簱鏃堕棿
 											    </label>     
 											</div>
 											<div class="control-group">
 												<label class="control-label">
-													<input type="checkbox" value="设备备注#airemark" name="exportassetinfo" checked="checked">设备备注
+													<input type="checkbox" value="鐢熶骇鏃ユ湡#aimeasuer" name="exportassetinfo" checked="checked">鐢熶骇鏃ユ湡
 											    </label>     
 												<label class="control-label">
-													<input type="checkbox" value="折旧方法#aidepreciation" name="exportassetinfo" checked="checked">折旧方法
+													<input type="checkbox" value="鐢熶骇鍗曚綅#aisupply" name="exportassetinfo" checked="checked">鐢熶骇鍗曚綅
 											    </label>     
 												<label class="control-label">
-													<input type="checkbox" value="残值率#airemainratio" name="exportassetinfo" checked="checked">残值率
+													<input type="checkbox" value="璁惧浠峰�#aimoney" name="exportassetinfo" checked="checked">璁惧浠峰�
+											    </label>     
+												<label class="control-label">
+													<input type="checkbox" value="淇濊川鏈�ailife" name="exportassetinfo" checked="checked">淇濊川鏈�
+											    </label>     
+											</div>
+											<div class="control-group">
+												<label class="control-label">
+													<input type="checkbox" value="璁惧澶囨敞#airemark" name="exportassetinfo" checked="checked">璁惧澶囨敞
+											    </label>     
+												<label class="control-label">
+													<input type="checkbox" value="鎶樻棫鏂规硶#aidepreciation" name="exportassetinfo" checked="checked">鎶樻棫鏂规硶
+											    </label>     
+												<label class="control-label">
+													<input type="checkbox" value="娈嬪�鐜�airemainratio" name="exportassetinfo" checked="checked">娈嬪�鐜�
 											    </label>     
 												   
 											</div>
@@ -308,8 +308,8 @@
 					</div>
 					<div class="modal-footer">
 						<button id="accept-tbody-close" type="button" data-dismiss="modal"
-							class="btn">关闭</button>
-						<input type="submit" class="btn blue" value="确认并导出">
+							class="btn">鍏抽棴</button>
+						<input type="submit" class="btn blue" value="纭骞跺鍑�>">
 					</div>
 				</form>
 			</div>
@@ -354,7 +354,7 @@
 
 				});
 	}
-	//遍历二级部门的方法
+	//閬嶅巻浜岀骇閮ㄩ棬鐨勬柟娉�
 	function initSecondDepartment(adlevel) {
 		$.ajax({
 			type : "post",
@@ -394,7 +394,7 @@
 			}
 		});
 	}
-	//遍历全部仓库
+	//閬嶅巻鍏ㄩ儴浠撳簱
 	function selectWareHouse1() {
 		$.ajax({
 			type : "get",
@@ -402,7 +402,7 @@
 			dataType : "JSON",
 			success : function(data) {
 			$("#selectwareHouse").html("");
-			$("#selectwareHouse").append('<option value="">请选择</option>');
+			$("#selectwareHouse").append('<option value="">璇烽�鎷�/option>');
 				$(data).each(
 						function(index, value) {
 							$("#selectwareHouse").append(
@@ -419,7 +419,7 @@
 		
 	}
 	
-	//遍历全部二级类型
+	//閬嶅巻鍏ㄩ儴浜岀骇绫诲瀷
 	function selectAllSecondAssetType() {
 		$.ajax({
 			type : "get",
@@ -427,7 +427,7 @@
 			dataType : "JSON",
 			success : function(data) {
 			$("#assetType").html("");
-			$("#assetType").append('<option value="">请选择</option>');
+			$("#assetType").append('<option value="">璇烽�鎷�/option>');
 				$(data).each(
 						function(index, value) {
 							$("#assetType").append(
@@ -445,7 +445,7 @@
 	}
 	
 	
-	//初始化全部设备的分页信息
+	//鍒濆鍖栧叏閮ㄨ澶囩殑鍒嗛〉淇℃伅
 	function initAllAssetInfo(page) {
 			$.ajax({
 				type : "GET",
@@ -454,10 +454,10 @@
 				dataType : "JSON",
 				success : function(data) { 
 				
-					//总页数
+					//鎬婚〉鏁�
 					var totalPage = data.totalPage;
 					
-					//当前页码
+					//褰撳墠椤电爜
 					var currentPage = data.currentPage;
 					$("#currentPage").html(currentPage);
 					
@@ -475,7 +475,7 @@
 					$("#nextPage").attr("href","javascript:initAllAssetInfo("+nextPage+");");
 					$("#lastPage").attr("href","javascript:initAllAssetInfo("+totalPage+");");
 					
-					//总条目数
+					//鎬绘潯鐩暟
 					var totalRecord = data.totalRecord;
 					$("#totalRecord").html(totalRecord);
 					
@@ -505,12 +505,12 @@
 					}
 				},
 				error : function() {
-				alert("出错了");
+				alert("鍑洪敊浜�);
 				}
 			});
 	}
 	
-	//条件查询
+	//鏉′欢鏌ヨ
 	function findAssetInfoBytiaojian(page) {
 		var assetInfoName = $("#assetInfoName").val();
 		var assetType = $("#assetType").val();
@@ -529,10 +529,10 @@
 			data:tiaojian,
 			dataType:"JSON",
 			success:function(data) {
-				//总页数
+				//鎬婚〉鏁�
 					var totalPage = data.totalPage;
 					
-					//当前页码
+					//褰撳墠椤电爜
 					var currentPage = data.currentPage;
 					$("#currentPage").html("");
 					$("#currentPage").html(currentPage);
@@ -551,7 +551,7 @@
 					$("#nextPage").attr("href","javascript:findAssetInfoBytiaojian("+nextPage+");");
 					$("#lastPage").attr("href","javascript:findAssetInfoBytiaojian("+totalPage+");");
 					
-					//总条目数
+					//鎬绘潯鐩暟
 					var totalRecord = data.totalRecord;
 					$("#totalRecord").html("");
 					$("#totalRecord").html(totalRecord);
@@ -582,12 +582,12 @@
 					}
 			},
 			error:function(data) {
-				alert("出错了"+data.status);
+				alert("鍑洪敊浜�+data.status);
 			}
 		});
 	}
 	
-	//提交导出excel
+	//鎻愪氦瀵煎嚭excel
 	function exportassetinfoexcel() {
 		alert("sdfsd");
 		

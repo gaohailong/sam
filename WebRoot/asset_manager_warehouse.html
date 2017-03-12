@@ -373,7 +373,6 @@
 	}
 
 	function addHouse() {
-		alert("进入注册的页面");
 		$.ajax({
 			type : "post",
 			url : "/sam/wareHouse/addHouse",
@@ -391,7 +390,6 @@
 
 	//初始化全部设备的分页信息
 	function initAllAssetHouse(page) {
-		alert("进入初始化");
 		$
 				.ajax({
 					type : "GET",
@@ -466,7 +464,6 @@
 
 	//获取修改页面数据的方法
 	function getHouse(ahid) {
-		alert("进入getHouse" + ahid);
 		var gettd = $("#updateHouseTd").prevAll();
 		document.getElementById("item_as_type_update").value = gettd[2].innerHTML;
 		document.getElementById("item_as_name_update").value = gettd[1].innerHTML;
@@ -475,12 +472,10 @@
 		$("#houseupdateform").append(
 				"<input type='hidden' name='ahid' value='"+ahid+"'/>");
 		$("#updatenbsp").click();
-		alert("进入1213");
 
 	}
 	//删除用户
 	function deleteHouse(ahid) {
-		alert("进入删除的放发" + ahid);
 		$.ajax({
 			type : "post",
 			url : "/sam/wareHouse/deleteHouse/" + ahid,
@@ -498,7 +493,6 @@
 
 	//修改的方法
 	function updateHouse() {
-		alert("进入修改的方法");
 		$.ajax({
 			type : "post",
 			url : "/sam/wareHouse/updateHouse",

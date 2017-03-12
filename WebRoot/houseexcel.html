@@ -2,17 +2,17 @@
 <div class="row-fluid">
 	<div class="span12">
 		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-		<h3 class="page-title">系统管理</h3>
+		<h3 class="page-title">绯荤粺绠＄悊</h3>
 		<ul class="breadcrumb">
 
-			<li><i class="icon-home"></i> <a href="index.html">首页</a> <span
+			<li><i class="icon-home"></i> <a href="index.html">棣栭〉</a> <span
 				class="icon-angle-right"></span></li>
 
-			<li><a href="#">系统管理</a> <span class="icon-angle-right"></span>
+			<li><a href="#">绯荤粺绠＄悊</a> <span class="icon-angle-right"></span>
 
 			</li>
 
-			<li><a href="#">仓库管理</a></li>
+			<li><a href="#">浠撳簱绠＄悊</a></li>
 
 		</ul>
 		<!-- END PAGE TITLE & BREADCRUMB-->
@@ -31,12 +31,12 @@
 		<div class="portlet box red ">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="icon-cogs"></i>仓库列表
+					<i class="icon-cogs"></i>浠撳簱鍒楄〃
 				</div>
 				<div class="actions">
 				 
 					<a href="#exporthouseexcel" data-toggle="modal" class="btn green ">
-						<i class="icon-search"></i>导出EXCEL
+						<i class="icon-search"></i>瀵煎嚭EXCEL
 					</a>
 				</div>
 			</div>
@@ -47,11 +47,11 @@
 
 					<thead>
 
-						<th>仓库名称</th>
+						<th>浠撳簱鍚嶇О</th>
 
-						<th>管理人员名称</th>
+						<th>绠＄悊浜哄憳鍚嶇О</th>
 
-						<th>备注</th>
+						<th>澶囨敞</th>
 
 					</thead>
 
@@ -82,14 +82,14 @@
 		<!-- BEGIN SAMPLE TABLE PORTLET-->
 		<center>
 			<a href="javascript:initAllAssetHouse(1);" data-toggle="modal"
-				class="btn red ">首页</a> | <a id="perPage" href=""
-				data-toggle="modal" class="btn red ">上一页</a> | <a id="nextPage"
-				href="" data-toggle="modal" class="btn red ">下一页</a> | <a
-				id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a> |
-			第<span id="currentPage"></span>页 | 共<span id="totalRecord"></span>条数据
+				class="btn red ">棣栭〉</a> | <a id="perPage" href=""
+				data-toggle="modal" class="btn red ">涓婁竴椤�/a> | <a id="nextPage"
+				href="" data-toggle="modal" class="btn red ">涓嬩竴椤�/a> | <a
+				id="las tPage" href="" data-toggle="modal" class="btn red ">灏鹃〉</a> |
+			绗�span id="currentPage"></span>椤�| 鍏�span id="totalRecord"></span>鏉℃暟鎹�
 		</center>
 			
-			<!-- 隐藏的exceldiv -->
+			<!-- 闅愯棌鐨別xceldiv -->
 			 <div id="exporthouseexcel" class="modal hide fade" tabindex="-1"
 				data-width="760">
 				<form action="/sam/wareHouse/exportHouseExcel" method="post" onsubmit="return submitExcelForm();">
@@ -99,7 +99,7 @@
 				<input type="hidden" id="assethouseexcel" name="ahname" value="">
 				
 					<div class="modal-header">
-						<span class="hidden-480">请选择要导出的列</span>
+						<span class="hidden-480">璇烽�鎷╄瀵煎嚭鐨勫垪</span>
 					</div>
 					<div class="modal-body">
 						<div class="portlet-body form">
@@ -116,15 +116,15 @@
 												
 												
 												<label class="control-label">
-													<input type="hidden" value="仓库名称#ahname" name="exporthouse" checked="checked">
-													<input type="checkbox" value="仓库名称#ahname" name="exporthouse" checked="checked" disabled="disabled">仓库名称(必选)
+													<input type="hidden" value="浠撳簱鍚嶇О#ahname" name="exporthouse" checked="checked">
+													<input type="checkbox" value="浠撳簱鍚嶇О#ahname" name="exporthouse" checked="checked" disabled="disabled">浠撳簱鍚嶇О(蹇呴�)
 											    </label>     
 												<label class="control-label">
-													<input type="hidden" value="管理人员名称#auname" name="exporthouse" checked="checked">
-													<input type="checkbox" value="管理人员名称#auname" name="exporthouse" checked="checked" disabled="disabled">管理人员名称(必填)
+													<input type="hidden" value="绠＄悊浜哄憳鍚嶇О#auname" name="exporthouse" checked="checked">
+													<input type="checkbox" value="绠＄悊浜哄憳鍚嶇О#auname" name="exporthouse" checked="checked" disabled="disabled">绠＄悊浜哄憳鍚嶇О(蹇呭～)
 											    </label>     
 												<label class="control-label">
-													<input type="checkbox" value="备注#ahbeizhu" name="exporthouse" checked="checked">备注
+													<input type="checkbox" value="澶囨敞#ahbeizhu" name="exporthouse" checked="checked">澶囨敞
 											    </label>     
 												     
 											</div>
@@ -138,12 +138,12 @@
 					</div>
 					<div class="modal-footer">
 						<button id="accept-tbody-close" type="button" data-dismiss="modal"
-							class="btn">关闭</button>
-						<input type="submit" class="btn blue" value="确认并导出">
+							class="btn">鍏抽棴</button>
+						<input type="submit" class="btn blue" value="纭骞跺鍑�>">
 					</div>
 				</form>
 			</div>
-			<!-- 隐藏的exceldiv结束 -->
+			<!-- 闅愯棌鐨別xceldiv缁撴潫 -->
 			
 		<!-- END SAMPLE TABLE PORTLET-->
 	</div>
@@ -178,7 +178,7 @@
 
 				});
 	}
-	//遍历二级部门的方法
+	//閬嶅巻浜岀骇閮ㄩ棬鐨勬柟娉�
 	function initSecondDepartment(adlevel) {
 		$.ajax({
 			type : "post",
@@ -200,7 +200,7 @@
 	}
 
 	function addHouse() {
-		alert("进入注册的页面");
+		alert("杩涘叆娉ㄥ唽鐨勯〉闈�);
 		$.ajax({
 			type : "post",
 			url : "/sam/wareHouse/addHouse",
@@ -208,15 +208,15 @@
 			dataType : "JSON",
 			success : function(data) {
 				if (data > 0)
-					alert("添加成功");
+					alert("娣诲姞鎴愬姛");
 			},
 			error : function(data) {
-				alert("添加错误");
+				alert("娣诲姞閿欒");
 			}
 		});
 	}
 
-	//初始化全部设备的分页信息
+	//鍒濆鍖栧叏閮ㄨ澶囩殑鍒嗛〉淇℃伅
 	function initAllAssetHouse(page) {
 		
 				$.ajax({
@@ -226,10 +226,10 @@
 					dataType : "JSON",
 					success : function(data) {
 
-						//总页数
+						//鎬婚〉鏁�
 						var totalPage = data.totalPage;
 
-						//当前页码
+						//褰撳墠椤电爜
 						var currentPage = data.currentPage;
 						$("#currentPage").html(currentPage);
 
@@ -256,7 +256,7 @@
 								"javascript:initAllAssetHouse(" + totalPage
 										+ ");");
 
-						//总条目数
+						//鎬绘潯鐩暟
 						var totalRecord = data.totalRecord;
 						$("#totalRecord").html(totalRecord);
 
@@ -279,7 +279,7 @@
 						}
 					},
 					error : function(data) {
-						alert("出错了" + data.status);
+						alert("鍑洪敊浜� + data.status);
 					}
 				});
 	}
