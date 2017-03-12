@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.sam.dao.DepartmentDao;
 import com.sam.entity.AssetDepartment;
 import com.sam.entity.AssetInfo;
+import com.sam.entity.AssetType;
 import com.sam.entity.Pager;
 import com.sam.service.DepartmentService;
 @Service
@@ -65,6 +66,50 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public List<AssetDepartment> findAllSecondDepartments() throws Exception {
 		// TODO Auto-generated method stub
 		return departmentDao.findAllSecondDepartments();
+	}
+
+	@Override
+	public int addDepartment(AssetDepartment assetdepartment) throws Exception {
+		// TODO Auto-generated method stub
+		return departmentDao.addDepartment(assetdepartment);
+	}
+
+	@Override
+	public int addDepartmentSecond(AssetDepartment assetdepartment)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return departmentDao.addDepartmentSecond(assetdepartment);
+	}
+
+	@Override
+	public Pager<AssetDepartment> findDepartment(int pageNum, int pageSize,
+			int adlevel) throws Exception {
+		// TODO Auto-generated method stub
+		List<AssetDepartment> departmentList = findAssetDepartmentsByAdlevel(adlevel);
+		Pager<AssetDepartment> pager = new Pager<AssetDepartment>(pageNum,pageSize,departmentList);
+		return pager;
+	}
+
+	@Override
+	public Pager<AssetDepartment> findDepartmentSecond(int pageNum,
+			int pageSize, int adid) throws Exception {
+		// TODO Auto-generated method stub
+		List<AssetDepartment> departmentList = findAssetDepartmentsByAdlevel(adid);
+		Pager<AssetDepartment> pager = new Pager<AssetDepartment>(pageNum,pageSize,departmentList);
+		return pager;
+	}
+
+	@Override
+	public int deleteDepartment(Integer adid) throws Exception {
+		// TODO Auto-generated method stub
+		return departmentDao.deleteDepartment(adid);
+	}
+
+	@Override
+	public int updateDepartment(AssetDepartment assetdepartment)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return departmentDao.updateDepartment(assetdepartment);
 	}
 
 }

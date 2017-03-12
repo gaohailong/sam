@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sam.dao.BackDao">
+	<insert id="addAssetBack" parameterType="com.sam.entity.AssetBack">
+		insert into AssetBack(abid,abdate,abdeluser,abroorwid) 
+			values(AssetBack_seq.nextval,sysdate,#{abdeluser},#{abroorwid})
+	</insert>
+	
+	<select id="findAssetBacksNotRuku" parameterType="com.sam.entity.AssetBack" resultType="com.sam.entity.AssetBack">
+		select * from AssetBack where 1=1
+		<if test="abdate != null and abdate != ''">
+			and to_char(abdate,'yyyy-MM-dd')=#{abdate}
+		</if>
+		<if test="abdeluser != null and abdeluser !=''">
+			and abdeluser like  '%${abdeluser}%'
+		</if>
+		
+	</select>
+</mapper>

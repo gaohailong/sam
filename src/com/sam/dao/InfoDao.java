@@ -94,4 +94,15 @@ public interface InfoDao {
 	 * @author gaohailong
 	 */
 	List<AssetChartUtils> findHouseCateAndWareChart();
+	
+	/**
+	 * 资产借出后的归还,
+	 * 修改资产的状态为 未使用
+	 * @author zhw
+	 * @param asname
+	 * @return
+	 * @throws Exception
+	 */
+	public int updateAssetInfoBybroorwid(Integer broorwid) throws Exception;
+	
 }

@@ -1,6 +1,5 @@
 package com.sam.entity;
 
-import java.util.Date;
 
 /**
  * Assetback entity. @author MyEclipse Persistence Tools
@@ -11,10 +10,9 @@ public class AssetBack implements java.io.Serializable {
 	// Fields
 
 	private Integer abid;
-	private String auname;
-	private Date abdate;
+	private String abdate;
 	private String abdeluser;
-	private String abcontent;
+	private Integer abroorwid;
 
 	// Constructors
 
@@ -28,13 +26,12 @@ public class AssetBack implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetBack(Integer abid, String auname, Date abdate, String abdeluser,
-			String abcontent) {
+	public AssetBack(Integer abid, String abdate, String abdeluser,
+			Integer abroorwid) {
 		this.abid = abid;
-		this.auname = auname;
 		this.abdate = abdate;
 		this.abdeluser = abdeluser;
-		this.abcontent = abcontent;
+		this.abroorwid = abroorwid;
 	}
 
 	// Property accessors
@@ -47,19 +44,11 @@ public class AssetBack implements java.io.Serializable {
 		this.abid = abid;
 	}
 
-	public String getAuname() {
-		return this.auname;
-	}
-
-	public void setAuname(String auname) {
-		this.auname = auname;
-	}
-
-	public Date getAbdate() {
+	public String getAbdate() {
 		return this.abdate;
 	}
 
-	public void setAbdate(Date abdate) {
+	public void setAbdate(String abdate) {
 		this.abdate = abdate;
 	}
 
@@ -71,12 +60,19 @@ public class AssetBack implements java.io.Serializable {
 		this.abdeluser = abdeluser;
 	}
 
-	public String getAbcontent() {
-		return this.abcontent;
+	public Integer getAbroorwid() {
+		return abroorwid;
 	}
 
-	public void setAbcontent(String abcontent) {
-		this.abcontent = abcontent;
+	public void setAbroorwid(Integer abroorwid) {
+		this.abroorwid = abroorwid;
 	}
+
+	@Override
+	public String toString() {
+		return "AssetBack [abid=" + abid + ", abdate=" + abdate
+				+ ", abdeluser=" + abdeluser + ", abroorwid=" + abroorwid + "]";
+	}
+
 
 }

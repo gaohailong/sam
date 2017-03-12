@@ -5,7 +5,7 @@
 
 		<h3 class="page-title">
 
-			审批管理 <small></small>
+			归还资产入库 <small></small>
 
 		</h3>
 
@@ -14,11 +14,11 @@
 			<li><i class="icon-home"></i> <a href="">主页</a> <span
 				class="icon-angle-right"></span></li>
 
-			<li><a href="#">审批管理</a> <span class="icon-angle-right"></span>
+			<li><a href="#">资产管理</a> <span class="icon-angle-right"></span>
 
 			</li>
 
-			<li><a href="asbroorwcheck.html">借用审批</a></li>
+			<li><a href="asbroorwcheck.html">归还资产入库</a></li>
 
 		</ul>
 
@@ -60,19 +60,11 @@
 				<form action="#" class="form-horizontal">
 					<div class="row-fluid">
 						<div class="control-group" style="margin-top:25px">
-							<label class="control-label span2">借用人</label>
+							<label class="control-label span2">处理人</label>
 							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="broorwName" /> <span
+								<input type="text" class="m-wrap medium" id="abdeluser" /> <span
 									class="help-inline"></span>
 							</div>
-							<label class="control-label span3">部门名称</label>
-
-							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="broorwAdname" />
-							</div>
-
-						</div>
-						<div class="control-group">
 							<label class="control-label span2">归还日期</label>
 							<div class="controls span2">
 								<div class="input-append date date-picker m-wrap medium"
@@ -80,33 +72,13 @@
 									data-date-viewmode="years">
 
 									<input class="m-wrap m-ctrl-medium date-picker" readonly
-										size="16" type="text" value="" id="broorwBackDate" /> <span
+										size="16" type="text" value="" id="backDate" /> <span
 										class="add-on"><i class="icon-calendar"></i></span>
 								</div>
 							</div>
 
-							<label class="control-label span3">借用日期</label>
-
-							<div class="controls span2">
-								<div class="input-append date date-picker m-wrap medium"
-									data-date="2016/12/02" data-date-format="yyyy/mm/dd"
-									data-date-viewmode="years">
-
-									<input class="m-wrap m-ctrl-medium date-picker" readonly
-										size="16" type="text" value="" id="broorwDate" /> <span
-										class="add-on"><i class="icon-calendar"></i></span>
-								</div>
-							</div>
 						</div>
-						<div class="control-group" style="margin-top:25px">
-							<label class="control-label span2">借用状态</label>
-							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="broorwResu" /> <span
-									class="help-inline"></span>
-							</div>
-
-
-						</div>
+						
 					</div>
 				</form>
 			</div>
@@ -116,7 +88,7 @@
 
 				<div class="modal-header">
 
-					<span class="hidden-480">意见填写处</span>
+					<span class="hidden-480">填写归还信息</span>
 				</div>
 				<div class="modal-body">
 
@@ -138,14 +110,12 @@
 											<div class="control-group"></div>
 
 											<div class="control-group">
-
-												<label class="control-label">不通过意见</label>
+												
+												<label class="control-label">处理人</label>
 
 												<div class="controls">
-
-													<textarea id="item_as_suggest" class="m-wrap medium"
-														style="height: 100px"></textarea>
-
+													<input type="hidden" id="item_as_abid" value="">
+													<input type="text" id="item_as_abdeluser" class="m-wrap medium" />
 												</div>
 
 											</div>
@@ -174,7 +144,7 @@
 						class="btn">关闭</button>
 
 					<button id="accept-tbody-save" type="button" class="btn blue"
-						onclick="addSuggest()">保存</button>
+						onclick="addAssetback()">提交</button>
 
 
 
@@ -205,21 +175,13 @@
 
 						<tr>
 
-							<th>借用人</th>
-
-							<th>借用日期</th>
+							<th>处理人</th>
 
 							<th>归还日期</th>
 
-							<th>借用单位</th>
+							<th>借出单编号</th>
 
-							<th>借用缘由</th>
-
-							<th>借用状态</th>
-
-							<th>通过</th>
-
-							<th>不通过</th>
+							<th>操作</th>
 
 						</tr>
 
@@ -236,7 +198,7 @@
 
 <center>
 	<!--  data-toggle="modal" -->
-	<a id="firstPage" href="javascript:findBroorwBytiaojian(1);"
+	<a id="firstPage" href="javascript:findBackBytiaojian(1);"
 		class="btn red ">首页</a> | <a id="perPage" href="" data-toggle="modal"
 		class="btn red ">上一页</a> | <a id="nextPage" href=""
 		data-toggle="modal" class="btn red ">下一页</a> | <a id="lastPage"
@@ -250,57 +212,28 @@
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		CommonCalendarComponents.init();
-		initBroorw(1);
+		findBackBytiaojian(1);
 	});
 
-	function addSuggest() {
-		var suggest = $("#item_as_suggest").val();
-		var abid = $("#hiddenAbid").val();
-		$("#accept-tbody-close").click();
-		var sj = {
-			"abid" : abid,
-			"suggest" : suggest
-		}
-		$.ajax({
-			type : "post",
-			url : "/sam/broorw/refuseBroorw",
-			data : sj,
-			dataType : "JSON",
-			success : function(date) {
-				if (date > 0) {
-					alert("操作成功");
-					initBroorw(1);
-				}
-			},
-			error : function(date) {
-				alert(date.status);
-			}
-		});
-	}
 
-	function findBroorwBytiaojian(page) {
+	function findBackBytiaojian(page) {
 
-		var bname = $("#broorwName").val();
-		var badname = $("#broorwAdname").val();
-		var backdate = $("#broorwBackDate").val();
-		var abdate = $("#broorwDate").val();
-		var result = $("#broorwResu").val()
+		var abdeluser = $("#abdeluser").val();	
+		var backDate = $("#backDate").val();
 
 		var tiaojian = {
-			"auname" : bname,
-			"adname" : badname,
-			"abdate" : backdate,
-			"abbackdate" : abdate,
-			"abresult" : result,
+			"abdeluser" : abdeluser,
+			"backDate" : backDate,
 			"page" : page
 		};
-		$
-				.ajax({
+		
+				$.ajax({
 					type : "post",
-					url : "/sam/broorw/findBroorwByCondition",
+					url : "/sam/back/findAssetbacksNotRuku",
 					data : tiaojian,
 					dataType : "JSON",
 					success : function(data) {
+						alert("success:"+data);
 						var totalPage = data.totalPage;
 						$("#totalPage").html("");
 						$("#totalPage").html(totalPage);
@@ -316,7 +249,7 @@
 						}
 						$("#perPage").attr(
 								"href",
-								"javascript:findBroorwBytiaojian(" + perPagenum
+								"javascript:findBackBytiaojian(" + perPagenum
 										+ ");");
 						var lastpagenum;
 						nextPage = page + 1;
@@ -325,42 +258,35 @@
 						}
 						$("#nextPage").attr(
 								"href",
-								"javascript:findBroorwBytiaojian(" + nextPage
+								"javascript:findBackBytiaojian(" + nextPage
 										+ ");");
 						$("#lastPage").attr(
 								"href",
-								"javascript:findBroorwBytiaojian(" + totalPage
+								"javascript:findBackBytiaojian(" + totalPage
 										+ ");");
 
 						var totalRecord = data.totalRecord;
 
-						var broorwList = data.dataList;
+						var backList = data.dataList;
+						
 						$("#accept-tbody").html("");
-						for (var i = 0; i < broorwList.length; i++) {
-							$("#accept-tbody")
-									.prepend(
+						for (var i = 0; i < backList.length; i++) {
+								alert("asfas");
+								$("#accept-tbody").prepend(
 											"<tr class=''><td>"
-													+ broorwList[i].auname
+													+ backList[i].abdeluser
 													+ "</td><td>"
-													+ broorwList[i].abbackdate
+													+ backList[i].abdate
 													+ "</td><td>"
-													+ broorwList[i].abdate
+													+ backList[i].abroorwid
 													+ "</td><td>"
-													+ broorwList[i].adname
-													+ "</td><td>"
-													+ broorwList[i].abreson
-													+ "</td><td>"
-													+ broorwList[i].abresult
-													+ "</td><td><a href='javascript:checkBroorwOk("
-													+ broorwList[i].abid
-													+ ");'>通过</a></td><td><a href='javascript:openReponsive("
-													+ broorwList[i].abid
-													+ ");'>不通过</a></td></tr>");
+													+"<a href='javascript:backAsset("+backList[i].abroorwid+")'>归还入库</a>"
+													);
 						}
 						;
 					},
 					error : function(data) {
-						alert(data.status);
+						alert(data.status);		
 					}
 				});
 	}
@@ -372,8 +298,8 @@
 	}
 
 	function initBroorw(page) {
-		
-				$.ajax({
+		$
+				.ajax({
 					type : "post",
 					url : "/sam/broorw/findBroorws",
 					data : "page=" + 1,
@@ -441,23 +367,43 @@
 					}
 				});
 	}
-
-	function checkBroorwOk(abid) {
+	
+	function backAsset(abid) {
+		alert("abid:"+abid);
+		$("#item_as_abid").attr("value",abid);
+		$("#openResp").click();
+	}
+	
+	function addAssetback() {
+	var abid=$("#item_as_abid").val();
+	alert("abid:"+abid);
+	var abdeluser = $("#item_as_abdeluser").val();
+	alert("abdeluser:"+abdeluser);
+	
+		data={
+			"abroorwid":abid,
+			"abdeluser":abdeluser
+		};
 		$.ajax({
-			type : "post",
-			url : "/sam/broorw/checkBroorwOk",
-			data : "abid=" + abid,
-			dataType : "JSON",
-			success : function(date) {
-				if (date > 0) {
-					alert("修改成功");
-					initBroorw(1);
+			type:"post",
+			url : "/sam/back/addAssetBack",
+			data : data,
+			dataType:"JSON",
+			success:function(data) {
+				alert(data);
+				if(data == 1) {
+					alert("归还成功");
+				}
+				if(data == 0) {
+					alert("归还失败");
 				}
 			},
-			error : function(date) {
-				alert(date.status);
+			error:function(data) {
+				alert("出错了："+data.status);
 			}
 		});
 	}
+	
+	
 </script>
 

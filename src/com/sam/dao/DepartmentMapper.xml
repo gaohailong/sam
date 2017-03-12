@@ -22,4 +22,24 @@
 		select * from 	assetdepartment where adlevel != 0
 	</select>
 	
+	<select id="findAll" resultType="com.sam.entity.AssetDepartment">
+		select * from AssetDepartment
+	</select>
+	<!-- 增加一级部门 -->
+	<insert id="addDepartment"  parameterType="com.sam.entity.AssetDepartment">
+	  insert into AssetDepartment (adid,adname,adlevel) values(AssetDepartment_seq.nextval,#{adname},0)
+	</insert>
+	
+	<insert id="addDepartmentSecond" parameterType="com.sam.entity.AssetDepartment">
+	  insert into AssetDepartment (adid,adname,adlevel) values(AssetDepartment_seq.nextval,#{adname},#{adlevel})
+	</insert>
+	
+	<delete id="deleteDepartment" parameterType="java.lang.Integer">
+	 delete from AssetDepartment where adid =#{adid}
+	</delete>
+	
+	<update id="updateDepartment"  parameterType="com.sam.entity.AssetDepartment">
+	  update AssetDepartment set adname =#{adname},adlevel =#{adlevel} where adid =#{adid}
+	</update>
+	
 </mapper>

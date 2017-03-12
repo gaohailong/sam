@@ -12,7 +12,7 @@
 
 			</li>
 
-			<li><a href="#">类别管理</a></li>
+			<li><a href="#">部门管理</a></li>
 
 		</ul>
 		<!-- END PAGE TITLE & BREADCRUMB-->
@@ -46,7 +46,7 @@
 
 					<thead id="assetThead">
 
-						<th>类别名称</th>
+						<th>部门名称</th>
 
 						<th>增加子菜单</th>
 
@@ -74,7 +74,7 @@
 
 				<div class="modal-header">
 
-					<span class="hidden-480">新增类别表</span>
+					<span class="hidden-480">新增部门表</span>
 				</div>
 				<div class="modal-body">
 
@@ -95,18 +95,18 @@
 											<div class="control-group"></div>
 											<div class="control-group"></div>
 
-											<label class="control-label">类别名称</label>
+											<label class="control-label">部门名称</label>
 
 											<div class="controls">
 
 												<input type="text" id="item_as_type" class="m-wrap medium"
-													name="atname" />
+													name="adname" />
 
 											</div>
 
 										</div>
 
-										<input type="hidden" name="atlevel" value="0" /> <input
+										<input type="hidden" name="adlevel" value="0" /> <input
 											id="accept-tbody-reset" type="reset" class="hide" />
 
 									</form>
@@ -142,7 +142,7 @@
 
 				<div class="modal-header">
 
-					<span class="hidden-480">新增类别表</span>
+					<span class="hidden-480">新增二级部门</span>
 				</div>
 				<div class="modal-body">
 
@@ -163,12 +163,12 @@
 											<div class="control-group"></div>
 											<div class="control-group"></div>
 
-											<label class="control-label">二级类别名称</label>
+											<label class="control-label">二级部门名称</label>
 
 											<div class="controls">
 
 												<input type="text" id="item_as_type" class="m-wrap medium"
-													name="atname" />
+													name="adname" />
 
 											</div>
 
@@ -208,7 +208,7 @@
 
 				<div class="modal-header">
 
-					<span class="hidden-480">类型修改表</span>
+					<span class="hidden-480">部门修改表</span>
 				</div>
 				<div class="modal-body">
 
@@ -234,7 +234,7 @@
 											<div class="controls">
 
 												<input type="text" id="item_as_type_update"
-													class="m-wrap medium" name="atname" />
+													class="m-wrap medium" name="adname" />
 
 											</div>
 
@@ -247,7 +247,7 @@
 											<div class="controls">
 
 												<input type="hidden" id="item_as_name_update"
-													class="m-wrap medium" name="atlevel" />
+													class="m-wrap medium" name="adlevel" />
 
 											</div>
 
@@ -365,7 +365,7 @@
 		alert("进入注册的页面");
 		$.ajax({
 			type : "post",
-			url : "/sam/assetType/addType",
+			url : "/sam/department/addDepartment",
 			data : $('#type1form').serialize(),
 			dataType : "JSON",
 			success : function(data) {
@@ -379,10 +379,9 @@
 	}
 
 	function addTypeSecond() {
-		alert("进入增加爱到底type");
 		$.ajax({
 			type : "post",
-			url : "/sam/assetType/addTypeSecond",
+			url : "/sam/department/addDepartmentSecond",
 			data : $('#type2form').serialize(),
 			dataType : "JSON",
 			success : function(data) {
@@ -396,13 +395,11 @@
 	}
 
 	//初始化全部设备的分页信息
-	function initAllAssetType(page, ahlevel) {
-		alert("进入初始化" + ahlevel);
-		$
-				.ajax({
+	function initAllAssetType(page, adlevel) {
+		$.ajax({
 					type : "GET",
-					url : "/sam/assetType/findType",
-					data : "page=" + page + "&ahlevel=" + ahlevel,
+					url : "/sam/department/findDepartment",
+					data : "page=" + page + "&adlevel=" + adlevel,
 					dataType : "JSON",
 					success : function(data) {
 
@@ -447,22 +444,22 @@
 									.append(
 											"<tr>"
 													+ "<td><a href='javascript:initSecondAssetType(1,"
-													+ assetTypeList[i].atid
+													+ assetTypeList[i].adid
 													+ ")'>"
-													+ assetTypeList[i].atname
+													+ assetTypeList[i].adname
 													+ "</a></td>"
 													+ "<td id='addTypeTd'><a href='javascript:getTypeFirst("
-													+ assetTypeList[i].atid
+													+ assetTypeList[i].adid
 													+ ");' data-toggle='modal'>增加</a></td>"
 													+ "<td id='updateTypeTd'><a href=\"javascript:getHouse("
-													+ assetTypeList[i].atid
+													+ assetTypeList[i].adid
 													+ ","
-													+ assetTypeList[i].atlevel
+													+ assetTypeList[i].adlevel
 													+ ",'"
-													+ assetTypeList[i].atname
+													+ assetTypeList[i].adname
 													+ "');\" data-toggle='modal'>修改</a></td>"
 													+ "<td><a class='delete' href='javascript:deleteType("
-													+ assetTypeList[i].atid
+													+ assetTypeList[i].adid
 													+ ");'>删除</a></td>"
 													+ "</tr>");
 						}
@@ -474,13 +471,13 @@
 	}
 
 	//显示二级类型菜单
-	function initSecondAssetType(page, atid) {
-		alert("进入初始化" + atid);
+	function initSecondAssetType(page, adid) {
+		alert("进入初始化" + adid);
 		$
 				.ajax({
 					type : "post",
-					url : "/sam/assetType/findTypeSecond",
-					data : "page=" + page + "&atid=" + atid,
+					url : "/sam/department/findDepartmentSecond",
+					data : "page=" + page + "&adid=" + adid,
 					dataType : "JSON",
 					success : function(data) {
 
@@ -523,24 +520,24 @@
 						$("#assetThead").html("");
 						$("#addbtn").attr("class", "hide");
 						$("#assetThead").append(
-								"<th>类别名称</th><th>修改</th><th>删除</th>");
+								"<th>部门名称</th><th>修改</th><th>删除</th>");
 
 						for (var i = 0; i < assetTypeList.length; i++) {
 							$("#assetTbody")
 									.append(
 											"<tr>"
 													+ "<td><a href='#'>"
-													+ assetTypeList[i].atname
+													+ assetTypeList[i].adname
 													+ "</a></td>"
 													+ "<td id='updateTypeTd'><a href=\"javascript:getHouse("
-													+ assetTypeList[i].atid
+													+ assetTypeList[i].adid
 													+ ","
-													+ assetTypeList[i].atlevel
+													+ assetTypeList[i].adlevel
 													+ ",'"
-													+ assetTypeList[i].atname
+													+ assetTypeList[i].adname
 													+ "');\" data-toggle='modal'>修改</a></td>"
 													+ "<td><a class='delete' href='javascript:deleteType("
-													+ assetTypeList[i].atid
+													+ assetTypeList[i].adid
 													+ ");'>删除</a></td>"
 													+ "</tr>");
 						}
@@ -552,37 +549,35 @@
 	}
 
 	//获取修改页面数据的方法
-	function getHouse(atid, atlevel, atname) {
+	function getHouse(adid, adlevel, adname) {
 		alert("进入修改页面");
-		document.getElementById("item_as_type_update").value = atname;
-		document.getElementById("item_as_name_update").value = atlevel;
+		document.getElementById("item_as_type_update").value = adname;
+		document.getElementById("item_as_name_update").value = adlevel;
 
 		$("#typeupdateform").append(
-				"<input type='hidden' name='atid' value='"+atid+"'/>");
+				"<input type='hidden' name='adid' value='"+adid+"'/>");
 		$("#typeupdateform").append(
-				"<input type='hidden' name='atlevel' value='"+atlevel+"'/>");
+				"<input type='hidden' name='adlevel' value='"+adlevel+"'/>");
 		$("#updatenbsp").click();
 
 	}
 
 	//获取一级菜单的编号
-	function getTypeFirst(atid) {
-		alert("进入gettypefirst");
+	function getTypeFirst(adid) {
 		$("#type2form").append(
-				"<input type='hidden' name='atlevel' value='"+atid+"'/>");
+				"<input type='hidden' name='adlevel' value='"+adid+"'/>");
 		$("#addnbsp").click();
 	}
 	//删除用户
-	function deleteType(atid) {
-		alert("进入删除的放发" + atid);
+	function deleteType(adid) {
 		$.ajax({
 			type : "post",
-			url : "/sam/assetType/deleteType/" + atid,
+			url : "/sam/department/deleteDepartment/" + adid,
 			dataType : "JSON",
 			success : function(data) {
 				if (data > 0)
 					alert("删除成功");
-				initAllAssetType(1);
+				initAllAssetType(1,adlevel);
 			},
 			error : function(data) {
 				alert("删除失败" + data.status);
@@ -595,14 +590,13 @@
 		alert("进入修改的方法");
 		$.ajax({
 			type : "post",
-			url : "/sam/assetType/updateType",
+			url : "/sam/department/updateDepartment",
 			data : $("#typeupdateform").serialize(),
 			dataType : "JSON",
 			success : function(data) {
 				if (data > 0)
 					alert("修改成功");
-				initAllAssetType(1, atlevel);
-
+				initAllAssetType(1, adlevel);
 			},
 			error : function(data) {
 				alert("修改失败");
