@@ -30,7 +30,7 @@
 				<div class="actions">
 					<a href="#responsive" data-toggle="modal" class="btn green "><i
 						class="icon-search"></i>申请</a> 
-						<a href="javascript:findByCondition('1');" data-toggle="modal"
+						<a href="javascript:findByCondition(1);" data-toggle="modal"
 						class="btn green "><i class="icon-search"></i>查询</a>
 				</div>
 			</div>
@@ -355,6 +355,8 @@
 
 			</div>
 
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>
 			<center>
 				<a href="javascript:initAllAssetApply(1);" data-toggle="modal"
 					class="btn red ">首页</a> | <a id="perPage" href=""
@@ -363,8 +365,6 @@
 					id="las tPage" href="" data-toggle="modal" class="btn red ">尾页</a>
 				| 第<span id="currentPage"></span>页 | 共<span id="totalRecord"></span>条数据
 			</center>
-			<!-- END SAMPLE TABLE PORTLET-->
-		</div>
 	</div>
 </div>
 
@@ -432,16 +432,15 @@
 		var adname = $("#assetDepartment").val();
 		var reqParam = {
 			"ainame" : ainame,
-			"adname" : adname
+			"adname" : adname,
+			"pageNum":page
 		};
-		$
-				.ajax({
+		$.ajax({
 					type : "post",
 					url : "/sam/apply/findApplyByAinameAndAdname",
 					data : reqParam,
 					dataType : "JSON",
 					success : function(data) {
-						alert(data);
 						//总页数
 						var totalPage = data.totalPage;
 

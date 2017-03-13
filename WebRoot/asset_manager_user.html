@@ -458,7 +458,6 @@
 	}
 
 	function addUser() {
-		alert("进入注册的页面");
 		$.ajax({
 			type : "post",
 			url : "/sam/userController/addUser",
@@ -476,7 +475,6 @@
 
 	//初始化全部设备的分页信息
 	function initAllAssetUser(page) {
-		alert("进入初始化");
 		$
 				.ajax({
 					type : "GET",
@@ -564,12 +562,10 @@
 		$("#userupdateform").append(
 				"<input type='hidden' name='auid' value='"+auid+"'/>");
 		$("#updatenbsp").click();
-		alert("进入1213");
 
 	}
 	//删除用户
 	function deleteUser(auid) {
-		alert("进入删除的放发" + auid);
 		$.ajax({
 			type : "post",
 			url : "/sam/userController/deleteUser/" + auid,
@@ -587,7 +583,6 @@
 
 	//修改的方法
 	function updateUser() {
-		alert("进入修改的方法");
 		$.ajax({
 			type : "post",
 			url : "/sam/userController/updateUser",
