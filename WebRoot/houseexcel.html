@@ -273,7 +273,7 @@
 													+ assetHouseList[i].auname
 													+ "</td>"
 													+ "<td>"
-													+ assetHouseList[i].ahbeizhu
+													+ chulidata(assetHouseList[i].ahbeizhu)
 													+ "</td>"
 													+ "</tr>");
 						}
@@ -282,6 +282,15 @@
 						alert("出错了" + data.status);
 					}
 				});
+	}
+	
+	//处理备注为null时显示为无
+	function chulidata(data) {
+		if(data == null) {
+			return '无';
+		}
+		return data;
+		
 	}
 	
 	

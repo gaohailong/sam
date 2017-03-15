@@ -3,8 +3,11 @@ package com.sam.dao;
 import java.util.List;
 
 import com.sam.entity.AssetBack;
+import com.sam.entity.AssetInfo;
 
 public interface BackDao {
+	
+
 
 	/**
 	 * 添加归还记录
@@ -22,4 +25,7 @@ public interface BackDao {
 	 * @throws Exception
 	 */
 	public List<AssetBack> findAssetBacksNotRuku(AssetBack assetBack) throws Exception;
+	
+	
+	
 }

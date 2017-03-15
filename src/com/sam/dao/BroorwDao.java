@@ -3,6 +3,7 @@ package com.sam.dao;
 import java.util.List;
 
 import com.sam.entity.AssetBroorw;
+import com.sam.entity.AssetInfo;
 
 /**
  * 设备借出申请,借出记录
@@ -34,5 +35,16 @@ public interface BroorwDao {
 	 * @throws Exception
 	 */
 	public List<AssetBroorw> findBroorws() throws Exception;
+	
+	/**
+	 * 归还时修改借出记录为已归还
+	 * @author zhw
+	 * @param abroowId
+	 * @return
+	 * @throws Exception
+	 */
+	public int updateBroowWhenBack(Integer abroowId) throws Exception;
+	
+	
 		
 }

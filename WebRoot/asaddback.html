@@ -42,7 +42,7 @@
 
 				<div class="caption">
 
-					<i class="icon-reorder"></i> <span class="hidden-480">查询条件</span>
+					<i class="icon-reorder"></i> <span class="hidden-480">查询未归还借出单</span>
 
 				</div>
 				<div class="actions">
@@ -251,7 +251,7 @@
 			<div class="portlet-title">
 
 				<div class="caption">
-					<i class="icon-edit"></i>借出单:
+					<i class="icon-edit"></i>未归还借出单:
 				</div>
 
 
@@ -297,7 +297,7 @@
 		class="btn red ">上一页</a> | <a id="nextPage" href=""
 		data-toggle="modal" class="btn red ">下一页</a> | <a id="lastPage"
 		href="" data-toggle="modal" class="btn red ">尾页</a> | 第<span
-		id="currentPage"></span>页| 共<span id="totalPage"></span>页
+		id="currentPage"></span>页| 共<span id="totalRecord"></span>条数据
 
 </center>
 
@@ -388,7 +388,11 @@
 								"javascript:findBroorwBytiaojian(" + totalPage
 										+ ");");
 
+						
+						//总条目数
 						var totalRecord = data.totalRecord;
+						$("#totalRecord").html("");
+						$("#totalRecord").html(totalRecord);
 
 						var broorwList = data.dataList;
 						$("#accept-tbody").html("");
@@ -422,7 +426,8 @@
 				"<input type='text' value='"+abid+"' id='hiddenAbid'/>");
 		$("#openResp").click();
 	}
-
+	
+	//没用
 	function initBroorw(page) {
 		
 				$.ajax({
@@ -494,8 +499,9 @@
 				});
 	}
 	
+	//归还资产
 	function backAsset(abid) {
-		alert("abid:"+abid);
+		//alert("abid:"+abid);
 		$("#item_as_abid").attr("value",abid);
 		
 		$("#openResp").click();
@@ -503,9 +509,9 @@
 	
 	function addAssetback() {
 	var abid=$("#item_as_abid").val();
-	alert("abid:"+abid);
+	//alert("abid:"+abid);
 	var abdeluser = $("#item_as_abdeluser").val();
-	alert("abdeluser:"+abdeluser);
+	//alert("abdeluser:"+abdeluser);
 	
 		data={
 			"abroorwid":abid,
@@ -521,6 +527,8 @@
 				if(data == 1) {
 					alert("归还成功");
 					$("#accept-tbody-close").click();
+					//刷新页面
+					window.location.reload(true);
 				}
 				if(data == 0) {
 					alert("归还失败");
