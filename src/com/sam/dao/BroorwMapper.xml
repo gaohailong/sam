@@ -16,6 +16,10 @@
 		update assetbroorw set abresult='未通过',abresultremark=#{abresultremark} where abid=#{abid}
 	</update>
 	
+	<update id="updateBroowWhenBack" parameterType="java.lang.Integer">
+		update assetbroorw set isbacked='已归还' where abid=#{abroowId}
+	</update>
+	
 	<select id="findBroorwByAbid" parameterType="java.lang.Integer" resultType="com.sam.entity.AssetBroorw">
 		select * from assetbroorw where abid=#{abid}
 	</select>
@@ -25,7 +29,7 @@
 	</select>
 	
 	<select id="findBroorwsByCondition" resultType="com.sam.entity.AssetBroorw" parameterType="com.sam.entity.AssetBroorw">
-		select * from assetbroorw where 1=1 
+		select * from assetbroorw where isbacked='未归还' and 1=1 
 		<if test="auname != null and auname !=''">
 			and auname=#{auname}
 		</if>

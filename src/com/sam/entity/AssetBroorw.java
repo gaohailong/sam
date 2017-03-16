@@ -12,7 +12,14 @@ public class AssetBroorw implements java.io.Serializable {
 	private String auname;
 	private String abbackdate;
 	private String abdate;
+	/**
+	 * 借出单位
+	 */
 	private String adname;
+	/**
+	 * 是否归还(default '未归还', --是否归还(未归还，已归还))
+	 */
+	private String isbacked;
 	private String abreson;
 	private String abresult;
 	private String abresultremark;
@@ -30,13 +37,14 @@ public class AssetBroorw implements java.io.Serializable {
 
 	/** full constructor */
 	public AssetBroorw(Integer abid, String auname, String abbackdate,
-			String abdate, String abreson, String adname, String abresult,
+			String abdate, String abreson, String adname, String isbacked, String abresult,
 			String abresultremark) {
 		this.abid = abid;
 		this.auname = auname;
 		this.abbackdate = abbackdate;
 		this.abdate = abdate;
 		this.adname = adname;
+		this.isbacked = isbacked;
 		this.abreson = abreson;
 		this.abresult = abresult;
 		this.abresultremark = abresultremark;
@@ -107,5 +115,14 @@ public class AssetBroorw implements java.io.Serializable {
 	public void setAbresultremark(String abresultremark) {
 		this.abresultremark = abresultremark;
 	}
+
+	public String getIsbacked() {
+		return isbacked;
+	}
+
+	public void setIsbacked(String isbacked) {
+		this.isbacked = isbacked;
+	}
+	
 
 }

@@ -46,7 +46,7 @@ public class BroorwController extends BaseController{
 			broorw.setAbbackdate(abbackDate);
 			broorw.setAdname(adname);
 			broorw.setAbreson(abreson);
-			
+			broorw.setIsbacked("未归还");
 			int num = broorwService.addBroow(broorw,aiidStr);
 			return num;
 		} catch (Exception e) {
@@ -56,6 +56,7 @@ public class BroorwController extends BaseController{
 	}
 	
 	/**
+	 * 发现未使用 2017.3.14
 	 * 分页遍历借出申请
 	 * @author zhw
 	 * @param page
