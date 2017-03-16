@@ -49,9 +49,7 @@
 
 					<button onclick="javascript:addBroorwForm();" class="btn blue ">
 						<i class="icon-check"></i> 确定
-					</button>
-					<a href="#" data-toggle="modal" class="btn yellow "><i
-						class="icon-pencil"></i> Edit</a> <a href="#responsive"
+					</button>&nbsp;<a href="#responsive"
 						data-toggle="modal" class="btn green "><i class="icon-plus"></i>
 						添加</a>
 
@@ -67,19 +65,31 @@
 							<div class="controls span2">
 								<input type="text" class="m-wrap medium" id="broorwName" />
 							</div>
-							<label class="control-label span3">部门名称</label>
+							<label class="control-label span2">部门名称</label>
 
-							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="broorwAdname" />
+							<div class="controls span6">
+								<select class="medium m-wrap"
+									onchange="javascript:initSecondDepartment(this.value);"
+									id="firstDepart" tabindex="1">
+								</select>
+								 <select class="medium m-wrap" id="broorwAdname" tabindex="1">
+								</select>
 							</div>
 
 						</div>
 						<div class="control-group">
 							<label class="control-label span2">归还日期</label>
-							<div class="controls span2">
-								<input type="text" class="m-wrap medium" id="broorwBackDate" />
+							<div class="controls  span2">
+								<div class="input-append date date-picker m-wrap medium"
+									data-date="2016/12/02" data-date-format="yyyy/mm/dd"
+									data-date-viewmode="years">
+
+									<input class="m-wrap m-ctrl-medium date-picker" readonly
+										size="16" type="text" value="" id="broorwBackDate" /> <span
+										class="add-on"><i class="icon-calendar"></i></span>
+								</div>
 							</div>
-							<label class="control-label span3">借出缘由</label>
+							<label class="control-label span2">借出缘由</label>
 
 							<div class="controls span2">
 								<input type="text" class="m-wrap medium" id="broorwReson" />
@@ -230,8 +240,6 @@
 
 						<th>设备备注</th>
 
-						<th>删除本行</th>
-
 					</tr>
 
 				</thead>
@@ -266,6 +274,55 @@
 
 <!-- 小表单得东西给大table中添加 -->
 <script type="text/javascript">
+	jQuery(document).ready(function() {
+		
+		CommonCalendarComponents.init();
+		initDepartment();
+	});
+	
+		//遍历一级部门
+	function initDepartment() {
+		$.ajax({
+			type : "GET",
+			url : "/sam/department/findDepartmentsFirst",
+			dataType : "JSON",
+			success : function(data) {
+				$(data).each(
+						function(index, value) {
+							$("#firstDepart").append(
+									"<option value='"+value.adid+"'>"
+											+ value.adname + "</option>");
+									initSecondDepartment(value.adid);			
+						});
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+
+		});
+	}
+	//遍历二级部门的方法
+	function initSecondDepartment(adlevel) {
+		$.ajax({
+			type : "post",
+			url : "/sam/department/findDepartmentsSecond",
+			data : "adlevel=" + adlevel,
+			dataType : "JSON",
+			success : function(data) {
+				$("#broorwAdname").html("");
+				$(data).each(
+						function(index, val) {
+							$("#broorwAdname").append(
+									"<option value='"+val.adname+"'>"
+											+ val.adname + "</option>");
+						});
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	}
+
 	function addMore() {
 		var atname = document.getElementById("item_as_atname").value;
 		var atnum = document.getElementById("item_as_infonum").value;
@@ -302,7 +359,7 @@
 																	+ val.airemainratio
 																	+ "</td><td>"
 																	+ val.airemark
-																	+ "</td><td><a class='delete' href='javascript:;'>删除</a></td></tr>");
+																	+ "</td></tr>");
 										});
 						$("#accept-tbody-reset").click();
 						$("#accept-tbody-close").click();
@@ -370,15 +427,35 @@
 	function addBroorwForm() {
 
 		var date = document.getElementsByName("hiddenInfoId");
+		if(date==null||date==""||date.length==0){
+			alert("未添加借出资产");
+			return;
+		}
 		var aiidStr = "";
 		for (var i = 0; i < date.length; i++) {
 			aiidStr += date[i].value + ",";
 		}
 
 		var auname = document.getElementById("broorwName").value;
+		if(auname==null||auname==""){
+			alert("请填写申请人");
+			return;
+		}
 		var abbackDate = document.getElementById("broorwBackDate").value;
+		if(abbackDate==null||abbackDate==""){
+			alert("请填写归还日期");
+			return;
+		}
 		var abreson = document.getElementById("broorwReson").value;
+		if(abreson==null||abreson==""){
+			alert("请填写借用缘由");
+			return;
+		}
 		var adname = document.getElementById("broorwAdname").value;
+		if(adname==null||adname==""){
+			alert("请选择部门名称");
+			return;
+		}
 
 		$.ajax({
 			type : "post",

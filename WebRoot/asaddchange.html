@@ -49,9 +49,7 @@
 
 					<button onclick="javascript:addChangeForm();" class="btn blue ">
 						<i class="icon-check"></i> 确定
-					</button>
-					<a href="#" data-toggle="modal" class="btn yellow "><i
-						class="icon-pencil"></i> Edit</a> <a href="#responsive"
+					</button>&nbsp;<a href="#responsive"
 						data-toggle="modal" class="btn green "><i class="icon-plus"></i>
 						添加</a>
 
@@ -110,16 +108,14 @@
 											<div class="control-group"></div>
 
 											<label class="control-label">设备类型</label>
-
+											
 											<div class="controls">
-
-												<select class="m-wrap medium" onchange="atnameSelect();"
-													id="item_as_atname">
-													<option value="">请选择你设备类型</option>
-													<option value="电脑">电脑</option>
-													<option value="投影仪">投影仪</option>
+												<select class="medium m-wrap" onchange="javascript:selectSencondAssetType(this.value);" id="item_as_cate" tabindex="1">
+												</select> 
+												<select class="medium m-wrap" id="item_as_atname"
+													tabindex="1" onchange="atnameSelect();">
+													<option value="">请先选择一级类型</option>
 												</select>
-
 											</div>
 
 										</div>
@@ -222,8 +218,6 @@
 
 							<th>设备备注</th>
 
-							<th>删除本行</th>
-
 						</tr>
 
 					</thead>
@@ -241,7 +235,29 @@
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		initDepartment();
+		findAssetTypeFirst();
 	});
+	function findAssetTypeFirst() {
+			$.ajax({
+				type : "get",
+				url : "/sam/assetType/findAssetTypeFirst",
+				dataType : "JSON",
+				success : function(data) {
+					$("#item_as_cate").append('<option value="">请选择</option>');
+					$(data).each(
+							function(index, val) {
+								$("#item_as_cate").append(
+										"<option value='"+val.atid+"'>"
+												+ val.atname + "</option>");
+							});
+	
+				},
+				error : function(data) {
+					alert(data.status);
+				}
+			});
+		}
+	
 	//遍历一级部门
 	function initDepartment() {
 		$.ajax({
@@ -321,7 +337,7 @@
 																	+ val.airemainratio
 																	+ "</td><td>"
 																	+ val.airemark
-																	+ "</td><td><a class='delete' href='javascript:;'>删除</a></td></tr>");
+																	+ "</td></tr>");
 										});
 						$("#accept-tbody-reset").click();
 						$("#accept-tbody-close").click();
@@ -377,7 +393,7 @@
 						} else {
 							$("#showInfoDiv")
 									.append(
-											"<input type='hidden' value='"+date+"' id='hiddenNum' /><span id='showInfoSpan'>未查到当前id对应的东西</span>");
+											"<input type='hidden' value='"+date+"' id='hiddenNum' /><span id='showInfoSpan'>未查到当前类型对应的东西</span>");
 						}
 					},
 					error : function(date) {
@@ -385,18 +401,52 @@
 					}
 				});
 	}
+	function selectSencondAssetType(atid){
+			$.ajax({
+			type : "POST",
+			url : "/sam/assetType/findAllSecondAssetHouse",
+			data : "atid="+atid,
+			dataType : "JSON",
+			success : function(data) {
+			$("#item_as_atname").html("");
+			$("#item_as_atname").append('<option value="">请选择</option>');
+				$(data).each(
+						function(index, value) {
+							$("#item_as_atname").append(
+								"<option value='"+value.atname+"'>"+value.atname+"</option>"
+							);
+						});
 
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+		
+		}
+		
 	function addChangeForm() {
 
 		var date = document.getElementsByName("hiddenInfoId");
+		if(date==null||date==""||date.length==0){
+			alert("未添加变更资产");
+			return;
+		}
 		var aiidStr = "";
 		for (var i = 0; i < date.length; i++) {
 			aiidStr += date[i].value + ",";
 		}
-		alert(aiidStr);
 
 		var acname = document.getElementById("changeName").value;
+		if(acname==null||acname==""){
+			alert("请填写负责人");
+			return;
+		}
 		var adname = document.getElementById("changeDepart").value;
+		if(adname==null||adname==""){
+			alert("请选择部门");
+			return;
+		}
 
 		$.ajax({
 			type : "post",

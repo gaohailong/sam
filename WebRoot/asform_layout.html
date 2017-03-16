@@ -26,9 +26,7 @@
 				<div class="actions">
 					<button class="btn blue" onclick="javascript:addAcceptForm();">
 						<i class="icon-check"></i> 确定
-					</button>
-					<a href="#" data-toggle="modal" class="btn yellow "><i
-						class="icon-pencil"></i> Edit</a> <a href="#responsive"
+					</button>&nbsp;<a href="#responsive"
 						data-toggle="modal" class="btn green "><i class="icon-plus"></i>
 						添加产品</a>
 				</div>
@@ -213,8 +211,6 @@
 							<th>折旧方法</th>
 							<th>残值率</th>
 							<th>设备备注</th>
-							<th>操作</th>
-							<th>删除本行</th>
 						</tr>
 					</thead>
 					<tbody id="accept-tbody">
@@ -348,7 +344,7 @@
 				+ remainratio
 				+ "</td><td>"
 				+ introduce
-				+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
+				+ "</td></tr>";
 		$("#accept-tbody").prepend(str);
 		$("#accept-tbody-reset").click();
 		$("#accept-tbody-close").click();
@@ -363,16 +359,39 @@
 
 	function addAcceptForm() {
 		var accStr = document.getElementsByName("acceptName");
+		if(accStr==null||accStr==""||accStr.length==0){
+			alert("未添加资产");
+			return;
+		}
 		var acceptStr = "";
 		for (var i = 0; i < accStr.length; i++) {
 			acceptStr += accStr[i].value + ",";
 		}
 		var ahname = document.getElementById("ahname").value;
+		if(ahname==null||ahname==""){
+			alert("未选择存放地点");
+			return;
+		}
 		var aatype = document.getElementById("aatype").value;
+		if(aatype==null||aatype==""){
+			alert("未选择资产增加方式");
+			return;
+		}
 		var aaname = document.getElementById("aaname").value;
+		if(aaname==null||aaname==""){
+			alert("请填写入库人");
+			return;
+		}
 		var aaprice = document.getElementById("aaprice").value;
+		if(aaprice==null||aaprice==""){
+			alert("请输入总价格");
+			return;
+		}
 		var aanumber = document.getElementById("aanumber").value;
-		alert("123")
+		if(aanumber==null||aanumber==""){
+			alert("请输入总件数");
+			return;
+		}
 		$.ajax({
 			type : "post",
 			url : "/sam/accept/addAccept",

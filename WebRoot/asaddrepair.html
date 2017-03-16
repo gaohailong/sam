@@ -49,9 +49,7 @@
 
 					<button onclick="javascript:addRequestForm();" class="btn blue ">
 						<i class="icon-check"></i> 确定
-					</button>
-					<a href="#" data-toggle="modal" class="btn yellow "><i
-						class="icon-pencil"></i> Edit</a> <a href="#responsive"
+					</button>&nbsp;<a href="#responsive"
 						data-toggle="modal" class="btn green "><i class="icon-plus"></i>
 						添加</a>
 
@@ -215,11 +213,6 @@
 							<th>残值率</th>
 
 							<th>设备备注</th>
-
-							<th>操作</th>
-
-							<th>删除本行</th>
-
 						</tr>
 
 					</thead>
@@ -285,7 +278,7 @@
 				+ i[8]
 				+ "</td><td>"
 				+ i[9]
-				+ "</td><td><a href='javascript:;'>编辑</a></td><td><a class='delete' href='javascript:;'>删除</a></td></tr>";
+				+ "</td></tr>";
 		$("#accept-tbody").prepend(str);
 		$("#accept-tbody-reset").click();
 		$("#accept-tbody-close").click();
@@ -338,15 +331,35 @@
 	function addRequestForm() {
 
 		var date = document.getElementsByName("hiddenInfoAiidInput");
+		if(date==null||date==""||date.length==0){
+			alert("未添加维修资产");
+			return;
+		}
 		var aiidStr = "";
 		for (var i = 0; i < date.length; i++) {
 			aiidStr += date[i].value + ",";
 		}
 
 		var artime = document.getElementById("repairtime").value;
+		if(artime==null||artime==""){
+			alert("未选择维修开始时间");
+			return;
+		}
 		var arday = document.getElementById("repairday").value;
+		if(arday==null||arday==""){
+			alert("请填写维修天数");
+			return;
+		}
 		var arperson = document.getElementById("repairname").value;
+		if(arperson==null||arperson==""){
+			alert("请填写维修人员");
+			return;
+		}
 		var arphone = document.getElementById("repairphone").value;
+		if(arphone==null||arphone==""){
+			alert("请填写联系电话");
+			return;
+		}
 
 		$.ajax({
 			type : "post",
