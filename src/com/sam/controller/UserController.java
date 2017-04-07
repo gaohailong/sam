@@ -197,7 +197,6 @@ public class UserController {
 				return null;
 			}
 			if(nowUser.getUrname().equals("管理员")){
-				System.out.println("asfhaskdjfhlkasdhfkjadsflasdhfhasdh"+nowUser.getUrname().equals("管理员"));
 				nowUser.setUrname("0");
 			}else{
 				nowUser.setUrname("1");

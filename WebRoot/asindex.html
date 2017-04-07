@@ -133,9 +133,9 @@
 					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 					<div class="sidebar-toggler hidden-phone"></div>
 					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-				</li>
+				</li><!-- 
 				<li>
-					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					BEGIN RESPONSIVE QUICK SEARCH FORM
 					<form class="sidebar-search">
 						<div class="input-box">
 							<a href="javascript:;" class="remove"></a>
@@ -143,8 +143,8 @@
 							<input type="button" class="submit" value=" " />
 						</div>
 					</form>
-					<!-- END RESPONSIVE QUICK SEARCH FORM -->
-				</li>
+					END RESPONSIVE QUICK SEARCH FORM
+				</li> -->
 				
 				<li class="start">
 	                <a class="ajaxify start" href="welcome.html">
@@ -286,11 +286,11 @@
 					<span class="selected"></span>
 					</a>
 					<ul class="sub-menu" id="all-user">
-						<li>
+						<!-- <li>
 							<a class="ajaxify" href="asset_manager_user.html">
 								购置审批
 							</a>
-						</li>
+						</li> -->
 						<li>
 							<a class="ajaxify" href="asbroorwcheck.html">
 								借用审批
@@ -420,7 +420,7 @@
 			if(urname==null||urname==""){
 				window.location.href="login.html";
 			}
-			if(urname==0){
+			if(urname!=0){
 				$("#shenPiLi").attr("style", "display:none");
 			}
 			document.getElementById("userNameSpan").innerHTML=auname;

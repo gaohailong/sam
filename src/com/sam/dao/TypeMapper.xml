@@ -16,7 +16,7 @@
 	</select>
 
 	<select id="findAllSecondAssetType" resultType="com.sam.entity.AssetType">
-		select * from AssetType where atlevel=1
+		select * from AssetType where atlevel!=1
 	</select>
 	<insert id="addType"  parameterType="com.sam.entity.AssetType">
 	  insert into AssetType (atid,atname,atlevel) values(AssetType_seq.nextval,#{atname},0)

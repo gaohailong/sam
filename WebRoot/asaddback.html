@@ -65,11 +65,22 @@
 								<input type="text" class="m-wrap medium" id="broorwName" /> <span
 									class="help-inline"></span>
 							</div>
-							<label class="control-label span3">部门名称</label>
-
+							<label class="control-label span2">部门名称</label>
+							
+							<div class="controls span6">
+								<select class="medium m-wrap"
+									onchange="javascript:initSecondDepartment(this.value);"
+									id="firstDepart" tabindex="1">
+									<option value=''>请选择</option>
+								</select>
+								 <select class="medium m-wrap" id="broorwAdname" tabindex="1">
+									<option value=''>请选择一级菜单</option>
+								</select>
+							</div>
+						<!-- 	
 							<div class="controls span2">
 								<input type="text" class="m-wrap medium" id="broorwAdname" />
-							</div>
+							</div> -->
 
 						</div>
 						<div class="control-group">
@@ -85,7 +96,7 @@
 								</div>
 							</div>
 
-							<label class="control-label span3">借用日期</label>
+							<label class="control-label span2">借用日期</label>
 
 							<div class="controls span2">
 								<div class="input-append date date-picker m-wrap medium"
@@ -307,7 +318,53 @@
 	jQuery(document).ready(function() {
 		CommonCalendarComponents.init();
 		findBroorwBytiaojian(1);
+		initDepartment();
 	});
+	
+		
+		//遍历一级部门
+	function initDepartment() {
+		$.ajax({
+			type : "GET",
+			url : "/sam/department/findDepartmentsFirst",
+			dataType : "JSON",
+			success : function(data) {
+				$(data).each(
+						function(index, value) {
+							$("#firstDepart").append(
+									"<option value='"+value.adid+"'>"
+											+ value.adname + "</option>");
+									initSecondDepartment(value.adid);			
+						});
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+
+		});
+	}
+	//遍历二级部门的方法
+	function initSecondDepartment(adlevel) {
+		$.ajax({
+			type : "post",
+			url : "/sam/department/findDepartmentsSecond",
+			data : "adlevel=" + adlevel,
+			dataType : "JSON",
+			success : function(data) {
+				$("#broorwAdname").html("");
+				$("#broorwAdname").html("<option value=''>请选择</option>");
+				$(data).each(
+						function(index, val) {
+							$("#broorwAdname").append(
+									"<option value='"+val.adname+"'>"
+											+ val.adname + "</option>");
+						});
+			},
+			error : function(data) {
+				alert(data.status);
+			}
+		});
+	}
 
 	function addSuggest() {
 		var suggest = $("#item_as_suggest").val();
@@ -523,7 +580,6 @@
 			data : data,
 			dataType:"JSON",
 			success:function(data) {
-				alert(data);
 				if(data == 1) {
 					alert("归还成功");
 					$("#accept-tbody-close").click();
